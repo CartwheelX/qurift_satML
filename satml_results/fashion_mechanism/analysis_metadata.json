@@ -1,0 +1,7 @@
+{
+  "bootstrap_replicates": 10000,
+  "claim_scope": "associations consistent with an empirically supported pathway; not proof of causal mediation",
+  "geometry_resampling_unit": "independent data/encoder seed",
+  "pathway": "structure -> post-encoder geometry -> generalization/loss behavior -> membership leakage",
+  "target_resampling_unit": "independent paired split/initialization block"
+}

@@ -1,0 +1,21 @@
+model,term,coefficient,cluster_se,ci95_low,ci95_high,n_targets,n_blocks,uncertainty,interpretation
+total_structural_association,intercept,0.5301484929078002,0.009147435849303968,0.5047511394188893,0.5555458463967111,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation
+total_structural_association,reps_5_minus_1,0.017203647416412726,0.013933406987505177,-0.02148169221277483,0.05588898704560028,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation
+total_structural_association,fm_z_minus_eff,0.021881648936169916,0.007510030758981645,0.0010304607955104184,0.042732837076829414,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation
+total_structural_association,fm_zz_minus_eff,-0.004346504559270263,0.009560153031591273,-0.03088974464877375,0.022196735530233224,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_accuracy_gap,intercept,0.5433355487168023,0.005952670148903453,0.5268082868190223,0.5598628106145824,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_accuracy_gap,reps_5_minus_1,-0.003060564045993752,0.01408324505909866,-0.04216192085562931,0.036040792763641805,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_accuracy_gap,fm_z_minus_eff,0.015293811587150687,0.009709242174923718,-0.0116633663245963,0.042250989498897676,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_accuracy_gap,fm_zz_minus_eff,-0.012117118352238235,0.009555933165421323,-0.038648642214969574,0.014414405510493104,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_accuracy_gap,standardized_gap,0.016682693783884532,0.007851628130281342,-0.005116920706268447,0.03848230827403751,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_loss_gap,intercept,0.5445534357654656,0.008264638551173495,0.5216071205138308,0.5674997510171003,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_loss_gap,reps_5_minus_1,-0.003636509218937878,0.01772811879681177,-0.052857657876711005,0.04558463943883525,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_loss_gap,fm_z_minus_eff,0.015048277914211278,0.008345056638167604,-0.008121313741427563,0.03821786956985012,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_loss_gap,fm_zz_minus_eff,-0.016360090037000133,0.007749312589723085,-0.03787563104538447,0.005155450971384205,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_loss_gap,standardized_loss_gap,0.015169448358522332,0.013158793640943045,-0.021365219836181906,0.05170411655322657,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_both_gaps,intercept,0.5397612507348513,0.005385259936531946,0.5248093721438494,0.5547131293258531,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_both_gaps,reps_5_minus_1,0.0017422566052692767,0.012666787079286198,-0.03342638237959761,0.03691089559013616,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_both_gaps,fm_z_minus_eff,0.0168862296486686,0.010279791218386557,-0.011655046362076073,0.045427505659413274,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_both_gaps,fm_zz_minus_eff,-0.008134152915548032,0.011436000813426212,-0.039885581397023286,0.023617275565927222,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_both_gaps,standardized_gap,0.02186250972596549,0.009271838610509774,-0.003880241200368329,0.04760526065229931,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_both_gaps,standardized_loss_gap,-0.008075751355859799,0.0047957030826152785,-0.02139075770556898,0.005239254993849385,30,5,CR1 clustered by split/init block,explanatory association; not causal mediation

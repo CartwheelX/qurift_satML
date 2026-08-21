@@ -1,0 +1,10 @@
+{
+  "implementation": "independent QuRiFT integration",
+  "raw_rows": 480,
+  "reference_implementations_studied": {
+    "Pierre-Joly/Membership-Inference-Attacks": "9182ed809d9fa3d5141d50816b7e83a06590371b",
+    "antibloch/mia_attacks": "9c09fe9d9be982e203df303fb450375f2333987b",
+    "orientino/lira-pytorch": "50dc2a3fc5e66628d48bf07e05c8c33f9703c789"
+  },
+  "target_files": 96
+}

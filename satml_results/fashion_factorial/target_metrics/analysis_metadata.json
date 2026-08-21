@@ -1,0 +1,16 @@
+{
+  "bootstrap_replicates": 0,
+  "bootstrap_unit": "none",
+  "ci_method": "none; extraction plus mean and sample SD",
+  "error_bar_type": "sample SD across target-model seeds",
+  "inputs": [
+    "satml_runs/satml_fashion_factorial",
+    "satml_targets/fashion_factorial_targets.csv"
+  ],
+  "notes": "Validation metrics require the reviewer patch. Older payloads remain usable but their validation fields are NA.",
+  "outputs": [
+    "satml_results/fashion_factorial/target_metrics/retrained_target_metrics_raw.csv",
+    "satml_results/fashion_factorial/target_metrics/retrained_target_metrics_summary.csv"
+  ],
+  "script": "extract_retrained_metrics.py"
+}

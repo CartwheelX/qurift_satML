@@ -1,0 +1,18 @@
+{
+  "bootstrap_replicates": 10000,
+  "bootstrap_unit": "records for per-target AUC; structural blocks for aggregate contrasts",
+  "ci_method": "per-target AUC: stratified percentile record bootstrap; aggregate high-low: hierarchical percentile bootstrap over structural blocks with target seeds nested",
+  "error_bar_type": "mean \u00b1 sample SD across target-model seeds in cell summaries",
+  "inputs": [
+    "satml_runs/satml_fashion_factorial",
+    "satml_targets/fashion_factorial_targets.csv"
+  ],
+  "notes": "TPR is requested only at empirically safer 5% and 10% FPR. The actual attained FPR, FPR resolution, and expected false-positive count are stored.",
+  "outputs": [
+    "satml_results/fashion_factorial/threshold_mia/threshold_mia_raw.csv",
+    "satml_results/fashion_factorial/threshold_mia/threshold_mia_summary.csv",
+    "satml_results/fashion_factorial/threshold_mia/threshold_mia_high_low_contrasts.csv",
+    "satml_results/fashion_factorial/threshold_mia/threshold_mia_failures.csv"
+  ],
+  "script": "threshold_mia_analysis.py"
+}

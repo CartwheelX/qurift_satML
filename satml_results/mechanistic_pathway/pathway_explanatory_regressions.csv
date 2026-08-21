@@ -1,0 +1,25 @@
+model,term,coefficient,cluster_se,ci95_low,ci95_high,n_targets,n_blocks,uncertainty,interpretation
+total_structural_association,intercept,0.5029832291666677,0.005638266504753905,0.48965084745258336,0.5163156108807521,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+total_structural_association,reps_5_minus_1,0.03512463541666663,0.005148300049792176,0.022950840264451714,0.047298430568881555,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+total_structural_association,depth_6_minus_2,0.012595989583333633,0.0025192598989412025,0.006638886530232079,0.01855309263643519,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+total_structural_association,fm_z_minus_eff,0.013932343749999765,0.003250876297296358,0.006245242818484643,0.021619444681514888,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+total_structural_association,fm_zz_minus_eff,0.017088593750000033,0.0045924964478948884,0.0062290652739540615,0.027948122226046007,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_accuracy_gap,intercept,0.5216409266400083,0.006299986346468075,0.5067438261404464,0.5365380271395701,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_accuracy_gap,reps_5_minus_1,0.01591563333104397,0.006447881152766703,0.0006688171858237838,0.031162449476264155,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_accuracy_gap,depth_6_minus_2,0.008177432140597074,0.002256234143891022,0.002842286166680679,0.013512578114513469,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_accuracy_gap,fm_z_minus_eff,0.008594936780748585,0.0028857711018214654,0.001771172448835917,0.015418701112661252,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_accuracy_gap,fm_zz_minus_eff,0.008437273031964437,0.0038183950117683073,-0.0005917964150238177,0.017466342478952693,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_accuracy_gap,standardized_gap,0.013740320506739952,0.002283168240340044,0.008341485515165462,0.019139155498314443,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_loss_gap,intercept,0.5281765652397391,0.008818839484488665,0.5073233235238132,0.5490298069556651,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_loss_gap,reps_5_minus_1,0.0147552638437798,0.007050530248703825,-0.00191659096889377,0.03142711865645337,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_loss_gap,depth_6_minus_2,0.004795177680077423,0.0029311088100709946,-0.0021357932962737204,0.011726148656428566,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_loss_gap,fm_z_minus_eff,0.008001105887072212,0.0032871241709412683,0.00022829235446766329,0.015773919419676763,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_loss_gap,fm_zz_minus_eff,0.006268901291797344,0.005581141213006746,-0.006928400572042378,0.019466203155637067,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_loss_gap,standardized_loss_gap,0.017128203779571194,0.0038850873849013935,0.007941431929676168,0.02631497562946622,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_both_gaps,intercept,0.5275615640733579,0.007648500535002388,0.5094757342199708,0.5456473939267449,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_both_gaps,reps_5_minus_1,0.013304354461450481,0.00685519985211148,-0.0029056173583675935,0.029514326281268558,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_both_gaps,depth_6_minus_2,0.005627411620388378,0.0026549018945934235,-0.000650433785166861,0.011905257025943618,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_both_gaps,fm_z_minus_eff,0.007699537820503158,0.0030086618050511786,0.0005851831514382183,0.014813892489568097,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_both_gaps,fm_zz_minus_eff,0.00623140474544405,0.00484609785630185,-0.005227795771159111,0.01769060526204721,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_both_gaps,standardized_gap,0.006491093116593578,0.0036672624341738927,-0.002180604572209196,0.015162790805396353,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation
+plus_both_gaps,standardized_loss_gap,0.010717622402416482,0.004594044217784632,-0.00014556596784666247,0.021580810772679627,96,8,CR1 clustered by split/init block,explanatory association; not causal mediation

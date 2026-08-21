@@ -1,0 +1,9 @@
+link,spearman,ci95_low,ci95_high,valid_bootstrap_replicates,n_structural_configurations,n_independent_target_blocks,inference_scope,n_independent_geometry_seeds
+accuracy_gap → loss-MIA AUC,0.9720279720279721,0.9160839160839163,0.9930069930069931,10000,12,8,descriptive configuration-level association; target blocks resampled,
+loss_gap → loss-MIA AUC,0.9930069930069931,0.9510489510489512,1.0,10000,12,8,descriptive configuration-level association; target blocks resampled,
+class_similarity_gap → loss-MIA AUC,0.6571428571428573,-0.08571428571428573,0.942857142857143,10000,6,8,descriptive six-configuration association; target blocks and geometry seeds resampled independently,8.0
+kernel_label_alignment → loss-MIA AUC,0.8857142857142858,0.5428571428571429,1.0,10000,6,8,descriptive six-configuration association; target blocks and geometry seeds resampled independently,8.0
+effective_rank → loss-MIA AUC,1.0,0.8857142857142858,1.0,10000,6,8,descriptive six-configuration association; target blocks and geometry seeds resampled independently,8.0
+mmd2_train_test → loss-MIA AUC,0.3714285714285715,-0.7714285714285715,0.942857142857143,10000,6,8,descriptive six-configuration association; target blocks and geometry seeds resampled independently,8.0
+within_class_similarity → loss-MIA AUC,-1.0,-1.0,-0.8857142857142858,10000,6,8,descriptive six-configuration association; target blocks and geometry seeds resampled independently,8.0
+between_class_similarity → loss-MIA AUC,-1.0,-1.0,-0.8857142857142858,10000,6,8,descriptive six-configuration association; target blocks and geometry seeds resampled independently,8.0

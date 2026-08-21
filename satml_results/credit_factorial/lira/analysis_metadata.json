@@ -1,0 +1,17 @@
+{
+  "bootstrap_replicates": 10000,
+  "bootstrap_unit": "member/non-member records within target; target seed for summary SD",
+  "ci_method": "stratified percentile bootstrap over member/non-member records",
+  "error_bar_type": "mean \u00b1 sample SD across target-model seeds",
+  "inputs": [
+    "/home/najeeb/qurift_satML/satml_targets/credit_factorial_targets.csv",
+    "/home/najeeb/qurift_satML/satml_runs",
+    "/home/najeeb/qurift_satML/satml_results/credit_factorial/lira"
+  ],
+  "notes": "Online/offline LiRA with per-record balanced IN/OUT reference models. References train on the union of the target-training members and an equal-size deterministic target-test candidate subset, with half included per model. This is calibrated reference-model evidence, not a claim of target/reference distribution identity.",
+  "outputs": [
+    "/home/najeeb/qurift_satML/satml_results/credit_factorial/lira/lira_reference_mia_raw.csv",
+    "/home/najeeb/qurift_satML/satml_results/credit_factorial/lira/lira_reference_mia_summary.csv"
+  ],
+  "script": "qurift_lira_attack.py"
+}

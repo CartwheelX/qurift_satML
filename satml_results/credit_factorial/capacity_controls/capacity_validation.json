@@ -1,0 +1,16 @@
+{
+  "checks": [
+    {
+      "check": "repetition_keeps_trainable_parameter_count_fixed",
+      "detail": "all paired reps 5 - reps 1 trainable-parameter differences must equal zero",
+      "passed": true
+    },
+    {
+      "check": "repetition_increases_main_stack_gate_count",
+      "detail": "all paired reps 5 - reps 1 gate-count differences must be positive",
+      "passed": true
+    }
+  ],
+  "interpretation": "Repetition effects compare equal trainable capacity while deliberately changing fixed-encoder operations. Depth is a separate factor and is not claimed to be capacity matched.",
+  "passed": true
+}

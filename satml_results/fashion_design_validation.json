@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "required_columns",
+      "passed": true,
+      "detail": "missing=[]"
+    },
+    {
+      "check": "dataset_identity",
+      "passed": true,
+      "detail": "fashion_mnist"
+    },
+    {
+      "check": "unique_target_ids",
+      "passed": true,
+      "detail": "rows=60"
+    },
+    {
+      "check": "complete_structural_blocks",
+      "passed": true,
+      "detail": "cells_per_block=12"
+    },
+    {
+      "check": "paired_seeds_within_blocks",
+      "passed": true,
+      "detail": "one split/init pair per block"
+    },
+    {
+      "check": "independent_block_seeds",
+      "passed": true,
+      "detail": "blocks=5"
+    },
+    {
+      "check": "one_percent_fpr_design",
+      "passed": true,
+      "detail": "2,000 nonmembers"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+block_id,fm_kind,depth,contrast,trainable_parameter_difference,quantum_gate_count_difference
+wdbc_b01,eff_su2,2,reps 5 - reps 1,0.0,68.0
+wdbc_b01,z,2,reps 5 - reps 1,0.0,48.0
+wdbc_b01,zz,2,reps 5 - reps 1,0.0,108.0
+wdbc_b02,eff_su2,2,reps 5 - reps 1,0.0,68.0
+wdbc_b02,z,2,reps 5 - reps 1,0.0,48.0
+wdbc_b02,zz,2,reps 5 - reps 1,0.0,108.0
+wdbc_b03,eff_su2,2,reps 5 - reps 1,0.0,68.0
+wdbc_b03,z,2,reps 5 - reps 1,0.0,48.0
+wdbc_b03,zz,2,reps 5 - reps 1,0.0,108.0
+wdbc_b04,eff_su2,2,reps 5 - reps 1,0.0,68.0
+wdbc_b04,z,2,reps 5 - reps 1,0.0,48.0
+wdbc_b04,zz,2,reps 5 - reps 1,0.0,108.0
+wdbc_b05,eff_su2,2,reps 5 - reps 1,0.0,68.0
+wdbc_b05,z,2,reps 5 - reps 1,0.0,48.0
+wdbc_b05,zz,2,reps 5 - reps 1,0.0,108.0

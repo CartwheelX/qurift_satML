@@ -1,0 +1,11 @@
+{
+  "attack_results": [
+    "satml_results/wdbc_targeted/threshold_mia/threshold_mia_raw.csv"
+  ],
+  "bootstrap_replicates": 10000,
+  "bootstrap_unit": "split/init block",
+  "metrics": "satml_results/wdbc_targeted/target_metrics/retrained_target_metrics_raw.csv",
+  "primary_inference": "paired block-level mean differences",
+  "regression_role": "secondary descriptive adjustment",
+  "targets": "satml_targets/wdbc_targeted_targets.csv"
+}

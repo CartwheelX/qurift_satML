@@ -1,0 +1,13 @@
+fm_kind,reps,depth,n_targets,trainable_parameters_mean,trainable_parameters_unique,quantum_gate_count_mean,quantum_gate_count_unique
+eff_su2,1,2,8,60.0,1,63.0,1
+eff_su2,1,6,8,152.0,1,155.0,1
+eff_su2,5,2,8,60.0,1,131.0,1
+eff_su2,5,6,8,152.0,1,223.0,1
+z,1,2,8,60.0,1,58.0,1
+z,1,6,8,152.0,1,150.0,1
+z,5,2,8,60.0,1,106.0,1
+z,5,6,8,152.0,1,198.0,1
+zz,1,2,8,60.0,1,73.0,1
+zz,1,6,8,152.0,1,165.0,1
+zz,5,2,8,60.0,1,181.0,1
+zz,5,6,8,152.0,1,273.0,1

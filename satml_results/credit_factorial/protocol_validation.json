@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "required_columns",
+      "passed": true,
+      "detail": "missing=[]"
+    },
+    {
+      "check": "unique_target_ids",
+      "passed": true,
+      "detail": "rows=96"
+    },
+    {
+      "check": "block_count",
+      "passed": true,
+      "detail": "observed=8"
+    },
+    {
+      "check": "complete_12_cell_blocks",
+      "passed": true,
+      "detail": "3 feature maps \u00d7 2 repetitions \u00d7 2 depths"
+    },
+    {
+      "check": "paired_seeds_within_blocks",
+      "passed": true,
+      "detail": "one split/init pair per block"
+    },
+    {
+      "check": "independent_block_seeds",
+      "passed": true,
+      "detail": "split and initialization seeds unique across blocks"
+    },
+    {
+      "check": "low_fpr_nonmembers",
+      "passed": true,
+      "detail": "minimum=2000"
+    },
+    {
+      "check": "baseline_angle_scale",
+      "passed": true,
+      "detail": "confirmatory factorial fixes alpha=1"
+    },
+    {
+      "check": "credit_snapshot_checksum",
+      "passed": true,
+      "detail": "expected=dfb1570f223efb65c0084027570369bdff6cc291b8238b9adce17ab60da4ca83 observed=dfb1570f223efb65c0084027570369bdff6cc291b8238b9adce17ab60da4ca83"
+    },
+    {
+      "check": "complete_target_artifacts",
+      "passed": true,
+      "detail": "missing=0"
+    },
+    {
+      "check": "identical_partitions_within_block",
+      "passed": true,
+      "detail": "split hashes must match across all 12 configurations"
+    },
+    {
+      "check": "distinct_training_partitions_across_blocks",
+      "passed": true,
+      "detail": "observed=8 unique=8"
+    },
+    {
+      "check": "loss_attack_complete",
+      "passed": true,
+      "detail": "expected=96 observed=96"
+    },
+    {
+      "check": "attack_nonmembers_at_least_2000",
+      "passed": true,
+      "detail": "minimum=2000"
+    },
+    {
+      "check": "tpr_at_1pct_resolvable",
+      "passed": true,
+      "detail": "requires --fprs to include 0.01"
+    },
+    {
+      "check": "attained_1pct_fpr_recorded",
+      "passed": true,
+      "detail": "empirical FPR accompanies requested FPR"
+    }
+  ]
+}

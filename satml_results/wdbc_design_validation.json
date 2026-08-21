@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "required_columns",
+      "passed": true,
+      "detail": "missing=[]"
+    },
+    {
+      "check": "dataset_identity",
+      "passed": true,
+      "detail": "breast_cancer_wdbc"
+    },
+    {
+      "check": "unique_target_ids",
+      "passed": true,
+      "detail": "rows=30"
+    },
+    {
+      "check": "complete_structural_blocks",
+      "passed": true,
+      "detail": "cells_per_block=6"
+    },
+    {
+      "check": "paired_seeds_within_blocks",
+      "passed": true,
+      "detail": "one split/init pair per block"
+    },
+    {
+      "check": "independent_block_seeds",
+      "passed": true,
+      "detail": "blocks=5"
+    },
+    {
+      "check": "wdbc_complete_partition",
+      "passed": true,
+      "detail": "160 train + 80 validation + 329 test"
+    },
+    {
+      "check": "wdbc_snapshot_checksum",
+      "passed": true,
+      "detail": "ec5134d1f4db4e0accdbb8705285cc335eabf53785c06d4f0e75126a84c7cefc"
+    }
+  ]
+}
