@@ -1,0 +1,21 @@
+{
+  "bootstrap_replicates": 10000,
+  "bootstrap_unit": "dataset\u00d7encoder structural block; data seed nested",
+  "ci_method": "paired hierarchical percentile bootstrap over dataset\u00d7encoder blocks with data seeds nested",
+  "error_bar_type": "mean \u00b1 sample SD over independent data seeds",
+  "inputs": [
+    "satml_targets/wdbc_geometry_targets.csv",
+    "experiments/qurift_main.py"
+  ],
+  "notes": "Geometry is computed immediately after the fixed encoder. The repetition integrity table must pass before Efficient-SU2 repetition results are used.",
+  "outputs": [
+    "satml_results/wdbc_geometry/geometry_raw.csv",
+    "satml_results/wdbc_geometry/run_status.csv",
+    "satml_results/wdbc_geometry/failures.csv",
+    "satml_results/wdbc_geometry/geometry_targets_expanded.csv",
+    "satml_results/wdbc_geometry/geometry_summary.csv",
+    "satml_results/wdbc_geometry/geometry_repetition_effects.csv",
+    "satml_results/wdbc_geometry/repetition_integrity.csv"
+  ],
+  "script": "run_multiseed_geometry.py"
+}

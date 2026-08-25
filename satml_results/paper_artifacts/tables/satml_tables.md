@@ -1,0 +1,1391 @@
+# SaTML result tables
+
+Generated directly from analysis CSVs; no values are hand-entered.
+
+## Paired Credit-default structural effects
+
+| Outcome | Attack | Factor | Contrast | Effect ± SD [95% CI] | Blocks |
+| --- | --- | --- | --- | --- | --- |
+| test_acc | target_model | repetitions | 5 - 1 | -0.016 ± 0.009 [-0.022, -0.010] | 8 |
+| test_acc | target_model | depth | 6 - 2 | 0.002 ± 0.003 [-0.000, 0.004] | 8 |
+| test_acc | target_model | feature_map | Z - EfficientSU2 | -0.007 ± 0.004 [-0.010, -0.005] | 8 |
+| test_acc | target_model | feature_map | ZZ - EfficientSU2 | -0.008 ± 0.007 [-0.013, -0.003] | 8 |
+| test_acc | target_model | feature_map | ZZ - Z | -0.001 ± 0.005 [-0.004, 0.002] | 8 |
+| gap | target_model | repetitions | 5 - 1 | 0.050 ± 0.028 [0.033, 0.069] | 8 |
+| gap | target_model | depth | 6 - 2 | 0.011 ± 0.009 [0.005, 0.017] | 8 |
+| gap | target_model | feature_map | Z - EfficientSU2 | 0.014 ± 0.012 [0.007, 0.022] | 8 |
+| gap | target_model | feature_map | ZZ - EfficientSU2 | 0.022 ± 0.013 [0.014, 0.031] | 8 |
+| gap | target_model | feature_map | ZZ - Z | 0.009 ± 0.006 [0.005, 0.012] | 8 |
+| auc | confidence | repetitions | 5 - 1 | 0.017 ± 0.014 [0.007, 0.025] | 8 |
+| auc | confidence | depth | 6 - 2 | 0.005 ± 0.007 [0.001, 0.010] | 8 |
+| auc | confidence | feature_map | Z - EfficientSU2 | 0.008 ± 0.009 [0.003, 0.014] | 8 |
+| auc | confidence | feature_map | ZZ - EfficientSU2 | 0.008 ± 0.016 [-0.003, 0.017] | 8 |
+| auc | confidence | feature_map | ZZ - Z | -0.000 ± 0.010 [-0.007, 0.007] | 8 |
+| auc | correctness | repetitions | 5 - 1 | 0.025 ± 0.014 [0.017, 0.034] | 8 |
+| auc | correctness | depth | 6 - 2 | 0.006 ± 0.005 [0.002, 0.008] | 8 |
+| auc | correctness | feature_map | Z - EfficientSU2 | 0.007 ± 0.006 [0.003, 0.011] | 8 |
+| auc | correctness | feature_map | ZZ - EfficientSU2 | 0.011 ± 0.007 [0.007, 0.015] | 8 |
+| auc | correctness | feature_map | ZZ - Z | 0.004 ± 0.003 [0.002, 0.006] | 8 |
+| auc | entropy | repetitions | 5 - 1 | 0.017 ± 0.014 [0.007, 0.026] | 8 |
+| auc | entropy | depth | 6 - 2 | 0.005 ± 0.007 [0.001, 0.010] | 8 |
+| auc | entropy | feature_map | Z - EfficientSU2 | 0.008 ± 0.009 [0.002, 0.014] | 8 |
+| auc | entropy | feature_map | ZZ - EfficientSU2 | 0.008 ± 0.016 [-0.003, 0.017] | 8 |
+| auc | entropy | feature_map | ZZ - Z | -0.000 ± 0.010 [-0.007, 0.007] | 8 |
+| auc | loss | repetitions | 5 - 1 | 0.035 ± 0.014 [0.026, 0.043] | 8 |
+| auc | loss | depth | 6 - 2 | 0.013 ± 0.007 [0.008, 0.017] | 8 |
+| auc | loss | feature_map | Z - EfficientSU2 | 0.014 ± 0.009 [0.008, 0.019] | 8 |
+| auc | loss | feature_map | ZZ - EfficientSU2 | 0.017 ± 0.012 [0.009, 0.025] | 8 |
+| auc | loss | feature_map | ZZ - Z | 0.003 ± 0.007 [-0.001, 0.008] | 8 |
+| auc | margin | repetitions | 5 - 1 | 0.017 ± 0.014 [0.007, 0.026] | 8 |
+| auc | margin | depth | 6 - 2 | 0.005 ± 0.007 [0.001, 0.010] | 8 |
+| auc | margin | feature_map | Z - EfficientSU2 | 0.008 ± 0.009 [0.002, 0.014] | 8 |
+| auc | margin | feature_map | ZZ - EfficientSU2 | 0.008 ± 0.016 [-0.003, 0.017] | 8 |
+| auc | margin | feature_map | ZZ - Z | -0.000 ± 0.010 [-0.007, 0.006] | 8 |
+| auc | max_probability | repetitions | 5 - 1 | 0.017 ± 0.014 [0.007, 0.026] | 8 |
+| auc | max_probability | depth | 6 - 2 | 0.005 ± 0.007 [0.001, 0.010] | 8 |
+| auc | max_probability | feature_map | Z - EfficientSU2 | 0.008 ± 0.009 [0.002, 0.014] | 8 |
+| auc | max_probability | feature_map | ZZ - EfficientSU2 | 0.008 ± 0.016 [-0.003, 0.017] | 8 |
+| auc | max_probability | feature_map | ZZ - Z | -0.000 ± 0.010 [-0.007, 0.006] | 8 |
+| auc | learned_prediction_vector_stats | repetitions | 5 - 1 | 0.019 ± 0.024 [0.005, 0.036] | 8 |
+| auc | learned_prediction_vector_stats | depth | 6 - 2 | 0.009 ± 0.016 [-0.001, 0.019] | 8 |
+| auc | learned_prediction_vector_stats | feature_map | Z - EfficientSU2 | 0.019 ± 0.028 [0.001, 0.037] | 8 |
+| auc | learned_prediction_vector_stats | feature_map | ZZ - EfficientSU2 | 0.031 ± 0.031 [0.012, 0.051] | 8 |
+| auc | learned_prediction_vector_stats | feature_map | ZZ - Z | 0.012 ± 0.021 [-0.003, 0.023] | 8 |
+| auc | global_true_class_log_odds | repetitions | 5 - 1 | 0.039 ± 0.022 [0.024, 0.052] | 8 |
+| auc | global_true_class_log_odds | depth | 6 - 2 | 0.011 ± 0.007 [0.007, 0.016] | 8 |
+| auc | global_true_class_log_odds | feature_map | Z - EfficientSU2 | 0.015 ± 0.008 [0.010, 0.020] | 8 |
+| auc | global_true_class_log_odds | feature_map | ZZ - EfficientSU2 | 0.016 ± 0.013 [0.008, 0.025] | 8 |
+| auc | global_true_class_log_odds | feature_map | ZZ - Z | 0.002 ± 0.006 [-0.002, 0.006] | 8 |
+| auc | lira_offline | repetitions | 5 - 1 | 0.015 ± 0.019 [0.002, 0.027] | 8 |
+| auc | lira_offline | depth | 6 - 2 | 0.007 ± 0.013 [-0.001, 0.016] | 8 |
+| auc | lira_offline | feature_map | Z - EfficientSU2 | 0.001 ± 0.022 [-0.013, 0.015] | 8 |
+| auc | lira_offline | feature_map | ZZ - EfficientSU2 | 0.007 ± 0.021 [-0.006, 0.021] | 8 |
+| auc | lira_offline | feature_map | ZZ - Z | 0.005 ± 0.015 [-0.005, 0.015] | 8 |
+| auc | lira_offline_fixed_variance | repetitions | 5 - 1 | 0.014 ± 0.014 [0.006, 0.023] | 8 |
+| auc | lira_offline_fixed_variance | depth | 6 - 2 | 0.012 ± 0.011 [0.005, 0.019] | 8 |
+| auc | lira_offline_fixed_variance | feature_map | Z - EfficientSU2 | -0.004 ± 0.020 [-0.018, 0.008] | 8 |
+| auc | lira_offline_fixed_variance | feature_map | ZZ - EfficientSU2 | 0.000 ± 0.014 [-0.009, 0.009] | 8 |
+| auc | lira_offline_fixed_variance | feature_map | ZZ - Z | 0.004 ± 0.013 [-0.005, 0.012] | 8 |
+| auc | lira_online | repetitions | 5 - 1 | 0.034 ± 0.013 [0.025, 0.042] | 8 |
+| auc | lira_online | depth | 6 - 2 | 0.014 ± 0.018 [0.003, 0.026] | 8 |
+| auc | lira_online | feature_map | Z - EfficientSU2 | 0.001 ± 0.021 [-0.013, 0.014] | 8 |
+| auc | lira_online | feature_map | ZZ - EfficientSU2 | 0.016 ± 0.026 [-0.001, 0.032] | 8 |
+| auc | lira_online | feature_map | ZZ - Z | 0.015 ± 0.026 [-0.003, 0.030] | 8 |
+| auc | lira_online_fixed_variance | repetitions | 5 - 1 | 0.038 ± 0.017 [0.029, 0.050] | 8 |
+| auc | lira_online_fixed_variance | depth | 6 - 2 | 0.019 ± 0.012 [0.012, 0.027] | 8 |
+| auc | lira_online_fixed_variance | feature_map | Z - EfficientSU2 | 0.001 ± 0.019 [-0.011, 0.013] | 8 |
+| auc | lira_online_fixed_variance | feature_map | ZZ - EfficientSU2 | 0.017 ± 0.022 [0.002, 0.030] | 8 |
+| auc | lira_online_fixed_variance | feature_map | ZZ - Z | 0.015 ± 0.021 [0.001, 0.029] | 8 |
+| auc | label_only_correctness | repetitions | 5 - 1 | 0.025 ± 0.014 [0.017, 0.034] | 8 |
+| auc | label_only_correctness | depth | 6 - 2 | 0.006 ± 0.005 [0.002, 0.008] | 8 |
+| auc | label_only_correctness | feature_map | Z - EfficientSU2 | 0.007 ± 0.006 [0.003, 0.011] | 8 |
+| auc | label_only_correctness | feature_map | ZZ - EfficientSU2 | 0.011 ± 0.007 [0.007, 0.015] | 8 |
+| auc | label_only_correctness | feature_map | ZZ - Z | 0.004 ± 0.003 [0.002, 0.006] | 8 |
+| auc | label_only_hsj_l2 | repetitions | 5 - 1 | 0.019 ± 0.013 [0.010, 0.027] | 8 |
+| auc | label_only_hsj_l2 | depth | 6 - 2 | 0.006 ± 0.012 [-0.002, 0.014] | 8 |
+| auc | label_only_hsj_l2 | feature_map | Z - EfficientSU2 | 0.003 ± 0.014 [-0.006, 0.012] | 8 |
+| auc | label_only_hsj_l2 | feature_map | ZZ - EfficientSU2 | 0.008 ± 0.013 [-0.000, 0.017] | 8 |
+| auc | label_only_hsj_l2 | feature_map | ZZ - Z | 0.004 ± 0.013 [-0.004, 0.012] | 8 |
+
+## Direct post-encoder geometry effects
+
+| Post-encoder metric | Reps 5 − 1, mean ± SD [95% CI] |
+| --- | --- |
+| train_train_similarity | -0.316 ± 0.100 [-0.431, -0.232] |
+| train_test_similarity | -0.319 ± 0.098 [-0.431, -0.235] |
+| test_test_similarity | -0.323 ± 0.096 [-0.429, -0.240] |
+| within_class_similarity | -0.318 ± 0.100 [-0.430, -0.233] |
+| between_class_similarity | -0.322 ± 0.094 [-0.429, -0.239] |
+| class_similarity_gap | 0.004 ± 0.013 [-0.002, 0.011] |
+| mmd2_train_test | 0.000 ± 0.003 [-0.001, 0.001] |
+| kernel_label_alignment | 0.004 ± 0.007 [0.002, 0.008] |
+| effective_rank | 14.369 ± 6.753 [8.011, 19.304] |
+| encoder_operation_count | 74.667 ± 25.481 [48.000, 108.000] |
+
+## Encoder-angle scale sensitivity
+
+| Outcome | Attack | Feature map | Reps | Contrast | Effect ± SD [95% CI] | Blocks |
+| --- | --- | --- | --- | --- | --- | --- |
+| auc | loss | eff_su2 | 1 | alpha 0.5 - alpha 1.0 | -0.001 ± 0.014 [-0.012, 0.010] | 5 |
+| auc | loss | eff_su2 | 1 | alpha 2.0 - alpha 1.0 | 0.015 ± 0.015 [0.004, 0.027] | 5 |
+| auc | loss | eff_su2 | 5 | alpha 0.5 - alpha 1.0 | -0.015 ± 0.013 [-0.027, -0.007] | 5 |
+| auc | loss | eff_su2 | 5 | alpha 2.0 - alpha 1.0 | 0.020 ± 0.023 [0.002, 0.037] | 5 |
+| auc | loss | z | 1 | alpha 0.5 - alpha 1.0 | -0.011 ± 0.007 [-0.018, -0.006] | 5 |
+| auc | loss | z | 1 | alpha 2.0 - alpha 1.0 | 0.015 ± 0.006 [0.010, 0.020] | 5 |
+| auc | loss | z | 5 | alpha 0.5 - alpha 1.0 | -0.021 ± 0.018 [-0.035, -0.007] | 5 |
+| auc | loss | z | 5 | alpha 2.0 - alpha 1.0 | -0.004 ± 0.005 [-0.007, 0.000] | 5 |
+| auc | loss | zz | 1 | alpha 0.5 - alpha 1.0 | -0.014 ± 0.009 [-0.021, -0.007] | 5 |
+| auc | loss | zz | 1 | alpha 2.0 - alpha 1.0 | 0.018 ± 0.011 [0.010, 0.027] | 5 |
+| auc | loss | zz | 5 | alpha 0.5 - alpha 1.0 | -0.019 ± 0.020 [-0.036, -0.005] | 5 |
+| auc | loss | zz | 5 | alpha 2.0 - alpha 1.0 | -0.001 ± 0.015 [-0.012, 0.010] | 5 |
+| gap | target_model | eff_su2 | 1 | alpha 0.5 - alpha 1.0 | -0.001 ± 0.019 [-0.015, 0.014] | 5 |
+| gap | target_model | eff_su2 | 1 | alpha 2.0 - alpha 1.0 | 0.027 ± 0.011 [0.019, 0.035] | 5 |
+| gap | target_model | eff_su2 | 5 | alpha 0.5 - alpha 1.0 | -0.047 ± 0.027 [-0.071, -0.032] | 5 |
+| gap | target_model | eff_su2 | 5 | alpha 2.0 - alpha 1.0 | 0.023 ± 0.027 [0.001, 0.043] | 5 |
+| gap | target_model | z | 1 | alpha 0.5 - alpha 1.0 | -0.009 ± 0.015 [-0.021, 0.003] | 5 |
+| gap | target_model | z | 1 | alpha 2.0 - alpha 1.0 | 0.033 ± 0.019 [0.020, 0.048] | 5 |
+| gap | target_model | z | 5 | alpha 0.5 - alpha 1.0 | -0.028 ± 0.031 [-0.051, -0.002] | 5 |
+| gap | target_model | z | 5 | alpha 2.0 - alpha 1.0 | 0.007 ± 0.026 [-0.014, 0.026] | 5 |
+| gap | target_model | zz | 1 | alpha 0.5 - alpha 1.0 | -0.020 ± 0.015 [-0.031, -0.009] | 5 |
+| gap | target_model | zz | 1 | alpha 2.0 - alpha 1.0 | 0.024 ± 0.026 [0.001, 0.043] | 5 |
+| gap | target_model | zz | 5 | alpha 0.5 - alpha 1.0 | -0.036 ± 0.040 [-0.069, -0.008] | 5 |
+| gap | target_model | zz | 5 | alpha 2.0 - alpha 1.0 | 0.015 ± 0.035 [-0.013, 0.042] | 5 |
+| test_acc | target_model | eff_su2 | 1 | alpha 0.5 - alpha 1.0 | -0.000 ± 0.006 [-0.005, 0.004] | 5 |
+| test_acc | target_model | eff_su2 | 1 | alpha 2.0 - alpha 1.0 | -0.006 ± 0.010 [-0.013, 0.003] | 5 |
+| test_acc | target_model | eff_su2 | 5 | alpha 0.5 - alpha 1.0 | 0.009 ± 0.007 [0.004, 0.014] | 5 |
+| test_acc | target_model | eff_su2 | 5 | alpha 2.0 - alpha 1.0 | -0.021 ± 0.014 [-0.031, -0.009] | 5 |
+| test_acc | target_model | z | 1 | alpha 0.5 - alpha 1.0 | -0.001 ± 0.007 [-0.007, 0.003] | 5 |
+| test_acc | target_model | z | 1 | alpha 2.0 - alpha 1.0 | -0.013 ± 0.003 [-0.016, -0.010] | 5 |
+| test_acc | target_model | z | 5 | alpha 0.5 - alpha 1.0 | 0.018 ± 0.014 [0.009, 0.030] | 5 |
+| test_acc | target_model | z | 5 | alpha 2.0 - alpha 1.0 | -0.007 ± 0.019 [-0.020, 0.009] | 5 |
+| test_acc | target_model | zz | 1 | alpha 0.5 - alpha 1.0 | 0.001 ± 0.007 [-0.005, 0.006] | 5 |
+| test_acc | target_model | zz | 1 | alpha 2.0 - alpha 1.0 | -0.007 ± 0.002 [-0.009, -0.005] | 5 |
+| test_acc | target_model | zz | 5 | alpha 0.5 - alpha 1.0 | 0.021 ± 0.015 [0.009, 0.032] | 5 |
+| test_acc | target_model | zz | 5 | alpha 2.0 - alpha 1.0 | -0.019 ± 0.014 [-0.030, -0.008] | 5 |
+| valid_acc | target_model | eff_su2 | 1 | alpha 0.5 - alpha 1.0 | -0.006 ± 0.010 [-0.014, 0.001] | 5 |
+| valid_acc | target_model | eff_su2 | 1 | alpha 2.0 - alpha 1.0 | -0.007 ± 0.033 [-0.031, 0.018] | 5 |
+| valid_acc | target_model | eff_su2 | 5 | alpha 0.5 - alpha 1.0 | -0.003 ± 0.014 [-0.014, 0.008] | 5 |
+| valid_acc | target_model | eff_su2 | 5 | alpha 2.0 - alpha 1.0 | -0.018 ± 0.024 [-0.034, 0.001] | 5 |
+| valid_acc | target_model | z | 1 | alpha 0.5 - alpha 1.0 | -0.001 ± 0.010 [-0.009, 0.006] | 5 |
+| valid_acc | target_model | z | 1 | alpha 2.0 - alpha 1.0 | -0.007 ± 0.018 [-0.021, 0.008] | 5 |
+| valid_acc | target_model | z | 5 | alpha 0.5 - alpha 1.0 | 0.020 ± 0.021 [0.006, 0.039] | 5 |
+| valid_acc | target_model | z | 5 | alpha 2.0 - alpha 1.0 | -0.031 ± 0.041 [-0.061, 0.001] | 5 |
+| valid_acc | target_model | zz | 1 | alpha 0.5 - alpha 1.0 | -0.003 ± 0.011 [-0.012, 0.005] | 5 |
+| valid_acc | target_model | zz | 1 | alpha 2.0 - alpha 1.0 | -0.005 ± 0.026 [-0.020, 0.019] | 5 |
+| valid_acc | target_model | zz | 5 | alpha 0.5 - alpha 1.0 | 0.015 ± 0.035 [-0.015, 0.040] | 5 |
+| valid_acc | target_model | zz | 5 | alpha 2.0 - alpha 1.0 | -0.024 ± 0.042 [-0.056, 0.008] | 5 |
+
+## Fresh-block selector outcomes
+
+| Outcome | Attack | Policy | Mean ± SD | Fresh blocks |
+| --- | --- | --- | --- | --- |
+| auc | confidence | privacy_aware | 0.493 ± 0.024 | 5 |
+| auc | confidence | utility_only | 0.493 ± 0.024 | 5 |
+| auc | confidence | utility_regularized | 0.490 ± 0.021 | 5 |
+| auc | correctness | privacy_aware | 0.505 ± 0.013 | 5 |
+| auc | correctness | utility_only | 0.505 ± 0.013 | 5 |
+| auc | correctness | utility_regularized | 0.503 ± 0.006 | 5 |
+| auc | entropy | privacy_aware | 0.493 ± 0.024 | 5 |
+| auc | entropy | utility_only | 0.493 ± 0.024 | 5 |
+| auc | entropy | utility_regularized | 0.490 ± 0.021 | 5 |
+| auc | global_true_class_log_odds | privacy_aware | 0.502 ± 0.015 | 5 |
+| auc | global_true_class_log_odds | utility_only | 0.502 ± 0.015 | 5 |
+| auc | global_true_class_log_odds | utility_regularized | 0.496 ± 0.012 | 5 |
+| auc | label_only_correctness | privacy_aware | 0.505 ± 0.013 | 5 |
+| auc | label_only_correctness | utility_only | 0.505 ± 0.013 | 5 |
+| auc | label_only_correctness | utility_regularized | 0.503 ± 0.006 | 5 |
+| auc | label_only_hsj_l2 | privacy_aware | 0.500 ± 0.025 | 5 |
+| auc | label_only_hsj_l2 | utility_only | 0.500 ± 0.025 | 5 |
+| auc | label_only_hsj_l2 | utility_regularized | 0.497 ± 0.010 | 5 |
+| auc | learned_prediction_vector_stats | privacy_aware | 0.483 ± 0.032 | 5 |
+| auc | learned_prediction_vector_stats | utility_only | 0.483 ± 0.032 | 5 |
+| auc | learned_prediction_vector_stats | utility_regularized | 0.511 ± 0.032 | 5 |
+| auc | lira_offline | privacy_aware | 0.497 ± 0.039 | 5 |
+| auc | lira_offline | utility_only | 0.497 ± 0.039 | 5 |
+| auc | lira_offline | utility_regularized | 0.493 ± 0.038 | 5 |
+| auc | lira_offline_fixed_variance | privacy_aware | 0.487 ± 0.027 | 5 |
+| auc | lira_offline_fixed_variance | utility_only | 0.487 ± 0.027 | 5 |
+| auc | lira_offline_fixed_variance | utility_regularized | 0.493 ± 0.036 | 5 |
+| auc | lira_online | privacy_aware | 0.521 ± 0.032 | 5 |
+| auc | lira_online | utility_only | 0.521 ± 0.032 | 5 |
+| auc | lira_online | utility_regularized | 0.486 ± 0.042 | 5 |
+| auc | lira_online_fixed_variance | privacy_aware | 0.525 ± 0.047 | 5 |
+| auc | lira_online_fixed_variance | utility_only | 0.525 ± 0.047 | 5 |
+| auc | lira_online_fixed_variance | utility_regularized | 0.488 ± 0.052 | 5 |
+| auc | loss | privacy_aware | 0.511 ± 0.015 | 5 |
+| auc | loss | utility_only | 0.511 ± 0.015 | 5 |
+| auc | loss | utility_regularized | 0.506 ± 0.010 | 5 |
+| auc | margin | privacy_aware | 0.493 ± 0.024 | 5 |
+| auc | margin | utility_only | 0.493 ± 0.024 | 5 |
+| auc | margin | utility_regularized | 0.490 ± 0.021 | 5 |
+| auc | max_probability | privacy_aware | 0.493 ± 0.024 | 5 |
+| auc | max_probability | utility_only | 0.493 ± 0.024 | 5 |
+| auc | max_probability | utility_regularized | 0.490 ± 0.021 | 5 |
+| gap | target_model | privacy_aware | 0.010 ± 0.027 | 5 |
+| gap | target_model | utility_only | 0.010 ± 0.027 | 5 |
+| gap | target_model | utility_regularized | 0.005 ± 0.012 | 5 |
+| test_acc | target_model | privacy_aware | 0.773 ± 0.009 | 5 |
+| test_acc | target_model | utility_only | 0.773 ± 0.009 | 5 |
+| test_acc | target_model | utility_regularized | 0.776 ± 0.007 | 5 |
+| valid_acc | target_model | privacy_aware | 0.771 ± 0.013 | 5 |
+| valid_acc | target_model | utility_only | 0.771 ± 0.013 | 5 |
+| valid_acc | target_model | utility_regularized | 0.778 ± 0.003 | 5 |
+
+## N1 structural leakage under a frozen calibration
+
+| Feature map | Reps | Depth | Mode | Queries | Shots/query | Attack | AUC mean ± checkpoint SD | Checkpoints |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| eff_su2 | 1 | 2 | exact | 0 | 0 | learned_mlp_pv_plus_stats | 0.533 ± 0.028 | 3 |
+| eff_su2 | 1 | 2 | exact | 0 | 0 | loss | 0.530 ± 0.010 | 3 |
+| eff_su2 | 1 | 2 | ideal_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.516 ± 0.015 | 3 |
+| eff_su2 | 1 | 2 | ideal_shot | 1 | 512 | loss | 0.533 ± 0.008 | 3 |
+| eff_su2 | 1 | 2 | noisy_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.521 ± 0.006 | 3 |
+| eff_su2 | 1 | 2 | noisy_shot | 1 | 512 | loss | 0.531 ± 0.009 | 3 |
+| eff_su2 | 1 | 6 | exact | 0 | 0 | learned_mlp_pv_plus_stats | 0.514 ± 0.003 | 3 |
+| eff_su2 | 1 | 6 | exact | 0 | 0 | loss | 0.536 ± 0.006 | 3 |
+| eff_su2 | 1 | 6 | ideal_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.516 ± 0.006 | 3 |
+| eff_su2 | 1 | 6 | ideal_shot | 1 | 512 | loss | 0.537 ± 0.002 | 3 |
+| eff_su2 | 1 | 6 | noisy_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.522 ± 0.014 | 3 |
+| eff_su2 | 1 | 6 | noisy_shot | 1 | 512 | loss | 0.540 ± 0.004 | 3 |
+| eff_su2 | 5 | 2 | exact | 0 | 0 | learned_mlp_pv_plus_stats | 0.564 ± 0.035 | 3 |
+| eff_su2 | 5 | 2 | exact | 0 | 0 | loss | 0.571 ± 0.006 | 3 |
+| eff_su2 | 5 | 2 | ideal_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.541 ± 0.018 | 3 |
+| eff_su2 | 5 | 2 | ideal_shot | 1 | 512 | loss | 0.566 ± 0.004 | 3 |
+| eff_su2 | 5 | 2 | noisy_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.540 ± 0.019 | 3 |
+| eff_su2 | 5 | 2 | noisy_shot | 1 | 512 | loss | 0.565 ± 0.003 | 3 |
+| eff_su2 | 5 | 6 | exact | 0 | 0 | learned_mlp_pv_plus_stats | 0.591 ± 0.008 | 3 |
+| eff_su2 | 5 | 6 | exact | 0 | 0 | loss | 0.603 ± 0.017 | 3 |
+| eff_su2 | 5 | 6 | ideal_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.577 ± 0.022 | 3 |
+| eff_su2 | 5 | 6 | ideal_shot | 1 | 512 | loss | 0.599 ± 0.017 | 3 |
+| eff_su2 | 5 | 6 | noisy_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.566 ± 0.013 | 3 |
+| eff_su2 | 5 | 6 | noisy_shot | 1 | 512 | loss | 0.589 ± 0.018 | 3 |
+| z | 1 | 2 | exact | 0 | 0 | learned_mlp_pv_plus_stats | 0.499 ± 0.014 | 3 |
+| z | 1 | 2 | exact | 0 | 0 | loss | 0.541 ± 0.017 | 3 |
+| z | 1 | 2 | ideal_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.506 ± 0.018 | 3 |
+| z | 1 | 2 | ideal_shot | 1 | 512 | loss | 0.542 ± 0.015 | 3 |
+| z | 1 | 2 | noisy_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.504 ± 0.005 | 3 |
+| z | 1 | 2 | noisy_shot | 1 | 512 | loss | 0.541 ± 0.014 | 3 |
+| z | 1 | 6 | exact | 0 | 0 | learned_mlp_pv_plus_stats | 0.563 ± 0.014 | 3 |
+| z | 1 | 6 | exact | 0 | 0 | loss | 0.599 ± 0.015 | 3 |
+| z | 1 | 6 | ideal_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.558 ± 0.004 | 3 |
+| z | 1 | 6 | ideal_shot | 1 | 512 | loss | 0.596 ± 0.011 | 3 |
+| z | 1 | 6 | noisy_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.558 ± 0.012 | 3 |
+| z | 1 | 6 | noisy_shot | 1 | 512 | loss | 0.588 ± 0.017 | 3 |
+| z | 5 | 2 | exact | 0 | 0 | learned_mlp_pv_plus_stats | 0.595 ± 0.035 | 3 |
+| z | 5 | 2 | exact | 0 | 0 | loss | 0.646 ± 0.012 | 3 |
+| z | 5 | 2 | ideal_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.605 ± 0.015 | 3 |
+| z | 5 | 2 | ideal_shot | 1 | 512 | loss | 0.645 ± 0.013 | 3 |
+| z | 5 | 2 | noisy_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.603 ± 0.013 | 3 |
+| z | 5 | 2 | noisy_shot | 1 | 512 | loss | 0.645 ± 0.013 | 3 |
+| z | 5 | 6 | exact | 0 | 0 | learned_mlp_pv_plus_stats | 0.660 ± 0.021 | 3 |
+| z | 5 | 6 | exact | 0 | 0 | loss | 0.684 ± 0.012 | 3 |
+| z | 5 | 6 | ideal_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.655 ± 0.004 | 3 |
+| z | 5 | 6 | ideal_shot | 1 | 512 | loss | 0.679 ± 0.010 | 3 |
+| z | 5 | 6 | noisy_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.630 ± 0.008 | 3 |
+| z | 5 | 6 | noisy_shot | 1 | 512 | loss | 0.664 ± 0.003 | 3 |
+| zz | 1 | 2 | exact | 0 | 0 | learned_mlp_pv_plus_stats | 0.560 ± 0.029 | 3 |
+| zz | 1 | 2 | exact | 0 | 0 | loss | 0.562 ± 0.012 | 3 |
+| zz | 1 | 2 | ideal_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.554 ± 0.033 | 3 |
+| zz | 1 | 2 | ideal_shot | 1 | 512 | loss | 0.558 ± 0.014 | 3 |
+| zz | 1 | 2 | noisy_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.551 ± 0.020 | 3 |
+| zz | 1 | 2 | noisy_shot | 1 | 512 | loss | 0.553 ± 0.019 | 3 |
+| zz | 1 | 6 | exact | 0 | 0 | learned_mlp_pv_plus_stats | 0.630 ± 0.015 | 3 |
+| zz | 1 | 6 | exact | 0 | 0 | loss | 0.604 ± 0.011 | 3 |
+| zz | 1 | 6 | ideal_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.605 ± 0.015 | 3 |
+| zz | 1 | 6 | ideal_shot | 1 | 512 | loss | 0.603 ± 0.011 | 3 |
+| zz | 1 | 6 | noisy_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.580 ± 0.014 | 3 |
+| zz | 1 | 6 | noisy_shot | 1 | 512 | loss | 0.591 ± 0.009 | 3 |
+| zz | 5 | 2 | exact | 0 | 0 | learned_mlp_pv_plus_stats | 0.572 ± 0.045 | 3 |
+| zz | 5 | 2 | exact | 0 | 0 | loss | 0.601 ± 0.025 | 3 |
+| zz | 5 | 2 | ideal_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.568 ± 0.009 | 3 |
+| zz | 5 | 2 | ideal_shot | 1 | 512 | loss | 0.599 ± 0.025 | 3 |
+| zz | 5 | 2 | noisy_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.530 ± 0.018 | 3 |
+| zz | 5 | 2 | noisy_shot | 1 | 512 | loss | 0.548 ± 0.006 | 3 |
+| zz | 5 | 6 | exact | 0 | 0 | learned_mlp_pv_plus_stats | 0.691 ± 0.024 | 3 |
+| zz | 5 | 6 | exact | 0 | 0 | loss | 0.679 ± 0.018 | 3 |
+| zz | 5 | 6 | ideal_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.692 ± 0.014 | 3 |
+| zz | 5 | 6 | ideal_shot | 1 | 512 | loss | 0.672 ± 0.018 | 3 |
+| zz | 5 | 6 | noisy_shot | 1 | 512 | learned_mlp_pv_plus_stats | 0.536 ± 0.009 | 3 |
+| zz | 5 | 6 | noisy_shot | 1 | 512 | loss | 0.568 ± 0.009 | 3 |
+
+## N1 repetition, depth, and interaction effects
+
+| Attack | Mode | Queries | Shots/query | Contrast | Feature map | AUC effect ± SD [95% CI] | Model-seed blocks |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| confidence | exact | 0 | 0 | depth_6_minus_2_at_repetition1 | eff_su2 | 0.009 ± 0.011 [-0.003, 0.018] | 3 |
+| confidence | exact | 0 | 0 | depth_6_minus_2_at_repetition1 | z | 0.058 ± 0.015 [0.040, 0.066] | 3 |
+| confidence | exact | 0 | 0 | depth_6_minus_2_at_repetition1 | zz | 0.037 ± 0.010 [0.025, 0.043] | 3 |
+| confidence | exact | 0 | 0 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.033 ± 0.020 [0.009, 0.045] | 3 |
+| confidence | exact | 0 | 0 | depth_6_minus_2_at_repetition5 | z | 0.002 ± 0.007 [-0.005, 0.009] | 3 |
+| confidence | exact | 0 | 0 | depth_6_minus_2_at_repetition5 | zz | 0.010 ± 0.037 [-0.018, 0.052] | 3 |
+| confidence | exact | 0 | 0 | depth_main_6_minus_2 | eff_su2 | 0.021 ± 0.007 [0.014, 0.029] | 3 |
+| confidence | exact | 0 | 0 | depth_main_6_minus_2 | z | 0.030 ± 0.011 [0.017, 0.038] | 3 |
+| confidence | exact | 0 | 0 | depth_main_6_minus_2 | zz | 0.023 ± 0.014 [0.012, 0.038] | 3 |
+| confidence | exact | 0 | 0 | feature_z_minus_eff_su2 | paired_feature_maps | -0.004 ± 0.011 [-0.013, 0.008] | 3 |
+| confidence | exact | 0 | 0 | feature_zz_minus_eff_su2 | paired_feature_maps | -0.005 ± 0.019 [-0.016, 0.017] | 3 |
+| confidence | exact | 0 | 0 | feature_zz_minus_z | paired_feature_maps | -0.001 ± 0.010 [-0.010, 0.009] | 3 |
+| confidence | exact | 0 | 0 | repetition_5_minus_1_at_depth2 | eff_su2 | 0.027 ± 0.022 [0.007, 0.051] | 3 |
+| confidence | exact | 0 | 0 | repetition_5_minus_1_at_depth2 | z | 0.035 ± 0.014 [0.019, 0.047] | 3 |
+| confidence | exact | 0 | 0 | repetition_5_minus_1_at_depth2 | zz | 0.011 ± 0.038 [-0.022, 0.052] | 3 |
+| confidence | exact | 0 | 0 | repetition_5_minus_1_at_depth6 | eff_su2 | 0.051 ± 0.007 [0.043, 0.057] | 3 |
+| confidence | exact | 0 | 0 | repetition_5_minus_1_at_depth6 | z | -0.021 ± 0.024 [-0.046, 0.001] | 3 |
+| confidence | exact | 0 | 0 | repetition_5_minus_1_at_depth6 | zz | -0.016 ± 0.026 [-0.045, 0.005] | 3 |
+| confidence | exact | 0 | 0 | repetition_by_depth_interaction | eff_su2 | 0.024 ± 0.029 [-0.009, 0.047] | 3 |
+| confidence | exact | 0 | 0 | repetition_by_depth_interaction | z | -0.056 ± 0.010 [-0.065, -0.046] | 3 |
+| confidence | exact | 0 | 0 | repetition_by_depth_interaction | zz | -0.027 ± 0.047 [-0.061, 0.027] | 3 |
+| confidence | exact | 0 | 0 | repetition_main_5_minus_1 | eff_su2 | 0.039 ± 0.008 [0.030, 0.047] | 3 |
+| confidence | exact | 0 | 0 | repetition_main_5_minus_1 | z | 0.007 ± 0.019 [-0.013, 0.024] | 3 |
+| confidence | exact | 0 | 0 | repetition_main_5_minus_1 | zz | -0.003 ± 0.022 [-0.021, 0.021] | 3 |
+| confidence | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | 0.005 ± 0.008 [-0.003, 0.013] | 3 |
+| confidence | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | 0.052 ± 0.012 [0.038, 0.061] | 3 |
+| confidence | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | 0.035 ± 0.013 [0.020, 0.042] | 3 |
+| confidence | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.035 ± 0.022 [0.010, 0.048] | 3 |
+| confidence | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | 0.001 ± 0.009 [-0.007, 0.010] | 3 |
+| confidence | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | 0.001 ± 0.036 [-0.031, 0.040] | 3 |
+| confidence | ideal_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | 0.020 ± 0.008 [0.011, 0.027] | 3 |
+| confidence | ideal_shot | 1 | 512 | depth_main_6_minus_2 | z | 0.026 ± 0.010 [0.016, 0.036] | 3 |
+| confidence | ideal_shot | 1 | 512 | depth_main_6_minus_2 | zz | 0.018 ± 0.012 [0.006, 0.030] | 3 |
+| confidence | ideal_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | -0.004 ± 0.009 [-0.011, 0.007] | 3 |
+| confidence | ideal_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | -0.006 ± 0.017 [-0.019, 0.013] | 3 |
+| confidence | ideal_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | -0.003 ± 0.009 [-0.012, 0.006] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | 0.012 ± 0.016 [-0.001, 0.030] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | 0.031 ± 0.013 [0.017, 0.042] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | 0.012 ± 0.043 [-0.022, 0.060] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | 0.042 ± 0.012 [0.028, 0.049] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | -0.020 ± 0.019 [-0.040, -0.002] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | -0.021 ± 0.024 [-0.048, -0.002] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.030 ± 0.028 [-0.003, 0.050] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.051 ± 0.007 [-0.057, -0.044] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_by_depth_interaction | zz | -0.034 ± 0.048 [-0.074, 0.020] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | 0.027 ± 0.002 [0.024, 0.029] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | z | 0.005 ± 0.016 [-0.012, 0.020] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | zz | -0.005 ± 0.025 [-0.025, 0.023] | 3 |
+| confidence | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | 0.003 ± 0.004 [0.000, 0.007] | 3 |
+| confidence | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | 0.046 ± 0.008 [0.037, 0.052] | 3 |
+| confidence | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | 0.025 ± 0.011 [0.012, 0.032] | 3 |
+| confidence | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.031 ± 0.022 [0.008, 0.053] | 3 |
+| confidence | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | -0.011 ± 0.022 [-0.030, 0.012] | 3 |
+| confidence | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | -0.004 ± 0.018 [-0.021, 0.015] | 3 |
+| confidence | noisy_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | 0.017 ± 0.010 [0.008, 0.027] | 3 |
+| confidence | noisy_shot | 1 | 512 | depth_main_6_minus_2 | z | 0.017 ± 0.013 [0.003, 0.030] | 3 |
+| confidence | noisy_shot | 1 | 512 | depth_main_6_minus_2 | zz | 0.011 ± 0.014 [-0.004, 0.024] | 3 |
+| confidence | noisy_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | -0.009 ± 0.010 [-0.019, 0.001] | 3 |
+| confidence | noisy_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | 0.002 ± 0.009 [-0.008, 0.009] | 3 |
+| confidence | noisy_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | 0.010 ± 0.017 [-0.009, 0.022] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | 0.008 ± 0.015 [-0.003, 0.026] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | 0.032 ± 0.014 [0.016, 0.043] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | 0.032 ± 0.018 [0.020, 0.053] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | 0.036 ± 0.012 [0.027, 0.050] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | -0.025 ± 0.026 [-0.052, 0.000] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | 0.003 ± 0.017 [-0.015, 0.019] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.028 ± 0.026 [0.001, 0.053] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.057 ± 0.019 [-0.069, -0.036] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_by_depth_interaction | zz | -0.029 ± 0.010 [-0.035, -0.017] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | 0.022 ± 0.005 [0.017, 0.026] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | z | 0.003 ± 0.019 [-0.018, 0.018] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | zz | 0.018 ± 0.017 [0.003, 0.036] | 3 |
+| correctness | exact | 0 | 0 | depth_6_minus_2_at_repetition1 | eff_su2 | 0.007 ± 0.016 [-0.010, 0.020] | 3 |
+| correctness | exact | 0 | 0 | depth_6_minus_2_at_repetition1 | z | 0.053 ± 0.028 [0.025, 0.080] | 3 |
+| correctness | exact | 0 | 0 | depth_6_minus_2_at_repetition1 | zz | 0.044 ± 0.021 [0.027, 0.068] | 3 |
+| correctness | exact | 0 | 0 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.029 ± 0.021 [0.012, 0.053] | 3 |
+| correctness | exact | 0 | 0 | depth_6_minus_2_at_repetition5 | z | 0.043 ± 0.014 [0.028, 0.055] | 3 |
+| correctness | exact | 0 | 0 | depth_6_minus_2_at_repetition5 | zz | 0.083 ± 0.021 [0.062, 0.105] | 3 |
+| correctness | exact | 0 | 0 | depth_main_6_minus_2 | eff_su2 | 0.018 ± 0.013 [0.006, 0.032] | 3 |
+| correctness | exact | 0 | 0 | depth_main_6_minus_2 | z | 0.048 ± 0.021 [0.026, 0.068] | 3 |
+| correctness | exact | 0 | 0 | depth_main_6_minus_2 | zz | 0.064 ± 0.021 [0.045, 0.086] | 3 |
+| correctness | exact | 0 | 0 | feature_z_minus_eff_su2 | paired_feature_maps | 0.046 ± 0.008 [0.037, 0.054] | 3 |
+| correctness | exact | 0 | 0 | feature_zz_minus_eff_su2 | paired_feature_maps | 0.061 ± 0.002 [0.059, 0.064] | 3 |
+| correctness | exact | 0 | 0 | feature_zz_minus_z | paired_feature_maps | 0.015 ± 0.007 [0.010, 0.022] | 3 |
+| correctness | exact | 0 | 0 | repetition_5_minus_1_at_depth2 | eff_su2 | 0.050 ± 0.033 [0.030, 0.087] | 3 |
+| correctness | exact | 0 | 0 | repetition_5_minus_1_at_depth2 | z | 0.076 ± 0.006 [0.070, 0.083] | 3 |
+| correctness | exact | 0 | 0 | repetition_5_minus_1_at_depth2 | zz | 0.033 ± 0.013 [0.020, 0.045] | 3 |
+| correctness | exact | 0 | 0 | repetition_5_minus_1_at_depth6 | eff_su2 | 0.072 ± 0.009 [0.062, 0.080] | 3 |
+| correctness | exact | 0 | 0 | repetition_5_minus_1_at_depth6 | z | 0.066 ± 0.008 [0.057, 0.072] | 3 |
+| correctness | exact | 0 | 0 | repetition_5_minus_1_at_depth6 | zz | 0.072 ± 0.009 [0.065, 0.083] | 3 |
+| correctness | exact | 0 | 0 | repetition_by_depth_interaction | eff_su2 | 0.022 ± 0.026 [-0.007, 0.040] | 3 |
+| correctness | exact | 0 | 0 | repetition_by_depth_interaction | z | -0.010 ± 0.014 [-0.025, 0.003] | 3 |
+| correctness | exact | 0 | 0 | repetition_by_depth_interaction | zz | 0.039 ± 0.005 [0.035, 0.045] | 3 |
+| correctness | exact | 0 | 0 | repetition_main_5_minus_1 | eff_su2 | 0.061 ± 0.020 [0.046, 0.084] | 3 |
+| correctness | exact | 0 | 0 | repetition_main_5_minus_1 | z | 0.071 ± 0.001 [0.070, 0.071] | 3 |
+| correctness | exact | 0 | 0 | repetition_main_5_minus_1 | zz | 0.053 ± 0.011 [0.042, 0.064] | 3 |
+| correctness | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | -0.000 ± 0.017 [-0.017, 0.017] | 3 |
+| correctness | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | 0.051 ± 0.020 [0.034, 0.073] | 3 |
+| correctness | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | 0.047 ± 0.025 [0.022, 0.072] | 3 |
+| correctness | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.029 ± 0.016 [0.013, 0.044] | 3 |
+| correctness | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | 0.035 ± 0.016 [0.019, 0.052] | 3 |
+| correctness | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | 0.082 ± 0.010 [0.071, 0.091] | 3 |
+| correctness | ideal_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | 0.014 ± 0.014 [0.006, 0.031] | 3 |
+| correctness | ideal_shot | 1 | 512 | depth_main_6_minus_2 | z | 0.043 ± 0.018 [0.026, 0.062] | 3 |
+| correctness | ideal_shot | 1 | 512 | depth_main_6_minus_2 | zz | 0.065 ± 0.018 [0.046, 0.082] | 3 |
+| correctness | ideal_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | 0.043 ± 0.006 [0.037, 0.050] | 3 |
+| correctness | ideal_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | 0.055 ± 0.002 [0.053, 0.057] | 3 |
+| correctness | ideal_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | 0.012 ± 0.005 [0.008, 0.018] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | 0.033 ± 0.015 [0.017, 0.047] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | 0.074 ± 0.008 [0.066, 0.082] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | 0.025 ± 0.020 [0.009, 0.048] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | 0.063 ± 0.002 [0.060, 0.064] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | 0.058 ± 0.007 [0.051, 0.064] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | 0.060 ± 0.006 [0.054, 0.067] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.029 ± 0.017 [0.013, 0.047] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.015 ± 0.006 [-0.022, -0.010] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_by_depth_interaction | zz | 0.035 ± 0.015 [0.019, 0.049] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | 0.048 ± 0.007 [0.041, 0.054] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | z | 0.066 ± 0.007 [0.058, 0.071] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | zz | 0.042 ± 0.013 [0.033, 0.057] | 3 |
+| correctness | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | 0.006 ± 0.013 [-0.009, 0.015] | 3 |
+| correctness | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | 0.051 ± 0.018 [0.040, 0.072] | 3 |
+| correctness | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | 0.033 ± 0.024 [0.011, 0.058] | 3 |
+| correctness | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.011 ± 0.023 [-0.003, 0.037] | 3 |
+| correctness | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | 0.011 ± 0.013 [-0.003, 0.023] | 3 |
+| correctness | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | 0.018 ± 0.001 [0.017, 0.019] | 3 |
+| correctness | noisy_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | 0.009 ± 0.015 [-0.006, 0.024] | 3 |
+| correctness | noisy_shot | 1 | 512 | depth_main_6_minus_2 | z | 0.031 ± 0.015 [0.019, 0.048] | 3 |
+| correctness | noisy_shot | 1 | 512 | depth_main_6_minus_2 | zz | 0.025 ± 0.012 [0.014, 0.038] | 3 |
+| correctness | noisy_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | 0.040 ± 0.008 [0.034, 0.048] | 3 |
+| correctness | noisy_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | 0.009 ± 0.005 [0.004, 0.014] | 3 |
+| correctness | noisy_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | -0.031 ± 0.006 [-0.035, -0.024] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | 0.032 ± 0.018 [0.016, 0.052] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | 0.071 ± 0.009 [0.064, 0.081] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | -0.027 ± 0.025 [-0.043, 0.002] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | 0.037 ± 0.016 [0.022, 0.054] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | 0.030 ± 0.010 [0.019, 0.037] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | -0.041 ± 0.007 [-0.050, -0.037] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.005 ± 0.021 [-0.016, 0.026] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.040 ± 0.010 [-0.048, -0.029] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_by_depth_interaction | zz | -0.015 ± 0.023 [-0.039, 0.006] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | 0.035 ± 0.014 [0.019, 0.044] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | z | 0.051 ± 0.008 [0.043, 0.059] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | zz | -0.034 ± 0.014 [-0.044, -0.018] | 3 |
+| entropy | exact | 0 | 0 | depth_6_minus_2_at_repetition1 | eff_su2 | 0.011 ± 0.011 [-0.001, 0.019] | 3 |
+| entropy | exact | 0 | 0 | depth_6_minus_2_at_repetition1 | z | 0.054 ± 0.016 [0.035, 0.065] | 3 |
+| entropy | exact | 0 | 0 | depth_6_minus_2_at_repetition1 | zz | 0.031 ± 0.011 [0.022, 0.043] | 3 |
+| entropy | exact | 0 | 0 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.035 ± 0.018 [0.014, 0.047] | 3 |
+| entropy | exact | 0 | 0 | depth_6_minus_2_at_repetition5 | z | -0.003 ± 0.022 [-0.027, 0.017] | 3 |
+| entropy | exact | 0 | 0 | depth_6_minus_2_at_repetition5 | zz | 0.004 ± 0.022 [-0.014, 0.028] | 3 |
+| entropy | exact | 0 | 0 | depth_main_6_minus_2 | eff_su2 | 0.023 ± 0.007 [0.017, 0.030] | 3 |
+| entropy | exact | 0 | 0 | depth_main_6_minus_2 | z | 0.025 ± 0.019 [0.004, 0.041] | 3 |
+| entropy | exact | 0 | 0 | depth_main_6_minus_2 | zz | 0.018 ± 0.009 [0.007, 0.025] | 3 |
+| entropy | exact | 0 | 0 | feature_z_minus_eff_su2 | paired_feature_maps | 0.002 ± 0.014 [-0.014, 0.014] | 3 |
+| entropy | exact | 0 | 0 | feature_zz_minus_eff_su2 | paired_feature_maps | -0.008 ± 0.014 [-0.016, 0.008] | 3 |
+| entropy | exact | 0 | 0 | feature_zz_minus_z | paired_feature_maps | -0.010 ± 0.011 [-0.022, -0.002] | 3 |
+| entropy | exact | 0 | 0 | repetition_5_minus_1_at_depth2 | eff_su2 | 0.020 ± 0.024 [-0.004, 0.045] | 3 |
+| entropy | exact | 0 | 0 | repetition_5_minus_1_at_depth2 | z | 0.045 ± 0.018 [0.025, 0.056] | 3 |
+| entropy | exact | 0 | 0 | repetition_5_minus_1_at_depth2 | zz | 0.016 ± 0.027 [-0.003, 0.047] | 3 |
+| entropy | exact | 0 | 0 | repetition_5_minus_1_at_depth6 | eff_su2 | 0.045 ± 0.005 [0.040, 0.050] | 3 |
+| entropy | exact | 0 | 0 | repetition_5_minus_1_at_depth6 | z | -0.012 ± 0.010 [-0.024, -0.004] | 3 |
+| entropy | exact | 0 | 0 | repetition_5_minus_1_at_depth6 | zz | -0.011 ± 0.025 [-0.040, 0.004] | 3 |
+| entropy | exact | 0 | 0 | repetition_by_depth_interaction | eff_su2 | 0.024 ± 0.027 [-0.005, 0.048] | 3 |
+| entropy | exact | 0 | 0 | repetition_by_depth_interaction | z | -0.057 ± 0.008 [-0.062, -0.049] | 3 |
+| entropy | exact | 0 | 0 | repetition_by_depth_interaction | zz | -0.027 ± 0.029 [-0.044, 0.006] | 3 |
+| entropy | exact | 0 | 0 | repetition_main_5_minus_1 | eff_su2 | 0.032 ± 0.011 [0.020, 0.043] | 3 |
+| entropy | exact | 0 | 0 | repetition_main_5_minus_1 | z | 0.017 ± 0.014 [0.001, 0.026] | 3 |
+| entropy | exact | 0 | 0 | repetition_main_5_minus_1 | zz | 0.003 ± 0.022 [-0.018, 0.025] | 3 |
+| entropy | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | 0.008 ± 0.013 [-0.004, 0.022] | 3 |
+| entropy | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | 0.050 ± 0.014 [0.034, 0.058] | 3 |
+| entropy | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | 0.032 ± 0.012 [0.020, 0.044] | 3 |
+| entropy | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.036 ± 0.021 [0.012, 0.051] | 3 |
+| entropy | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | -0.006 ± 0.021 [-0.030, 0.011] | 3 |
+| entropy | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | -0.002 ± 0.021 [-0.017, 0.022] | 3 |
+| entropy | ideal_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | 0.022 ± 0.005 [0.017, 0.026] | 3 |
+| entropy | ideal_shot | 1 | 512 | depth_main_6_minus_2 | z | 0.022 ± 0.017 [0.002, 0.034] | 3 |
+| entropy | ideal_shot | 1 | 512 | depth_main_6_minus_2 | zz | 0.015 ± 0.007 [0.007, 0.021] | 3 |
+| entropy | ideal_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | 0.003 ± 0.010 [-0.008, 0.012] | 3 |
+| entropy | ideal_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | -0.008 ± 0.012 [-0.018, 0.005] | 3 |
+| entropy | ideal_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | -0.011 ± 0.010 [-0.023, -0.004] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | 0.011 ± 0.023 [-0.005, 0.038] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | 0.043 ± 0.015 [0.026, 0.052] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | 0.018 ± 0.031 [-0.004, 0.053] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | 0.040 ± 0.011 [0.028, 0.049] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | -0.012 ± 0.008 [-0.020, -0.006] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | -0.016 ± 0.024 [-0.044, -0.002] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.028 ± 0.034 [-0.010, 0.054] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.056 ± 0.009 [-0.063, -0.046] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_by_depth_interaction | zz | -0.034 ± 0.032 [-0.057, 0.002] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | 0.026 ± 0.006 [0.022, 0.033] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | z | 0.016 ± 0.011 [0.003, 0.023] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | zz | 0.001 ± 0.023 [-0.020, 0.025] | 3 |
+| entropy | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | 0.006 ± 0.007 [0.000, 0.014] | 3 |
+| entropy | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | 0.040 ± 0.010 [0.030, 0.050] | 3 |
+| entropy | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | 0.023 ± 0.014 [0.013, 0.040] | 3 |
+| entropy | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.032 ± 0.020 [0.009, 0.046] | 3 |
+| entropy | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | -0.013 ± 0.024 [-0.041, 0.005] | 3 |
+| entropy | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | -0.008 ± 0.028 [-0.035, 0.022] | 3 |
+| entropy | noisy_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | 0.019 ± 0.007 [0.012, 0.025] | 3 |
+| entropy | noisy_shot | 1 | 512 | depth_main_6_minus_2 | z | 0.013 ± 0.016 [-0.006, 0.023] | 3 |
+| entropy | noisy_shot | 1 | 512 | depth_main_6_minus_2 | zz | 0.008 ± 0.021 [-0.009, 0.031] | 3 |
+| entropy | noisy_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | 0.003 ± 0.011 [-0.010, 0.010] | 3 |
+| entropy | noisy_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | 0.003 ± 0.013 [-0.011, 0.013] | 3 |
+| entropy | noisy_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | 0.000 ± 0.019 [-0.020, 0.018] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | 0.007 ± 0.023 [-0.009, 0.034] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | 0.048 ± 0.018 [0.028, 0.063] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | 0.051 ± 0.027 [0.033, 0.082] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | 0.033 ± 0.006 [0.028, 0.040] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | -0.006 ± 0.029 [-0.027, 0.027] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | 0.019 ± 0.010 [0.008, 0.029] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.025 ± 0.027 [-0.005, 0.043] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.054 ± 0.017 [-0.071, -0.036] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_by_depth_interaction | zz | -0.032 ± 0.018 [-0.052, -0.018] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | 0.020 ± 0.010 [0.010, 0.031] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | z | 0.021 ± 0.022 [0.001, 0.045] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | zz | 0.035 ± 0.018 [0.021, 0.056] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | depth_6_minus_2_at_repetition1 | eff_su2 | -0.019 ± 0.031 [-0.050, 0.011] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | depth_6_minus_2_at_repetition1 | z | 0.064 ± 0.006 [0.057, 0.069] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | depth_6_minus_2_at_repetition1 | zz | 0.070 ± 0.022 [0.046, 0.090] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.027 ± 0.039 [-0.015, 0.061] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | depth_6_minus_2_at_repetition5 | z | 0.065 ± 0.025 [0.038, 0.089] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | depth_6_minus_2_at_repetition5 | zz | 0.119 ± 0.053 [0.060, 0.161] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | depth_main_6_minus_2 | eff_su2 | 0.004 ± 0.032 [-0.033, 0.024] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | depth_main_6_minus_2 | z | 0.065 ± 0.016 [0.048, 0.079] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | depth_main_6_minus_2 | zz | 0.094 ± 0.036 [0.053, 0.117] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | feature_z_minus_eff_su2 | paired_feature_maps | 0.028 ± 0.020 [0.017, 0.051] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | feature_zz_minus_eff_su2 | paired_feature_maps | 0.063 ± 0.022 [0.044, 0.087] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | feature_zz_minus_z | paired_feature_maps | 0.034 ± 0.039 [-0.007, 0.070] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | repetition_5_minus_1_at_depth2 | eff_su2 | 0.031 ± 0.031 [-0.003, 0.058] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | repetition_5_minus_1_at_depth2 | z | 0.096 ± 0.024 [0.070, 0.116] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | repetition_5_minus_1_at_depth2 | zz | 0.012 ± 0.026 [-0.016, 0.036] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | repetition_5_minus_1_at_depth6 | eff_su2 | 0.077 ± 0.005 [0.073, 0.083] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | repetition_5_minus_1_at_depth6 | z | 0.097 ± 0.008 [0.089, 0.104] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | repetition_5_minus_1_at_depth6 | zz | 0.061 ± 0.026 [0.031, 0.080] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | repetition_by_depth_interaction | eff_su2 | 0.046 ± 0.028 [0.026, 0.078] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | repetition_by_depth_interaction | z | 0.000 ± 0.019 [-0.019, 0.019] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | repetition_by_depth_interaction | zz | 0.049 ± 0.037 [0.013, 0.088] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | repetition_main_5_minus_1 | eff_su2 | 0.054 ± 0.018 [0.036, 0.070] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | repetition_main_5_minus_1 | z | 0.096 ± 0.015 [0.079, 0.106] | 3 |
+| learned_mlp_pv_plus_stats | exact | 0 | 0 | repetition_main_5_minus_1 | zz | 0.037 ± 0.019 [0.024, 0.058] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | -0.001 ± 0.016 [-0.019, 0.009] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | 0.053 ± 0.016 [0.040, 0.070] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | 0.051 ± 0.044 [0.001, 0.083] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.037 ± 0.027 [0.014, 0.067] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | 0.050 ± 0.014 [0.034, 0.061] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | 0.124 ± 0.009 [0.114, 0.129] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | 0.018 ± 0.020 [-0.002, 0.038] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | depth_main_6_minus_2 | z | 0.051 ± 0.001 [0.050, 0.052] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | depth_main_6_minus_2 | zz | 0.087 ± 0.026 [0.057, 0.106] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | 0.043 ± 0.010 [0.036, 0.055] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | 0.067 ± 0.004 [0.063, 0.070] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | 0.024 ± 0.009 [0.015, 0.033] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | 0.025 ± 0.006 [0.018, 0.030] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | 0.099 ± 0.033 [0.080, 0.137] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | 0.013 ± 0.033 [-0.024, 0.037] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | 0.062 ± 0.016 [0.046, 0.078] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | 0.096 ± 0.009 [0.086, 0.102] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | 0.086 ± 0.003 [0.084, 0.089] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.037 ± 0.020 [0.020, 0.059] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.003 ± 0.030 [-0.037, 0.021] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_by_depth_interaction | zz | 0.073 ± 0.035 [0.046, 0.113] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | 0.043 ± 0.007 [0.036, 0.048] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | z | 0.098 ± 0.018 [0.083, 0.119] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | zz | 0.050 ± 0.015 [0.032, 0.060] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | 0.001 ± 0.012 [-0.010, 0.014] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | 0.054 ± 0.007 [0.045, 0.059] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | 0.029 ± 0.033 [-0.008, 0.053] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.026 ± 0.031 [0.008, 0.062] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | 0.027 ± 0.006 [0.020, 0.031] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | 0.006 ± 0.027 [-0.025, 0.023] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | 0.014 ± 0.011 [0.005, 0.026] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | depth_main_6_minus_2 | z | 0.040 ± 0.007 [0.033, 0.045] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | depth_main_6_minus_2 | zz | 0.018 ± 0.016 [0.007, 0.036] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | 0.037 ± 0.005 [0.031, 0.042] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | 0.012 ± 0.008 [0.004, 0.021] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | -0.025 ± 0.003 [-0.027, -0.021] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | 0.019 ± 0.014 [0.003, 0.028] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | 0.099 ± 0.018 [0.081, 0.117] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | -0.021 ± 0.033 [-0.053, 0.013] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | 0.044 ± 0.028 [0.021, 0.075] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | 0.072 ± 0.019 [0.053, 0.092] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | -0.045 ± 0.021 [-0.057, -0.021] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.025 ± 0.042 [-0.006, 0.072] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.027 ± 0.002 [-0.028, -0.025] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_by_depth_interaction | zz | -0.024 ± 0.051 [-0.068, 0.032] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | 0.031 ± 0.007 [0.024, 0.039] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | z | 0.085 ± 0.019 [0.067, 0.104] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | zz | -0.033 ± 0.010 [-0.040, -0.022] | 3 |
+| loss | exact | 0 | 0 | depth_6_minus_2_at_repetition1 | eff_su2 | 0.007 ± 0.008 [0.000, 0.016] | 3 |
+| loss | exact | 0 | 0 | depth_6_minus_2_at_repetition1 | z | 0.057 ± 0.002 [0.055, 0.060] | 3 |
+| loss | exact | 0 | 0 | depth_6_minus_2_at_repetition1 | zz | 0.042 ± 0.016 [0.031, 0.060] | 3 |
+| loss | exact | 0 | 0 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.032 ± 0.023 [0.005, 0.046] | 3 |
+| loss | exact | 0 | 0 | depth_6_minus_2_at_repetition5 | z | 0.039 ± 0.021 [0.016, 0.058] | 3 |
+| loss | exact | 0 | 0 | depth_6_minus_2_at_repetition5 | zz | 0.078 ± 0.011 [0.068, 0.090] | 3 |
+| loss | exact | 0 | 0 | depth_main_6_minus_2 | eff_su2 | 0.019 ± 0.014 [0.003, 0.031] | 3 |
+| loss | exact | 0 | 0 | depth_main_6_minus_2 | z | 0.048 ± 0.010 [0.038, 0.058] | 3 |
+| loss | exact | 0 | 0 | depth_main_6_minus_2 | zz | 0.060 ± 0.006 [0.053, 0.064] | 3 |
+| loss | exact | 0 | 0 | feature_z_minus_eff_su2 | paired_feature_maps | 0.057 ± 0.014 [0.045, 0.072] | 3 |
+| loss | exact | 0 | 0 | feature_zz_minus_eff_su2 | paired_feature_maps | 0.052 ± 0.013 [0.041, 0.066] | 3 |
+| loss | exact | 0 | 0 | feature_zz_minus_z | paired_feature_maps | -0.006 ± 0.002 [-0.008, -0.003] | 3 |
+| loss | exact | 0 | 0 | repetition_5_minus_1_at_depth2 | eff_su2 | 0.041 ± 0.010 [0.029, 0.048] | 3 |
+| loss | exact | 0 | 0 | repetition_5_minus_1_at_depth2 | z | 0.104 ± 0.017 [0.090, 0.123] | 3 |
+| loss | exact | 0 | 0 | repetition_5_minus_1_at_depth2 | zz | 0.039 ± 0.033 [0.010, 0.076] | 3 |
+| loss | exact | 0 | 0 | repetition_5_minus_1_at_depth6 | eff_su2 | 0.066 ± 0.014 [0.051, 0.078] | 3 |
+| loss | exact | 0 | 0 | repetition_5_minus_1_at_depth6 | z | 0.086 ± 0.012 [0.078, 0.100] | 3 |
+| loss | exact | 0 | 0 | repetition_5_minus_1_at_depth6 | zz | 0.075 ± 0.017 [0.055, 0.086] | 3 |
+| loss | exact | 0 | 0 | repetition_by_depth_interaction | eff_su2 | 0.025 ± 0.018 [0.005, 0.041] | 3 |
+| loss | exact | 0 | 0 | repetition_by_depth_interaction | z | -0.018 ± 0.023 [-0.044, 0.001] | 3 |
+| loss | exact | 0 | 0 | repetition_by_depth_interaction | zz | 0.035 ± 0.025 [0.007, 0.054] | 3 |
+| loss | exact | 0 | 0 | repetition_main_5_minus_1 | eff_su2 | 0.054 ± 0.008 [0.048, 0.063] | 3 |
+| loss | exact | 0 | 0 | repetition_main_5_minus_1 | z | 0.095 ± 0.010 [0.084, 0.102] | 3 |
+| loss | exact | 0 | 0 | repetition_main_5_minus_1 | zz | 0.057 ± 0.024 [0.033, 0.080] | 3 |
+| loss | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | 0.004 ± 0.006 [-0.000, 0.011] | 3 |
+| loss | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | 0.054 ± 0.004 [0.050, 0.058] | 3 |
+| loss | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | 0.045 ± 0.019 [0.030, 0.066] | 3 |
+| loss | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.033 ± 0.021 [0.009, 0.047] | 3 |
+| loss | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | 0.034 ± 0.019 [0.015, 0.054] | 3 |
+| loss | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | 0.073 ± 0.012 [0.062, 0.085] | 3 |
+| loss | ideal_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | 0.018 ± 0.012 [0.004, 0.027] | 3 |
+| loss | ideal_shot | 1 | 512 | depth_main_6_minus_2 | z | 0.044 ± 0.009 [0.036, 0.054] | 3 |
+| loss | ideal_shot | 1 | 512 | depth_main_6_minus_2 | zz | 0.059 ± 0.007 [0.051, 0.064] | 3 |
+| loss | ideal_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | 0.056 ± 0.012 [0.045, 0.069] | 3 |
+| loss | ideal_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | 0.049 ± 0.011 [0.040, 0.061] | 3 |
+| loss | ideal_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | -0.007 ± 0.002 [-0.010, -0.005] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | 0.033 ± 0.008 [0.024, 0.039] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | 0.103 ± 0.015 [0.093, 0.120] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | 0.041 ± 0.037 [0.009, 0.081] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | 0.061 ± 0.016 [0.043, 0.070] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | 0.083 ± 0.010 [0.077, 0.094] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | 0.070 ± 0.017 [0.050, 0.082] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.029 ± 0.019 [0.009, 0.046] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.020 ± 0.021 [-0.043, -0.001] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_by_depth_interaction | zz | 0.029 ± 0.028 [-0.004, 0.048] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | 0.047 ± 0.008 [0.039, 0.055] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | z | 0.093 ± 0.007 [0.085, 0.099] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | zz | 0.056 ± 0.025 [0.029, 0.079] | 3 |
+| loss | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | 0.008 ± 0.007 [0.004, 0.017] | 3 |
+| loss | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | 0.047 ± 0.005 [0.042, 0.050] | 3 |
+| loss | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | 0.038 ± 0.022 [0.023, 0.064] | 3 |
+| loss | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.024 ± 0.022 [0.000, 0.042] | 3 |
+| loss | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | 0.019 ± 0.013 [0.007, 0.033] | 3 |
+| loss | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | 0.019 ± 0.007 [0.012, 0.027] | 3 |
+| loss | noisy_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | 0.016 ± 0.012 [0.002, 0.024] | 3 |
+| loss | noisy_shot | 1 | 512 | depth_main_6_minus_2 | z | 0.033 ± 0.008 [0.025, 0.041] | 3 |
+| loss | noisy_shot | 1 | 512 | depth_main_6_minus_2 | zz | 0.029 ± 0.011 [0.020, 0.042] | 3 |
+| loss | noisy_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | 0.053 ± 0.012 [0.041, 0.065] | 3 |
+| loss | noisy_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | 0.009 ± 0.001 [0.008, 0.010] | 3 |
+| loss | noisy_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | -0.045 ± 0.012 [-0.056, -0.032] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | 0.033 ± 0.011 [0.022, 0.043] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | 0.104 ± 0.016 [0.094, 0.123] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | -0.005 ± 0.024 [-0.028, 0.021] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | 0.049 ± 0.015 [0.032, 0.060] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | 0.076 ± 0.014 [0.061, 0.088] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | -0.024 ± 0.001 [-0.025, -0.023] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.016 ± 0.021 [-0.004, 0.038] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.028 ± 0.010 [-0.035, -0.016] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_by_depth_interaction | zz | -0.019 ± 0.024 [-0.044, 0.003] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | 0.041 ± 0.008 [0.034, 0.050] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | z | 0.090 ± 0.014 [0.077, 0.105] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | zz | -0.014 ± 0.013 [-0.026, -0.001] | 3 |
+| margin | exact | 0 | 0 | depth_6_minus_2_at_repetition1 | eff_su2 | 0.006 ± 0.014 [-0.009, 0.018] | 3 |
+| margin | exact | 0 | 0 | depth_6_minus_2_at_repetition1 | z | 0.058 ± 0.016 [0.040, 0.069] | 3 |
+| margin | exact | 0 | 0 | depth_6_minus_2_at_repetition1 | zz | 0.040 ± 0.010 [0.029, 0.047] | 3 |
+| margin | exact | 0 | 0 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.030 ± 0.023 [0.004, 0.047] | 3 |
+| margin | exact | 0 | 0 | depth_6_minus_2_at_repetition5 | z | 0.006 ± 0.016 [-0.009, 0.024] | 3 |
+| margin | exact | 0 | 0 | depth_6_minus_2_at_repetition5 | zz | 0.014 ± 0.042 [-0.023, 0.060] | 3 |
+| margin | exact | 0 | 0 | depth_main_6_minus_2 | eff_su2 | 0.018 ± 0.009 [0.011, 0.028] | 3 |
+| margin | exact | 0 | 0 | depth_main_6_minus_2 | z | 0.032 ± 0.013 [0.022, 0.046] | 3 |
+| margin | exact | 0 | 0 | depth_main_6_minus_2 | zz | 0.027 ± 0.017 [0.011, 0.045] | 3 |
+| margin | exact | 0 | 0 | feature_z_minus_eff_su2 | paired_feature_maps | -0.008 ± 0.010 [-0.014, 0.004] | 3 |
+| margin | exact | 0 | 0 | feature_zz_minus_eff_su2 | paired_feature_maps | -0.005 ± 0.021 [-0.018, 0.019] | 3 |
+| margin | exact | 0 | 0 | feature_zz_minus_z | paired_feature_maps | 0.003 ± 0.011 [-0.003, 0.015] | 3 |
+| margin | exact | 0 | 0 | repetition_5_minus_1_at_depth2 | eff_su2 | 0.026 ± 0.021 [0.008, 0.049] | 3 |
+| margin | exact | 0 | 0 | repetition_5_minus_1_at_depth2 | z | 0.025 ± 0.015 [0.013, 0.042] | 3 |
+| margin | exact | 0 | 0 | repetition_5_minus_1_at_depth2 | zz | 0.008 ± 0.040 [-0.025, 0.053] | 3 |
+| margin | exact | 0 | 0 | repetition_5_minus_1_at_depth6 | eff_su2 | 0.050 ± 0.013 [0.035, 0.060] | 3 |
+| margin | exact | 0 | 0 | repetition_5_minus_1_at_depth6 | z | -0.026 ± 0.033 [-0.060, 0.006] | 3 |
+| margin | exact | 0 | 0 | repetition_5_minus_1_at_depth6 | zz | -0.018 ± 0.026 [-0.047, 0.006] | 3 |
+| margin | exact | 0 | 0 | repetition_by_depth_interaction | eff_su2 | 0.023 ± 0.033 [-0.014, 0.046] | 3 |
+| margin | exact | 0 | 0 | repetition_by_depth_interaction | z | -0.052 ± 0.020 [-0.074, -0.036] | 3 |
+| margin | exact | 0 | 0 | repetition_by_depth_interaction | zz | -0.027 ± 0.051 [-0.067, 0.031] | 3 |
+| margin | exact | 0 | 0 | repetition_main_5_minus_1 | eff_su2 | 0.038 ± 0.006 [0.031, 0.042] | 3 |
+| margin | exact | 0 | 0 | repetition_main_5_minus_1 | z | -0.000 ± 0.024 [-0.024, 0.024] | 3 |
+| margin | exact | 0 | 0 | repetition_main_5_minus_1 | zz | -0.005 ± 0.023 [-0.025, 0.019] | 3 |
+| margin | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | 0.005 ± 0.006 [-0.003, 0.009] | 3 |
+| margin | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | 0.053 ± 0.012 [0.040, 0.062] | 3 |
+| margin | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | 0.037 ± 0.013 [0.021, 0.045] | 3 |
+| margin | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.035 ± 0.023 [0.008, 0.052] | 3 |
+| margin | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | 0.007 ± 0.015 [-0.006, 0.023] | 3 |
+| margin | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | 0.004 ± 0.043 [-0.038, 0.048] | 3 |
+| margin | ideal_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | 0.020 ± 0.011 [0.008, 0.030] | 3 |
+| margin | ideal_shot | 1 | 512 | depth_main_6_minus_2 | z | 0.030 ± 0.011 [0.022, 0.043] | 3 |
+| margin | ideal_shot | 1 | 512 | depth_main_6_minus_2 | zz | 0.020 ± 0.017 [0.002, 0.035] | 3 |
+| margin | ideal_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | -0.008 ± 0.009 [-0.014, 0.002] | 3 |
+| margin | ideal_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | -0.007 ± 0.019 [-0.020, 0.015] | 3 |
+| margin | ideal_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | 0.002 ± 0.010 [-0.006, 0.013] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | 0.010 ± 0.014 [-0.002, 0.025] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | 0.020 ± 0.015 [0.009, 0.037] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | 0.009 ± 0.048 [-0.030, 0.063] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | 0.040 ± 0.012 [0.026, 0.049] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | -0.025 ± 0.028 [-0.053, 0.003] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | -0.024 ± 0.024 [-0.050, -0.003] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.030 ± 0.025 [0.001, 0.047] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.045 ± 0.015 [-0.062, -0.034] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_by_depth_interaction | zz | -0.033 ± 0.055 [-0.082, 0.027] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | 0.025 ± 0.003 [0.022, 0.027] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | z | -0.003 ± 0.021 [-0.022, 0.020] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | zz | -0.008 ± 0.026 [-0.028, 0.022] | 3 |
+| margin | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | 0.003 ± 0.003 [-0.000, 0.006] | 3 |
+| margin | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | 0.047 ± 0.006 [0.039, 0.051] | 3 |
+| margin | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | 0.026 ± 0.011 [0.014, 0.036] | 3 |
+| margin | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.029 ± 0.023 [0.007, 0.052] | 3 |
+| margin | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | -0.007 ± 0.024 [-0.022, 0.020] | 3 |
+| margin | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | 0.000 ± 0.008 [-0.008, 0.007] | 3 |
+| margin | noisy_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | 0.016 ± 0.010 [0.006, 0.026] | 3 |
+| margin | noisy_shot | 1 | 512 | depth_main_6_minus_2 | z | 0.020 ± 0.013 [0.010, 0.035] | 3 |
+| margin | noisy_shot | 1 | 512 | depth_main_6_minus_2 | zz | 0.013 ± 0.009 [0.003, 0.019] | 3 |
+| margin | noisy_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | -0.017 ± 0.010 [-0.024, -0.006] | 3 |
+| margin | noisy_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | -0.001 ± 0.005 [-0.006, 0.003] | 3 |
+| margin | noisy_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | 0.016 ± 0.014 [-0.000, 0.026] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | 0.008 ± 0.012 [-0.002, 0.021] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | 0.016 ± 0.015 [0.005, 0.034] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | 0.022 ± 0.011 [0.010, 0.033] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | 0.034 ± 0.015 [0.021, 0.051] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | -0.038 ± 0.026 [-0.068, -0.020] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | -0.004 ± 0.017 [-0.023, 0.011] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.026 ± 0.026 [0.000, 0.052] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.054 ± 0.022 [-0.073, -0.029] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_by_depth_interaction | zz | -0.026 ± 0.006 [-0.033, -0.022] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | 0.021 ± 0.004 [0.017, 0.024] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | z | -0.011 ± 0.018 [-0.031, 0.004] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | zz | 0.009 ± 0.014 [-0.006, 0.022] | 3 |
+
+## N1 noise moderation of structural effects
+
+| Attack | Mode | Queries | Shots/query | Contrast | Feature map | Noise change in AUC effect ± SD [95% CI] | Model-seed blocks |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| confidence | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | -0.004 ± 0.003 [-0.006, 0.000] | 3 |
+| confidence | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | -0.006 ± 0.004 [-0.010, -0.002] | 3 |
+| confidence | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | -0.002 ± 0.002 [-0.004, -0.000] | 3 |
+| confidence | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.002 ± 0.002 [0.000, 0.003] | 3 |
+| confidence | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | -0.001 ± 0.002 [-0.002, 0.001] | 3 |
+| confidence | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | -0.008 ± 0.007 [-0.013, 0.000] | 3 |
+| confidence | ideal_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | -0.001 ± 0.002 [-0.002, 0.002] | 3 |
+| confidence | ideal_shot | 1 | 512 | depth_main_6_minus_2 | z | -0.003 ± 0.002 [-0.006, -0.002] | 3 |
+| confidence | ideal_shot | 1 | 512 | depth_main_6_minus_2 | zz | -0.005 ± 0.004 [-0.008, -0.000] | 3 |
+| confidence | ideal_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | 0.000 ± 0.002 [-0.001, 0.003] | 3 |
+| confidence | ideal_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | -0.002 ± 0.004 [-0.004, 0.003] | 3 |
+| confidence | ideal_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | -0.002 ± 0.001 [-0.003, -0.000] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | -0.015 ± 0.007 [-0.021, -0.007] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | -0.005 ± 0.002 [-0.007, -0.002] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | 0.002 ± 0.006 [-0.004, 0.008] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | -0.009 ± 0.005 [-0.015, -0.005] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | 0.000 ± 0.004 [-0.003, 0.005] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | -0.005 ± 0.002 [-0.007, -0.003] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.006 ± 0.003 [0.003, 0.009] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_by_depth_interaction | z | 0.005 ± 0.003 [0.001, 0.008] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_by_depth_interaction | zz | -0.007 ± 0.007 [-0.013, 0.000] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | -0.012 ± 0.006 [-0.018, -0.006] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | z | -0.002 ± 0.003 [-0.004, 0.002] | 3 |
+| confidence | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | zz | -0.002 ± 0.003 [-0.004, 0.002] | 3 |
+| confidence | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | -0.006 ± 0.009 [-0.012, 0.004] | 3 |
+| confidence | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | -0.012 ± 0.008 [-0.018, -0.003] | 3 |
+| confidence | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | -0.012 ± 0.001 [-0.012, -0.011] | 3 |
+| confidence | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | -0.002 ± 0.010 [-0.012, 0.008] | 3 |
+| confidence | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | -0.013 ± 0.015 [-0.025, 0.003] | 3 |
+| confidence | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | -0.013 ± 0.054 [-0.073, 0.033] | 3 |
+| confidence | noisy_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | -0.004 ± 0.002 [-0.006, -0.002] | 3 |
+| confidence | noisy_shot | 1 | 512 | depth_main_6_minus_2 | z | -0.013 ± 0.004 [-0.016, -0.008] | 3 |
+| confidence | noisy_shot | 1 | 512 | depth_main_6_minus_2 | zz | -0.012 ± 0.028 [-0.043, 0.011] | 3 |
+| confidence | noisy_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | -0.005 ± 0.002 [-0.007, -0.003] | 3 |
+| confidence | noisy_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | 0.006 ± 0.027 [-0.025, 0.025] | 3 |
+| confidence | noisy_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | 0.011 ± 0.025 [-0.018, 0.028] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | -0.019 ± 0.012 [-0.026, -0.005] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | -0.004 ± 0.001 [-0.004, -0.003] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | 0.021 ± 0.052 [-0.029, 0.075] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | -0.015 ± 0.008 [-0.021, -0.006] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | -0.005 ± 0.021 [-0.025, 0.018] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | 0.020 ± 0.009 [0.014, 0.030] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.004 ± 0.019 [-0.016, 0.020] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.001 ± 0.022 [-0.021, 0.022] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_by_depth_interaction | zz | -0.002 ± 0.053 [-0.061, 0.043] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | -0.017 ± 0.004 [-0.020, -0.013] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | z | -0.004 ± 0.011 [-0.014, 0.007] | 3 |
+| confidence | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | zz | 0.020 ± 0.026 [-0.007, 0.044] | 3 |
+| correctness | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | -0.008 ± 0.012 [-0.020, 0.005] | 3 |
+| correctness | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | -0.003 ± 0.010 [-0.010, 0.009] | 3 |
+| correctness | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | 0.003 ± 0.008 [-0.006, 0.010] | 3 |
+| correctness | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | -0.000 ± 0.008 [-0.008, 0.007] | 3 |
+| correctness | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | -0.008 ± 0.005 [-0.013, -0.003] | 3 |
+| correctness | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | -0.002 ± 0.011 [-0.014, 0.008] | 3 |
+| correctness | ideal_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | -0.004 ± 0.005 [-0.010, 0.000] | 3 |
+| correctness | ideal_shot | 1 | 512 | depth_main_6_minus_2 | z | -0.005 ± 0.006 [-0.012, 0.000] | 3 |
+| correctness | ideal_shot | 1 | 512 | depth_main_6_minus_2 | zz | 0.001 ± 0.005 [-0.005, 0.006] | 3 |
+| correctness | ideal_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | -0.003 ± 0.002 [-0.005, -0.000] | 3 |
+| correctness | ideal_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | -0.006 ± 0.000 [-0.006, -0.005] | 3 |
+| correctness | ideal_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | -0.003 ± 0.002 [-0.005, -0.001] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | -0.017 ± 0.022 [-0.040, 0.004] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | -0.002 ± 0.002 [-0.004, -0.001] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | -0.008 ± 0.016 [-0.026, 0.003] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | -0.009 ± 0.011 [-0.020, 0.002] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | -0.007 ± 0.012 [-0.021, 0.002] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | -0.013 ± 0.003 [-0.016, -0.011] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.008 ± 0.018 [-0.013, 0.020] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.005 ± 0.010 [-0.017, 0.003] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_by_depth_interaction | zz | -0.005 ± 0.017 [-0.019, 0.014] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | -0.013 ± 0.015 [-0.030, -0.002] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | z | -0.005 ± 0.007 [-0.013, 0.001] | 3 |
+| correctness | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | zz | -0.011 ± 0.007 [-0.019, -0.006] | 3 |
+| correctness | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | -0.001 ± 0.003 [-0.004, 0.001] | 3 |
+| correctness | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | -0.002 ± 0.016 [-0.014, 0.016] | 3 |
+| correctness | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | -0.011 ± 0.005 [-0.017, -0.008] | 3 |
+| correctness | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | -0.018 ± 0.007 [-0.025, -0.013] | 3 |
+| correctness | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | -0.033 ± 0.017 [-0.051, -0.016] | 3 |
+| correctness | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | -0.065 ± 0.021 [-0.086, -0.045] | 3 |
+| correctness | noisy_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | -0.010 ± 0.002 [-0.012, -0.008] | 3 |
+| correctness | noisy_shot | 1 | 512 | depth_main_6_minus_2 | z | -0.018 ± 0.016 [-0.033, -0.000] | 3 |
+| correctness | noisy_shot | 1 | 512 | depth_main_6_minus_2 | zz | -0.038 ± 0.009 [-0.048, -0.031] | 3 |
+| correctness | noisy_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | -0.007 ± 0.004 [-0.011, -0.003] | 3 |
+| correctness | noisy_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | -0.052 ± 0.003 [-0.056, -0.050] | 3 |
+| correctness | noisy_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | -0.045 ± 0.001 [-0.047, -0.045] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | -0.018 ± 0.016 [-0.035, -0.004] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | -0.005 ± 0.010 [-0.015, 0.006] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | -0.060 ± 0.018 [-0.078, -0.043] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | -0.034 ± 0.014 [-0.043, -0.019] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | -0.035 ± 0.004 [-0.038, -0.031] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | -0.114 ± 0.006 [-0.120, -0.107] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | -0.016 ± 0.009 [-0.027, -0.008] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.030 ± 0.007 [-0.036, -0.023] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_by_depth_interaction | zz | -0.054 ± 0.024 [-0.076, -0.029] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | -0.026 ± 0.014 [-0.039, -0.011] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | z | -0.020 ± 0.007 [-0.027, -0.012] | 3 |
+| correctness | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | zz | -0.087 ± 0.006 [-0.093, -0.082] | 3 |
+| entropy | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | -0.003 ± 0.006 [-0.009, 0.003] | 3 |
+| entropy | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | -0.004 ± 0.003 [-0.008, -0.002] | 3 |
+| entropy | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | 0.000 ± 0.002 [-0.002, 0.002] | 3 |
+| entropy | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.001 ± 0.003 [-0.003, 0.004] | 3 |
+| entropy | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | -0.003 ± 0.003 [-0.006, 0.001] | 3 |
+| entropy | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | -0.007 ± 0.005 [-0.012, -0.002] | 3 |
+| entropy | ideal_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | -0.001 ± 0.002 [-0.004, 0.001] | 3 |
+| entropy | ideal_shot | 1 | 512 | depth_main_6_minus_2 | z | -0.003 ± 0.003 [-0.007, -0.001] | 3 |
+| entropy | ideal_shot | 1 | 512 | depth_main_6_minus_2 | zz | -0.003 ± 0.003 [-0.006, -0.000] | 3 |
+| entropy | ideal_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | 0.001 ± 0.004 [-0.002, 0.006] | 3 |
+| entropy | ideal_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | -0.001 ± 0.004 [-0.003, 0.004] | 3 |
+| entropy | ideal_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | -0.002 ± 0.001 [-0.002, -0.001] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | -0.009 ± 0.009 [-0.018, -0.001] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | -0.002 ± 0.003 [-0.005, 0.001] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | 0.002 ± 0.004 [-0.001, 0.006] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | -0.005 ± 0.009 [-0.013, 0.005] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | -0.000 ± 0.003 [-0.002, 0.003] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | -0.006 ± 0.001 [-0.007, -0.004] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.004 ± 0.008 [-0.005, 0.010] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_by_depth_interaction | z | 0.002 ± 0.002 [-0.001, 0.004] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_by_depth_interaction | zz | -0.007 ± 0.005 [-0.013, -0.004] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | -0.007 ± 0.008 [-0.013, 0.002] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | z | -0.001 ± 0.003 [-0.003, 0.002] | 3 |
+| entropy | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | zz | -0.002 ± 0.001 [-0.003, -0.001] | 3 |
+| entropy | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | -0.005 ± 0.007 [-0.012, 0.002] | 3 |
+| entropy | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | -0.014 ± 0.007 [-0.020, -0.006] | 3 |
+| entropy | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | -0.008 ± 0.007 [-0.016, -0.004] | 3 |
+| entropy | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | -0.004 ± 0.004 [-0.007, 0.001] | 3 |
+| entropy | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | -0.010 ± 0.013 [-0.021, 0.004] | 3 |
+| entropy | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | -0.013 ± 0.045 [-0.063, 0.023] | 3 |
+| entropy | noisy_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | -0.004 ± 0.001 [-0.005, -0.003] | 3 |
+| entropy | noisy_shot | 1 | 512 | depth_main_6_minus_2 | z | -0.012 ± 0.005 [-0.018, -0.008] | 3 |
+| entropy | noisy_shot | 1 | 512 | depth_main_6_minus_2 | zz | -0.010 ± 0.022 [-0.033, 0.009] | 3 |
+| entropy | noisy_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | 0.001 ± 0.005 [-0.005, 0.004] | 3 |
+| entropy | noisy_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | 0.011 ± 0.027 [-0.019, 0.029] | 3 |
+| entropy | noisy_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | 0.010 ± 0.022 [-0.015, 0.026] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | -0.013 ± 0.009 [-0.023, -0.005] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | 0.003 ± 0.004 [-0.001, 0.007] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | 0.035 ± 0.047 [-0.010, 0.084] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | -0.012 ± 0.002 [-0.014, -0.010] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | 0.006 ± 0.022 [-0.010, 0.031] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | 0.030 ± 0.016 [0.016, 0.048] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.001 ± 0.011 [-0.009, 0.013] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_by_depth_interaction | z | 0.003 ± 0.018 [-0.008, 0.025] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_by_depth_interaction | zz | -0.005 ± 0.047 [-0.058, 0.026] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | -0.013 ± 0.004 [-0.016, -0.010] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | z | 0.004 ± 0.013 [-0.005, 0.019] | 3 |
+| entropy | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | zz | 0.032 ± 0.027 [0.003, 0.055] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | 0.018 ± 0.018 [-0.002, 0.032] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | -0.012 ± 0.017 [-0.030, 0.004] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | -0.019 ± 0.028 [-0.046, 0.010] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.009 ± 0.019 [-0.008, 0.029] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | -0.015 ± 0.027 [-0.034, 0.016] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | 0.005 ± 0.044 [-0.032, 0.054] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | 0.014 ± 0.018 [-0.005, 0.030] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | depth_main_6_minus_2 | z | -0.014 ± 0.016 [-0.029, 0.003] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | depth_main_6_minus_2 | zz | -0.007 ± 0.010 [-0.014, 0.004] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | 0.015 ± 0.010 [0.004, 0.022] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | 0.005 ± 0.026 [-0.024, 0.026] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | -0.011 ± 0.035 [-0.047, 0.022] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | -0.006 ± 0.027 [-0.032, 0.022] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | 0.003 ± 0.035 [-0.035, 0.034] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | 0.001 ± 0.048 [-0.042, 0.054] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | -0.015 ± 0.021 [-0.038, 0.003] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | -0.000 ± 0.012 [-0.010, 0.013] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | 0.025 ± 0.029 [0.006, 0.058] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | -0.009 ± 0.009 [-0.019, -0.002] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.003 ± 0.032 [-0.038, 0.025] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_by_depth_interaction | zz | 0.024 ± 0.071 [-0.042, 0.100] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | -0.011 ± 0.024 [-0.035, 0.012] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | z | 0.001 ± 0.021 [-0.023, 0.015] | 3 |
+| learned_mlp_pv_plus_stats | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | zz | 0.013 ± 0.018 [-0.002, 0.033] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | 0.020 ± 0.026 [0.003, 0.050] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | -0.011 ± 0.010 [-0.021, -0.001] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | -0.041 ± 0.013 [-0.055, -0.030] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | -0.001 ± 0.027 [-0.029, 0.024] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | -0.038 ± 0.025 [-0.058, -0.010] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | -0.113 ± 0.075 [-0.186, -0.036] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | 0.009 ± 0.026 [-0.013, 0.037] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | depth_main_6_minus_2 | z | -0.025 ± 0.017 [-0.034, -0.005] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | depth_main_6_minus_2 | zz | -0.077 ± 0.031 [-0.108, -0.046] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | 0.008 ± 0.020 [-0.014, 0.025] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | -0.051 ± 0.017 [-0.066, -0.033] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | -0.059 ± 0.037 [-0.091, -0.018] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | -0.012 ± 0.018 [-0.030, 0.006] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | 0.003 ± 0.017 [-0.016, 0.014] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | -0.033 ± 0.054 [-0.070, 0.029] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | -0.033 ± 0.031 [-0.062, 0.000] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | -0.025 ± 0.012 [-0.036, -0.013] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | -0.106 ± 0.047 [-0.138, -0.052] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | -0.021 ± 0.014 [-0.032, -0.006] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.027 ± 0.019 [-0.047, -0.009] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_by_depth_interaction | zz | -0.072 ± 0.088 [-0.157, 0.018] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | -0.023 ± 0.025 [-0.046, 0.003] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | z | -0.011 ± 0.011 [-0.021, 0.000] | 3 |
+| learned_mlp_pv_plus_stats | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | zz | -0.069 ± 0.026 [-0.098, -0.049] | 3 |
+| loss | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | -0.003 ± 0.002 [-0.004, -0.001] | 3 |
+| loss | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | -0.003 ± 0.002 [-0.005, -0.002] | 3 |
+| loss | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | 0.002 ± 0.003 [-0.001, 0.006] | 3 |
+| loss | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.001 ± 0.004 [-0.003, 0.003] | 3 |
+| loss | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | -0.005 ± 0.003 [-0.008, -0.002] | 3 |
+| loss | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | -0.004 ± 0.001 [-0.006, -0.003] | 3 |
+| loss | ideal_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | -0.001 ± 0.003 [-0.004, 0.001] | 3 |
+| loss | ideal_shot | 1 | 512 | depth_main_6_minus_2 | z | -0.004 ± 0.002 [-0.006, -0.002] | 3 |
+| loss | ideal_shot | 1 | 512 | depth_main_6_minus_2 | zz | -0.001 ± 0.001 [-0.002, 0.000] | 3 |
+| loss | ideal_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | -0.001 ± 0.002 [-0.003, 0.001] | 3 |
+| loss | ideal_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | -0.003 ± 0.002 [-0.005, -0.001] | 3 |
+| loss | ideal_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | -0.002 ± 0.000 [-0.002, -0.001] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | -0.008 ± 0.003 [-0.011, -0.005] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | -0.002 ± 0.003 [-0.004, 0.002] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | 0.002 ± 0.003 [-0.002, 0.005] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | -0.005 ± 0.005 [-0.008, 0.000] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | -0.003 ± 0.002 [-0.006, -0.001] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | -0.005 ± 0.001 [-0.006, -0.004] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.004 ± 0.003 [0.001, 0.006] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.002 ± 0.002 [-0.004, 0.000] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_by_depth_interaction | zz | -0.007 ± 0.004 [-0.011, -0.003] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | -0.007 ± 0.004 [-0.009, -0.002] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | z | -0.002 ± 0.003 [-0.005, 0.001] | 3 |
+| loss | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | zz | -0.001 ± 0.001 [-0.003, -0.001] | 3 |
+| loss | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | 0.002 ± 0.001 [0.001, 0.004] | 3 |
+| loss | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | -0.010 ± 0.007 [-0.018, -0.005] | 3 |
+| loss | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | -0.004 ± 0.006 [-0.008, 0.003] | 3 |
+| loss | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | -0.007 ± 0.007 [-0.015, -0.002] | 3 |
+| loss | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | -0.020 ± 0.009 [-0.025, -0.009] | 3 |
+| loss | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | -0.058 ± 0.017 [-0.078, -0.048] | 3 |
+| loss | noisy_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | -0.003 ± 0.003 [-0.007, -0.001] | 3 |
+| loss | noisy_shot | 1 | 512 | depth_main_6_minus_2 | z | -0.015 ± 0.001 [-0.016, -0.013] | 3 |
+| loss | noisy_shot | 1 | 512 | depth_main_6_minus_2 | zz | -0.031 ± 0.010 [-0.042, -0.023] | 3 |
+| loss | noisy_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | -0.004 ± 0.003 [-0.007, -0.002] | 3 |
+| loss | noisy_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | -0.043 ± 0.012 [-0.057, -0.033] | 3 |
+| loss | noisy_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | -0.039 ± 0.011 [-0.050, -0.029] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | -0.007 ± 0.003 [-0.010, -0.005] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | 0.000 ± 0.003 [-0.003, 0.003] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | -0.044 ± 0.010 [-0.055, -0.038] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | -0.017 ± 0.006 [-0.021, -0.010] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | -0.009 ± 0.015 [-0.019, 0.008] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | -0.099 ± 0.016 [-0.109, -0.080] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | -0.009 ± 0.007 [-0.016, -0.003] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.009 ± 0.016 [-0.020, 0.009] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_by_depth_interaction | zz | -0.054 ± 0.015 [-0.070, -0.041] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | -0.012 ± 0.003 [-0.015, -0.009] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | z | -0.005 ± 0.008 [-0.011, 0.004] | 3 |
+| loss | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | zz | -0.071 ± 0.011 [-0.081, -0.059] | 3 |
+| margin | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | -0.002 ± 0.008 [-0.011, 0.006] | 3 |
+| margin | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | -0.005 ± 0.004 [-0.009, -0.001] | 3 |
+| margin | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | -0.004 ± 0.004 [-0.008, -0.001] | 3 |
+| margin | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | 0.005 ± 0.001 [0.004, 0.007] | 3 |
+| margin | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | 0.001 ± 0.002 [-0.001, 0.002] | 3 |
+| margin | ideal_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | -0.010 ± 0.007 [-0.016, -0.002] | 3 |
+| margin | ideal_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | 0.002 ± 0.005 [-0.003, 0.006] | 3 |
+| margin | ideal_shot | 1 | 512 | depth_main_6_minus_2 | z | -0.002 ± 0.002 [-0.004, 0.000] | 3 |
+| margin | ideal_shot | 1 | 512 | depth_main_6_minus_2 | zz | -0.007 ± 0.004 [-0.010, -0.002] | 3 |
+| margin | ideal_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | -0.000 ± 0.002 [-0.002, 0.001] | 3 |
+| margin | ideal_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | -0.001 ± 0.004 [-0.004, 0.003] | 3 |
+| margin | ideal_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | -0.001 ± 0.003 [-0.003, 0.002] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | -0.017 ± 0.007 [-0.025, -0.010] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | -0.005 ± 0.002 [-0.007, -0.004] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | 0.001 ± 0.008 [-0.005, 0.010] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | -0.010 ± 0.001 [-0.011, -0.009] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | 0.001 ± 0.005 [-0.003, 0.007] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | -0.006 ± 0.003 [-0.009, -0.003] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.007 ± 0.007 [0.001, 0.015] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_by_depth_interaction | z | 0.006 ± 0.005 [0.002, 0.011] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_by_depth_interaction | zz | -0.006 ± 0.007 [-0.014, 0.000] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | -0.013 ± 0.004 [-0.017, -0.009] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | z | -0.002 ± 0.003 [-0.004, 0.001] | 3 |
+| margin | ideal_shot | 1 | 512 | repetition_main_5_minus_1 | zz | -0.003 ± 0.005 [-0.007, 0.002] | 3 |
+| margin | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | eff_su2 | -0.004 ± 0.013 [-0.012, 0.011] | 3 |
+| margin | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | z | -0.011 ± 0.009 [-0.019, -0.001] | 3 |
+| margin | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition1 | zz | -0.014 ± 0.002 [-0.016, -0.011] | 3 |
+| margin | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | eff_su2 | -0.001 ± 0.008 [-0.010, 0.005] | 3 |
+| margin | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | z | -0.014 ± 0.010 [-0.024, -0.004] | 3 |
+| margin | noisy_shot | 1 | 512 | depth_6_minus_2_at_repetition5 | zz | -0.013 ± 0.050 [-0.068, 0.030] | 3 |
+| margin | noisy_shot | 1 | 512 | depth_main_6_minus_2 | eff_su2 | -0.002 ± 0.003 [-0.005, 0.000] | 3 |
+| margin | noisy_shot | 1 | 512 | depth_main_6_minus_2 | z | -0.012 ± 0.001 [-0.014, -0.011] | 3 |
+| margin | noisy_shot | 1 | 512 | depth_main_6_minus_2 | zz | -0.014 ± 0.025 [-0.042, 0.007] | 3 |
+| margin | noisy_shot | 1 | 512 | feature_z_minus_eff_su2 | paired_feature_maps | -0.009 ± 0.001 [-0.009, -0.008] | 3 |
+| margin | noisy_shot | 1 | 512 | feature_zz_minus_eff_su2 | paired_feature_maps | 0.004 ± 0.025 [-0.025, 0.021] | 3 |
+| margin | noisy_shot | 1 | 512 | feature_zz_minus_z | paired_feature_maps | 0.013 ± 0.025 [-0.016, 0.029] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | eff_su2 | -0.019 ± 0.013 [-0.029, -0.004] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | z | -0.009 ± 0.002 [-0.011, -0.008] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth2 | zz | 0.014 ± 0.045 [-0.031, 0.058] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | eff_su2 | -0.016 ± 0.008 [-0.025, -0.009] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | z | -0.011 ± 0.018 [-0.031, 0.004] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_5_minus_1_at_depth6 | zz | 0.015 ± 0.010 [0.005, 0.024] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_by_depth_interaction | eff_su2 | 0.003 ± 0.020 [-0.021, 0.015] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_by_depth_interaction | z | -0.002 ± 0.019 [-0.023, 0.015] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_by_depth_interaction | zz | 0.001 ± 0.050 [-0.053, 0.046] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | eff_su2 | -0.017 ± 0.003 [-0.021, -0.014] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | z | -0.010 ± 0.009 [-0.020, -0.003] | 3 |
+| margin | noisy_shot | 1 | 512 | repetition_main_5_minus_1 | zz | 0.014 ± 0.020 [-0.008, 0.032] | 3 |
+
+## N2 API-query policy contrasts
+
+| Mode | Aggregation | Attack | Query-policy contrast | AUC difference ± SD [95% CI] | Checkpoints |
+| --- | --- | --- | --- | --- | --- |
+| ideal_shot | mean_api_probabilities | confidence | equal_total_20x128_minus_1x2560 | -0.002 ± 0.005 [-0.006, 0.001] | 6 |
+| ideal_shot | mean_api_probabilities | confidence | equal_total_5x512_minus_1x2560 | -0.002 ± 0.003 [-0.004, -0.000] | 6 |
+| ideal_shot | mean_api_probabilities | confidence | repeat_20x128_minus_1x128 | 0.010 ± 0.006 [0.006, 0.016] | 6 |
+| ideal_shot | mean_api_probabilities | confidence | repeat_5x128_minus_1x128 | 0.009 ± 0.003 [0.007, 0.011] | 6 |
+| ideal_shot | mean_api_probabilities | confidence | single_shot_2560_minus_128 | 0.013 ± 0.008 [0.007, 0.018] | 6 |
+| ideal_shot | mean_api_probabilities | confidence | single_shot_512_minus_128 | 0.009 ± 0.009 [0.002, 0.015] | 6 |
+| ideal_shot | mean_api_probabilities | correctness | equal_total_20x128_minus_1x2560 | -0.001 ± 0.003 [-0.003, 0.002] | 6 |
+| ideal_shot | mean_api_probabilities | correctness | equal_total_5x512_minus_1x2560 | -0.002 ± 0.005 [-0.007, 0.001] | 6 |
+| ideal_shot | mean_api_probabilities | correctness | repeat_20x128_minus_1x128 | 0.019 ± 0.016 [0.007, 0.031] | 6 |
+| ideal_shot | mean_api_probabilities | correctness | repeat_5x128_minus_1x128 | 0.014 ± 0.012 [0.006, 0.022] | 6 |
+| ideal_shot | mean_api_probabilities | correctness | single_shot_2560_minus_128 | 0.020 ± 0.019 [0.005, 0.033] | 6 |
+| ideal_shot | mean_api_probabilities | correctness | single_shot_512_minus_128 | 0.016 ± 0.012 [0.007, 0.025] | 6 |
+| ideal_shot | mean_api_probabilities | entropy | equal_total_20x128_minus_1x2560 | -0.005 ± 0.006 [-0.010, -0.001] | 6 |
+| ideal_shot | mean_api_probabilities | entropy | equal_total_5x512_minus_1x2560 | -0.003 ± 0.002 [-0.004, -0.001] | 6 |
+| ideal_shot | mean_api_probabilities | entropy | repeat_20x128_minus_1x128 | 0.006 ± 0.006 [0.002, 0.011] | 6 |
+| ideal_shot | mean_api_probabilities | entropy | repeat_5x128_minus_1x128 | 0.005 ± 0.004 [0.002, 0.007] | 6 |
+| ideal_shot | mean_api_probabilities | entropy | single_shot_2560_minus_128 | 0.011 ± 0.008 [0.005, 0.016] | 6 |
+| ideal_shot | mean_api_probabilities | entropy | single_shot_512_minus_128 | 0.006 ± 0.010 [-0.001, 0.013] | 6 |
+| ideal_shot | mean_api_probabilities | learned_mlp_pv | equal_total_20x128_minus_1x2560 | 0.002 ± 0.012 [-0.007, 0.010] | 6 |
+| ideal_shot | mean_api_probabilities | learned_mlp_pv | equal_total_5x512_minus_1x2560 | 0.001 ± 0.010 [-0.006, 0.007] | 6 |
+| ideal_shot | mean_api_probabilities | learned_mlp_pv | repeat_20x128_minus_1x128 | 0.011 ± 0.014 [0.000, 0.021] | 6 |
+| ideal_shot | mean_api_probabilities | learned_mlp_pv | repeat_5x128_minus_1x128 | 0.006 ± 0.016 [-0.008, 0.014] | 6 |
+| ideal_shot | mean_api_probabilities | learned_mlp_pv | single_shot_2560_minus_128 | 0.009 ± 0.016 [-0.003, 0.020] | 6 |
+| ideal_shot | mean_api_probabilities | learned_mlp_pv | single_shot_512_minus_128 | 0.003 ± 0.015 [-0.008, 0.013] | 6 |
+| ideal_shot | mean_api_probabilities | learned_mlp_pv_mean_std | equal_total_20x128_minus_1x2560 | 0.010 ± 0.015 [-0.001, 0.021] | 6 |
+| ideal_shot | mean_api_probabilities | learned_mlp_pv_mean_std | equal_total_5x512_minus_1x2560 | 0.011 ± 0.015 [0.001, 0.022] | 6 |
+| ideal_shot | mean_api_probabilities | learned_mlp_pv_mean_std | repeat_20x128_minus_1x128 | 0.010 ± 0.017 [-0.003, 0.022] | 6 |
+| ideal_shot | mean_api_probabilities | learned_mlp_pv_mean_std | repeat_5x128_minus_1x128 | 0.004 ± 0.010 [-0.004, 0.011] | 6 |
+| ideal_shot | mean_api_probabilities | learned_mlp_pv_mean_std | single_shot_2560_minus_128 | -0.000 ± 0.016 [-0.012, 0.012] | 6 |
+| ideal_shot | mean_api_probabilities | learned_mlp_pv_mean_std | single_shot_512_minus_128 | 0.001 ± 0.016 [-0.011, 0.013] | 6 |
+| ideal_shot | mean_api_probabilities | loss | equal_total_20x128_minus_1x2560 | -0.002 ± 0.006 [-0.006, 0.003] | 6 |
+| ideal_shot | mean_api_probabilities | loss | equal_total_5x512_minus_1x2560 | -0.002 ± 0.002 [-0.004, -0.000] | 6 |
+| ideal_shot | mean_api_probabilities | loss | repeat_20x128_minus_1x128 | 0.012 ± 0.007 [0.008, 0.017] | 6 |
+| ideal_shot | mean_api_probabilities | loss | repeat_5x128_minus_1x128 | 0.010 ± 0.006 [0.006, 0.014] | 6 |
+| ideal_shot | mean_api_probabilities | loss | single_shot_2560_minus_128 | 0.014 ± 0.010 [0.006, 0.021] | 6 |
+| ideal_shot | mean_api_probabilities | loss | single_shot_512_minus_128 | 0.010 ± 0.009 [0.002, 0.016] | 6 |
+| ideal_shot | mean_api_probabilities | margin | equal_total_20x128_minus_1x2560 | -0.001 ± 0.006 [-0.005, 0.003] | 6 |
+| ideal_shot | mean_api_probabilities | margin | equal_total_5x512_minus_1x2560 | -0.002 ± 0.003 [-0.004, 0.000] | 6 |
+| ideal_shot | mean_api_probabilities | margin | repeat_20x128_minus_1x128 | 0.013 ± 0.006 [0.009, 0.018] | 6 |
+| ideal_shot | mean_api_probabilities | margin | repeat_5x128_minus_1x128 | 0.012 ± 0.003 [0.009, 0.014] | 6 |
+| ideal_shot | mean_api_probabilities | margin | single_shot_2560_minus_128 | 0.014 ± 0.008 [0.008, 0.019] | 6 |
+| ideal_shot | mean_api_probabilities | margin | single_shot_512_minus_128 | 0.011 ± 0.008 [0.004, 0.016] | 6 |
+| noisy_shot | mean_api_probabilities | confidence | equal_total_20x128_minus_1x2560 | -0.005 ± 0.006 [-0.010, -0.001] | 6 |
+| noisy_shot | mean_api_probabilities | confidence | equal_total_5x512_minus_1x2560 | -0.003 ± 0.003 [-0.005, -0.000] | 6 |
+| noisy_shot | mean_api_probabilities | confidence | repeat_20x128_minus_1x128 | 0.018 ± 0.022 [0.004, 0.034] | 6 |
+| noisy_shot | mean_api_probabilities | confidence | repeat_5x128_minus_1x128 | 0.011 ± 0.017 [-0.002, 0.024] | 6 |
+| noisy_shot | mean_api_probabilities | confidence | single_shot_2560_minus_128 | 0.023 ± 0.027 [0.005, 0.043] | 6 |
+| noisy_shot | mean_api_probabilities | confidence | single_shot_512_minus_128 | 0.016 ± 0.018 [0.005, 0.030] | 6 |
+| noisy_shot | mean_api_probabilities | correctness | equal_total_20x128_minus_1x2560 | -0.004 ± 0.005 [-0.008, -0.000] | 6 |
+| noisy_shot | mean_api_probabilities | correctness | equal_total_5x512_minus_1x2560 | -0.000 ± 0.006 [-0.005, 0.004] | 6 |
+| noisy_shot | mean_api_probabilities | correctness | repeat_20x128_minus_1x128 | 0.015 ± 0.019 [0.001, 0.028] | 6 |
+| noisy_shot | mean_api_probabilities | correctness | repeat_5x128_minus_1x128 | 0.015 ± 0.012 [0.006, 0.023] | 6 |
+| noisy_shot | mean_api_probabilities | correctness | single_shot_2560_minus_128 | 0.018 ± 0.018 [0.005, 0.030] | 6 |
+| noisy_shot | mean_api_probabilities | correctness | single_shot_512_minus_128 | 0.016 ± 0.013 [0.007, 0.025] | 6 |
+| noisy_shot | mean_api_probabilities | entropy | equal_total_20x128_minus_1x2560 | -0.007 ± 0.008 [-0.013, -0.001] | 6 |
+| noisy_shot | mean_api_probabilities | entropy | equal_total_5x512_minus_1x2560 | -0.003 ± 0.004 [-0.006, 0.000] | 6 |
+| noisy_shot | mean_api_probabilities | entropy | repeat_20x128_minus_1x128 | 0.013 ± 0.015 [0.004, 0.026] | 6 |
+| noisy_shot | mean_api_probabilities | entropy | repeat_5x128_minus_1x128 | 0.008 ± 0.011 [-0.000, 0.016] | 6 |
+| noisy_shot | mean_api_probabilities | entropy | single_shot_2560_minus_128 | 0.020 ± 0.021 [0.007, 0.037] | 6 |
+| noisy_shot | mean_api_probabilities | entropy | single_shot_512_minus_128 | 0.014 ± 0.014 [0.005, 0.025] | 6 |
+| noisy_shot | mean_api_probabilities | learned_mlp_pv | equal_total_20x128_minus_1x2560 | 0.007 ± 0.010 [-0.001, 0.015] | 6 |
+| noisy_shot | mean_api_probabilities | learned_mlp_pv | equal_total_5x512_minus_1x2560 | 0.005 ± 0.005 [0.001, 0.009] | 6 |
+| noisy_shot | mean_api_probabilities | learned_mlp_pv | repeat_20x128_minus_1x128 | 0.018 ± 0.019 [0.003, 0.030] | 6 |
+| noisy_shot | mean_api_probabilities | learned_mlp_pv | repeat_5x128_minus_1x128 | 0.007 ± 0.009 [-0.000, 0.013] | 6 |
+| noisy_shot | mean_api_probabilities | learned_mlp_pv | single_shot_2560_minus_128 | 0.011 ± 0.021 [-0.004, 0.026] | 6 |
+| noisy_shot | mean_api_probabilities | learned_mlp_pv | single_shot_512_minus_128 | 0.006 ± 0.015 [-0.006, 0.016] | 6 |
+| noisy_shot | mean_api_probabilities | learned_mlp_pv_mean_std | equal_total_20x128_minus_1x2560 | 0.009 ± 0.012 [0.001, 0.018] | 6 |
+| noisy_shot | mean_api_probabilities | learned_mlp_pv_mean_std | equal_total_5x512_minus_1x2560 | -0.001 ± 0.012 [-0.010, 0.007] | 6 |
+| noisy_shot | mean_api_probabilities | learned_mlp_pv_mean_std | repeat_20x128_minus_1x128 | 0.024 ± 0.023 [0.007, 0.040] | 6 |
+| noisy_shot | mean_api_probabilities | learned_mlp_pv_mean_std | repeat_5x128_minus_1x128 | 0.008 ± 0.015 [-0.003, 0.019] | 6 |
+| noisy_shot | mean_api_probabilities | learned_mlp_pv_mean_std | single_shot_2560_minus_128 | 0.015 ± 0.015 [0.004, 0.026] | 6 |
+| noisy_shot | mean_api_probabilities | learned_mlp_pv_mean_std | single_shot_512_minus_128 | 0.007 ± 0.018 [-0.007, 0.019] | 6 |
+| noisy_shot | mean_api_probabilities | loss | equal_total_20x128_minus_1x2560 | -0.005 ± 0.005 [-0.009, -0.001] | 6 |
+| noisy_shot | mean_api_probabilities | loss | equal_total_5x512_minus_1x2560 | -0.002 ± 0.003 [-0.004, -0.000] | 6 |
+| noisy_shot | mean_api_probabilities | loss | repeat_20x128_minus_1x128 | 0.023 ± 0.010 [0.016, 0.031] | 6 |
+| noisy_shot | mean_api_probabilities | loss | repeat_5x128_minus_1x128 | 0.016 ± 0.008 [0.011, 0.022] | 6 |
+| noisy_shot | mean_api_probabilities | loss | single_shot_2560_minus_128 | 0.028 ± 0.014 [0.019, 0.039] | 6 |
+| noisy_shot | mean_api_probabilities | loss | single_shot_512_minus_128 | 0.020 ± 0.011 [0.012, 0.028] | 6 |
+| noisy_shot | mean_api_probabilities | margin | equal_total_20x128_minus_1x2560 | -0.004 ± 0.005 [-0.007, -0.000] | 6 |
+| noisy_shot | mean_api_probabilities | margin | equal_total_5x512_minus_1x2560 | -0.003 ± 0.002 [-0.004, -0.001] | 6 |
+| noisy_shot | mean_api_probabilities | margin | repeat_20x128_minus_1x128 | 0.022 ± 0.025 [0.003, 0.040] | 6 |
+| noisy_shot | mean_api_probabilities | margin | repeat_5x128_minus_1x128 | 0.014 ± 0.021 [-0.002, 0.029] | 6 |
+| noisy_shot | mean_api_probabilities | margin | single_shot_2560_minus_128 | 0.026 ± 0.028 [0.007, 0.048] | 6 |
+| noisy_shot | mean_api_probabilities | margin | single_shot_512_minus_128 | 0.018 ± 0.019 [0.006, 0.033] | 6 |
+
+## N3 noisy LiRA endpoint contrasts
+
+| Mode | Shots/query | LiRA variant | Endpoint contrast | AUC difference ± SD [95% CI] | Paired model seeds |
+| --- | --- | --- | --- | --- | --- |
+| exact | 0 | global_true_class_log_odds | zz_r5_d6 - eff_su2_r1_d6 | 0.143 ± 0.023 [0.118, 0.164] | 3 |
+| exact | 0 | lira_offline | zz_r5_d6 - eff_su2_r1_d6 | 0.019 ± 0.011 [0.006, 0.027] | 3 |
+| exact | 0 | lira_offline_fixed_variance | zz_r5_d6 - eff_su2_r1_d6 | 0.018 ± 0.017 [0.002, 0.035] | 3 |
+| exact | 0 | lira_online | zz_r5_d6 - eff_su2_r1_d6 | 0.204 ± 0.016 [0.186, 0.216] | 3 |
+| exact | 0 | lira_online_fixed_variance | zz_r5_d6 - eff_su2_r1_d6 | 0.183 ± 0.027 [0.153, 0.203] | 3 |
+| ideal_shot | 512 | global_true_class_log_odds | zz_r5_d6 - eff_su2_r1_d6 | 0.131 ± 0.022 [0.108, 0.152] | 3 |
+| ideal_shot | 512 | lira_offline | zz_r5_d6 - eff_su2_r1_d6 | 0.029 ± 0.012 [0.019, 0.043] | 3 |
+| ideal_shot | 512 | lira_offline_fixed_variance | zz_r5_d6 - eff_su2_r1_d6 | 0.028 ± 0.017 [0.009, 0.039] | 3 |
+| ideal_shot | 512 | lira_online | zz_r5_d6 - eff_su2_r1_d6 | 0.198 ± 0.021 [0.183, 0.222] | 3 |
+| ideal_shot | 512 | lira_online_fixed_variance | zz_r5_d6 - eff_su2_r1_d6 | 0.205 ± 0.022 [0.191, 0.230] | 3 |
+| noisy_shot | 512 | global_true_class_log_odds | zz_r5_d6 - eff_su2_r1_d6 | 0.020 ± 0.007 [0.012, 0.026] | 3 |
+| noisy_shot | 512 | lira_offline | zz_r5_d6 - eff_su2_r1_d6 | -0.006 ± 0.007 [-0.011, 0.002] | 3 |
+| noisy_shot | 512 | lira_offline_fixed_variance | zz_r5_d6 - eff_su2_r1_d6 | -0.010 ± 0.009 [-0.020, -0.002] | 3 |
+| noisy_shot | 512 | lira_online | zz_r5_d6 - eff_su2_r1_d6 | 0.026 ± 0.011 [0.015, 0.035] | 3 |
+| noisy_shot | 512 | lira_online_fixed_variance | zz_r5_d6 - eff_su2_r1_d6 | 0.038 ± 0.002 [0.036, 0.040] | 3 |
+
+## Descriptive mechanistic-pathway associations
+
+| Descriptive pathway link | Spearman ρ [95% CI] | Configurations | Inference scope |
+| --- | --- | --- | --- |
+| accuracy_gap → loss-MIA AUC | 0.972 [0.916, 0.993] | 12 | descriptive configuration-level association; target blocks resampled |
+| loss_gap → loss-MIA AUC | 0.993 [0.951, 1.000] | 12 | descriptive configuration-level association; target blocks resampled |
+| class_similarity_gap → loss-MIA AUC | 0.657 [-0.086, 0.943] | 6 | descriptive six-configuration association; target blocks and geometry seeds resampled independently |
+| kernel_label_alignment → loss-MIA AUC | 0.886 [0.543, 1.000] | 6 | descriptive six-configuration association; target blocks and geometry seeds resampled independently |
+| effective_rank → loss-MIA AUC | 1.000 [0.886, 1.000] | 6 | descriptive six-configuration association; target blocks and geometry seeds resampled independently |
+| mmd2_train_test → loss-MIA AUC | 0.371 [-0.771, 0.943] | 6 | descriptive six-configuration association; target blocks and geometry seeds resampled independently |
+| within_class_similarity → loss-MIA AUC | -1.000 [-1.000, -0.886] | 6 | descriptive six-configuration association; target blocks and geometry seeds resampled independently |
+| between_class_similarity → loss-MIA AUC | -1.000 [-1.000, -0.886] | 6 | descriptive six-configuration association; target blocks and geometry seeds resampled independently |
+
+## Capacity and circuit-resource controls
+
+| Feature map | Reps | Depth | Trainable parameters | Main-stack gates | Targets |
+| --- | --- | --- | --- | --- | --- |
+| eff_su2 | 1 | 2 | 60 | 63.000 | 8 |
+| eff_su2 | 1 | 6 | 152 | 155.000 | 8 |
+| eff_su2 | 5 | 2 | 60 | 131.000 | 8 |
+| eff_su2 | 5 | 6 | 152 | 223.000 | 8 |
+| z | 1 | 2 | 60 | 58.000 | 8 |
+| z | 1 | 6 | 152 | 150.000 | 8 |
+| z | 5 | 2 | 60 | 106.000 | 8 |
+| z | 5 | 6 | 152 | 198.000 | 8 |
+| zz | 1 | 2 | 60 | 73.000 | 8 |
+| zz | 1 | 6 | 152 | 165.000 | 8 |
+| zz | 5 | 2 | 60 | 181.000 | 8 |
+| zz | 5 | 6 | 152 | 273.000 | 8 |
+
+## Paired Fashion-MNIST structural effects
+
+| Outcome | Attack | Factor | Contrast | Effect ± SD [95% CI] | Blocks |
+| --- | --- | --- | --- | --- | --- |
+| test_acc | target_model | repetitions | 5 - 1 | -0.209 ± 0.015 [-0.223, -0.200] | 5 |
+| test_acc | target_model | depth | 6 - 2 | 0.021 ± 0.005 [0.017, 0.026] | 5 |
+| test_acc | target_model | feature_map | Z - EfficientSU2 | -0.126 ± 0.009 [-0.133, -0.119] | 5 |
+| test_acc | target_model | feature_map | ZZ - EfficientSU2 | -0.286 ± 0.013 [-0.297, -0.277] | 5 |
+| test_acc | target_model | feature_map | ZZ - Z | -0.160 ± 0.014 [-0.171, -0.149] | 5 |
+| gap | target_model | repetitions | 5 - 1 | 0.116 ± 0.015 [0.104, 0.129] | 5 |
+| gap | target_model | depth | 6 - 2 | 0.117 ± 0.015 [0.105, 0.128] | 5 |
+| gap | target_model | feature_map | Z - EfficientSU2 | 0.067 ± 0.007 [0.061, 0.073] | 5 |
+| gap | target_model | feature_map | ZZ - EfficientSU2 | 0.173 ± 0.008 [0.168, 0.179] | 5 |
+| gap | target_model | feature_map | ZZ - Z | 0.107 ± 0.013 [0.097, 0.118] | 5 |
+| auc | confidence | repetitions | 5 - 1 | 0.000 ± 0.009 [-0.006, 0.007] | 5 |
+| auc | confidence | depth | 6 - 2 | 0.037 ± 0.013 [0.028, 0.047] | 5 |
+| auc | confidence | feature_map | Z - EfficientSU2 | -0.016 ± 0.011 [-0.024, -0.006] | 5 |
+| auc | confidence | feature_map | ZZ - EfficientSU2 | 0.005 ± 0.006 [0.001, 0.010] | 5 |
+| auc | confidence | feature_map | ZZ - Z | 0.021 ± 0.016 [0.008, 0.032] | 5 |
+| auc | correctness | repetitions | 5 - 1 | 0.058 ± 0.008 [0.052, 0.064] | 5 |
+| auc | correctness | depth | 6 - 2 | 0.059 ± 0.007 [0.053, 0.064] | 5 |
+| auc | correctness | feature_map | Z - EfficientSU2 | 0.033 ± 0.004 [0.031, 0.037] | 5 |
+| auc | correctness | feature_map | ZZ - EfficientSU2 | 0.087 ± 0.004 [0.084, 0.090] | 5 |
+| auc | correctness | feature_map | ZZ - Z | 0.053 ± 0.007 [0.048, 0.059] | 5 |
+| auc | entropy | repetitions | 5 - 1 | -0.002 ± 0.009 [-0.008, 0.004] | 5 |
+| auc | entropy | depth | 6 - 2 | 0.035 ± 0.010 [0.027, 0.043] | 5 |
+| auc | entropy | feature_map | Z - EfficientSU2 | -0.018 ± 0.012 [-0.027, -0.007] | 5 |
+| auc | entropy | feature_map | ZZ - EfficientSU2 | 0.005 ± 0.007 [-0.000, 0.011] | 5 |
+| auc | entropy | feature_map | ZZ - Z | 0.024 ± 0.018 [0.008, 0.036] | 5 |
+| auc | loss | repetitions | 5 - 1 | 0.078 ± 0.008 [0.071, 0.084] | 5 |
+| auc | loss | depth | 6 - 2 | 0.058 ± 0.008 [0.052, 0.064] | 5 |
+| auc | loss | feature_map | Z - EfficientSU2 | 0.036 ± 0.003 [0.034, 0.038] | 5 |
+| auc | loss | feature_map | ZZ - EfficientSU2 | 0.111 ± 0.004 [0.108, 0.114] | 5 |
+| auc | loss | feature_map | ZZ - Z | 0.075 ± 0.007 [0.070, 0.080] | 5 |
+| auc | margin | repetitions | 5 - 1 | 0.002 ± 0.009 [-0.005, 0.009] | 5 |
+| auc | margin | depth | 6 - 2 | 0.036 ± 0.015 [0.025, 0.048] | 5 |
+| auc | margin | feature_map | Z - EfficientSU2 | -0.014 ± 0.009 [-0.021, -0.006] | 5 |
+| auc | margin | feature_map | ZZ - EfficientSU2 | 0.004 ± 0.007 [-0.001, 0.010] | 5 |
+| auc | margin | feature_map | ZZ - Z | 0.019 ± 0.015 [0.005, 0.029] | 5 |
+| auc | max_probability | repetitions | 5 - 1 | 0.000 ± 0.009 [-0.007, 0.007] | 5 |
+| auc | max_probability | depth | 6 - 2 | 0.037 ± 0.013 [0.027, 0.047] | 5 |
+| auc | max_probability | feature_map | Z - EfficientSU2 | -0.016 ± 0.011 [-0.024, -0.006] | 5 |
+| auc | max_probability | feature_map | ZZ - EfficientSU2 | 0.005 ± 0.006 [0.001, 0.009] | 5 |
+| auc | max_probability | feature_map | ZZ - Z | 0.021 ± 0.016 [0.008, 0.032] | 5 |
+| auc | learned_prediction_vector_stats | repetitions | 5 - 1 | 0.060 ± 0.013 [0.052, 0.071] | 5 |
+| auc | learned_prediction_vector_stats | depth | 6 - 2 | 0.072 ± 0.018 [0.060, 0.086] | 5 |
+| auc | learned_prediction_vector_stats | feature_map | Z - EfficientSU2 | 0.036 ± 0.022 [0.019, 0.053] | 5 |
+| auc | learned_prediction_vector_stats | feature_map | ZZ - EfficientSU2 | 0.114 ± 0.029 [0.094, 0.137] | 5 |
+| auc | learned_prediction_vector_stats | feature_map | ZZ - Z | 0.078 ± 0.025 [0.061, 0.096] | 5 |
+| auc | global_true_class_log_odds | repetitions | 5 - 1 | 0.049 ± 0.004 [0.045, 0.053] | 3 |
+| auc | global_true_class_log_odds | feature_map | Z - EfficientSU2 | 0.020 ± 0.026 [-0.010, 0.039] | 3 |
+| auc | global_true_class_log_odds | feature_map | ZZ - EfficientSU2 | 0.092 ± 0.017 [0.073, 0.102] | 3 |
+| auc | global_true_class_log_odds | feature_map | ZZ - Z | 0.072 ± 0.010 [0.062, 0.083] | 3 |
+| auc | lira_offline | repetitions | 5 - 1 | 0.003 ± 0.014 [-0.013, 0.016] | 3 |
+| auc | lira_offline | feature_map | Z - EfficientSU2 | -0.001 ± 0.031 [-0.026, 0.034] | 3 |
+| auc | lira_offline | feature_map | ZZ - EfficientSU2 | 0.004 ± 0.039 [-0.031, 0.047] | 3 |
+| auc | lira_offline | feature_map | ZZ - Z | 0.005 ± 0.022 [-0.020, 0.022] | 3 |
+| auc | lira_offline_fixed_variance | repetitions | 5 - 1 | 0.008 ± 0.012 [-0.005, 0.017] | 3 |
+| auc | lira_offline_fixed_variance | feature_map | Z - EfficientSU2 | -0.017 ± 0.021 [-0.030, 0.008] | 3 |
+| auc | lira_offline_fixed_variance | feature_map | ZZ - EfficientSU2 | 0.000 ± 0.029 [-0.033, 0.020] | 3 |
+| auc | lira_offline_fixed_variance | feature_map | ZZ - Z | 0.017 ± 0.025 [-0.006, 0.043] | 3 |
+| auc | lira_online | repetitions | 5 - 1 | 0.018 ± 0.014 [0.007, 0.033] | 3 |
+| auc | lira_online | feature_map | Z - EfficientSU2 | 0.009 ± 0.053 [-0.052, 0.046] | 3 |
+| auc | lira_online | feature_map | ZZ - EfficientSU2 | 0.023 ± 0.052 [-0.022, 0.080] | 3 |
+| auc | lira_online | feature_map | ZZ - Z | 0.014 ± 0.032 [-0.023, 0.034] | 3 |
+| auc | lira_online_fixed_variance | repetitions | 5 - 1 | 0.020 ± 0.019 [-0.001, 0.035] | 3 |
+| auc | lira_online_fixed_variance | feature_map | Z - EfficientSU2 | 0.016 ± 0.038 [-0.026, 0.048] | 3 |
+| auc | lira_online_fixed_variance | feature_map | ZZ - EfficientSU2 | 0.050 ± 0.041 [0.016, 0.096] | 3 |
+| auc | lira_online_fixed_variance | feature_map | ZZ - Z | 0.034 ± 0.039 [-0.010, 0.065] | 3 |
+| auc | label_only_correctness | repetitions | 5 - 1 | 0.058 ± 0.008 [0.052, 0.064] | 5 |
+| auc | label_only_correctness | depth | 6 - 2 | 0.059 ± 0.007 [0.053, 0.064] | 5 |
+| auc | label_only_correctness | feature_map | Z - EfficientSU2 | 0.033 ± 0.004 [0.031, 0.036] | 5 |
+| auc | label_only_correctness | feature_map | ZZ - EfficientSU2 | 0.087 ± 0.004 [0.084, 0.090] | 5 |
+| auc | label_only_correctness | feature_map | ZZ - Z | 0.053 ± 0.007 [0.048, 0.059] | 5 |
+| auc | label_only_hsj_l2 | repetitions | 5 - 1 | 0.069 ± 0.005 [0.065, 0.073] | 5 |
+| auc | label_only_hsj_l2 | depth | 6 - 2 | 0.065 ± 0.013 [0.056, 0.075] | 5 |
+| auc | label_only_hsj_l2 | feature_map | Z - EfficientSU2 | 0.032 ± 0.019 [0.016, 0.046] | 5 |
+| auc | label_only_hsj_l2 | feature_map | ZZ - EfficientSU2 | 0.083 ± 0.011 [0.073, 0.090] | 5 |
+| auc | label_only_hsj_l2 | feature_map | ZZ - Z | 0.051 ± 0.013 [0.041, 0.061] | 5 |
+
+## Fashion-MNIST post-encoder geometry effects
+
+| Post-encoder metric | Reps 5 − 1, mean ± SD [95% CI] |
+| --- | --- |
+| train_train_similarity | -0.152 ± 0.142 [-0.342, -0.035] |
+| train_test_similarity | -0.152 ± 0.140 [-0.340, -0.035] |
+| test_test_similarity | -0.151 ± 0.138 [-0.337, -0.033] |
+| within_class_similarity | -0.224 ± 0.131 [-0.391, -0.088] |
+| between_class_similarity | -0.128 ± 0.144 [-0.322, -0.017] |
+| class_similarity_gap | -0.096 ± 0.039 [-0.146, -0.068] |
+| mmd2_train_test | 0.001 ± 0.001 [0.000, 0.002] |
+| kernel_label_alignment | -0.171 ± 0.105 [-0.265, -0.033] |
+| effective_rank | 149.580 ± 59.596 [68.957, 192.902] |
+| encoder_operation_count | 178.667 ± 111.116 [68.000, 324.000] |
+
+## Fashion-MNIST mechanistic-pathway associations
+
+| Descriptive pathway link | Spearman ρ [95% CI] | Configurations | Inference scope |
+| --- | --- | --- | --- |
+| accuracy_gap → loss-MIA AUC | 0.993 [0.930, 1.000] | 12 | descriptive configuration-level association; target blocks resampled |
+| loss_gap → loss-MIA AUC | 0.951 [0.867, 0.979] | 12 | descriptive configuration-level association; target blocks resampled |
+| class_similarity_gap → loss-MIA AUC | -1.000 [-1.000, -1.000] | 6 | descriptive six-configuration association; target blocks and geometry seeds resampled independently |
+| kernel_label_alignment → loss-MIA AUC | -0.943 [-0.943, -0.943] | 6 | descriptive six-configuration association; target blocks and geometry seeds resampled independently |
+| effective_rank → loss-MIA AUC | 1.000 [1.000, 1.000] | 6 | descriptive six-configuration association; target blocks and geometry seeds resampled independently |
+| mmd2_train_test → loss-MIA AUC | 1.000 [0.429, 1.000] | 6 | descriptive six-configuration association; target blocks and geometry seeds resampled independently |
+| within_class_similarity → loss-MIA AUC | -1.000 [-1.000, -1.000] | 6 | descriptive six-configuration association; target blocks and geometry seeds resampled independently |
+| between_class_similarity → loss-MIA AUC | -1.000 [-1.000, -1.000] | 6 | descriptive six-configuration association; target blocks and geometry seeds resampled independently |
+
+## Fashion-MNIST capacity controls
+
+| Feature map | Reps | Depth | Trainable parameters | Main-stack gates | Targets |
+| --- | --- | --- | --- | --- | --- |
+| eff_su2 | 1 | 2 | 74 | 63.000 | 5 |
+| eff_su2 | 1 | 6 | 166 | 155.000 | 5 |
+| eff_su2 | 5 | 2 | 74 | 131.000 | 5 |
+| eff_su2 | 5 | 6 | 166 | 223.000 | 5 |
+| z | 1 | 2 | 74 | 82.000 | 5 |
+| z | 1 | 6 | 166 | 174.000 | 5 |
+| z | 5 | 2 | 74 | 226.000 | 5 |
+| z | 5 | 6 | 166 | 318.000 | 5 |
+| zz | 1 | 2 | 74 | 127.000 | 5 |
+| zz | 1 | 6 | 166 | 219.000 | 5 |
+| zz | 5 | 2 | 74 | 451.000 | 5 |
+| zz | 5 | 6 | 166 | 543.000 | 5 |
+
+## Paired WDBC structural effects
+
+| Outcome | Attack | Factor | Contrast | Effect ± SD [95% CI] | Blocks |
+| --- | --- | --- | --- | --- | --- |
+| test_acc | target_model | repetitions | 5 - 1 | -0.139 ± 0.024 [-0.158, -0.122] | 5 |
+| test_acc | target_model | feature_map | Z - EfficientSU2 | -0.059 ± 0.020 [-0.073, -0.041] | 5 |
+| test_acc | target_model | feature_map | ZZ - EfficientSU2 | 0.006 ± 0.019 [-0.010, 0.021] | 5 |
+| test_acc | target_model | feature_map | ZZ - Z | 0.064 ± 0.010 [0.058, 0.073] | 5 |
+| gap | target_model | repetitions | 5 - 1 | 0.063 ± 0.039 [0.035, 0.093] | 5 |
+| gap | target_model | feature_map | Z - EfficientSU2 | 0.021 ± 0.042 [-0.012, 0.053] | 5 |
+| gap | target_model | feature_map | ZZ - EfficientSU2 | 0.024 ± 0.030 [0.003, 0.050] | 5 |
+| gap | target_model | feature_map | ZZ - Z | 0.004 ± 0.024 [-0.015, 0.022] | 5 |
+| auc | confidence | repetitions | 5 - 1 | -0.025 ± 0.016 [-0.037, -0.011] | 5 |
+| auc | confidence | feature_map | Z - EfficientSU2 | 0.003 ± 0.018 [-0.011, 0.018] | 5 |
+| auc | confidence | feature_map | ZZ - EfficientSU2 | -0.014 ± 0.018 [-0.030, -0.001] | 5 |
+| auc | confidence | feature_map | ZZ - Z | -0.017 ± 0.015 [-0.029, -0.005] | 5 |
+| auc | correctness | repetitions | 5 - 1 | 0.032 ± 0.019 [0.018, 0.048] | 5 |
+| auc | correctness | feature_map | Z - EfficientSU2 | 0.010 ± 0.021 [-0.006, 0.027] | 5 |
+| auc | correctness | feature_map | ZZ - EfficientSU2 | 0.012 ± 0.015 [0.001, 0.025] | 5 |
+| auc | correctness | feature_map | ZZ - Z | 0.002 ± 0.012 [-0.008, 0.011] | 5 |
+| auc | entropy | repetitions | 5 - 1 | -0.025 ± 0.017 [-0.037, -0.011] | 5 |
+| auc | entropy | feature_map | Z - EfficientSU2 | 0.003 ± 0.018 [-0.011, 0.018] | 5 |
+| auc | entropy | feature_map | ZZ - EfficientSU2 | -0.014 ± 0.019 [-0.030, -0.001] | 5 |
+| auc | entropy | feature_map | ZZ - Z | -0.017 ± 0.015 [-0.029, -0.005] | 5 |
+| auc | loss | repetitions | 5 - 1 | 0.017 ± 0.027 [-0.004, 0.038] | 5 |
+| auc | loss | feature_map | Z - EfficientSU2 | 0.022 ± 0.015 [0.011, 0.033] | 5 |
+| auc | loss | feature_map | ZZ - EfficientSU2 | -0.004 ± 0.019 [-0.019, 0.010] | 5 |
+| auc | loss | feature_map | ZZ - Z | -0.026 ± 0.012 [-0.035, -0.017] | 5 |
+| auc | margin | repetitions | 5 - 1 | -0.025 ± 0.016 [-0.037, -0.011] | 5 |
+| auc | margin | feature_map | Z - EfficientSU2 | 0.003 ± 0.018 [-0.011, 0.018] | 5 |
+| auc | margin | feature_map | ZZ - EfficientSU2 | -0.014 ± 0.019 [-0.030, -0.001] | 5 |
+| auc | margin | feature_map | ZZ - Z | -0.017 ± 0.015 [-0.028, -0.005] | 5 |
+| auc | max_probability | repetitions | 5 - 1 | -0.025 ± 0.016 [-0.037, -0.011] | 5 |
+| auc | max_probability | feature_map | Z - EfficientSU2 | 0.003 ± 0.018 [-0.011, 0.018] | 5 |
+| auc | max_probability | feature_map | ZZ - EfficientSU2 | -0.014 ± 0.018 [-0.029, -0.001] | 5 |
+| auc | max_probability | feature_map | ZZ - Z | -0.017 ± 0.015 [-0.029, -0.005] | 5 |
+| auc | learned_prediction_vector_stats | repetitions | 5 - 1 | 0.052 ± 0.068 [0.004, 0.110] | 5 |
+| auc | learned_prediction_vector_stats | feature_map | Z - EfficientSU2 | 0.051 ± 0.030 [0.026, 0.073] | 5 |
+| auc | learned_prediction_vector_stats | feature_map | ZZ - EfficientSU2 | 0.018 ± 0.055 [-0.023, 0.061] | 5 |
+| auc | learned_prediction_vector_stats | feature_map | ZZ - Z | -0.034 ± 0.032 [-0.057, -0.006] | 5 |
+| auc | global_true_class_log_odds | repetitions | 5 - 1 | 0.039 ± 0.033 [0.013, 0.077] | 3 |
+| auc | global_true_class_log_odds | feature_map | Z - EfficientSU2 | 0.013 ± 0.021 [-0.002, 0.037] | 3 |
+| auc | global_true_class_log_odds | feature_map | ZZ - EfficientSU2 | -0.022 ± 0.031 [-0.046, 0.013] | 3 |
+| auc | global_true_class_log_odds | feature_map | ZZ - Z | -0.035 ± 0.010 [-0.044, -0.024] | 3 |
+| auc | lira_offline | repetitions | 5 - 1 | -0.041 ± 0.044 [-0.067, 0.009] | 3 |
+| auc | lira_offline | feature_map | Z - EfficientSU2 | 0.023 ± 0.015 [0.012, 0.041] | 3 |
+| auc | lira_offline | feature_map | ZZ - EfficientSU2 | 0.022 ± 0.075 [-0.023, 0.109] | 3 |
+| auc | lira_offline | feature_map | ZZ - Z | -0.001 ± 0.060 [-0.041, 0.068] | 3 |
+| auc | lira_offline_fixed_variance | repetitions | 5 - 1 | -0.038 ± 0.046 [-0.082, 0.009] | 3 |
+| auc | lira_offline_fixed_variance | feature_map | Z - EfficientSU2 | 0.017 ± 0.023 [-0.007, 0.039] | 3 |
+| auc | lira_offline_fixed_variance | feature_map | ZZ - EfficientSU2 | 0.017 ± 0.076 [-0.027, 0.105] | 3 |
+| auc | lira_offline_fixed_variance | feature_map | ZZ - Z | 0.000 ± 0.058 [-0.046, 0.066] | 3 |
+| auc | lira_online | repetitions | 5 - 1 | 0.001 ± 0.022 [-0.025, 0.015] | 3 |
+| auc | lira_online | feature_map | Z - EfficientSU2 | -0.021 ± 0.047 [-0.072, 0.020] | 3 |
+| auc | lira_online | feature_map | ZZ - EfficientSU2 | -0.012 ± 0.054 [-0.062, 0.045] | 3 |
+| auc | lira_online | feature_map | ZZ - Z | 0.009 ± 0.017 [-0.008, 0.025] | 3 |
+| auc | lira_online_fixed_variance | repetitions | 5 - 1 | 0.013 ± 0.031 [-0.018, 0.043] | 3 |
+| auc | lira_online_fixed_variance | feature_map | Z - EfficientSU2 | -0.019 ± 0.038 [-0.058, 0.019] | 3 |
+| auc | lira_online_fixed_variance | feature_map | ZZ - EfficientSU2 | -0.017 ± 0.061 [-0.080, 0.040] | 3 |
+| auc | lira_online_fixed_variance | feature_map | ZZ - Z | 0.002 ± 0.023 [-0.022, 0.022] | 3 |
+| auc | label_only_correctness | repetitions | 5 - 1 | 0.032 ± 0.019 [0.018, 0.048] | 5 |
+| auc | label_only_correctness | feature_map | Z - EfficientSU2 | 0.010 ± 0.021 [-0.006, 0.027] | 5 |
+| auc | label_only_correctness | feature_map | ZZ - EfficientSU2 | 0.012 ± 0.015 [0.001, 0.025] | 5 |
+| auc | label_only_correctness | feature_map | ZZ - Z | 0.002 ± 0.012 [-0.008, 0.011] | 5 |
+| auc | label_only_hsj_l2 | repetitions | 5 - 1 | 0.008 ± 0.031 [-0.013, 0.033] | 5 |
+| auc | label_only_hsj_l2 | feature_map | Z - EfficientSU2 | 0.020 ± 0.004 [0.016, 0.022] | 5 |
+| auc | label_only_hsj_l2 | feature_map | ZZ - EfficientSU2 | 0.001 ± 0.012 [-0.007, 0.010] | 5 |
+| auc | label_only_hsj_l2 | feature_map | ZZ - Z | -0.018 ± 0.014 [-0.029, -0.007] | 5 |
+
+## WDBC post-encoder geometry effects
+
+| Post-encoder metric | Reps 5 − 1, mean ± SD [95% CI] |
+| --- | --- |
+| train_train_similarity | -0.304 ± 0.140 [-0.492, -0.202] |
+| train_test_similarity | -0.308 ± 0.139 [-0.495, -0.207] |
+| test_test_similarity | -0.311 ± 0.137 [-0.494, -0.208] |
+| within_class_similarity | -0.360 ± 0.111 [-0.507, -0.275] |
+| between_class_similarity | -0.254 ± 0.169 [-0.478, -0.128] |
+| class_similarity_gap | -0.106 ± 0.065 [-0.162, -0.029] |
+| mmd2_train_test | 0.001 ± 0.004 [-0.002, 0.004] |
+| kernel_label_alignment | -0.319 ± 0.073 [-0.381, -0.267] |
+| effective_rank | 51.429 ± 19.827 [27.422, 70.756] |
+| encoder_operation_count | 74.667 ± 25.820 [48.000, 108.000] |
+
+## WDBC mechanistic-pathway associations
+
+| Descriptive pathway link | Spearman ρ [95% CI] | Configurations | Inference scope |
+| --- | --- | --- | --- |
+| accuracy_gap → loss-MIA AUC | 0.543 [-0.431, 0.943] | 6 | descriptive configuration-level association; target blocks resampled |
+| loss_gap → loss-MIA AUC | 0.314 [-0.371, 0.886] | 6 | descriptive configuration-level association; target blocks resampled |
+| class_similarity_gap → loss-MIA AUC | -0.543 [-0.943, 0.143] | 6 | descriptive six-configuration association; target blocks and geometry seeds resampled independently |
+| kernel_label_alignment → loss-MIA AUC | -0.600 [-0.829, 0.029] | 6 | descriptive six-configuration association; target blocks and geometry seeds resampled independently |
+| effective_rank → loss-MIA AUC | 0.429 [-0.257, 0.771] | 6 | descriptive six-configuration association; target blocks and geometry seeds resampled independently |
+| mmd2_train_test → loss-MIA AUC | 0.143 [-0.600, 0.886] | 6 | descriptive six-configuration association; target blocks and geometry seeds resampled independently |
+| within_class_similarity → loss-MIA AUC | -0.429 [-0.771, 0.257] | 6 | descriptive six-configuration association; target blocks and geometry seeds resampled independently |
+| between_class_similarity → loss-MIA AUC | -0.429 [-0.771, 0.257] | 6 | descriptive six-configuration association; target blocks and geometry seeds resampled independently |
+
+## WDBC capacity controls
+
+| Feature map | Reps | Depth | Trainable parameters | Main-stack gates | Targets |
+| --- | --- | --- | --- | --- | --- |
+| eff_su2 | 1 | 2 | 60 | 63.000 | 5 |
+| eff_su2 | 5 | 2 | 60 | 131.000 | 5 |
+| z | 1 | 2 | 60 | 58.000 | 5 |
+| z | 5 | 2 | 60 | 106.000 | 5 |
+| zz | 1 | 2 | 60 | 73.000 | 5 |
+| zz | 5 | 2 | 60 | 181.000 | 5 |

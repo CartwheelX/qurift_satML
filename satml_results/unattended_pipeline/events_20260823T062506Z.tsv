@@ -1,0 +1,24 @@
+timestamp_utc	stage	status	detail
+2026-08-23T06:25:06Z	preflight	running	checking environment and immutable inputs
+2026-08-23T06:25:27Z	preflight	complete	credit=96/96; imported_mnist=36; snapshot=/home/najeeb/qurift_satML/satml_results/backend_snapshots/unattended_20260818T134940Z
+2026-08-23T06:25:27Z	prepare	skipped	completion marker exists
+2026-08-23T06:25:27Z	credit_factorial_analysis	skipped	completion marker exists
+2026-08-23T06:25:27Z	credit_geometry	skipped	completion marker exists
+2026-08-23T06:25:27Z	credit_mechanism	skipped	completion marker exists
+2026-08-23T06:25:27Z	fashion_factorial	skipped	completion marker exists
+2026-08-23T06:25:27Z	fashion_analysis	skipped	completion marker exists
+2026-08-23T06:25:27Z	wdbc_targeted	skipped	completion marker exists
+2026-08-23T06:25:27Z	wdbc_analysis	skipped	completion marker exists
+2026-08-23T06:25:27Z	added_geometry	skipped	completion marker exists
+2026-08-23T06:25:27Z	added_mechanisms	skipped	completion marker exists
+2026-08-23T06:25:27Z	credit_attacks	skipped	completion marker exists
+2026-08-23T06:25:27Z	added_attacks	skipped	completion marker exists
+2026-08-23T06:25:27Z	encoding_scale	skipped	completion marker exists
+2026-08-23T06:25:27Z	selector_freeze	skipped	existing frozen selector decision retained
+2026-08-23T06:25:27Z	selector_fresh	running	bash commands/satml_run_fresh_selector.sh
+2026-08-23T07:15:23Z	selector_fresh	complete	bash commands/satml_run_fresh_selector.sh
+2026-08-23T07:15:23Z	noise_n1_structural	running	bash commands/satml_noise_n1_structural.sh
+2026-08-23T08:18:51Z	noise_n1_structural	complete	bash commands/satml_noise_n1_structural.sh
+2026-08-23T08:18:51Z	noise_n2_query_policy	running	bash commands/satml_noise_n2_queries.sh
+2026-08-23T09:00:53Z	noise_n2_query_policy	failed	exit_code=1; command=bash commands/satml_noise_n2_queries.sh
+2026-08-23T09:00:53Z	pipeline	failed	stage=noise_n2_query_policy; exit_code=1

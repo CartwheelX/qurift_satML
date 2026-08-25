@@ -1,0 +1,14 @@
+timestamp_utc	stage	status	detail
+2026-08-21T13:11:46Z	preflight	running	checking environment and immutable inputs
+2026-08-21T13:12:07Z	preflight	complete	credit=96/96; imported_mnist=36; snapshot=/home/najeeb/qurift_satML/satml_results/backend_snapshots/unattended_20260818T134940Z
+2026-08-21T13:12:07Z	prepare	skipped	completion marker exists
+2026-08-21T13:12:07Z	credit_factorial_analysis	skipped	completion marker exists
+2026-08-21T13:12:07Z	credit_geometry	skipped	completion marker exists
+2026-08-21T13:12:07Z	credit_mechanism	skipped	completion marker exists
+2026-08-21T13:12:07Z	fashion_factorial	skipped	completion marker exists
+2026-08-21T13:12:07Z	fashion_analysis	skipped	completion marker exists
+2026-08-21T13:12:07Z	wdbc_targeted	skipped	completion marker exists
+2026-08-21T13:12:07Z	wdbc_analysis	skipped	completion marker exists
+2026-08-21T13:12:07Z	added_geometry	skipped	completion marker exists
+2026-08-21T13:12:07Z	added_mechanisms	skipped	completion marker exists
+2026-08-21T13:12:07Z	credit_attacks	running	bash commands/satml_run_credit_attacks.sh

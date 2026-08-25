@@ -1,0 +1,22 @@
+All arguments: ['/home/najeeb/qurift_satML/reviewer_tools/qurift_lira_attack.py', 'train-reference', '--repo-root', '/home/najeeb/qurift_satML', '--targets', '/home/najeeb/qurift_satML/satml_targets/noise/mnist_noise_n3_lira_targets.csv', '--run-root', '/home/najeeb/qurift_satML/reviewer_runs', '--out-dir', '/home/najeeb/qurift_satML/satml_results/noise/n3_attack_breadth/lira_references', '--reference-dir', '/home/najeeb/qurift_satML/satml_results/noise/n3_attack_breadth/lira_references', '--target-id', 'MNIST_QNN_eff_su2_r1_d6_s43', '--reference-id', '6', '--num-references', '16', '--seed', '2026', '--device', 'cuda', '--save-checkpoint', '--resume']
+The first argument is: train-reference
+[GPU] Respecting CUDA_VISIBLE_DEVICES='6'
+Using device: cuda
+[2026-08-23 19:39:57.018] Only use the front 200 images as TRAIN set.
+[2026-08-23 19:39:57.461] Only use the front 200 images as VALID set.
+[2026-08-23 19:39:57.490] Only use the front 200 images as TEST set.
+In SU2 encoder part
+multi_index_rule in general encoder plus new is prod 
+M Ops: ('XX', 'YY', 'ZZ', 'XY'), Pairs: [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 0)], Head in_features: 24, classes: 4
+[reference 006] epoch=1/100 train_acc=0.390 valid_acc=0.545
+[reference 006] epoch=10/100 train_acc=0.575 valid_acc=0.565
+[reference 006] epoch=20/100 train_acc=0.670 valid_acc=0.655
+[reference 006] epoch=30/100 train_acc=0.635 valid_acc=0.745
+[reference 006] epoch=40/100 train_acc=0.740 valid_acc=0.755
+[reference 006] epoch=50/100 train_acc=0.755 valid_acc=0.780
+[reference 006] epoch=60/100 train_acc=0.765 valid_acc=0.785
+[reference 006] epoch=70/100 train_acc=0.785 valid_acc=0.785
+[reference 006] epoch=80/100 train_acc=0.805 valid_acc=0.780
+[reference 006] epoch=90/100 train_acc=0.785 valid_acc=0.790
+[reference 006] epoch=100/100 train_acc=0.795 valid_acc=0.795
+[OK] reference -> /home/najeeb/qurift_satML/satml_results/noise/n3_attack_breadth/lira_references/reference_models/eff_su2_r1_d6_wd0/reference_006.npz

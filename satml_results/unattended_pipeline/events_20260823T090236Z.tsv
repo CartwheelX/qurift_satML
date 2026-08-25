@@ -1,0 +1,29 @@
+timestamp_utc	stage	status	detail
+2026-08-23T09:02:36Z	preflight	running	checking environment and immutable inputs
+2026-08-23T09:02:57Z	preflight	complete	credit=96/96; imported_mnist=36; snapshot=/home/najeeb/qurift_satML/satml_results/backend_snapshots/unattended_20260818T134940Z
+2026-08-23T09:02:57Z	prepare	skipped	completion marker exists
+2026-08-23T09:02:57Z	credit_factorial_analysis	skipped	completion marker exists
+2026-08-23T09:02:57Z	credit_geometry	skipped	completion marker exists
+2026-08-23T09:02:57Z	credit_mechanism	skipped	completion marker exists
+2026-08-23T09:02:57Z	fashion_factorial	skipped	completion marker exists
+2026-08-23T09:02:57Z	fashion_analysis	skipped	completion marker exists
+2026-08-23T09:02:57Z	wdbc_targeted	skipped	completion marker exists
+2026-08-23T09:02:57Z	wdbc_analysis	skipped	completion marker exists
+2026-08-23T09:02:57Z	added_geometry	skipped	completion marker exists
+2026-08-23T09:02:57Z	added_mechanisms	skipped	completion marker exists
+2026-08-23T09:02:57Z	credit_attacks	skipped	completion marker exists
+2026-08-23T09:02:57Z	added_attacks	skipped	completion marker exists
+2026-08-23T09:02:57Z	encoding_scale	skipped	completion marker exists
+2026-08-23T09:02:57Z	selector_freeze	skipped	existing frozen selector decision retained
+2026-08-23T09:02:57Z	selector_fresh	skipped	completion marker exists
+2026-08-23T09:02:57Z	noise_n1_structural	skipped	completion marker exists
+2026-08-23T09:02:57Z	noise_n2_query_policy	running	bash commands/satml_noise_n2_queries.sh
+2026-08-23T11:39:32Z	noise_n2_query_policy	complete	bash commands/satml_noise_n2_queries.sh
+2026-08-23T11:39:32Z	noise_n3_lira	running	bash commands/satml_noise_n3_attacks.sh
+2026-08-23T14:22:08Z	noise_n3_lira	complete	bash commands/satml_noise_n3_attacks.sh
+2026-08-23T14:22:08Z	noise_n3_label_only_optional	skipped	optional pilot; set QURIFT_INCLUDE_OPTIONAL_NOISY_LABEL=1 to include
+2026-08-23T14:22:08Z	paper_artifacts	running	bash commands/satml_generate_artifacts.sh
+2026-08-23T14:22:23Z	paper_artifacts	complete	bash commands/satml_generate_artifacts.sh
+2026-08-23T14:22:23Z	repository_verification	running	verify_repository
+2026-08-23T14:22:47Z	repository_verification	complete	verify_repository
+2026-08-23T14:22:47Z	pipeline	complete	all required stages completed

@@ -1,0 +1,20 @@
+timestamp_utc	stage	status	detail
+2026-08-21T14:19:40Z	preflight	running	checking environment and immutable inputs
+2026-08-21T14:20:01Z	preflight	complete	credit=96/96; imported_mnist=36; snapshot=/home/najeeb/qurift_satML/satml_results/backend_snapshots/unattended_20260818T134940Z
+2026-08-21T14:20:01Z	prepare	skipped	completion marker exists
+2026-08-21T14:20:01Z	credit_factorial_analysis	skipped	completion marker exists
+2026-08-21T14:20:01Z	credit_geometry	skipped	completion marker exists
+2026-08-21T14:20:01Z	credit_mechanism	skipped	completion marker exists
+2026-08-21T14:20:01Z	fashion_factorial	skipped	completion marker exists
+2026-08-21T14:20:01Z	fashion_analysis	skipped	completion marker exists
+2026-08-21T14:20:01Z	wdbc_targeted	skipped	completion marker exists
+2026-08-21T14:20:01Z	wdbc_analysis	skipped	completion marker exists
+2026-08-21T14:20:01Z	added_geometry	skipped	completion marker exists
+2026-08-21T14:20:01Z	added_mechanisms	skipped	completion marker exists
+2026-08-21T14:20:01Z	credit_attacks	running	bash commands/satml_run_credit_attacks.sh
+2026-08-21T19:56:58Z	credit_attacks	complete	bash commands/satml_run_credit_attacks.sh
+2026-08-21T19:56:58Z	added_attacks	running	bash commands/satml_run_added_attacks.sh
+2026-08-22T09:47:39Z	added_attacks	complete	bash commands/satml_run_added_attacks.sh
+2026-08-22T09:47:39Z	encoding_scale	running	bash commands/satml_run_encoding_scale.sh
+2026-08-22T10:51:33Z	encoding_scale	failed	exit_code=1; command=bash commands/satml_run_encoding_scale.sh
+2026-08-22T10:51:33Z	pipeline	failed	stage=encoding_scale; exit_code=1

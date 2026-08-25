@@ -1,0 +1,16 @@
+mode,shots,attack,contrast,n_paired_model_seeds,mean_auc_difference,sd_across_model_seeds,ci95_low,ci95_high,ci_method
+exact,0,global_true_class_log_odds,zz_r5_d6 - eff_su2_r1_d6,3,0.14255000000000007,0.022843721785208302,0.11827500000000002,0.16362500000000002,paired percentile bootstrap over trained model seeds
+exact,0,lira_offline,zz_r5_d6 - eff_su2_r1_d6,3,0.018866666666666643,0.01119721877670228,0.0061749999999999305,0.027349999999999985,paired percentile bootstrap over trained model seeds
+exact,0,lira_offline_fixed_variance,zz_r5_d6 - eff_su2_r1_d6,3,0.017900000000000027,0.016620093260869575,0.0023999999999999577,0.03545000000000009,paired percentile bootstrap over trained model seeds
+exact,0,lira_online,zz_r5_d6 - eff_su2_r1_d6,3,0.204375,0.01632078812435241,0.18567499999999992,0.2157500000000001,paired percentile bootstrap over trained model seeds
+exact,0,lira_online_fixed_variance,zz_r5_d6 - eff_su2_r1_d6,3,0.18287499999999998,0.026541111977458755,0.15287499999999987,0.20330000000000004,paired percentile bootstrap over trained model seeds
+ideal_shot,512,global_true_class_log_odds,zz_r5_d6 - eff_su2_r1_d6,3,0.1308516666666667,0.022025086454616618,0.10779499999999997,0.15167500000000012,paired percentile bootstrap over trained model seeds
+ideal_shot,512,lira_offline,zz_r5_d6 - eff_su2_r1_d6,3,0.028929999999999973,0.012359737052219252,0.01851999999999987,0.04259000000000002,paired percentile bootstrap over trained model seeds
+ideal_shot,512,lira_offline_fixed_variance,zz_r5_d6 - eff_su2_r1_d6,3,0.02800500000000002,0.016771887937856014,0.008680000000000021,0.03876500000000005,paired percentile bootstrap over trained model seeds
+ideal_shot,512,lira_online,zz_r5_d6 - eff_su2_r1_d6,3,0.19849999999999998,0.020583057960371264,0.18269499999999994,0.22177500000000006,paired percentile bootstrap over trained model seeds
+ideal_shot,512,lira_online_fixed_variance,zz_r5_d6 - eff_su2_r1_d6,3,0.20486666666666664,0.021772878962905525,0.19138,0.229985,paired percentile bootstrap over trained model seeds
+noisy_shot,512,global_true_class_log_odds,zz_r5_d6 - eff_su2_r1_d6,3,0.01964500000000006,0.006980284736312731,0.012395000000000045,0.02632000000000012,paired percentile bootstrap over trained model seeds
+noisy_shot,512,lira_offline,zz_r5_d6 - eff_su2_r1_d6,3,-0.006086666666666685,0.007192317660763773,-0.010910000000000086,0.0021800000000000708,paired percentile bootstrap over trained model seeds
+noisy_shot,512,lira_offline_fixed_variance,zz_r5_d6 - eff_su2_r1_d6,3,-0.00955499999999998,0.009418448651450008,-0.02016000000000001,-0.0021649999999999725,paired percentile bootstrap over trained model seeds
+noisy_shot,512,lira_online,zz_r5_d6 - eff_su2_r1_d6,3,0.0263133333333333,0.010596368874918098,0.014660000000000006,0.03537000000000001,paired percentile bootstrap over trained model seeds
+noisy_shot,512,lira_online_fixed_variance,zz_r5_d6 - eff_su2_r1_d6,3,0.037696666666666635,0.00165251575887589,0.03626499999999999,0.0395049999999999,paired percentile bootstrap over trained model seeds

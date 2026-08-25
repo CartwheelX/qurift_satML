@@ -1,0 +1,12 @@
+All arguments: ['/home/najeeb/qurift_satML/reviewer_tools/encoder_geometry_worker.py', '--row-json', '/home/najeeb/qurift_satML/satml_results/fashion_geometry/runs/GEOM_FASHION_zz_r1_ds60262/target.json', '--repo-root', '/home/najeeb/qurift_satML', '--out', '/home/najeeb/qurift_satML/satml_results/fashion_geometry/runs/GEOM_FASHION_zz_r1_ds60262/geometry.csv', '--n-train', '200', '--n-test', '200', '--batch-size', '16', '--device', 'cuda']
+The first argument is: --row-json
+[GPU] Respecting CUDA_VISIBLE_DEVICES='1'
+Using device: cuda
+[2026-08-19 23:28:48.425] Only use the front 200 images as TRAIN set.
+[2026-08-19 23:28:48.870] Only use the front 100 images as VALID set.
+[2026-08-19 23:28:48.900] Only use the front 200 images as TEST set.
+multi_index_rule in general encoder plus new is sum 
+M Ops: ('XX', 'YY', 'ZZ', 'XY'), Pairs: [(0, 1), (2, 3), (4, 5)], Head in_features: 4, classes: 4
+multi_index_rule in general encoder plus new is sum 
+M Ops: ('XX', 'YY', 'ZZ', 'XY'), Pairs: [(0, 1), (2, 3), (4, 5)], Head in_features: 4, classes: 4
+[OK] /home/najeeb/qurift_satML/satml_results/fashion_geometry/runs/GEOM_FASHION_zz_r1_ds60262/geometry.csv

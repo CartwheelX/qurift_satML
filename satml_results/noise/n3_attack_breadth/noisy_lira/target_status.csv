@@ -1,0 +1,7 @@
+name,kind,target_id,structural_cell_id,reference_id,gpu,status,returncode,seconds,log
+noisy_lira_MNIST_QNN_eff_su2_r1_d6_s44,noisy_lira,MNIST_QNN_eff_su2_r1_d6_s44,eff_su2_r1_d6,,1,ok,0,3472.557868242264,/home/najeeb/qurift_satML/satml_results/noise/n3_attack_breadth/noisy_lira/logs/noisy_lira_MNIST_QNN_eff_su2_r1_d6_s44.log
+noisy_lira_MNIST_QNN_eff_su2_r1_d6_s45,noisy_lira,MNIST_QNN_eff_su2_r1_d6_s45,eff_su2_r1_d6,,2,ok,0,3509.034893989563,/home/najeeb/qurift_satML/satml_results/noise/n3_attack_breadth/noisy_lira/logs/noisy_lira_MNIST_QNN_eff_su2_r1_d6_s45.log
+noisy_lira_MNIST_QNN_eff_su2_r1_d6_s43,noisy_lira,MNIST_QNN_eff_su2_r1_d6_s43,eff_su2_r1_d6,,0,ok,0,3654.036196708679,/home/najeeb/qurift_satML/satml_results/noise/n3_attack_breadth/noisy_lira/logs/noisy_lira_MNIST_QNN_eff_su2_r1_d6_s43.log
+noisy_lira_MNIST_QNN_zz_r5_d6_s43,noisy_lira,MNIST_QNN_zz_r5_d6_s43,zz_r5_d6,,3,ok,0,8437.669237852097,/home/najeeb/qurift_satML/satml_results/noise/n3_attack_breadth/noisy_lira/logs/noisy_lira_MNIST_QNN_zz_r5_d6_s43.log
+noisy_lira_MNIST_QNN_zz_r5_d6_s44,noisy_lira,MNIST_QNN_zz_r5_d6_s44,zz_r5_d6,,4,ok,0,8557.243736028671,/home/najeeb/qurift_satML/satml_results/noise/n3_attack_breadth/noisy_lira/logs/noisy_lira_MNIST_QNN_zz_r5_d6_s44.log
+noisy_lira_MNIST_QNN_zz_r5_d6_s45,noisy_lira,MNIST_QNN_zz_r5_d6_s45,zz_r5_d6,,5,ok,0,8604.04593706131,/home/najeeb/qurift_satML/satml_results/noise/n3_attack_breadth/noisy_lira/logs/noisy_lira_MNIST_QNN_zz_r5_d6_s45.log

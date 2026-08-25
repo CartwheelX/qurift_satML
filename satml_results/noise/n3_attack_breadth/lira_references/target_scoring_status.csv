@@ -1,0 +1,7 @@
+name,kind,target_id,structural_cell_id,reference_id,gpu,status,returncode,seconds,log
+score_MNIST_QNN_eff_su2_r1_d6_s45,score_target,MNIST_QNN_eff_su2_r1_d6_s45,eff_su2_r1_d6_wd0,,2,ok,0,16.046281337738037,/home/najeeb/qurift_satML/satml_results/noise/n3_attack_breadth/lira_references/logs/score_MNIST_QNN_eff_su2_r1_d6_s45.log
+score_MNIST_QNN_eff_su2_r1_d6_s43,score_target,MNIST_QNN_eff_su2_r1_d6_s43,eff_su2_r1_d6_wd0,,0,ok,0,16.25357699394226,/home/najeeb/qurift_satML/satml_results/noise/n3_attack_breadth/lira_references/logs/score_MNIST_QNN_eff_su2_r1_d6_s43.log
+score_MNIST_QNN_eff_su2_r1_d6_s44,score_target,MNIST_QNN_eff_su2_r1_d6_s44,eff_su2_r1_d6_wd0,,1,ok,0,17.732199907302856,/home/najeeb/qurift_satML/satml_results/noise/n3_attack_breadth/lira_references/logs/score_MNIST_QNN_eff_su2_r1_d6_s44.log
+score_MNIST_QNN_zz_r5_d6_s44,score_target,MNIST_QNN_zz_r5_d6_s44,zz_r5_d6_wd0,,4,ok,0,21.70966672897339,/home/najeeb/qurift_satML/satml_results/noise/n3_attack_breadth/lira_references/logs/score_MNIST_QNN_zz_r5_d6_s44.log
+score_MNIST_QNN_zz_r5_d6_s43,score_target,MNIST_QNN_zz_r5_d6_s43,zz_r5_d6_wd0,,3,ok,0,22.325262784957886,/home/najeeb/qurift_satML/satml_results/noise/n3_attack_breadth/lira_references/logs/score_MNIST_QNN_zz_r5_d6_s43.log
+score_MNIST_QNN_zz_r5_d6_s45,score_target,MNIST_QNN_zz_r5_d6_s45,zz_r5_d6_wd0,,5,ok,0,23.151774168014526,/home/najeeb/qurift_satML/satml_results/noise/n3_attack_breadth/lira_references/logs/score_MNIST_QNN_zz_r5_d6_s45.log

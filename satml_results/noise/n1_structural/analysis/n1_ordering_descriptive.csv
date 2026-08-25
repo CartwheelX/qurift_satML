@@ -1,0 +1,13 @@
+attack,mode,queries,shots,n_structural_cells,spearman_vs_exact,pvalue_descriptive,scope
+confidence,ideal_shot,1,512,12,0.9720279720279721,1.2868115751495013e-07,descriptive ranking of 12 structural-cell means
+confidence,noisy_shot,1,512,12,0.7272727272727274,0.007355028857805126,descriptive ranking of 12 structural-cell means
+correctness,ideal_shot,1,512,12,0.965034965034965,3.88098529962746e-07,descriptive ranking of 12 structural-cell means
+correctness,noisy_shot,1,512,12,0.6223776223776225,0.030675895061640132,descriptive ranking of 12 structural-cell means
+entropy,ideal_shot,1,512,12,0.9790209790209792,3.0898013985487064e-08,descriptive ranking of 12 structural-cell means
+entropy,noisy_shot,1,512,12,0.7692307692307694,0.0034464502618274493,descriptive ranking of 12 structural-cell means
+learned_mlp_pv_plus_stats,ideal_shot,1,512,12,0.9790209790209792,3.0898013985487064e-08,descriptive ranking of 12 structural-cell means
+learned_mlp_pv_plus_stats,noisy_shot,1,512,12,0.7062937062937064,0.010245193941127854,descriptive ranking of 12 structural-cell means
+loss,ideal_shot,1,512,12,0.9930069930069931,1.3016730560634403e-10,descriptive ranking of 12 structural-cell means
+loss,noisy_shot,1,512,12,0.8811188811188813,0.00015267406467669873,descriptive ranking of 12 structural-cell means
+margin,ideal_shot,1,512,12,0.965034965034965,3.88098529962746e-07,descriptive ranking of 12 structural-cell means
+margin,noisy_shot,1,512,12,0.7902097902097903,0.0022231354099909208,descriptive ranking of 12 structural-cell means

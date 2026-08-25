@@ -1,0 +1,9 @@
+Descriptive pathway link,Spearman ρ [95% CI],Configurations,Inference scope
+accuracy_gap → loss-MIA AUC,"0.972 [0.916, 0.993]",12,descriptive configuration-level association; target blocks resampled
+loss_gap → loss-MIA AUC,"0.993 [0.951, 1.000]",12,descriptive configuration-level association; target blocks resampled
+class_similarity_gap → loss-MIA AUC,"0.657 [-0.086, 0.943]",6,descriptive six-configuration association; target blocks and geometry seeds resampled independently
+kernel_label_alignment → loss-MIA AUC,"0.886 [0.543, 1.000]",6,descriptive six-configuration association; target blocks and geometry seeds resampled independently
+effective_rank → loss-MIA AUC,"1.000 [0.886, 1.000]",6,descriptive six-configuration association; target blocks and geometry seeds resampled independently
+mmd2_train_test → loss-MIA AUC,"0.371 [-0.771, 0.943]",6,descriptive six-configuration association; target blocks and geometry seeds resampled independently
+within_class_similarity → loss-MIA AUC,"-1.000 [-1.000, -0.886]",6,descriptive six-configuration association; target blocks and geometry seeds resampled independently
+between_class_similarity → loss-MIA AUC,"-1.000 [-1.000, -0.886]",6,descriptive six-configuration association; target blocks and geometry seeds resampled independently

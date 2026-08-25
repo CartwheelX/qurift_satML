@@ -1,0 +1,22 @@
+{
+  "aggregation_policy": {
+    "diagnostic": "pooled_counts_before_head",
+    "primary": "mean_api_probabilities"
+  },
+  "attacks": [
+    "confidence",
+    "correctness",
+    "entropy",
+    "learned_mlp_pv",
+    "learned_mlp_pv_mean_std",
+    "loss",
+    "margin"
+  ],
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 2026,
+  "learned": "/home/najeeb/qurift_satML/satml_results/noise/n2_query_policy/learned_mia/learned_mia_raw.csv",
+  "root": "/home/najeeb/qurift_satML/satml_results/noise/n2_query_policy/conditions",
+  "simulator_seed_policy": "Simulator seeds are averaged within a trained checkpoint before structural inference.",
+  "snapshot_manifest_sha256": "516fac22a7de7c7485ebe5cd518ec5e695426213c3b2c286adcf026c78554362",
+  "study": "n2"
+}

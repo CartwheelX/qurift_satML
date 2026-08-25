@@ -1,0 +1,16 @@
+Mode,Shots/query,LiRA variant,Endpoint contrast,AUC difference ± SD [95% CI],Paired model seeds
+exact,0,global_true_class_log_odds,zz_r5_d6 - eff_su2_r1_d6,"0.143 ± 0.023 [0.118, 0.164]",3
+exact,0,lira_offline,zz_r5_d6 - eff_su2_r1_d6,"0.019 ± 0.011 [0.006, 0.027]",3
+exact,0,lira_offline_fixed_variance,zz_r5_d6 - eff_su2_r1_d6,"0.018 ± 0.017 [0.002, 0.035]",3
+exact,0,lira_online,zz_r5_d6 - eff_su2_r1_d6,"0.204 ± 0.016 [0.186, 0.216]",3
+exact,0,lira_online_fixed_variance,zz_r5_d6 - eff_su2_r1_d6,"0.183 ± 0.027 [0.153, 0.203]",3
+ideal_shot,512,global_true_class_log_odds,zz_r5_d6 - eff_su2_r1_d6,"0.131 ± 0.022 [0.108, 0.152]",3
+ideal_shot,512,lira_offline,zz_r5_d6 - eff_su2_r1_d6,"0.029 ± 0.012 [0.019, 0.043]",3
+ideal_shot,512,lira_offline_fixed_variance,zz_r5_d6 - eff_su2_r1_d6,"0.028 ± 0.017 [0.009, 0.039]",3
+ideal_shot,512,lira_online,zz_r5_d6 - eff_su2_r1_d6,"0.198 ± 0.021 [0.183, 0.222]",3
+ideal_shot,512,lira_online_fixed_variance,zz_r5_d6 - eff_su2_r1_d6,"0.205 ± 0.022 [0.191, 0.230]",3
+noisy_shot,512,global_true_class_log_odds,zz_r5_d6 - eff_su2_r1_d6,"0.020 ± 0.007 [0.012, 0.026]",3
+noisy_shot,512,lira_offline,zz_r5_d6 - eff_su2_r1_d6,"-0.006 ± 0.007 [-0.011, 0.002]",3
+noisy_shot,512,lira_offline_fixed_variance,zz_r5_d6 - eff_su2_r1_d6,"-0.010 ± 0.009 [-0.020, -0.002]",3
+noisy_shot,512,lira_online,zz_r5_d6 - eff_su2_r1_d6,"0.026 ± 0.011 [0.015, 0.035]",3
+noisy_shot,512,lira_online_fixed_variance,zz_r5_d6 - eff_su2_r1_d6,"0.038 ± 0.002 [0.036, 0.040]",3

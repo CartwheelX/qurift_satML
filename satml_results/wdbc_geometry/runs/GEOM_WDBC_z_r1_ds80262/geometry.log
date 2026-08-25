@@ -1,0 +1,9 @@
+All arguments: ['/home/najeeb/qurift_satML/reviewer_tools/encoder_geometry_worker.py', '--row-json', '/home/najeeb/qurift_satML/satml_results/wdbc_geometry/runs/GEOM_WDBC_z_r1_ds80262/target.json', '--repo-root', '/home/najeeb/qurift_satML', '--out', '/home/najeeb/qurift_satML/satml_results/wdbc_geometry/runs/GEOM_WDBC_z_r1_ds80262/geometry.csv', '--n-train', '160', '--n-test', '200', '--batch-size', '16', '--device', 'cuda']
+The first argument is: --row-json
+[GPU] Respecting CUDA_VISIBLE_DEVICES='2'
+Using device: cuda
+multi_index_rule in general encoder plus new is sum 
+M Ops: ('XX', 'YY'), Pairs: [(0, 1), (2, 3), (4, 5)], Head in_features: 2, classes: 2
+multi_index_rule in general encoder plus new is sum 
+M Ops: ('XX', 'YY'), Pairs: [(0, 1), (2, 3), (4, 5)], Head in_features: 2, classes: 2
+[OK] /home/najeeb/qurift_satML/satml_results/wdbc_geometry/runs/GEOM_WDBC_z_r1_ds80262/geometry.csv

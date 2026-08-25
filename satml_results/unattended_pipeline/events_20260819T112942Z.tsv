@@ -1,0 +1,25 @@
+timestamp_utc	stage	status	detail
+2026-08-19T11:29:42Z	preflight	running	checking environment and immutable inputs
+2026-08-19T11:30:09Z	preflight	complete	credit=96/96; imported_mnist=36; snapshot=/home/najeeb/qurift_satML/satml_results/backend_snapshots/unattended_20260818T134940Z
+2026-08-19T11:30:09Z	prepare	skipped	completion marker exists
+2026-08-19T11:30:09Z	credit_factorial_analysis	running	bash commands/satml_analyze_credit_factorial.sh
+2026-08-19T12:22:31Z	credit_factorial_analysis	complete	bash commands/satml_analyze_credit_factorial.sh
+2026-08-19T12:22:31Z	credit_geometry	running	bash commands/satml_run_credit_geometry.sh
+2026-08-19T12:26:20Z	credit_geometry	complete	bash commands/satml_run_credit_geometry.sh
+2026-08-19T12:26:20Z	credit_mechanism	running	bash commands/satml_analyze_mechanism.sh
+2026-08-19T12:38:21Z	credit_mechanism	complete	bash commands/satml_analyze_mechanism.sh
+2026-08-19T12:38:21Z	fashion_factorial	running	bash commands/satml_run_fashion_factorial.sh
+2026-08-19T14:42:40Z	fashion_factorial	complete	bash commands/satml_run_fashion_factorial.sh
+2026-08-19T14:42:40Z	fashion_analysis	running	bash commands/satml_analyze_fashion.sh
+2026-08-19T15:12:54Z	fashion_analysis	complete	bash commands/satml_analyze_fashion.sh
+2026-08-19T15:12:54Z	wdbc_targeted	running	bash commands/satml_run_wdbc_targeted.sh
+2026-08-19T15:24:30Z	wdbc_targeted	complete	bash commands/satml_run_wdbc_targeted.sh
+2026-08-19T15:24:30Z	wdbc_analysis	running	bash commands/satml_analyze_wdbc.sh
+2026-08-19T15:28:21Z	wdbc_analysis	complete	bash commands/satml_analyze_wdbc.sh
+2026-08-19T15:28:21Z	added_geometry	running	bash commands/satml_run_added_geometry.sh
+2026-08-19T15:34:40Z	added_geometry	complete	bash commands/satml_run_added_geometry.sh
+2026-08-19T15:34:40Z	added_mechanisms	running	bash commands/satml_analyze_added_mechanisms.sh
+2026-08-19T15:50:08Z	added_mechanisms	complete	bash commands/satml_analyze_added_mechanisms.sh
+2026-08-19T15:50:08Z	credit_attacks	running	bash commands/satml_run_credit_attacks.sh
+2026-08-20T22:54:05Z	credit_attacks	failed	exit_code=1; command=bash commands/satml_run_credit_attacks.sh
+2026-08-20T22:54:05Z	pipeline	failed	stage=credit_attacks; exit_code=1

@@ -1,0 +1,7 @@
+Feature map,Reps,Depth,Trainable parameters,Main-stack gates,Targets
+eff_su2,1,2,60,63.0,5
+eff_su2,5,2,60,131.0,5
+z,1,2,60,58.0,5
+z,5,2,60,106.0,5
+zz,1,2,60,73.0,5
+zz,5,2,60,181.0,5

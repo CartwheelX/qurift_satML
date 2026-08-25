@@ -1,0 +1,6 @@
+timestamp_utc	stage	status	detail
+2026-08-18T13:49:40Z	preflight	running	checking environment and immutable inputs
+2026-08-18T13:50:49Z	preflight	complete	credit=96/96; imported_mnist=36; snapshot=/home/najeeb/qurift_satML/satml_results/backend_snapshots/unattended_20260818T134940Z
+2026-08-18T13:50:49Z	prepare	running	bash commands/satml_prepare.sh
+2026-08-18T13:51:04Z	prepare	complete	bash commands/satml_prepare.sh
+2026-08-18T13:51:04Z	credit_factorial_analysis	running	bash commands/satml_analyze_credit_factorial.sh

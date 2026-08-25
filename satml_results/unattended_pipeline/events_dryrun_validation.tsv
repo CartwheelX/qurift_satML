@@ -1,0 +1,25 @@
+timestamp_utc	stage	status	detail
+2026-08-18T13:29:05Z	preflight	running	checking environment and immutable inputs
+2026-08-18T13:29:05Z	preflight	planned	mutating checks omitted in dry run
+2026-08-18T13:29:05Z	prepare	planned	bash commands/satml_prepare.sh
+2026-08-18T13:29:05Z	credit_factorial_analysis	planned	bash commands/satml_analyze_credit_factorial.sh
+2026-08-18T13:29:05Z	credit_geometry	planned	bash commands/satml_run_credit_geometry.sh
+2026-08-18T13:29:05Z	credit_mechanism	planned	bash commands/satml_analyze_mechanism.sh
+2026-08-18T13:29:05Z	fashion_factorial	planned	bash commands/satml_run_fashion_factorial.sh
+2026-08-18T13:29:05Z	fashion_analysis	planned	bash commands/satml_analyze_fashion.sh
+2026-08-18T13:29:05Z	wdbc_targeted	planned	bash commands/satml_run_wdbc_targeted.sh
+2026-08-18T13:29:05Z	wdbc_analysis	planned	bash commands/satml_analyze_wdbc.sh
+2026-08-18T13:29:05Z	added_geometry	planned	bash commands/satml_run_added_geometry.sh
+2026-08-18T13:29:05Z	added_mechanisms	planned	bash commands/satml_analyze_added_mechanisms.sh
+2026-08-18T13:29:05Z	credit_attacks	planned	bash commands/satml_run_credit_attacks.sh
+2026-08-18T13:29:05Z	added_attacks	planned	bash commands/satml_run_added_attacks.sh
+2026-08-18T13:29:05Z	encoding_scale	planned	bash commands/satml_run_encoding_scale.sh
+2026-08-18T13:29:05Z	selector_freeze	planned	bash commands/satml_build_selector.sh
+2026-08-18T13:29:05Z	selector_fresh	planned	bash commands/satml_run_fresh_selector.sh
+2026-08-18T13:29:05Z	noise_n1_structural	planned	bash commands/satml_noise_n1_structural.sh
+2026-08-18T13:29:05Z	noise_n2_query_policy	planned	bash commands/satml_noise_n2_queries.sh
+2026-08-18T13:29:05Z	noise_n3_lira	planned	bash commands/satml_noise_n3_attacks.sh
+2026-08-18T13:29:05Z	noise_n3_label_only_optional	skipped	optional pilot; set QURIFT_INCLUDE_OPTIONAL_NOISY_LABEL=1 to include
+2026-08-18T13:29:05Z	paper_artifacts	planned	bash commands/satml_generate_artifacts.sh
+2026-08-18T13:29:05Z	repository_verification	planned	verify_repository
+2026-08-18T13:29:05Z	pipeline	dry_run_complete	all required stages were planned

@@ -1,0 +1,15 @@
+{
+  "attack_results": [
+    "satml_results/wdbc_targeted/threshold_mia/threshold_mia_raw.csv",
+    "satml_results/wdbc_targeted/learned_mia/attack_summary.csv",
+    "satml_results/wdbc_targeted/lira_representative/lira_reference_mia_raw.csv",
+    "satml_results/wdbc_targeted/label_only_correctness/label_only_correctness_raw.csv",
+    "satml_results/wdbc_targeted/label_only_hsj/label_only_hsj_raw.csv"
+  ],
+  "bootstrap_replicates": 10000,
+  "bootstrap_unit": "split/init block",
+  "metrics": "satml_results/wdbc_targeted/target_metrics/retrained_target_metrics_raw.csv",
+  "primary_inference": "paired block-level mean differences",
+  "regression_role": "secondary descriptive adjustment",
+  "targets": "satml_targets/wdbc_targeted_targets.csv"
+}

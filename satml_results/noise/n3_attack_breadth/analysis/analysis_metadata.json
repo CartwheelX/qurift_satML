@@ -1,0 +1,9 @@
+{
+  "endpoint_contrast": "zz_r5_d6 - eff_su2_r1_d6",
+  "exact": "/home/najeeb/qurift_satML/satml_results/noise/n3_attack_breadth/lira_references/lira_reference_mia_raw.csv",
+  "noisy": "/home/najeeb/qurift_satML/satml_results/noise/n3_attack_breadth/noisy_lira/noisy_lira_raw.csv",
+  "scope": "selected attack-breadth confirmation, not factorial inference",
+  "simulator_seeds_averaged_within_checkpoint": true,
+  "snapshot_manifest_sha256": "516fac22a7de7c7485ebe5cd518ec5e695426213c3b2c286adcf026c78554362",
+  "targets": "/home/najeeb/qurift_satML/satml_targets/noise/mnist_noise_n3_lira_targets.csv"
+}
