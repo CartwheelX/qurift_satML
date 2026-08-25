@@ -20,6 +20,7 @@ from typing import Dict, List, Tuple
 
 import pandas as pd
 
+from gpu_scheduler import describe_gpu_plan, plan_gpu_slots
 from reviewer_common import as_bool, atomic_write_csv, safe_int
 
 
@@ -270,7 +271,10 @@ def main() -> None:
     )
     parser.add_argument("--out", type=Path, default=Path("reviewer_runs"))
     parser.add_argument("--gpus", default="auto")
-    parser.add_argument("--jobs-per-gpu", type=int, default=2)
+    parser.add_argument("--jobs-per-gpu", default="2")
+    parser.add_argument(
+        "--gpu-scheduling", choices=("adaptive", "fixed"), default="adaptive"
+    )
     parser.add_argument("--cpu-threads", type=int, default=2)
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
@@ -283,8 +287,8 @@ def main() -> None:
     parser.add_argument("--fail-fast", action="store_true")
     args = parser.parse_args()
 
-    if args.jobs_per_gpu < 1 or args.cpu_threads < 1:
-        parser.error("--jobs-per-gpu and --cpu-threads must be positive")
+    if args.cpu_threads < 1:
+        parser.error("--cpu-threads must be positive")
     if not args.targets.exists():
         parser.error(f"Targets file not found: {args.targets}")
 
@@ -328,12 +332,19 @@ def main() -> None:
         return
 
     gpu_ids = parse_gpus(args.gpus)
+    plan = plan_gpu_slots(
+        gpu_ids,
+        jobs_per_gpu=args.jobs_per_gpu,
+        profile_name="qnn_train",
+        pending_jobs=len(targets),
+        adaptive=args.gpu_scheduling == "adaptive",
+        dry_run=args.dry_run,
+    )
     slots: queue.Queue[int] = queue.Queue()
-    for gpu_id in gpu_ids:
-        for _ in range(args.jobs_per_gpu):
-            slots.put(gpu_id)
-    workers = slots.qsize()
-    print(f"GPUs={gpu_ids}; jobs_per_gpu={args.jobs_per_gpu}; concurrency={workers}")
+    for gpu_id in plan.tickets:
+        slots.put(gpu_id)
+    workers = plan.concurrency
+    print(describe_gpu_plan(plan), flush=True)
 
     results: List[Dict[str, object]] = []
 

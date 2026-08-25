@@ -131,13 +131,24 @@ Credit/Fashion-MNIST and 320 for WDBC). Sixteen references
 are trained per structural-configuration × split-block candidate population,
 with each candidate included in exactly half. Reference banks are never shared
 across different data splits. Credit uses full LiRA coverage. For the added
-datasets, learned and label-only attacks cover every target, while LiRA is a
-prespecified representative analysis of all six depth-2 structural
-configurations in the first three paired blocks (18 targets per dataset). This
-is a reference-model robustness attack,
-not the source of the 1% FPR claim. The label-only boundary attack uses
-predicted labels and held-out validation anchors; its query count and
-boundary-score definition are reported.
+datasets, learned, correctness-only label-output, and hard-label boundary
+attacks cover every target, while LiRA is a prespecified representative
+analysis of all six depth-2 structural configurations in the first three
+paired blocks (18 targets per dataset). This is a reference-model robustness
+attack, not the source of the 1% FPR claim.
+
+The corrected label-only boundary attack is an independent hard-label
+HopSkipJump-style implementation. It uses a balanced deterministic subset of
+members and nonmembers, assigns distance zero to initially misclassified
+records, and gives every initially correct record the same nominal search
+procedure and maximum query budget. Credit and WDBC probes are clipped to the
+predeclared `[-1,1]` PCA domain; image probes are clipped to the valid
+normalized-pixel domain. If no changed-label initialization is found, the
+operational score is capped at the record-independent L2 diameter of the
+declared input box and marked search-censored rather than removed or stored as
+NaN. Query counts, prediction histograms, initialization success, and censored
+fractions are reported. The earlier validation-anchor chord
+results are diagnostic only and are excluded from SaTML inference.
 
 ## Direct geometry
 

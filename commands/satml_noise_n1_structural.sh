@@ -4,7 +4,8 @@ set -euo pipefail
 : "${QURIFT_NOISE_SNAPSHOT:?Set QURIFT_NOISE_SNAPSHOT to one frozen snapshot directory}"
 PYTHON_BIN="${PYTHON_BIN:-python}"
 QURIFT_GPUS="${QURIFT_GPUS:-auto}"
-QURIFT_NOISE_JOBS_PER_GPU="${QURIFT_NOISE_JOBS_PER_GPU:-1}"
+QURIFT_NOISE_JOBS_PER_GPU="${QURIFT_NOISE_JOBS_PER_GPU:-auto}"
+QURIFT_NOISE_SHARDS_PER_TARGET="${QURIFT_NOISE_SHARDS_PER_TARGET:-0}"
 TARGETS="satml_targets/noise/mnist_noise_n1_structural_targets.csv"
 OUT="satml_results/noise/n1_structural"
 
@@ -19,6 +20,7 @@ mkdir -p "${OUT}" satml_logs
   --transpiler-seed 2026 --optimization-level 1 --qiskit-batch-size 16 \
   --bootstrap 5000 --bootstrap-seed 2026 --device cuda \
   --gpus "${QURIFT_GPUS}" --jobs-per-gpu "${QURIFT_NOISE_JOBS_PER_GPU}" \
+  --condition-shards-per-target "${QURIFT_NOISE_SHARDS_PER_TARGET}" \
   --cpu-threads 2 --resume 2>&1 | tee satml_logs/noise_n1_structural.log
 
 "${PYTHON_BIN}" -u satml_tools/noisy_learned_mia.py \

@@ -19,7 +19,7 @@ def main() -> None:
     parser.add_argument("--script", type=Path, default=Path("experiments/qurift_main.py"))
     parser.add_argument("--out", type=Path, default=Path("reviewer_runs"))
     parser.add_argument("--gpus", default="auto")
-    parser.add_argument("--jobs-per-gpu", type=int, default=2)
+    parser.add_argument("--jobs-per-gpu", default="2")
     parser.add_argument("--cpu-threads", type=int, default=2)
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--dry-run", action="store_true")

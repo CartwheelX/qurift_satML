@@ -65,6 +65,9 @@ export PYTHON_BIN="$(command -v python)"
 export QURIFT_GPUS=0,1,2,3,4,5,6,7
 export QURIFT_JOBS_PER_GPU=1
 export QURIFT_NOISE_JOBS_PER_GPU=1
+export QURIFT_LABEL_JOBS_PER_GPU=1
+export QURIFT_LABEL_MAX_QUERIES=512
+export QURIFT_LABEL_INIT_QUERIES=128
 export QURIFT_LEGACY_REPO='/home/najeeb/quarift_neurips_rebutal_2'
 export QURIFT_NOISE_BACKEND='ibm_kingston'
 export QISKIT_IBM_TOKEN='YOUR_VALID_TOKEN'
@@ -170,17 +173,48 @@ analyses are dataset-specific and are not automatically pooled.
 
 ## 7. LiRA and label-only robustness attacks
 
+First run the prespecified hard-label query-budget pilot:
+
+```bash
+bash commands/satml_pilot_credit_label_only_hsj.sh
+```
+
+It compares 128, 512, and 2,500 queries on fixed candidates from three
+predeclared Credit targets. Use it to audit runtime, censoring, initialization,
+and score convergence—not to select the final budget by attack AUC. See
+`docs/SATML_LABEL_ONLY_HSJ.md` for the target roles and outputs.
+
 ```bash
 bash commands/satml_run_credit_attacks.sh
 ```
 
 This is intentionally separate because it is substantially more expensive. It
-trains the cross-validated learned prediction-vector/statistics attacker, LiRA
-and the label-only boundary attack. LiRA trains 16 references for each of the
+trains the cross-validated learned prediction-vector/statistics attacker and
+LiRA, computes the correctness-only label baseline, and runs the hard-label
+HopSkipJump-style boundary attack. LiRA trains 16 references for each of the
 96 structural-configuration × split-block candidate populations (1,536
 references total), then scores its matching target. Banks cannot be reused
 across blocks because their candidate records differ. The final command
 regenerates paired structural contrasts across all attack families.
+
+The HSJ-style attack uses 200 members and a deterministic 200-nonmember subset
+per Credit/Fashion target; WDBC uses 160+160. Its default maximum is 512 label
+queries per record, including the initial prediction. The same initialization,
+gradient-estimation, projection, clipping, and censoring rules are applied to
+every structural configuration. The old outputs under
+`satml_results/credit_factorial/label_only/` are the invalidated validation-
+anchor diagnostic and are never resumed or combined. Corrected outputs are
+written under `label_only_hsj/`; see `docs/SATML_LABEL_ONLY_HSJ.md`.
+
+If the learned and LiRA stages are already complete, resume specifically from
+the Credit label-only stage with:
+
+```bash
+bash commands/satml_run_credit_label_only_hsj.sh
+```
+
+Then run `bash commands/satml_analyze_credit_all_attacks.sh` to regenerate the
+all-attack paired analysis without relaunching the completed learned/LiRA jobs.
 
 After the Fashion-MNIST and WDBC threshold analyses finish, run their full
 learned and label-only attacks plus the prespecified representative LiRA subset:
@@ -204,11 +238,11 @@ watch -n 15 python satml_tools/status_progress.py \
   --expected 288
 
 watch -n 15 python satml_tools/status_progress.py \
-  --csv satml_results/fashion_factorial/label_only/target_scoring_status.csv \
+  --csv satml_results/fashion_factorial/label_only_hsj/target_scoring_status.csv \
   --expected 60
 
 watch -n 15 python satml_tools/status_progress.py \
-  --csv satml_results/wdbc_targeted/label_only/target_scoring_status.csv \
+  --csv satml_results/wdbc_targeted/label_only_hsj/target_scoring_status.csv \
   --expected 30
 ```
 
@@ -224,7 +258,7 @@ watch -n 15 python satml_tools/status_progress.py \
   --expected 96
 
 watch -n 15 python satml_tools/status_progress.py \
-  --csv satml_results/credit_factorial/label_only/target_scoring_status.csv \
+  --csv satml_results/credit_factorial/label_only_hsj/target_scoring_status.csv \
   --expected 96
 ```
 

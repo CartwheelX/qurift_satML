@@ -9,9 +9,12 @@ import pandas as pd
 import torch
 
 from reviewer_tools.qurift_noisy_eval import (
+    aggregate_condition_shards,
+    condition_belongs_to_shard,
     evaluate_query_count_runs,
     merge_counts,
     parse_query_shot_pairs,
+    shard_output_path,
 )
 from reviewer_tools.reviewer_common import stratified_bootstrap_tpr_at_fpr
 from reviewer_tools.qurift_qiskit_bridge import (
@@ -23,6 +26,42 @@ from satml_tools.analyze_noise_budget import analyze_noise, analyze_utility
 
 
 class NoiseBudgetTests(unittest.TestCase):
+    def test_condition_shards_are_disjoint_and_complete(self) -> None:
+        assignments = [
+            [ordinal for ordinal in range(120) if condition_belongs_to_shard(
+                ordinal, shard_index=shard, shard_count=4
+            )]
+            for shard in range(4)
+        ]
+        self.assertTrue(all(len(values) == 30 for values in assignments))
+        self.assertEqual(sorted(value for values in assignments for value in values), list(range(120)))
+
+    def test_condition_shard_outputs_merge_without_duplicates(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for shard in range(2):
+                status = pd.DataFrame([{
+                    "target_id": "target", "mode": "ideal_shot", "queries": 1,
+                    "shots": 128, "simulator_seed": shard,
+                    "aggregation": "mean_api_probabilities", "status": "ok",
+                }])
+                status.to_csv(shard_output_path(
+                    root, "condition_status.csv", shard_index=shard, shard_count=2
+                ), index=False)
+                for filename in (
+                    "condition_metrics_raw.csv", "per_sample_predictions.csv", "failures.csv"
+                ):
+                    pd.DataFrame().to_csv(shard_output_path(
+                        root, filename, shard_index=shard, shard_count=2
+                    ), index=False)
+            report = aggregate_condition_shards(
+                root, shard_count=2, bootstrap=10, bootstrap_seed=3
+            )
+            self.assertEqual(report["conditions"], 2)
+            self.assertEqual(report["failures"], 0)
+            merged = pd.read_csv(root / "condition_status.csv")
+            self.assertEqual(set(merged.simulator_seed), {0, 1})
+
     def test_query_shot_pairs_preserve_declared_budget(self) -> None:
         pairs = parse_query_shot_pairs("1x2560,20x128")
         self.assertEqual(pairs, [(1, 2560), (20, 128)])

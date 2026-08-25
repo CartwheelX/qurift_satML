@@ -36,6 +36,11 @@ training-only tabular preprocessing, seeded image partitions, direct
 post-encoder geometry, dataset-specific low-FPR reporting, and generated
 Markdown/LaTeX tables plus publication figures. Exact commands and monitoring
 instructions are maintained in [docs/SATML_RUNBOOK.md](docs/SATML_RUNBOOK.md).
+The SaTML label-output evaluation separates an always-defined correctness
+baseline from a fixed-budget hard-label HopSkipJump-style boundary search; the
+earlier validation-anchor chord outputs are retained only as diagnostics. The
+corrected protocol is documented in
+[docs/SATML_LABEL_ONLY_HSJ.md](docs/SATML_LABEL_ONLY_HSJ.md).
 After the 96-target Credit factorial completes, the resumable unattended
 wrapper `commands/satml_run_all_remaining.sh` executes every remaining required
 stage, final artifact generation, and repository verification in order.

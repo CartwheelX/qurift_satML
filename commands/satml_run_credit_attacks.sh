@@ -3,6 +3,9 @@ set -euo pipefail
 
 PYTHON_BIN="${PYTHON_BIN:-python}"
 QURIFT_GPUS="${QURIFT_GPUS:-auto}"
+QURIFT_LABEL_JOBS_PER_GPU="${QURIFT_LABEL_JOBS_PER_GPU:-1}"
+QURIFT_LABEL_MAX_QUERIES="${QURIFT_LABEL_MAX_QUERIES:-512}"
+QURIFT_LABEL_INIT_QUERIES="${QURIFT_LABEL_INIT_QUERIES:-128}"
 TARGETS="satml_targets/credit_factorial_targets.csv"
 
 mkdir -p satml_logs satml_results/credit_factorial
@@ -39,30 +42,11 @@ mkdir -p satml_logs satml_results/credit_factorial
   --resume \
   2>&1 | tee satml_logs/credit_lira.log
 
-"${PYTHON_BIN}" -u reviewer_tools/run_label_only_boundary_multigpu.py \
-  --targets "${TARGETS}" \
-  --repo-root . \
-  --run-root satml_runs \
-  --out-dir satml_results/credit_factorial/label_only \
-  --n-member 200 \
-  --n-nonmember 2000 \
-  --anchors 16 \
-  --binary-steps 10 \
-  --bootstrap 10000 \
-  --seed 2026 \
-  --gpus "${QURIFT_GPUS}" \
-  --jobs-per-gpu 1 \
-  --cpu-threads 2 \
-  --resume \
-  2>&1 | tee satml_logs/credit_label_only.log
+PYTHON_BIN="${PYTHON_BIN}" \
+QURIFT_GPUS="${QURIFT_GPUS}" \
+QURIFT_LABEL_JOBS_PER_GPU="${QURIFT_LABEL_JOBS_PER_GPU}" \
+QURIFT_LABEL_MAX_QUERIES="${QURIFT_LABEL_MAX_QUERIES}" \
+QURIFT_LABEL_INIT_QUERIES="${QURIFT_LABEL_INIT_QUERIES}" \
+  bash commands/satml_run_credit_label_only_hsj.sh
 
-"${PYTHON_BIN}" -u satml_tools/analyze_paired_factorial.py \
-  --targets "${TARGETS}" \
-  --metrics satml_results/credit_factorial/target_metrics/retrained_target_metrics_raw.csv \
-  --attack-results satml_results/credit_factorial/threshold_mia/threshold_mia_raw.csv \
-  --attack-results satml_results/credit_factorial/learned_mia/attack_summary.csv \
-  --attack-results satml_results/credit_factorial/lira/lira_reference_mia_raw.csv \
-  --attack-results satml_results/credit_factorial/label_only/label_only_boundary_raw.csv \
-  --out-dir satml_results/credit_factorial/paired_all_attacks \
-  --bootstrap 10000 \
-  --bootstrap-seed 2026
+PYTHON_BIN="${PYTHON_BIN}" bash commands/satml_analyze_credit_all_attacks.sh

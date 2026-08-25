@@ -14,6 +14,7 @@ from typing import Any
 
 import pandas as pd
 
+from gpu_scheduler import describe_gpu_plan, plan_gpu_slots
 from reviewer_common import atomic_write_csv
 
 
@@ -156,7 +157,10 @@ def main() -> None:
     parser.add_argument("--bootstrap", type=int, default=5000)
     parser.add_argument("--seed", type=int, default=2026)
     parser.add_argument("--gpus", default="auto")
-    parser.add_argument("--jobs-per-gpu", type=int, default=1)
+    parser.add_argument("--jobs-per-gpu", default="1")
+    parser.add_argument(
+        "--gpu-scheduling", choices=("adaptive", "fixed"), default="adaptive"
+    )
     parser.add_argument("--cpu-threads", type=int, default=2)
     parser.add_argument(
         "--phase", choices=["all", "train", "score"], default="all"
@@ -190,14 +194,21 @@ def main() -> None:
     representatives = targets.drop_duplicates("_cell", keep="first")
 
     gpus = parse_gpus(args.gpus, dry_run=args.dry_run)
-    concurrency = len(gpus) * args.jobs_per_gpu
+    plan = plan_gpu_slots(
+        gpus,
+        jobs_per_gpu=args.jobs_per_gpu,
+        profile_name="lira",
+        adaptive=args.gpu_scheduling == "adaptive",
+        dry_run=args.dry_run,
+    )
+    concurrency = plan.concurrency
     slots: queue.Queue[int] = queue.Queue()
-    for gpu in gpus:
-        for _ in range(args.jobs_per_gpu):
-            slots.put(gpu)
+    for gpu in plan.tickets:
+        slots.put(gpu)
     worker_script = Path(__file__).with_name("qurift_lira_attack.py").resolve()
     logs_dir = out_dir / "logs"
     print(
+        describe_gpu_plan(plan) + "\n" +
         f"GPUs={gpus}; jobs_per_gpu={args.jobs_per_gpu}; "
         f"concurrency={concurrency}; cells={len(representatives)}; "
         f"targets={len(targets)}",

@@ -12,7 +12,13 @@ cd "${REPO_ROOT}"
 PYTHON_BIN="${PYTHON_BIN:-python}"
 QURIFT_GPUS="${QURIFT_GPUS:-auto}"
 QURIFT_JOBS_PER_GPU="${QURIFT_JOBS_PER_GPU:-1}"
-QURIFT_NOISE_JOBS_PER_GPU="${QURIFT_NOISE_JOBS_PER_GPU:-1}"
+QURIFT_NOISE_JOBS_PER_GPU="${QURIFT_NOISE_JOBS_PER_GPU:-auto}"
+QURIFT_NOISE_SHARDS_PER_TARGET="${QURIFT_NOISE_SHARDS_PER_TARGET:-0}"
+QURIFT_TRAIN_JOBS_PER_GPU="${QURIFT_TRAIN_JOBS_PER_GPU:-auto}"
+QURIFT_ATTACK_JOBS_PER_GPU="${QURIFT_ATTACK_JOBS_PER_GPU:-3}"
+QURIFT_LIRA_JOBS_PER_GPU="${QURIFT_LIRA_JOBS_PER_GPU:-auto}"
+QURIFT_LABEL_JOBS_PER_GPU="${QURIFT_LABEL_JOBS_PER_GPU:-auto}"
+QURIFT_GPU_MONITOR_INTERVAL="${QURIFT_GPU_MONITOR_INTERVAL:-15}"
 QURIFT_LEGACY_REPO="${QURIFT_LEGACY_REPO:-/home/najeeb/quarift_neurips_rebutal_2}"
 QURIFT_INCLUDE_OPTIONAL_NOISY_LABEL="${QURIFT_INCLUDE_OPTIONAL_NOISY_LABEL:-0}"
 QURIFT_MASTER_FORCE="${QURIFT_MASTER_FORCE:-0}"
@@ -25,6 +31,8 @@ CURRENT_FILE="${STATE_DIR}/current_stage.txt"
 PID_FILE="${STATE_DIR}/pipeline.pid"
 SNAPSHOT_STATE_FILE="${STATE_DIR}/frozen_snapshot_path.txt"
 MASTER_LOG="satml_logs/satml_all_remaining_${RUN_TAG}.log"
+GPU_TELEMETRY_FILE="satml_logs/gpu_telemetry_${RUN_TAG}.csv"
+GPU_MONITOR_PID=""
 DRY_RUN=0
 
 usage() {
@@ -37,7 +45,13 @@ usage() {
     'Useful environment variables:' \
     '  QURIFT_GPUS=0,1,2,3,4,5,6,7' \
     '  QURIFT_JOBS_PER_GPU=1' \
-    '  QURIFT_NOISE_JOBS_PER_GPU=1' \
+    '  QURIFT_TRAIN_JOBS_PER_GPU=auto' \
+    '  QURIFT_ATTACK_JOBS_PER_GPU=3' \
+    '  QURIFT_LIRA_JOBS_PER_GPU=auto' \
+    '  QURIFT_LABEL_JOBS_PER_GPU=auto' \
+    '  QURIFT_GPU_MONITOR_INTERVAL=15  # seconds; 0 disables telemetry' \
+    '  QURIFT_NOISE_JOBS_PER_GPU=auto' \
+    '  QURIFT_NOISE_SHARDS_PER_TARGET=0  # auto: 4 for CPU Aer, 1 for GPU Aer' \
     '  QURIFT_LEGACY_REPO=/path/to/quarift_neurips_rebutal_2' \
     '  QURIFT_NOISE_SNAPSHOT=/path/to/frozen/snapshot' \
     '  QURIFT_INCLUDE_OPTIONAL_NOISY_LABEL=1' \
@@ -72,6 +86,9 @@ ln -sfn "$(basename "${MASTER_LOG}")" satml_logs/satml_all_remaining_latest.log
 exec > >(tee -a "${MASTER_LOG}") 2>&1
 
 export PYTHON_BIN QURIFT_GPUS QURIFT_JOBS_PER_GPU QURIFT_NOISE_JOBS_PER_GPU
+export QURIFT_NOISE_SHARDS_PER_TARGET
+export QURIFT_TRAIN_JOBS_PER_GPU QURIFT_ATTACK_JOBS_PER_GPU
+export QURIFT_LIRA_JOBS_PER_GPU QURIFT_LABEL_JOBS_PER_GPU
 export QURIFT_LEGACY_REPO CUBLAS_WORKSPACE_CONFIG="${CUBLAS_WORKSPACE_CONFIG:-:4096:8}"
 export PYTHONUNBUFFERED=1
 
@@ -103,11 +120,28 @@ finish_pipeline() {
     record_event pipeline failed "stage=${ACTIVE_STAGE}; exit_code=${code}"
     printf '[FAILED] stage=%s exit_code=%s log=%s\n' "${ACTIVE_STAGE}" "${code}" "${MASTER_LOG}" >&2
   fi
+  if [[ -n "${GPU_MONITOR_PID}" ]]; then
+    kill "${GPU_MONITOR_PID}" 2>/dev/null || true
+    wait "${GPU_MONITOR_PID}" 2>/dev/null || true
+  fi
   rm -f "${PID_FILE}"
 }
 trap finish_pipeline EXIT
 trap 'exit 130' INT
 trap 'exit 143' TERM
+
+start_gpu_monitor() {
+  if [[ "${QURIFT_GPU_MONITOR_INTERVAL}" == "0" ]]; then
+    printf '%s\n' '[MONITOR] GPU telemetry disabled.'
+    return
+  fi
+  "${PYTHON_BIN}" -u satml_tools/monitor_pipeline_gpus.py \
+    --pid-file "${PID_FILE}" --stage-file "${CURRENT_FILE}" \
+    --out "${GPU_TELEMETRY_FILE}" --interval "${QURIFT_GPU_MONITOR_INTERVAL}" &
+  GPU_MONITOR_PID=$!
+  printf '[MONITOR] GPU telemetry: %s (pid=%s)\n' \
+    "${GPU_TELEMETRY_FILE}" "${GPU_MONITOR_PID}"
+}
 
 run_stage() {
   local stage="$1"
@@ -278,6 +312,7 @@ printf '[MONITOR] current stage: cat %s\n' "${CURRENT_FILE}"
 printf '[MONITOR] master log: tail -f %s\n' "${MASTER_LOG}"
 printf '[MONITOR] events: column -ts $'"'\t'"' %s\n' "${STATUS_FILE}"
 
+start_gpu_monitor
 preflight
 
 run_stage prepare bash commands/satml_prepare.sh

@@ -181,14 +181,14 @@ def evaluate_query_count_runs(
 
 def atomic_csv(frame: pd.DataFrame, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary = path.with_name(f"{path.name}.tmp.{os.getpid()}")
     frame.to_csv(temporary, index=False)
     temporary.replace(path)
 
 
 def atomic_json(value: Any, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary = path.with_name(f"{path.name}.tmp.{os.getpid()}")
     temporary.write_text(json.dumps(value, indent=2, sort_keys=True), encoding="utf-8")
     temporary.replace(path)
 
@@ -375,7 +375,13 @@ def save_condition_payload(
         payload["query_pv"] = query_probabilities.cpu().float()
     if pooled_count_probabilities is not None:
         payload["pooled_count_pv"] = pooled_count_probabilities.cpu().float()
-    torch.save(payload, path)
+    temporary = path.with_name(f"{path.name}.tmp.{os.getpid()}")
+    try:
+        torch.save(payload, temporary)
+        temporary.replace(path)
+    finally:
+        if temporary.exists():
+            temporary.unlink()
 
 
 def simulator_seed_bootstrap(values: np.ndarray, n_boot: int, seed: int) -> Tuple[float, float, int]:
@@ -476,6 +482,104 @@ def structural_base(row: Mapping[str, Any]) -> Dict[str, Any]:
     }
 
 
+def shard_output_path(
+    target_out: Path, filename: str, *, shard_index: int, shard_count: int
+) -> Path:
+    if int(shard_count) == 1:
+        return target_out / filename
+    path = Path(filename)
+    suffix = f".shard{int(shard_index):03d}-of-{int(shard_count):03d}"
+    return target_out / f"{path.stem}{suffix}{path.suffix}"
+
+
+def condition_belongs_to_shard(
+    ordinal: int, *, shard_index: int, shard_count: int
+) -> bool:
+    return int(ordinal) % int(shard_count) == int(shard_index)
+
+
+def _read_nonempty_csv(path: Path) -> Optional[pd.DataFrame]:
+    try:
+        frame = pd.read_csv(path)
+    except (FileNotFoundError, pd.errors.EmptyDataError):
+        return None
+    return None if frame.empty else frame
+
+
+def aggregate_condition_shards(
+    target_out: Path,
+    *,
+    shard_count: int,
+    bootstrap: int,
+    bootstrap_seed: int,
+) -> Dict[str, int]:
+    """Merge independently written condition shards into canonical outputs."""
+    if int(shard_count) < 2:
+        raise ValueError("aggregate_condition_shards requires shard_count >= 2")
+    target_out = target_out.resolve()
+    specifications = {
+        "condition_status.csv": [
+            "target_id", "mode", "queries", "shots", "simulator_seed", "aggregation"
+        ],
+        "condition_metrics_raw.csv": [
+            "target_id", "mode", "queries", "shots", "simulator_seed",
+            "aggregation", "metric_scope", "metric_name",
+        ],
+        "per_sample_predictions.csv": [
+            "target_id", "mode", "queries", "shots", "simulator_seed",
+            "aggregation", "sample_id",
+        ],
+        "failures.csv": [
+            "target_id", "mode", "queries", "shots", "simulator_seed", "stage"
+        ],
+    }
+    merged: Dict[str, pd.DataFrame] = {}
+    for filename, deduplicate_by in specifications.items():
+        frames = []
+        for shard_index in range(int(shard_count)):
+            path = shard_output_path(
+                target_out,
+                filename,
+                shard_index=shard_index,
+                shard_count=shard_count,
+            )
+            if not path.exists():
+                raise FileNotFoundError(f"Missing condition shard output: {path}")
+            frame = _read_nonempty_csv(path)
+            if frame is not None:
+                frames.append(frame)
+        frame = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
+        keys = [column for column in deduplicate_by if column in frame]
+        if keys:
+            frame = frame.drop_duplicates(keys, keep="last")
+            frame = frame.sort_values(keys).reset_index(drop=True)
+        atomic_csv(frame, target_out / filename)
+        merged[filename] = frame
+
+    raw_metrics = merged["condition_metrics_raw.csv"]
+    if not raw_metrics.empty:
+        summary = summarize_metrics(raw_metrics, int(bootstrap), int(bootstrap_seed))
+        atomic_csv(summary, target_out / "condition_metrics_summary.csv")
+
+    shard_metadata = shard_output_path(
+        target_out,
+        "run_metadata.json",
+        shard_index=0,
+        shard_count=shard_count,
+    )
+    if shard_metadata.exists():
+        metadata = json.loads(shard_metadata.read_text(encoding="utf-8"))
+        metadata["condition_shards"] = int(shard_count)
+        metadata["condition_shards_aggregated"] = True
+        atomic_json(metadata, target_out / "run_metadata.json")
+    return {
+        "conditions": len(merged["condition_status.csv"]),
+        "metric_rows": len(raw_metrics),
+        "prediction_rows": len(merged["per_sample_predictions.csv"]),
+        "failures": len(merged["failures.csv"]),
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo-root", type=Path, default=Path("."))
@@ -520,6 +624,8 @@ def main() -> None:
     parser.add_argument("--bootstrap-seed", type=int, default=2026)
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--verify-attack-payload", action="store_true")
+    parser.add_argument("--condition-shard-index", type=int, default=0)
+    parser.add_argument("--condition-shard-count", type=int, default=1)
     args = parser.parse_args()
 
     start_time = time.time()
@@ -538,6 +644,10 @@ def main() -> None:
         raise ValueError("At least one simulator seed is required for finite-shot modes")
     if args.require_noise and "noisy_shot" not in modes:
         raise ValueError("--require-noise was specified but noisy_shot is not in --modes")
+    if args.condition_shard_count < 1:
+        raise ValueError("--condition-shard-count must be positive")
+    if not 0 <= args.condition_shard_index < args.condition_shard_count:
+        raise ValueError("--condition-shard-index must be in [0, condition-shard-count)")
 
     os.environ.setdefault("QURIFT_DISABLE_DEBUG_EXPORTS", "1")
     os.environ.setdefault("QURIFT_DISABLE_CIRCUIT_EXPORTS", "1")
@@ -559,6 +669,18 @@ def main() -> None:
     payload_dir = target_out / "payloads"
     target_out.mkdir(parents=True, exist_ok=True)
     payload_dir.mkdir(parents=True, exist_ok=True)
+    status_path = shard_output_path(
+        target_out,
+        "condition_status.csv",
+        shard_index=args.condition_shard_index,
+        shard_count=args.condition_shard_count,
+    )
+    failures_path = shard_output_path(
+        target_out,
+        "failures.csv",
+        shard_index=args.condition_shard_index,
+        shard_count=args.condition_shard_count,
+    )
 
     requested_device = str(args.device).lower()
     if requested_device.startswith("cuda") and not torch.cuda.is_available():
@@ -602,7 +724,8 @@ def main() -> None:
     quantum_scope = "exact_full_model"
 
     exact_probs: Optional[torch.Tensor] = None
-    if "exact" in modes or args.verify_attack_payload:
+    shard_owns_exact = args.condition_shard_index == 0
+    if ("exact" in modes and shard_owns_exact) or args.verify_attack_payload:
         exact_path = payload_dir / "exact.pt"
         if args.resume and exact_path.exists():
             exact_payload = load_existing_payload(exact_path)
@@ -638,7 +761,7 @@ def main() -> None:
                 metadata={"quantum_execution_scope": "exact_full_model"},
             )
             status = "ok"
-        if "exact" in modes:
+        if "exact" in modes and shard_owns_exact:
             base = {
                 "target_id": args.target_id,
                 **target_structure,
@@ -704,7 +827,7 @@ def main() -> None:
                 "error": f"{type(exc).__name__}: {exc}",
             }
             failures.append(failure)
-            atomic_csv(pd.DataFrame(failures), target_out / "failures.csv")
+            atomic_csv(pd.DataFrame(failures), failures_path)
             atomic_json(
                 {
                     "requested_backend_name": args.backend_name,
@@ -765,9 +888,10 @@ def main() -> None:
                     "error": f"{type(exc).__name__}: {exc}",
                 }
             )
-            atomic_csv(pd.DataFrame(failures), target_out / "failures.csv")
+            atomic_csv(pd.DataFrame(failures), failures_path)
             raise
 
+        condition_ordinal = 0
         for mode in shot_modes:
             if mode == "noisy_shot" and backend_context.noise_model is None:
                 failure = {
@@ -788,6 +912,14 @@ def main() -> None:
             noise_model = backend_context.noise_model if mode == "noisy_shot" else None
             for queries, shots in query_shot_pairs:
                 for simulator_seed in simulator_seeds:
+                    belongs_to_shard = condition_belongs_to_shard(
+                        condition_ordinal,
+                        shard_index=args.condition_shard_index,
+                        shard_count=args.condition_shard_count,
+                    )
+                    condition_ordinal += 1
+                    if not belongs_to_shard:
+                        continue
                     key = condition_key(mode, shots, queries, simulator_seed)
                     payload_path = payload_dir / f"{key}.pt"
                     base = {
@@ -938,8 +1070,8 @@ def main() -> None:
                         failures.append(failure)
                         condition_status.append(failure)
 
-                    atomic_csv(pd.DataFrame(condition_status), target_out / "condition_status.csv")
-                    atomic_csv(pd.DataFrame(failures), target_out / "failures.csv")
+                    atomic_csv(pd.DataFrame(condition_status), status_path)
+                    atomic_csv(pd.DataFrame(failures), failures_path)
                     latest = condition_status[-1]
                     print(
                         f"[{args.target_id}] mode={mode} q={queries} shots={shots} "
@@ -949,14 +1081,31 @@ def main() -> None:
                     )
 
     if sample_rows:
-        atomic_csv(pd.DataFrame(sample_rows), target_out / "per_sample_predictions.csv")
+        atomic_csv(
+            pd.DataFrame(sample_rows),
+            shard_output_path(
+                target_out,
+                "per_sample_predictions.csv",
+                shard_index=args.condition_shard_index,
+                shard_count=args.condition_shard_count,
+            ),
+        )
     raw_metrics = pd.DataFrame(metric_rows)
     if not raw_metrics.empty:
-        atomic_csv(raw_metrics, target_out / "condition_metrics_raw.csv")
-        summary = summarize_metrics(raw_metrics, args.bootstrap, args.bootstrap_seed)
-        atomic_csv(summary, target_out / "condition_metrics_summary.csv")
-    atomic_csv(pd.DataFrame(condition_status), target_out / "condition_status.csv")
-    atomic_csv(pd.DataFrame(failures), target_out / "failures.csv")
+        atomic_csv(
+            raw_metrics,
+            shard_output_path(
+                target_out,
+                "condition_metrics_raw.csv",
+                shard_index=args.condition_shard_index,
+                shard_count=args.condition_shard_count,
+            ),
+        )
+        if args.condition_shard_count == 1:
+            summary = summarize_metrics(raw_metrics, args.bootstrap, args.bootstrap_seed)
+            atomic_csv(summary, target_out / "condition_metrics_summary.csv")
+    atomic_csv(pd.DataFrame(condition_status), status_path)
+    atomic_csv(pd.DataFrame(failures), failures_path)
 
     run_metadata = {
         "target_row": target_row_to_jsonable(row),
@@ -1002,8 +1151,18 @@ def main() -> None:
         "elapsed_seconds": round(time.time() - start_time, 3),
         "credentials_logged": False,
         "real_hardware_execution": False,
+        "condition_shard_index": int(args.condition_shard_index),
+        "condition_shard_count": int(args.condition_shard_count),
     }
-    atomic_json(run_metadata, target_out / "run_metadata.json")
+    atomic_json(
+        run_metadata,
+        shard_output_path(
+            target_out,
+            "run_metadata.json",
+            shard_index=args.condition_shard_index,
+            shard_count=args.condition_shard_count,
+        ),
+    )
     atomic_json(
         {
             "primary_uncertainty": "mean ± sample SD across simulator seeds for a fixed target checkpoint",

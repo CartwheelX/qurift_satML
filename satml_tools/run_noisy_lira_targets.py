@@ -16,6 +16,7 @@ for path in (ROOT, REVIEWER):
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 
+from reviewer_tools.gpu_scheduler import describe_gpu_plan, plan_gpu_slots
 from reviewer_tools.run_lira_reference_multigpu import parse_gpus, run_commands
 
 
@@ -32,7 +33,10 @@ def main() -> None:
     parser.add_argument("--shots", type=int, default=512)
     parser.add_argument("--simulator-seeds", default="0,1,2,3,4")
     parser.add_argument("--gpus", default="auto")
-    parser.add_argument("--jobs-per-gpu", type=int, default=1)
+    parser.add_argument("--jobs-per-gpu", default="1")
+    parser.add_argument(
+        "--gpu-scheduling", choices=("adaptive", "fixed"), default="adaptive"
+    )
     parser.add_argument("--cpu-threads", type=int, default=2)
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
@@ -75,14 +79,22 @@ def main() -> None:
     if args.max_targets is not None:
         tasks = tasks[: args.max_targets]
     gpus = parse_gpus(args.gpus, dry_run=args.dry_run)
+    plan = plan_gpu_slots(
+        gpus,
+        jobs_per_gpu=args.jobs_per_gpu,
+        profile_name="noisy_lira",
+        pending_jobs=len(tasks),
+        adaptive=args.gpu_scheduling == "adaptive",
+        dry_run=args.dry_run,
+    )
     slots: queue.Queue[int] = queue.Queue()
-    for gpu in gpus:
-        for _ in range(args.jobs_per_gpu):
-            slots.put(gpu)
+    for gpu in plan.tickets:
+        slots.put(gpu)
+    print(describe_gpu_plan(plan), flush=True)
     status = run_commands(
         tasks,
         gpu_slots=slots,
-        concurrency=len(gpus) * args.jobs_per_gpu,
+        concurrency=plan.concurrency,
         logs_dir=out_dir / "logs",
         status_path=out_dir / "target_status.csv",
         dry_run=args.dry_run,
