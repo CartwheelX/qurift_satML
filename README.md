@@ -10,6 +10,35 @@
 > rebuttal outputs remain as legacy evidence and are not silently mixed with
 > new SaTML results; new outputs use the `satml_*` directories.
 
+> **PETS defense extension.** A separate, fresh-seed defense study is available
+> under `qurift/defenses`, `pets_tools`, and `commands/pets_*`. It does not
+> overwrite the frozen SaTML evidence. Read the
+> [defense protocol](docs/PETS_DEFENSE_PROTOCOL.md),
+> [provenance record](docs/PETS_DEFENSE_PROVENANCE.md), and
+> [MemGQ specification](docs/PETS_MEMGQ.md) before launching the one-block
+> pilot. The full launcher is deliberately gated until pilot settings are
+> recorded and frozen.
+
+For the current completed pilot, run the corrected evaluation and utility-only
+tuning stages before confirmation:
+
+```bash
+export QURIFT_PETS_STICKY_SECRET='the-same-private-pilot-secret'
+nohup bash commands/pets_run_credit_corrections.sh \
+  > pets_logs/corrections_launcher.log 2>&1 &
+echo $!
+```
+
+The correction stage recoverably archives the old pilot result directories and
+reuses unaffected target/reference checkpoints while recomputing evaluations
+with task-label-matched MIA pools and full-test utility. It also adds matched
+output-defense LiRA and nearby-query controls. The tuning stage trains new,
+versioned Watkins-style DP checkpoints (RMSprop, batch 32, 30 epochs, fixed
+clipping norm 1), selects binary operating thresholds on validation utility,
+and selects L2/DP settings without reading membership-attack outcomes. It then
+freezes `pets_b02`--`pets_b05`. Exact definitions and the subsequent full-run
+command are in the defense protocol.
+
 **QuRiFT** (**Quantum Risk and Inference Fault-line Tracer**) is a controlled audit framework for studying **structural privacy leakage in quantum machine learning (QML)**.
 
 QuRiFT is designed to answer a specific question: **how much of membership-inference risk in QML is induced by circuit structure, especially the non-trainable classical-to-quantum encoder?**

@@ -1,0 +1,31 @@
+nohup: ignoring input
+[OK] tuning targets=12 -> /home/najeeb/qurift_satML/pets_targets/credit_defense_tuning_targets.csv
+[GPU PLAN] profile=qnn_train mode=adaptive-auto concurrency=12
+[GPU PLAN] gpu=0 used=66763MiB free=15157MiB util=36% safe_capacity=5 assigned_slots=2
+[GPU PLAN] gpu=1 used=65423MiB free=16497MiB util=37% safe_capacity=6 assigned_slots=2
+[GPU PLAN] gpu=2 used=38949MiB free=42971MiB util=37% safe_capacity=6 assigned_slots=2
+[GPU PLAN] gpu=3 used=38961MiB free=42959MiB util=39% safe_capacity=6 assigned_slots=2
+[GPU PLAN] gpu=4 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=1
+[GPU PLAN] gpu=5 used=41341MiB free=40579MiB util=33% safe_capacity=6 assigned_slots=1
+[GPU PLAN] gpu=6 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=1
+[GPU PLAN] gpu=7 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=1
+[1/12] train_PETS_CREDIT_high_eff_su2_r5_d6_b01__tune_l2_wd0p001 -> ok (gpu=6, sec=4.3)
+[2/12] train_PETS_CREDIT_low_eff_su2_r1_d6_b01__tune_l2_wd0p001 -> ok (gpu=0, sec=4.5)
+[3/12] train_PETS_CREDIT_high_eff_su2_r5_d6_b01__tune_l2_wd0p0001 -> ok (gpu=7, sec=4.5)
+[4/12] train_PETS_CREDIT_high_eff_su2_r5_d6_b01__tune_dp_eps16 -> ok (gpu=1, sec=4.7)
+[5/12] train_PETS_CREDIT_low_eff_su2_r1_d6_b01__tune_dp_eps8 -> ok (gpu=2, sec=4.9)
+[6/12] train_PETS_CREDIT_low_eff_su2_r1_d6_b01__tune_l2_wd0p0001 -> ok (gpu=1, sec=4.9)
+[7/12] train_PETS_CREDIT_low_eff_su2_r1_d6_b01__tune_dp_eps16 -> ok (gpu=3, sec=4.9)
+[8/12] train_PETS_CREDIT_high_eff_su2_r5_d6_b01__tune_dp_eps8 -> ok (gpu=0, sec=5.1)
+[9/12] train_PETS_CREDIT_low_eff_su2_r1_d6_b01__tune_dp_eps32 -> ok (gpu=4, sec=2218.0)
+[10/12] train_PETS_CREDIT_low_eff_su2_r1_d6_b01__tune_dp_eps64 -> ok (gpu=5, sec=2242.9)
+[11/12] train_PETS_CREDIT_high_eff_su2_r5_d6_b01__tune_dp_eps32 -> ok (gpu=2, sec=2244.5)
+[12/12] train_PETS_CREDIT_high_eff_su2_r5_d6_b01__tune_dp_eps64 -> ok (gpu=3, sec=2280.7)
+Traceback (most recent call last):
+  File "/home/najeeb/qurift_satML/pets_tools/select_defense_tuning.py", line 227, in <module>
+    main()
+  File "/home/najeeb/qurift_satML/pets_tools/select_defense_tuning.py", line 186, in main
+    chosen = choose_settings(summary)
+  File "/home/najeeb/qurift_satML/pets_tools/select_defense_tuning.py", line 113, in choose_settings
+    raise RuntimeError(
+RuntimeError: no dp_qml setting satisfies the predeclared utility constraints; expand the utility-only grid rather than inspecting attack outcomes

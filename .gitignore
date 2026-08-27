@@ -359,6 +359,10 @@ data/
 satml_runs/
 satml_results/
 satml_logs/
+## PETS defense artifacts are isolated from the frozen SaTML result tree.
+pets_runs/
+pets_results/
+pets_logs/
 mia_analysis_results/
 examples/mnist/
 experiments/gen_results/

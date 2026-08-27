@@ -1,0 +1,148 @@
+nohup: ignoring input
+Opacus 1.5.4
+[OK] targets=8 -> /home/najeeb/qurift_satML/pets_targets/pilot_credit_training_targets.csv
+[GPU PLAN] profile=qnn_train mode=adaptive-auto concurrency=8
+[GPU PLAN] gpu=0 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=2
+[GPU PLAN] gpu=1 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=1
+[GPU PLAN] gpu=2 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=1
+[GPU PLAN] gpu=4 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=1
+[GPU PLAN] gpu=5 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=1
+[GPU PLAN] gpu=6 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=1
+[GPU PLAN] gpu=7 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=1
+[1/8] train_PETS_CREDIT_low_eff_su2_r1_d6_b01__l2 -> ok (gpu=1, sec=254.6)
+[2/8] train_PETS_CREDIT_low_eff_su2_r1_d6_b01__hamp_train -> ok (gpu=2, sec=255.2)
+[3/8] train_PETS_CREDIT_low_eff_su2_r1_d6_b01__none -> ok (gpu=0, sec=263.0)
+[4/8] train_PETS_CREDIT_high_eff_su2_r5_d6_b01__none -> ok (gpu=5, sec=306.0)
+[5/8] train_PETS_CREDIT_high_eff_su2_r5_d6_b01__hamp_train -> ok (gpu=7, sec=308.3)
+[6/8] train_PETS_CREDIT_high_eff_su2_r5_d6_b01__l2 -> ok (gpu=6, sec=309.5)
+[7/8] train_PETS_CREDIT_low_eff_su2_r1_d6_b01__dp_qml -> ok (gpu=4, sec=2193.1)
+[8/8] train_PETS_CREDIT_high_eff_su2_r5_d6_b01__dp_qml -> ok (gpu=0, sec=2241.8)
+[GPU PLAN] profile=learned_mia mode=adaptive-auto concurrency=8
+[GPU PLAN] gpu=0 used=41871MiB free=40049MiB util=48% safe_capacity=3 assigned_slots=2
+[GPU PLAN] gpu=1 used=41845MiB free=40075MiB util=57% safe_capacity=2 assigned_slots=1
+[GPU PLAN] gpu=2 used=22091MiB free=59829MiB util=42% safe_capacity=3 assigned_slots=1
+[GPU PLAN] gpu=4 used=73411MiB free=8509MiB util=72% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=5 used=73491MiB free=8429MiB util=61% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=6 used=32279MiB free=49641MiB util=40% safe_capacity=3 assigned_slots=1
+[GPU PLAN] gpu=7 used=32279MiB free=49641MiB util=33% safe_capacity=3 assigned_slots=1
+[1/8] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b01__dp_qml -> ok (gpu=4, sec=12.6)
+[2/8] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b01__l2 -> ok (gpu=1, sec=15.8)
+[3/8] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b01__hamp_train -> ok (gpu=2, sec=16.1)
+[4/8] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b01__dp_qml -> ok (gpu=0, sec=17.3)
+[5/8] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b01__l2 -> ok (gpu=6, sec=17.4)
+[6/8] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b01__hamp_train -> ok (gpu=7, sec=19.9)
+[7/8] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b01__none -> ok (gpu=0, sec=94.7)
+[8/8] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b01__none -> ok (gpu=5, sec=96.5)
+[OK] targets=2 -> /home/najeeb/qurift_satML/pets_targets/pilot_credit_output_defense_targets.csv
+[GPU PLAN] profile=learned_mia mode=adaptive-auto concurrency=2
+[GPU PLAN] gpu=0 used=41877MiB free=40043MiB util=39% safe_capacity=3 assigned_slots=1
+[GPU PLAN] gpu=1 used=41867MiB free=40053MiB util=41% safe_capacity=3 assigned_slots=1
+[GPU PLAN] gpu=2 used=24011MiB free=57909MiB util=40% safe_capacity=3 assigned_slots=0
+[GPU PLAN] gpu=4 used=72815MiB free=9105MiB util=25% safe_capacity=1 assigned_slots=0
+[GPU PLAN] gpu=5 used=72907MiB free=9013MiB util=30% safe_capacity=1 assigned_slots=0
+[GPU PLAN] gpu=6 used=32279MiB free=49641MiB util=30% safe_capacity=3 assigned_slots=0
+[GPU PLAN] gpu=7 used=32279MiB free=49641MiB util=42% safe_capacity=3 assigned_slots=0
+[1/2] query_stress_PETS_CREDIT_low_eff_su2_r1_d6_b01__none_memgq_lattice-memgq_lattice_sticky -> ok (gpu=0, sec=242.9)
+[2/2] query_stress_PETS_CREDIT_high_eff_su2_r5_d6_b01__none_memgq_lattice-memgq_lattice_sticky -> ok (gpu=1, sec=268.6)
+[GPU PLAN] profile=label_only_hsj mode=adaptive-capped concurrency=5
+[GPU PLAN] gpu=0 used=41877MiB free=40043MiB util=40% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=1 used=41869MiB free=40051MiB util=56% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=2 used=24011MiB free=57909MiB util=41% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=4 used=72853MiB free=9067MiB util=46% safe_capacity=0 assigned_slots=0
+[GPU PLAN] gpu=5 used=72907MiB free=9013MiB util=56% safe_capacity=0 assigned_slots=0
+[GPU PLAN] gpu=6 used=32279MiB free=49641MiB util=40% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=7 used=32279MiB free=49641MiB util=35% safe_capacity=1 assigned_slots=1
+[1/10] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b01__none_dynanoise -> ok (gpu=1, sec=484.0)
+[2/10] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b01__none_lattice_round -> ok (gpu=2, sec=615.3)
+[3/10] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b01__none_none -> ok (gpu=0, sec=649.9)
+[4/10] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b01__none_dynanoise -> ok (gpu=2, sec=690.9)
+[5/10] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b01__none_none -> ok (gpu=1, sec=864.6)
+[6/10] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b01__none_lattice_round -> ok (gpu=0, sec=874.2)
+[7/10] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b01__none_memgq_lattice -> ok (gpu=6, sec=1819.5)
+[8/10] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b01__none_memgq_lattice_sticky -> ok (gpu=7, sec=1854.8)
+[9/10] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b01__none_memgq_lattice -> ok (gpu=2, sec=1907.7)
+[10/10] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b01__none_memgq_lattice_sticky -> ok (gpu=1, sec=1925.0)
+[OK] targets=6 -> /home/najeeb/qurift_satML/pets_targets/pilot_credit_training_defense_hsj_targets.csv
+[GPU PLAN] profile=label_only_hsj mode=adaptive-capped concurrency=6
+[GPU PLAN] gpu=0 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=1 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=2 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=4 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=5 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=6 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=7 used=34247MiB free=47673MiB util=29% safe_capacity=1 assigned_slots=0
+[1/6] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b01__l2_none -> ok (gpu=0, sec=39.7)
+[2/6] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b01__dp_qml_none -> ok (gpu=2, sec=40.7)
+[3/6] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b01__dp_qml_none -> ok (gpu=6, sec=50.9)
+[4/6] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b01__l2_none -> ok (gpu=4, sec=52.7)
+[5/6] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b01__hamp_train_none -> ok (gpu=1, sec=580.3)
+[6/6] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b01__hamp_train_none -> ok (gpu=5, sec=828.9)
+[OK] targets=4 -> /home/najeeb/qurift_satML/pets_targets/pilot_credit_lira_targets.csv
+[GPU PLAN] profile=lira mode=adaptive-auto concurrency=42
+[GPU PLAN] gpu=0 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=6
+[GPU PLAN] gpu=1 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=6
+[GPU PLAN] gpu=2 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=6
+[GPU PLAN] gpu=4 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=6
+[GPU PLAN] gpu=5 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=6
+[GPU PLAN] gpu=6 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=6
+[GPU PLAN] gpu=7 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=6
+GPUs=[0, 1, 2, 4, 5, 6, 7]; jobs_per_gpu=auto; concurrency=42; cells=4; targets=4
+[1/32] train_eff_su2_r1_d6_wd0_blockpets_b01_ref005 -> ok (gpu=6, sec=384.3)
+[2/32] train_eff_su2_r1_d6_wd0_blockpets_b01_ref006 -> ok (gpu=7, sec=388.4)
+[3/32] train_eff_su2_r1_d6_wd0_blockpets_b01_ref004 -> ok (gpu=5, sec=388.7)
+[4/32] train_eff_su2_r1_d6_wd0.01_blockpets_b01_ref005 -> ok (gpu=7, sec=391.9)
+[5/32] train_eff_su2_r1_d6_wd0.01_blockpets_b01_ref004 -> ok (gpu=6, sec=397.8)
+[6/32] train_eff_su2_r1_d6_wd0.01_blockpets_b01_ref003 -> ok (gpu=5, sec=403.2)
+[7/32] train_eff_su2_r1_d6_wd0_blockpets_b01_ref001 -> ok (gpu=1, sec=415.6)
+[8/32] train_eff_su2_r1_d6_wd0_blockpets_b01_ref003 -> ok (gpu=4, sec=416.9)
+[9/32] train_eff_su2_r1_d6_wd0.01_blockpets_b01_ref002 -> ok (gpu=4, sec=421.5)
+[10/32] train_eff_su2_r1_d6_wd0.01_blockpets_b01_ref006 -> ok (gpu=0, sec=423.2)
+[11/32] train_eff_su2_r1_d6_wd0.01_blockpets_b01_ref000 -> ok (gpu=1, sec=423.5)
+[12/32] train_eff_su2_r1_d6_wd0.01_blockpets_b01_ref001 -> ok (gpu=2, sec=429.5)
+[13/32] train_eff_su2_r1_d6_wd0.01_blockpets_b01_ref007 -> ok (gpu=1, sec=430.3)
+[14/32] train_eff_su2_r1_d6_wd0_blockpets_b01_ref002 -> ok (gpu=2, sec=430.5)
+[15/32] train_eff_su2_r1_d6_wd0_blockpets_b01_ref007 -> ok (gpu=0, sec=430.7)
+[16/32] train_eff_su2_r1_d6_wd0_blockpets_b01_ref000 -> ok (gpu=0, sec=431.0)
+[17/32] train_eff_su2_r5_d6_wd0.01_blockpets_b01_ref003 -> ok (gpu=7, sec=497.1)
+[18/32] train_eff_su2_r5_d6_wd0_blockpets_b01_ref002 -> ok (gpu=5, sec=499.6)
+[19/32] train_eff_su2_r5_d6_wd0_blockpets_b01_ref004 -> ok (gpu=7, sec=503.0)
+[20/32] train_eff_su2_r5_d6_wd0.01_blockpets_b01_ref001 -> ok (gpu=5, sec=506.2)
+[21/32] train_eff_su2_r5_d6_wd0_blockpets_b01_ref003 -> ok (gpu=6, sec=507.6)
+[22/32] train_eff_su2_r5_d6_wd0.01_blockpets_b01_ref002 -> ok (gpu=6, sec=508.8)
+[23/32] train_eff_su2_r5_d6_wd0_blockpets_b01_ref005 -> ok (gpu=0, sec=529.9)
+[24/32] train_eff_su2_r5_d6_wd0_blockpets_b01_ref006 -> ok (gpu=1, sec=530.2)
+[25/32] train_eff_su2_r5_d6_wd0.01_blockpets_b01_ref007 -> ok (gpu=4, sec=530.2)
+[26/32] train_eff_su2_r5_d6_wd0_blockpets_b01_ref001 -> ok (gpu=4, sec=534.2)
+[27/32] train_eff_su2_r5_d6_wd0.01_blockpets_b01_ref004 -> ok (gpu=0, sec=535.2)
+[28/32] train_eff_su2_r5_d6_wd0.01_blockpets_b01_ref006 -> ok (gpu=2, sec=535.5)
+[29/32] train_eff_su2_r5_d6_wd0.01_blockpets_b01_ref005 -> ok (gpu=1, sec=536.0)
+[30/32] train_eff_su2_r5_d6_wd0_blockpets_b01_ref000 -> ok (gpu=2, sec=536.5)
+[31/32] train_eff_su2_r5_d6_wd0_blockpets_b01_ref007 -> ok (gpu=2, sec=538.6)
+[32/32] train_eff_su2_r5_d6_wd0.01_blockpets_b01_ref000 -> ok (gpu=4, sec=541.1)
+[GPU PLAN] profile=lira mode=adaptive-capped concurrency=7
+[GPU PLAN] gpu=0 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=1 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=2 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=4 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=5 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=6 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=7 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[1/16] lira_PETS_CREDIT_low_eff_su2_r1_d6_b01__none_none -> ok (gpu=0, sec=99.9)
+[2/16] lira_PETS_CREDIT_low_eff_su2_r1_d6_b01__none_dynanoise -> ok (gpu=1, sec=104.0)
+[3/16] lira_PETS_CREDIT_low_eff_su2_r1_d6_b01__l2_none -> ok (gpu=5, sec=104.2)
+[4/16] lira_PETS_CREDIT_low_eff_su2_r1_d6_b01__l2_dynanoise -> ok (gpu=6, sec=104.4)
+[5/16] lira_PETS_CREDIT_high_eff_su2_r5_d6_b01__none_dynanoise -> ok (gpu=5, sec=140.5)
+[6/16] lira_PETS_CREDIT_high_eff_su2_r5_d6_b01__none_none -> ok (gpu=1, sec=141.1)
+[7/16] lira_PETS_CREDIT_low_eff_su2_r1_d6_b01__none_memgq_lattice -> ok (gpu=2, sec=261.1)
+[8/16] lira_PETS_CREDIT_low_eff_su2_r1_d6_b01__none_memgq_lattice_sticky -> ok (gpu=4, sec=261.8)
+[9/16] lira_PETS_CREDIT_low_eff_su2_r1_d6_b01__l2_memgq_lattice -> ok (gpu=7, sec=263.0)
+[10/16] lira_PETS_CREDIT_low_eff_su2_r1_d6_b01__l2_memgq_lattice_sticky -> ok (gpu=0, sec=262.1)
+[11/16] lira_PETS_CREDIT_high_eff_su2_r5_d6_b01__l2_none -> ok (gpu=1, sec=139.4)
+[12/16] lira_PETS_CREDIT_high_eff_su2_r5_d6_b01__l2_dynanoise -> ok (gpu=2, sec=142.5)
+[13/16] lira_PETS_CREDIT_high_eff_su2_r5_d6_b01__none_memgq_lattice -> ok (gpu=6, sec=307.5)
+[14/16] lira_PETS_CREDIT_high_eff_su2_r5_d6_b01__none_memgq_lattice_sticky -> ok (gpu=5, sec=294.9)
+[15/16] lira_PETS_CREDIT_high_eff_su2_r5_d6_b01__l2_memgq_lattice_sticky -> ok (gpu=7, sec=291.8)
+[16/16] lira_PETS_CREDIT_high_eff_su2_r5_d6_b01__l2_memgq_lattice -> ok (gpu=4, sec=295.3)
+[DONE] analysis -> /home/najeeb/qurift_satML/pets_results/pilot_analysis
+[OK] /home/najeeb/qurift_satML/pets_results/pilot_protocol_validation.json
+[DONE] Pilot complete. Inspect pilot tables before freezing full-run settings.

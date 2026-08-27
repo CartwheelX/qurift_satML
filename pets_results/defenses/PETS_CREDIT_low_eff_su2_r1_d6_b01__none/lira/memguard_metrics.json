@@ -1,0 +1,132 @@
+{
+  "protocol": "pets_adaptive_defended_lira_v3",
+  "target_id": "PETS_CREDIT_low_eff_su2_r1_d6_b01__none",
+  "defense": "memguard",
+  "training_defense": "none",
+  "num_references": 8,
+  "mc_samples": 10,
+  "actual_oracle_draws": 1,
+  "full_candidate_pool": 400,
+  "scored_candidates": 300,
+  "candidate_fingerprint": "d4e64fa5fd42814245d74b8009a234966c7ae653549cb88d9ebdc7cb521a993b",
+  "partition_protocol": "pets_label_matched_defense_attack_final_v2",
+  "partition_fingerprint": "7d91e13c14f6aaa6bc0968dbe3d4add72fd7a5c0ed90ff093e859dc47a971a69",
+  "task_label_matched": true,
+  "candidate_partition": {
+    "attack_calibration": {
+      "members": 50,
+      "nonmembers": 50,
+      "member_source": "target_train",
+      "nonmember_source": "target_test_lira_candidate_pool"
+    },
+    "final_evaluation": {
+      "members": 100,
+      "nonmembers": 100,
+      "member_source": "target_train",
+      "nonmember_source": "target_test_lira_candidate_pool"
+    },
+    "disjoint": true
+  },
+  "reference_outputs_defended": true,
+  "target_output_defended": true,
+  "defense_config": {
+    "defense": "memguard_clean_room",
+    "implementation": "paper_objective_native_pytorch",
+    "reference_revision": "34e1859",
+    "reference_code_copied": false,
+    "reference_repository_license": "not_declared",
+    "max_iterations": 30,
+    "step_size": 0.1,
+    "distortion_weights": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "label_weight": 1000.0,
+    "label_margin": 1e-06,
+    "score_tolerance": 0.05
+  },
+  "membership_encoding": "1=member,0=nonmember",
+  "rows": [
+    {
+      "target_id": "PETS_CREDIT_low_eff_su2_r1_d6_b01__none",
+      "block_id": "pets_b01",
+      "structural_cell_id": "eff_su2_r1_d6",
+      "structural_role": "low",
+      "training_defense": "none",
+      "defense": "memguard",
+      "attack": "lira_online",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.5036,
+      "balanced_accuracy": 0.48,
+      "tpr_at_5_fpr": 0.1,
+      "tpr_at_10_fpr": 0.18,
+      "threshold": 0.22491140367165308,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_low_eff_su2_r1_d6_b01__none",
+      "block_id": "pets_b01",
+      "structural_cell_id": "eff_su2_r1_d6",
+      "structural_role": "low",
+      "training_defense": "none",
+      "defense": "memguard",
+      "attack": "lira_online_fixed_variance",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.5668,
+      "balanced_accuracy": 0.51,
+      "tpr_at_5_fpr": 0.06,
+      "tpr_at_10_fpr": 0.17,
+      "threshold": -0.14974158753375555,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_low_eff_su2_r1_d6_b01__none",
+      "block_id": "pets_b01",
+      "structural_cell_id": "eff_su2_r1_d6",
+      "structural_role": "low",
+      "training_defense": "none",
+      "defense": "memguard",
+      "attack": "lira_offline",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.4742,
+      "balanced_accuracy": 0.515,
+      "tpr_at_5_fpr": 0.03,
+      "tpr_at_10_fpr": 0.1,
+      "threshold": 0.5408732728506864,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_low_eff_su2_r1_d6_b01__none",
+      "block_id": "pets_b01",
+      "structural_cell_id": "eff_su2_r1_d6",
+      "structural_role": "low",
+      "training_defense": "none",
+      "defense": "memguard",
+      "attack": "lira_offline_fixed_variance",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.5207,
+      "balanced_accuracy": 0.49,
+      "tpr_at_5_fpr": 0.07,
+      "tpr_at_10_fpr": 0.13,
+      "threshold": 0.0035637655133975987,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_low_eff_su2_r1_d6_b01__none",
+      "block_id": "pets_b01",
+      "structural_cell_id": "eff_su2_r1_d6",
+      "structural_role": "low",
+      "training_defense": "none",
+      "defense": "memguard",
+      "attack": "global_true_class_log_odds",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.5426,
+      "balanced_accuracy": 0.545,
+      "tpr_at_5_fpr": 0.12,
+      "tpr_at_10_fpr": 0.23,
+      "threshold": 1.3559258874679245,
+      "score_direction": "as_defined"
+    }
+  ]
+}

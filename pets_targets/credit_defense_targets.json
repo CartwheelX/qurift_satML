@@ -1,0 +1,23 @@
+{
+  "protocol": "fresh_seed_paired_high_low_v1",
+  "source_targets": "/home/najeeb/qurift_satML/satml_targets/credit_factorial_targets.csv",
+  "source_role": "discovery_only",
+  "low_cell": "eff_su2_r1_d6",
+  "high_cell": "eff_su2_r5_d6",
+  "blocks": 5,
+  "fresh_data_seeds": [
+    70261,
+    70262,
+    70263,
+    70264,
+    70265
+  ],
+  "fresh_model_seeds": [
+    80261,
+    80262,
+    80263,
+    80264,
+    80265
+  ],
+  "pairing": "same fresh data and model seed within each block"
+}

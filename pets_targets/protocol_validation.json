@@ -1,0 +1,17 @@
+{
+  "protocol": "pets_fail_closed_validation_v3",
+  "targets": {
+    "targets": 40,
+    "blocks": 5,
+    "structural_cells": [
+      "eff_su2_r1_d6",
+      "eff_su2_r5_d6"
+    ],
+    "training_defenses": [
+      "dp_qml",
+      "hamp_train",
+      "l2",
+      "none"
+    ]
+  }
+}

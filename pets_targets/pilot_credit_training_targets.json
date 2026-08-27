@@ -1,0 +1,10 @@
+{
+  "protocol": "pets_filtered_target_manifest_v1",
+  "source": "/home/najeeb/qurift_satML/pets_targets/credit_defense_training_targets.csv",
+  "filters": {
+    "block_id": [
+      "pets_b01"
+    ]
+  },
+  "targets": 8
+}

@@ -1,0 +1,21 @@
+{
+  "protocol": "pets_recoverable_pre_label_match_archive_v1",
+  "timestamp_utc": "20260827T051733Z",
+  "required_evaluation_protocol": "pets_defense_evaluation_v2",
+  "required_partition_protocol": "pets_label_matched_defense_attack_final_v2",
+  "moved_target_ids": [
+    "PETS_CREDIT_low_eff_su2_r1_d6_b01__none",
+    "PETS_CREDIT_low_eff_su2_r1_d6_b01__l2",
+    "PETS_CREDIT_low_eff_su2_r1_d6_b01__hamp_train",
+    "PETS_CREDIT_low_eff_su2_r1_d6_b01__dp_qml",
+    "PETS_CREDIT_high_eff_su2_r5_d6_b01__none",
+    "PETS_CREDIT_high_eff_su2_r5_d6_b01__l2",
+    "PETS_CREDIT_high_eff_su2_r5_d6_b01__hamp_train",
+    "PETS_CREDIT_high_eff_su2_r5_d6_b01__dp_qml"
+  ],
+  "already_current_target_ids": [],
+  "absent_target_ids": [],
+  "analysis_archived": "/home/najeeb/qurift_satML/pets_results/archive/pre_label_matched/20260827T051733Z/pilot_analysis",
+  "target_checkpoints_moved": false,
+  "lira_reference_checkpoints_moved": false
+}

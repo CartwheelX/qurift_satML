@@ -1,0 +1,14 @@
+effective_defense,baseline_defense,outcome,contrast,mean_difference_in_differences,sd_across_paired_blocks,ci95_low,ci95_high,paired_blocks
+dp_qml,none,accuracy,(high-low)_defense-(high-low)_none,-0.06499999761581421,0.0,-0.06499999761581421,-0.06499999761581421,1
+dynanoise,none,accuracy,(high-low)_defense-(high-low)_none,-0.029999971389770508,0.0,-0.029999971389770508,-0.029999971389770508,1
+hamp_full,none,accuracy,(high-low)_defense-(high-low)_none,0.004999995231628418,0.0,0.004999995231628418,0.004999995231628418,1
+hamp_output,none,accuracy,(high-low)_defense-(high-low)_none,0.0,0.0,0.0,0.0,1
+hamp_train,none,accuracy,(high-low)_defense-(high-low)_none,0.004999995231628418,0.0,0.004999995231628418,0.004999995231628418,1
+l2,none,accuracy,(high-low)_defense-(high-low)_none,-0.06499999761581421,0.0,-0.06499999761581421,-0.06499999761581421,1
+lattice_round,none,accuracy,(high-low)_defense-(high-low)_none,-0.004999995231628418,0.0,-0.004999995231628418,-0.004999995231628418,1
+logitguard_continuous,none,accuracy,(high-low)_defense-(high-low)_none,0.0,0.0,0.0,0.0,1
+logitguard_quantized,none,accuracy,(high-low)_defense-(high-low)_none,0.0,0.0,0.0,0.0,1
+measurementguard_continuous,none,accuracy,(high-low)_defense-(high-low)_none,0.0,0.0,0.0,0.0,1
+memgq_lattice,none,accuracy,(high-low)_defense-(high-low)_none,0.0,0.0,0.0,0.0,1
+memgq_lattice_sticky,none,accuracy,(high-low)_defense-(high-low)_none,0.004999995231628418,0.0,0.004999995231628418,0.004999995231628418,1
+memguard,none,accuracy,(high-low)_defense-(high-low)_none,0.0,0.0,0.0,0.0,1

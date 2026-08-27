@@ -1,0 +1,13 @@
+{
+  "protocol": "pets_defense_analysis_v1",
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 2026,
+  "independent_unit": "fresh paired target-model block",
+  "primary_contrast": "high-low within defense",
+  "interaction": "(high-low)_defense-(high-low)_none",
+  "adaptive_attacks": true,
+  "artifact_faithful_dynanoise_is_appendix_only": true,
+  "targets": 8,
+  "blocks": 1,
+  "excluded_development_blocks": []
+}

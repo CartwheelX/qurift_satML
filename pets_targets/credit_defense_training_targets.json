@@ -1,0 +1,26 @@
+{
+  "protocol": "pets_training_defense_variants_v2",
+  "source_targets": "/home/najeeb/qurift_satML/pets_targets/credit_defense_targets.csv",
+  "variants": [
+    "none",
+    "l2",
+    "hamp_train",
+    "dp_qml"
+  ],
+  "hamp_full_definition": "hamp_train checkpoint plus HAMP output transformation",
+  "l2_weight_decay": 0.01,
+  "hamp_gamma": 0.95,
+  "hamp_alpha": 0.001,
+  "dp_target_epsilon": 4.0,
+  "dp_noise_multiplier": "derived by Opacus from target epsilon at training time",
+  "dp_max_grad_norm": 1.0,
+  "dp_delta": 1e-05,
+  "dp_optimizer": "rmsprop",
+  "dp_batch_size": 32,
+  "dp_epochs": 30,
+  "dp_learning_rate": 0.05,
+  "dp_scheduler": "none",
+  "dp_loss": "unweighted_nll",
+  "dp_protocol": "watkins_faithful_core_v2",
+  "decision_threshold": "selected on validation balanced accuracy per checkpoint"
+}

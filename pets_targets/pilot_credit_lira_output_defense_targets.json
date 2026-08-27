@@ -1,0 +1,10 @@
+{
+  "protocol": "pets_filtered_target_manifest_v1",
+  "source": "/home/najeeb/qurift_satML/pets_targets/pilot_credit_lira_targets.csv",
+  "filters": {
+    "training_defense": [
+      "none"
+    ]
+  },
+  "targets": 2
+}

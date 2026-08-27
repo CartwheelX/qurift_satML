@@ -1,0 +1,112 @@
+{
+  "protocol": "pets_adaptive_defended_lira_v1",
+  "target_id": "PETS_CREDIT_low_eff_su2_r1_d6_b01__l2",
+  "defense": "memgq_lattice_sticky",
+  "training_defense": "l2",
+  "num_references": 8,
+  "mc_samples": 10,
+  "reference_outputs_defended": true,
+  "target_output_defended": true,
+  "defense_config": {
+    "defense": "sticky_input_ablation",
+    "wrapped": {
+      "defense": "memgq_lattice",
+      "iterations": 30,
+      "learning_rate": 0.05,
+      "distortion_weight": 0.1,
+      "label_weight": 100.0,
+      "label_margin": 1e-05,
+      "shots": 128,
+      "measurement_bounds": [
+        -1.0,
+        1.0
+      ]
+    },
+    "resolution": 0.01,
+    "secret_sha256": "9cb762e536e7539a7e04cccbae4d716f7b9e9ac72af6cbd4a9d46a3de23b9ccb",
+    "secret_stored": false
+  },
+  "membership_encoding": "1=member,0=nonmember",
+  "rows": [
+    {
+      "target_id": "PETS_CREDIT_low_eff_su2_r1_d6_b01__l2",
+      "block_id": "pets_b01",
+      "structural_cell_id": "eff_su2_r1_d6",
+      "structural_role": "low",
+      "training_defense": "l2",
+      "defense": "memgq_lattice_sticky",
+      "attack": "lira_online",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.4285,
+      "balanced_accuracy": 0.44499999999999995,
+      "tpr_at_5_fpr": 0.05,
+      "tpr_at_10_fpr": 0.08,
+      "threshold": -0.0670748614976957,
+      "score_direction": "inverted_from_calibration"
+    },
+    {
+      "target_id": "PETS_CREDIT_low_eff_su2_r1_d6_b01__l2",
+      "block_id": "pets_b01",
+      "structural_cell_id": "eff_su2_r1_d6",
+      "structural_role": "low",
+      "training_defense": "l2",
+      "defense": "memgq_lattice_sticky",
+      "attack": "lira_online_fixed_variance",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.5650999999999999,
+      "balanced_accuracy": 0.54,
+      "tpr_at_5_fpr": 0.08,
+      "tpr_at_10_fpr": 0.15,
+      "threshold": -0.03757284763760149,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_low_eff_su2_r1_d6_b01__l2",
+      "block_id": "pets_b01",
+      "structural_cell_id": "eff_su2_r1_d6",
+      "structural_role": "low",
+      "training_defense": "l2",
+      "defense": "memgq_lattice_sticky",
+      "attack": "lira_offline",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.5753,
+      "balanced_accuracy": 0.5700000000000001,
+      "tpr_at_5_fpr": 0.13,
+      "tpr_at_10_fpr": 0.26,
+      "threshold": 0.20880894126563732,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_low_eff_su2_r1_d6_b01__l2",
+      "block_id": "pets_b01",
+      "structural_cell_id": "eff_su2_r1_d6",
+      "structural_role": "low",
+      "training_defense": "l2",
+      "defense": "memgq_lattice_sticky",
+      "attack": "lira_offline_fixed_variance",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.4702,
+      "balanced_accuracy": 0.46,
+      "tpr_at_5_fpr": 0.08,
+      "tpr_at_10_fpr": 0.14,
+      "threshold": 0.7194398145151395,
+      "score_direction": "inverted_from_calibration"
+    },
+    {
+      "target_id": "PETS_CREDIT_low_eff_su2_r1_d6_b01__l2",
+      "block_id": "pets_b01",
+      "structural_cell_id": "eff_su2_r1_d6",
+      "structural_role": "low",
+      "training_defense": "l2",
+      "defense": "memgq_lattice_sticky",
+      "attack": "global_true_class_log_odds",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.5668,
+      "balanced_accuracy": 0.565,
+      "tpr_at_5_fpr": 0.12,
+      "tpr_at_10_fpr": 0.14,
+      "threshold": 1.233746551151075,
+      "score_direction": "as_defined"
+    }
+  ]
+}

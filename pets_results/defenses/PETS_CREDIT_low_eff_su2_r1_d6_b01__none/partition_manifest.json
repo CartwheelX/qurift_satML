@@ -1,0 +1,2814 @@
+{
+  "membership_encoding": "1=member,0=nonmember",
+  "partitions": {
+    "attack_calibration": [
+      {
+        "index": 135,
+        "membership": 1,
+        "record_id": "f3ca91dd8e5aba8d83d9",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 185,
+        "membership": 1,
+        "record_id": "bacc1c25b75ae0e1b780",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 125,
+        "membership": 1,
+        "record_id": "22730a71b34176a3ba37",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 21,
+        "membership": 1,
+        "record_id": "4e545ca4791d65f44351",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 9,
+        "membership": 1,
+        "record_id": "5d21e75cb6066696e6e2",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 3,
+        "membership": 1,
+        "record_id": "ae429a6a1d645aacb94e",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 159,
+        "membership": 1,
+        "record_id": "e4890079e5df86b99388",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 39,
+        "membership": 1,
+        "record_id": "0ffd3e39286157b02ad4",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 8,
+        "membership": 1,
+        "record_id": "192395141a760795b97a",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 133,
+        "membership": 1,
+        "record_id": "4b85b1f42c0154e0d47c",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 138,
+        "membership": 1,
+        "record_id": "f97851146238bb9a3754",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 147,
+        "membership": 1,
+        "record_id": "f0c1637eb1fa5204c581",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 158,
+        "membership": 1,
+        "record_id": "88b1c0733571d25bdfa5",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 145,
+        "membership": 1,
+        "record_id": "c490de3382c28742eeb6",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 187,
+        "membership": 1,
+        "record_id": "c05d34fbff8b3f10a857",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 121,
+        "membership": 1,
+        "record_id": "25282b20e9c64236ec4d",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 74,
+        "membership": 1,
+        "record_id": "b91b8614dbf7826436cf",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 116,
+        "membership": 1,
+        "record_id": "11ccb38ba9653d61e950",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 183,
+        "membership": 1,
+        "record_id": "c053f623dd8f2bfb7915",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 191,
+        "membership": 1,
+        "record_id": "cec5a851be4f6e7c0887",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 109,
+        "membership": 1,
+        "record_id": "5688d9df8bbfc61d89e9",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 68,
+        "membership": 1,
+        "record_id": "26f8e0268dd95cba45fd",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 82,
+        "membership": 1,
+        "record_id": "1c7eb9e50fc08e5f8cf0",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 70,
+        "membership": 1,
+        "record_id": "83a947285ea3ca8494da",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 40,
+        "membership": 1,
+        "record_id": "4b8fbfef25d81e60d4a6",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 124,
+        "membership": 1,
+        "record_id": "b95d8aa7591c7887c05c",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 97,
+        "membership": 1,
+        "record_id": "6dcf5bf2e9c47f5b5091",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 35,
+        "membership": 1,
+        "record_id": "70d271c728323ea28d90",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 28,
+        "membership": 1,
+        "record_id": "d606f1831b9734bb90e1",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 177,
+        "membership": 1,
+        "record_id": "bf5a9031a45524933e21",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 164,
+        "membership": 1,
+        "record_id": "52f455fd245c9327442c",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 85,
+        "membership": 1,
+        "record_id": "24e13410bd96d58bb8a8",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 115,
+        "membership": 1,
+        "record_id": "5f9c02f5ec03a28e4f53",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 104,
+        "membership": 1,
+        "record_id": "5b4cdc8a84b914138d2b",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 5,
+        "membership": 1,
+        "record_id": "8fe0ac3103b5acc00cdc",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 165,
+        "membership": 1,
+        "record_id": "ebaf9b6eb6ecde9fb27d",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 56,
+        "membership": 1,
+        "record_id": "c536d8f2ff559c7756e7",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 161,
+        "membership": 1,
+        "record_id": "08a6c27fcb32f81ff375",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 186,
+        "membership": 1,
+        "record_id": "2f5a23022990244c47e8",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 194,
+        "membership": 1,
+        "record_id": "58cb80b3d0535cb4343a",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 110,
+        "membership": 1,
+        "record_id": "7105743f10682ac4a1cc",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 76,
+        "membership": 1,
+        "record_id": "6f47824d3363865de61a",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 1,
+        "membership": 1,
+        "record_id": "0acc109e58c1c7823ce7",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 128,
+        "membership": 1,
+        "record_id": "8d5ec20ca179ede5da84",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 151,
+        "membership": 1,
+        "record_id": "aaff47c50ec280d97eda",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 163,
+        "membership": 1,
+        "record_id": "d270fb7e059ab9884165",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 84,
+        "membership": 1,
+        "record_id": "6093ce809aa33ce6693b",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 136,
+        "membership": 1,
+        "record_id": "6e144bf85d42e3ac6fae",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 141,
+        "membership": 1,
+        "record_id": "f1068bd99413d081a271",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 53,
+        "membership": 1,
+        "record_id": "877b93e6aa8797d2cd0b",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 102,
+        "membership": 0,
+        "record_id": "9fdaf917caef50cc10f5",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 122,
+        "membership": 0,
+        "record_id": "8de3e87bcb6bfbceae5e",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 161,
+        "membership": 0,
+        "record_id": "074fdb40fd1b7b36e4f1",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 127,
+        "membership": 0,
+        "record_id": "aa290337de046731be29",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 198,
+        "membership": 0,
+        "record_id": "533e49b979922ac7fba5",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 17,
+        "membership": 0,
+        "record_id": "199dbb5efe2667d262a7",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 91,
+        "membership": 0,
+        "record_id": "419877a69f01d036bdbb",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 181,
+        "membership": 0,
+        "record_id": "f9048c251e4492eda5c5",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 10,
+        "membership": 0,
+        "record_id": "25d5d01191fcd15efaa8",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 170,
+        "membership": 0,
+        "record_id": "c7e32746df2a48a62ccf",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 43,
+        "membership": 0,
+        "record_id": "f0aa16595070d27b9c5f",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 73,
+        "membership": 0,
+        "record_id": "3ebd282501b491b8be2e",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 37,
+        "membership": 0,
+        "record_id": "d9003dc2c5345c666e82",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 83,
+        "membership": 0,
+        "record_id": "3609ee73f1b7e8441ded",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 132,
+        "membership": 0,
+        "record_id": "ca5f61dff414b714ba1a",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 111,
+        "membership": 0,
+        "record_id": "8b700d54442035cb6c26",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 104,
+        "membership": 0,
+        "record_id": "e7a3a64af90cc1920283",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 154,
+        "membership": 0,
+        "record_id": "86d60d5754048a97bdb7",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 14,
+        "membership": 0,
+        "record_id": "20d65947122a8fd33a8c",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 105,
+        "membership": 0,
+        "record_id": "6cc8653639d78291af88",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 166,
+        "membership": 0,
+        "record_id": "6d32dd00024b64288c47",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 121,
+        "membership": 0,
+        "record_id": "6a2cac21e49f89824765",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 130,
+        "membership": 0,
+        "record_id": "68489b1e8cdc80780dc9",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 56,
+        "membership": 0,
+        "record_id": "e6726b5b2439fb9e4292",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 55,
+        "membership": 0,
+        "record_id": "ff460d1e3b8bfe500194",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 143,
+        "membership": 0,
+        "record_id": "89de34bf091d5d3cf6aa",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 72,
+        "membership": 0,
+        "record_id": "1777872794732215ea86",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 197,
+        "membership": 0,
+        "record_id": "c3f690a9e4fd4f3c0464",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 82,
+        "membership": 0,
+        "record_id": "3e8bccfad94cf25adaf5",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 66,
+        "membership": 0,
+        "record_id": "f8aea5d0bf93413bcb67",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 99,
+        "membership": 0,
+        "record_id": "865272c00a766d644784",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 199,
+        "membership": 0,
+        "record_id": "be1a7deb09c53402b28c",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 81,
+        "membership": 0,
+        "record_id": "3abfa53b007677c95160",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 28,
+        "membership": 0,
+        "record_id": "274d7f73f78fd2f03bea",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 178,
+        "membership": 0,
+        "record_id": "6b8c503f00beb3d8f8fe",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 5,
+        "membership": 0,
+        "record_id": "62a1527c10e3ed85eaa6",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 15,
+        "membership": 0,
+        "record_id": "87b615fece2d343f79e7",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 20,
+        "membership": 0,
+        "record_id": "500c167f524088e2bc46",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 168,
+        "membership": 0,
+        "record_id": "5b02b210828896c0aa5b",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 59,
+        "membership": 0,
+        "record_id": "f1dd8fb11becebfcdcea",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 44,
+        "membership": 0,
+        "record_id": "1a5c591b51b9e75d4cfe",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 46,
+        "membership": 0,
+        "record_id": "a19b3bb99f271654b17a",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 103,
+        "membership": 0,
+        "record_id": "b68aa48fc3979fd764bd",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 146,
+        "membership": 0,
+        "record_id": "d200ed5e6fbc8142e20f",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 26,
+        "membership": 0,
+        "record_id": "8a07ef51bccf7c857429",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 192,
+        "membership": 0,
+        "record_id": "3a43b0ba53503e8d9274",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 52,
+        "membership": 0,
+        "record_id": "b5d68ac9d2e48e9bfef4",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 36,
+        "membership": 0,
+        "record_id": "00e6015df424807c240b",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 136,
+        "membership": 0,
+        "record_id": "b5d9c5918402d7422322",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 30,
+        "membership": 0,
+        "record_id": "46d7ad3cd76693d3a5e7",
+        "split": "valid",
+        "task_label": 0
+      }
+    ],
+    "defense_calibration": [
+      {
+        "index": 168,
+        "membership": 1,
+        "record_id": "85bbf6f61dd23b95b6e7",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 26,
+        "membership": 1,
+        "record_id": "e0b33cacbadcac9f3d26",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 46,
+        "membership": 1,
+        "record_id": "e76cce60bc3507d0d7b2",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 106,
+        "membership": 1,
+        "record_id": "d8e3c3c718aea110b2d9",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 178,
+        "membership": 1,
+        "record_id": "5383d08662564ec7ab0d",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 113,
+        "membership": 1,
+        "record_id": "e3e282f64bed70282149",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 88,
+        "membership": 1,
+        "record_id": "f35a2648fd72f049ecda",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 175,
+        "membership": 1,
+        "record_id": "b3763b5a5d752cf2fa24",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 176,
+        "membership": 1,
+        "record_id": "d2c3d34fb102babfa194",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 24,
+        "membership": 1,
+        "record_id": "39c00d7f6c47885c6fc2",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 117,
+        "membership": 1,
+        "record_id": "6af56a8b2e15acc1e086",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 119,
+        "membership": 1,
+        "record_id": "61afce8119059a5cee82",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 153,
+        "membership": 1,
+        "record_id": "356e520dcf3a6473ffb2",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 71,
+        "membership": 1,
+        "record_id": "434123980ae7f6c38b02",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 10,
+        "membership": 1,
+        "record_id": "16e3ff8c6f696f231824",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 126,
+        "membership": 1,
+        "record_id": "787c85a205e13b242012",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 190,
+        "membership": 1,
+        "record_id": "e8613e68d8ca2ea9e7fd",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 47,
+        "membership": 1,
+        "record_id": "70e46e61db439dd8e308",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 66,
+        "membership": 1,
+        "record_id": "00405a37dd709b2d51a8",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 118,
+        "membership": 1,
+        "record_id": "4aa64c627cb9b82d7f42",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 198,
+        "membership": 1,
+        "record_id": "8e7d63ade90630d9f638",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 25,
+        "membership": 1,
+        "record_id": "14ee67db08b82edf07a3",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 154,
+        "membership": 1,
+        "record_id": "daf2c33eb0f2b7518584",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 11,
+        "membership": 1,
+        "record_id": "693c448a296e96fc4d08",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 144,
+        "membership": 1,
+        "record_id": "02f4daf9ec836b0666ac",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 15,
+        "membership": 1,
+        "record_id": "aaca4c9adb936209ae4f",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 13,
+        "membership": 1,
+        "record_id": "1819fe5c399a17316fee",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 131,
+        "membership": 1,
+        "record_id": "6a75db22a6087741eef2",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 149,
+        "membership": 1,
+        "record_id": "932ae6d0f203c398e4b5",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 122,
+        "membership": 1,
+        "record_id": "6cab59b4d007e6d2fd01",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 157,
+        "membership": 1,
+        "record_id": "07d4d260e30d7cf5b71f",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 63,
+        "membership": 1,
+        "record_id": "7c7fe88dcec806be29da",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 188,
+        "membership": 1,
+        "record_id": "8120fa8a41158dba642d",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 148,
+        "membership": 1,
+        "record_id": "46dbe6ca2f4531385a05",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 107,
+        "membership": 1,
+        "record_id": "7673e8a0f0b037cc51e5",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 101,
+        "membership": 1,
+        "record_id": "2a9dbe944756407f3c68",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 86,
+        "membership": 1,
+        "record_id": "c3a59fc71e20658f6341",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 174,
+        "membership": 1,
+        "record_id": "8b629ccf361c8da0309f",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 27,
+        "membership": 1,
+        "record_id": "9fc5fbe55717fe6862a4",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 17,
+        "membership": 1,
+        "record_id": "a230bf08b60c3cd268df",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 12,
+        "membership": 1,
+        "record_id": "89383b955333e413e38b",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 192,
+        "membership": 1,
+        "record_id": "2c3058336909d855b1f0",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 48,
+        "membership": 1,
+        "record_id": "108acbd92e651db6ac49",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 130,
+        "membership": 1,
+        "record_id": "5584930e99aa4007d628",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 171,
+        "membership": 1,
+        "record_id": "09c28941e61886717e09",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 112,
+        "membership": 1,
+        "record_id": "8d289eb2b513288c6cba",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 20,
+        "membership": 1,
+        "record_id": "01e7168ae2a624ff9916",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 108,
+        "membership": 1,
+        "record_id": "dfc3621c683cc1e703cf",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 100,
+        "membership": 1,
+        "record_id": "c9e5785745f04cec0d37",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 51,
+        "membership": 1,
+        "record_id": "fb40711278aca2b43c69",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 53,
+        "membership": 0,
+        "record_id": "002cdf7e355bbbde95d8",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 31,
+        "membership": 0,
+        "record_id": "9b042a67c45fad424847",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 97,
+        "membership": 0,
+        "record_id": "71ff5e09563ba94a47ff",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 75,
+        "membership": 0,
+        "record_id": "ede3f2854bb16c87ccd9",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 128,
+        "membership": 0,
+        "record_id": "2a16b8c5f4ed2c7ad63d",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 34,
+        "membership": 0,
+        "record_id": "db044af5025f3a516678",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 164,
+        "membership": 0,
+        "record_id": "09d0e09abfa034bff5d8",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 54,
+        "membership": 0,
+        "record_id": "feab5b020b4b1bb2670d",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 183,
+        "membership": 0,
+        "record_id": "bd6d3371973fe52a54b6",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 147,
+        "membership": 0,
+        "record_id": "f71ac07a570b02bde2c7",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 188,
+        "membership": 0,
+        "record_id": "d25212decfbdce393507",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 4,
+        "membership": 0,
+        "record_id": "cbd08ddf028e3ed3bf86",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 60,
+        "membership": 0,
+        "record_id": "aa7a2364579000abc18a",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 131,
+        "membership": 0,
+        "record_id": "60d7d96a714b81ab3b8e",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 64,
+        "membership": 0,
+        "record_id": "3bf5648807ec21b078ba",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 115,
+        "membership": 0,
+        "record_id": "ef24ebed9137bf1cf697",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 98,
+        "membership": 0,
+        "record_id": "074a20d05e3480f05108",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 23,
+        "membership": 0,
+        "record_id": "b7e6543ef1a7a01aae16",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 90,
+        "membership": 0,
+        "record_id": "2be8ef03afbb76401903",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 139,
+        "membership": 0,
+        "record_id": "dbb3f0944676a758472a",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 167,
+        "membership": 0,
+        "record_id": "a24f9a8000eea02d3436",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 126,
+        "membership": 0,
+        "record_id": "2810a2f0f8ca0deedc8e",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 187,
+        "membership": 0,
+        "record_id": "f4de2937f63f8d361ebb",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 71,
+        "membership": 0,
+        "record_id": "3d3b3570095f0aaf3513",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 157,
+        "membership": 0,
+        "record_id": "7322e0069fd7f99aa2e0",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 35,
+        "membership": 0,
+        "record_id": "0dc59a161c016b54e5dd",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 7,
+        "membership": 0,
+        "record_id": "a8481c01e77be10ce262",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 117,
+        "membership": 0,
+        "record_id": "7bbdc16973b22a2454b2",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 165,
+        "membership": 0,
+        "record_id": "76a169068a2ab6394f63",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 194,
+        "membership": 0,
+        "record_id": "dbf5501b5ebaa9d2005f",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 92,
+        "membership": 0,
+        "record_id": "0570eff7f04969e1b878",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 38,
+        "membership": 0,
+        "record_id": "3fe64df9a45ac796ec06",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 159,
+        "membership": 0,
+        "record_id": "ec84e9f458004289fb96",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 124,
+        "membership": 0,
+        "record_id": "a5f7ec44b3ef8d43f977",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 110,
+        "membership": 0,
+        "record_id": "ba75efedfd0d9f6a0695",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 119,
+        "membership": 0,
+        "record_id": "81a128333a8129c12e25",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 22,
+        "membership": 0,
+        "record_id": "439a4b80869e58e17f79",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 80,
+        "membership": 0,
+        "record_id": "ddc4ed37987e014ff6ef",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 96,
+        "membership": 0,
+        "record_id": "946b57f69f40ca2c0407",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 47,
+        "membership": 0,
+        "record_id": "382206e17b95b27e1cda",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 9,
+        "membership": 0,
+        "record_id": "c2ee76972575cb690204",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 180,
+        "membership": 0,
+        "record_id": "540bd31ed818e910d0fe",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 195,
+        "membership": 0,
+        "record_id": "17de222b62ae649ad970",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 149,
+        "membership": 0,
+        "record_id": "b302abcbab3e60eafc59",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 155,
+        "membership": 0,
+        "record_id": "4e9e9cd9806ea62c1809",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 74,
+        "membership": 0,
+        "record_id": "e17849216d54d2d8ee22",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 152,
+        "membership": 0,
+        "record_id": "1428d5fe24ce7995634d",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 163,
+        "membership": 0,
+        "record_id": "89a4f64927163b2d4e00",
+        "split": "valid",
+        "task_label": 1
+      },
+      {
+        "index": 33,
+        "membership": 0,
+        "record_id": "d8f96e31368178c6795b",
+        "split": "valid",
+        "task_label": 0
+      },
+      {
+        "index": 11,
+        "membership": 0,
+        "record_id": "e133c635bcf8b7ec736a",
+        "split": "valid",
+        "task_label": 0
+      }
+    ],
+    "final_evaluation": [
+      {
+        "index": 134,
+        "membership": 1,
+        "record_id": "eaab06e0e9770f0cb322",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 16,
+        "membership": 1,
+        "record_id": "883a42269d6847aec70c",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 114,
+        "membership": 1,
+        "record_id": "6bf07a3ff23f9e3249c5",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 181,
+        "membership": 1,
+        "record_id": "272c38b1ecd099be7890",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 73,
+        "membership": 1,
+        "record_id": "f2a589817382059b0dcc",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 41,
+        "membership": 1,
+        "record_id": "ab97fae957e08270ffce",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 30,
+        "membership": 1,
+        "record_id": "0674ce029ebb21d32e38",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 23,
+        "membership": 1,
+        "record_id": "a9752ae3047aff503fb3",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 87,
+        "membership": 1,
+        "record_id": "5b7629cbd1fb6e879520",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 44,
+        "membership": 1,
+        "record_id": "4dde24d981dd8981f71f",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 170,
+        "membership": 1,
+        "record_id": "4df4658f2eb41564da87",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 92,
+        "membership": 1,
+        "record_id": "ab00e756b29c98fd6674",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 34,
+        "membership": 1,
+        "record_id": "69ef03b5c6f4f7ecef33",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 33,
+        "membership": 1,
+        "record_id": "dba69027df0122535f19",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 98,
+        "membership": 1,
+        "record_id": "cbd912351cdbc83a9184",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 42,
+        "membership": 1,
+        "record_id": "7be2869c238aa35d440a",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 80,
+        "membership": 1,
+        "record_id": "7ce1135db7560daf7e70",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 156,
+        "membership": 1,
+        "record_id": "988a4b4dcb53bafffb01",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 180,
+        "membership": 1,
+        "record_id": "66fa33821884d4568b02",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 32,
+        "membership": 1,
+        "record_id": "f073d35785cf76f1409c",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 102,
+        "membership": 1,
+        "record_id": "6c0e663b6848864dc914",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 172,
+        "membership": 1,
+        "record_id": "14865093b1485a5c3a41",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 166,
+        "membership": 1,
+        "record_id": "c4b2c9357254e51af6a9",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 37,
+        "membership": 1,
+        "record_id": "b0f47ae4b56b3aa4d111",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 95,
+        "membership": 1,
+        "record_id": "f05df67fe5ac7ed38643",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 72,
+        "membership": 1,
+        "record_id": "a55e4e1cd3465563efc4",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 160,
+        "membership": 1,
+        "record_id": "c9acdb61159286a4c2ce",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 65,
+        "membership": 1,
+        "record_id": "6ea2a519a69c09016323",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 90,
+        "membership": 1,
+        "record_id": "f332cc500c7a62b19024",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 150,
+        "membership": 1,
+        "record_id": "6992a9babb7ae6302cb5",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 196,
+        "membership": 1,
+        "record_id": "d1d396dc69ac0aeade66",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 60,
+        "membership": 1,
+        "record_id": "4def6ca8e27be84aeb54",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 94,
+        "membership": 1,
+        "record_id": "d46f8b9f4d57f90db615",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 193,
+        "membership": 1,
+        "record_id": "347bd04364dce3c5342e",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 22,
+        "membership": 1,
+        "record_id": "32babcc385bd70eddb90",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 38,
+        "membership": 1,
+        "record_id": "0772d1e68bccea98e68f",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 54,
+        "membership": 1,
+        "record_id": "72bf8a475d5aa5538cd3",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 61,
+        "membership": 1,
+        "record_id": "092efc45ab978715a8fa",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 93,
+        "membership": 1,
+        "record_id": "25bed8f88a506c4cc366",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 36,
+        "membership": 1,
+        "record_id": "c8a7bd1cd35ba1e89b80",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 78,
+        "membership": 1,
+        "record_id": "073dbbd888ef767c75de",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 43,
+        "membership": 1,
+        "record_id": "8f95586c1c6fb3f2a750",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 195,
+        "membership": 1,
+        "record_id": "c75c31af2389cc3a594f",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 140,
+        "membership": 1,
+        "record_id": "bd6c7e8fd4e7879e23df",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 111,
+        "membership": 1,
+        "record_id": "072f10d00d9156aab9f2",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 62,
+        "membership": 1,
+        "record_id": "82d40bd4122f5c76cdfb",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 155,
+        "membership": 1,
+        "record_id": "81817fc85a01b1cc7dcf",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 162,
+        "membership": 1,
+        "record_id": "d75c3e52dbcaf5a5ec2a",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 173,
+        "membership": 1,
+        "record_id": "e0cf68ff7b13424759c5",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 143,
+        "membership": 1,
+        "record_id": "92516ca36411fad7d9c9",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 199,
+        "membership": 1,
+        "record_id": "1dd9f8371cdcaa1758b3",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 2,
+        "membership": 1,
+        "record_id": "a4fc6b0808359418c098",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 83,
+        "membership": 1,
+        "record_id": "e07f107ec2deef516f4f",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 69,
+        "membership": 1,
+        "record_id": "7311863aa70952806ffc",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 96,
+        "membership": 1,
+        "record_id": "eb849709f12c60edd50b",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 45,
+        "membership": 1,
+        "record_id": "0a09121dee0e5db09dfe",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 189,
+        "membership": 1,
+        "record_id": "29a333df83b13ef7fea3",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 179,
+        "membership": 1,
+        "record_id": "b84ff32b3c14263b0dd5",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 14,
+        "membership": 1,
+        "record_id": "ae1704e8283a10912765",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 55,
+        "membership": 1,
+        "record_id": "78edbc6916b12b570866",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 167,
+        "membership": 1,
+        "record_id": "196d92dfff0523a23237",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 67,
+        "membership": 1,
+        "record_id": "c0daa10532a8487ca803",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 142,
+        "membership": 1,
+        "record_id": "a5b1091e7ec67f7a06ed",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 152,
+        "membership": 1,
+        "record_id": "bfa7b1aca5d187760a16",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 137,
+        "membership": 1,
+        "record_id": "39f8154e08ad72170108",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 139,
+        "membership": 1,
+        "record_id": "2379dd478643b9cc0bc1",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 6,
+        "membership": 1,
+        "record_id": "418dd0dffa2f4aacf5a8",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 123,
+        "membership": 1,
+        "record_id": "26b6a5da65cdaeb8e184",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 0,
+        "membership": 1,
+        "record_id": "c50e57ca37a497df3a13",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 77,
+        "membership": 1,
+        "record_id": "0ec364cc4624f409f87e",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 64,
+        "membership": 1,
+        "record_id": "49b15e9ec4784be42cd2",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 120,
+        "membership": 1,
+        "record_id": "ce8a11f272895da8cd7f",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 57,
+        "membership": 1,
+        "record_id": "f929be357f68bdda4236",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 132,
+        "membership": 1,
+        "record_id": "619b46d6086e6aad3d84",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 29,
+        "membership": 1,
+        "record_id": "c91e3b5a028c06ad1f92",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 105,
+        "membership": 1,
+        "record_id": "f640cb068a6e0cafd8f7",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 79,
+        "membership": 1,
+        "record_id": "a1b01a469dc7802f51d3",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 52,
+        "membership": 1,
+        "record_id": "5cb75d859aa2d3df94b0",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 19,
+        "membership": 1,
+        "record_id": "5e48c11768cb070aefe6",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 89,
+        "membership": 1,
+        "record_id": "3ac7ac4bc65a6ffec899",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 58,
+        "membership": 1,
+        "record_id": "ac5f40db5db91c18a83b",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 7,
+        "membership": 1,
+        "record_id": "973b363916938dbaaf31",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 31,
+        "membership": 1,
+        "record_id": "df16a30c67111933fccc",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 4,
+        "membership": 1,
+        "record_id": "402e2e33d278085f817f",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 75,
+        "membership": 1,
+        "record_id": "a62d80fa1349c54517ce",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 127,
+        "membership": 1,
+        "record_id": "d9170d275d5e05922e82",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 184,
+        "membership": 1,
+        "record_id": "01743ddf295d8f6b5a46",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 49,
+        "membership": 1,
+        "record_id": "e030c0aa4ae0f1011f2f",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 129,
+        "membership": 1,
+        "record_id": "bf465d63c434358f77e4",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 99,
+        "membership": 1,
+        "record_id": "9eb158e3cbe5bc901e26",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 59,
+        "membership": 1,
+        "record_id": "a6dfd0dc4ba32e6c00e6",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 91,
+        "membership": 1,
+        "record_id": "a5628044ec0880a52490",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 182,
+        "membership": 1,
+        "record_id": "4cfea97c73e6dbfbc698",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 18,
+        "membership": 1,
+        "record_id": "006df97946d214e0111f",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 81,
+        "membership": 1,
+        "record_id": "75e559f2a9928f47e4ef",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 50,
+        "membership": 1,
+        "record_id": "526cee77dcfea7ee8138",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 169,
+        "membership": 1,
+        "record_id": "2c2eb339de59d2b86f66",
+        "split": "train",
+        "task_label": 1
+      },
+      {
+        "index": 146,
+        "membership": 1,
+        "record_id": "fbbb0f469e10095b9cc1",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 103,
+        "membership": 1,
+        "record_id": "c2f9d20d5b53c00ef5f4",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 197,
+        "membership": 1,
+        "record_id": "1313972ddf1c6e9eb2c9",
+        "split": "train",
+        "task_label": 0
+      },
+      {
+        "index": 1744,
+        "membership": 0,
+        "record_id": "775e0bc8a00b354d7d21",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1570,
+        "membership": 0,
+        "record_id": "19eaeaae64289dba8ce8",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1752,
+        "membership": 0,
+        "record_id": "af85096b9d68ea111a40",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1036,
+        "membership": 0,
+        "record_id": "eb58b2ec144b95696995",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1236,
+        "membership": 0,
+        "record_id": "c87adcad5c5b8bacab20",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 588,
+        "membership": 0,
+        "record_id": "8b38dcbabda11b315cba",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 1516,
+        "membership": 0,
+        "record_id": "46cf73574cd89d5b0a38",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1086,
+        "membership": 0,
+        "record_id": "f1d5fbea8d8fc197f689",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 1313,
+        "membership": 0,
+        "record_id": "0ccf866b02ec9d1e0e17",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 1458,
+        "membership": 0,
+        "record_id": "3bb90fb9f41d8cd780fb",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 402,
+        "membership": 0,
+        "record_id": "b1bdd9f125cf64d76133",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 724,
+        "membership": 0,
+        "record_id": "eb21418ddcffa69cc01e",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1409,
+        "membership": 0,
+        "record_id": "512bf5d49257f12e0379",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1546,
+        "membership": 0,
+        "record_id": "6feab55c27ef6fd8098c",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 581,
+        "membership": 0,
+        "record_id": "05d5b5a237e6011985dc",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 842,
+        "membership": 0,
+        "record_id": "508544f059d9966fa4fd",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 1525,
+        "membership": 0,
+        "record_id": "02b75fde595a1ffcf156",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 72,
+        "membership": 0,
+        "record_id": "3a50f7141ac819d29be9",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 583,
+        "membership": 0,
+        "record_id": "76e22647644159c9f31f",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1467,
+        "membership": 0,
+        "record_id": "ded01dd09f53e3f3edc7",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 1741,
+        "membership": 0,
+        "record_id": "516fe3ca66f5f580688d",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1994,
+        "membership": 0,
+        "record_id": "7dbb07f72b26cae53e10",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1819,
+        "membership": 0,
+        "record_id": "65e0c3d4f1bee9081f1e",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 964,
+        "membership": 0,
+        "record_id": "05cfc0ff414af47c03a5",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 966,
+        "membership": 0,
+        "record_id": "ada868403e0aacd584e1",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 33,
+        "membership": 0,
+        "record_id": "4007b1ad7da10c650d44",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 305,
+        "membership": 0,
+        "record_id": "d31cd7debcfc574857b7",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1695,
+        "membership": 0,
+        "record_id": "5e54efebb9b29b940c99",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1747,
+        "membership": 0,
+        "record_id": "454315dad33a268150e0",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 29,
+        "membership": 0,
+        "record_id": "b224dfc19404bbda9ee4",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1843,
+        "membership": 0,
+        "record_id": "bbee22d3ea243b98e36f",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1294,
+        "membership": 0,
+        "record_id": "53501233f30eb80e8d05",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1621,
+        "membership": 0,
+        "record_id": "d988f293d7bb6d4a8ab7",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 811,
+        "membership": 0,
+        "record_id": "545cb2ecd34d5146e49a",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1404,
+        "membership": 0,
+        "record_id": "fedc0dc11aeb9674f49a",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 772,
+        "membership": 0,
+        "record_id": "838fb6514f9d13f5f89a",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 377,
+        "membership": 0,
+        "record_id": "a024fa1846e4335ade36",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1603,
+        "membership": 0,
+        "record_id": "dd5f176581699325a9b1",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1881,
+        "membership": 0,
+        "record_id": "45b2f42889463dbbbda3",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 544,
+        "membership": 0,
+        "record_id": "5c479147049976461a13",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 808,
+        "membership": 0,
+        "record_id": "5ff6b7662bfef65ea0bd",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 370,
+        "membership": 0,
+        "record_id": "f83af86a0376fc684202",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 525,
+        "membership": 0,
+        "record_id": "49ba0900d21d03ea42a9",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1299,
+        "membership": 0,
+        "record_id": "d7c5bc379679e38af136",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1683,
+        "membership": 0,
+        "record_id": "1de5fd2a3f26ba72a9c1",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 871,
+        "membership": 0,
+        "record_id": "9905912b0d924a7b3ca5",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1874,
+        "membership": 0,
+        "record_id": "a0c6458763e7f0d7b722",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 353,
+        "membership": 0,
+        "record_id": "6146ee4e50398bd2590b",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1788,
+        "membership": 0,
+        "record_id": "c4c052470c6698896a64",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 869,
+        "membership": 0,
+        "record_id": "d4f5d45b61b7bb9d81d2",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1655,
+        "membership": 0,
+        "record_id": "8b2149d6d65d7dff0391",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1252,
+        "membership": 0,
+        "record_id": "2f0ee475d6ce6c987db1",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1088,
+        "membership": 0,
+        "record_id": "9e70744c580dba073780",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1427,
+        "membership": 0,
+        "record_id": "2c3b25125281e8e5ea14",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1185,
+        "membership": 0,
+        "record_id": "d324c41c466449fc77a4",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 276,
+        "membership": 0,
+        "record_id": "b2afd8ac93139c6436ca",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 1679,
+        "membership": 0,
+        "record_id": "f0873fcaa4725b7b28fd",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 84,
+        "membership": 0,
+        "record_id": "33f2ea1bb1c7d6a437bf",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 760,
+        "membership": 0,
+        "record_id": "63426de2bcac10c978ef",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1108,
+        "membership": 0,
+        "record_id": "6083c35ef0dd27c47f39",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 325,
+        "membership": 0,
+        "record_id": "9ac4b9bb1cccbe8c8162",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 454,
+        "membership": 0,
+        "record_id": "15e0146e9b8967882d3c",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 1803,
+        "membership": 0,
+        "record_id": "37dc9fbd1cc1b8e7aeec",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 412,
+        "membership": 0,
+        "record_id": "9e00c9a73f8502e1beb6",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 109,
+        "membership": 0,
+        "record_id": "91f87ca67e3c04007486",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1468,
+        "membership": 0,
+        "record_id": "c6f44b9c0cc7a4317767",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1518,
+        "membership": 0,
+        "record_id": "cd6bf5351920ef71b772",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 959,
+        "membership": 0,
+        "record_id": "8dcf26c9f074a4b5de0e",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 914,
+        "membership": 0,
+        "record_id": "de98a8baab2807797bb8",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 945,
+        "membership": 0,
+        "record_id": "f28c583d896798880d4b",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 644,
+        "membership": 0,
+        "record_id": "ac56169f19bc768a992f",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1470,
+        "membership": 0,
+        "record_id": "3921b288ed88010b2bd2",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 552,
+        "membership": 0,
+        "record_id": "0988ebf7cfaacc632363",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 551,
+        "membership": 0,
+        "record_id": "19f22c4a26ede80db5bc",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1588,
+        "membership": 0,
+        "record_id": "96c64f83677ec33bce29",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 202,
+        "membership": 0,
+        "record_id": "9843ca85067735c6a50c",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 518,
+        "membership": 0,
+        "record_id": "12ef83c14d018f8929c0",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1332,
+        "membership": 0,
+        "record_id": "9b5637baba30c32741f7",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1373,
+        "membership": 0,
+        "record_id": "82ebd78d69582401b822",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 765,
+        "membership": 0,
+        "record_id": "c154986c4ac0e18baa8e",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1351,
+        "membership": 0,
+        "record_id": "5c1eaee6580358b55afc",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 1180,
+        "membership": 0,
+        "record_id": "cb251470deed8436762a",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 444,
+        "membership": 0,
+        "record_id": "da5f5efb7790004fff98",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1861,
+        "membership": 0,
+        "record_id": "a1971c19af6fbce2a2b8",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 7,
+        "membership": 0,
+        "record_id": "f88c75f25b6e20b11d53",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 282,
+        "membership": 0,
+        "record_id": "625fbebab124d6b6cfe9",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1575,
+        "membership": 0,
+        "record_id": "aad721f07309f09ae48b",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1809,
+        "membership": 0,
+        "record_id": "3e5959b02df8356effc1",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1329,
+        "membership": 0,
+        "record_id": "13bc0e5e62e93ee9e11f",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 307,
+        "membership": 0,
+        "record_id": "d4552063b883befa7f1f",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 1350,
+        "membership": 0,
+        "record_id": "9737e13af29b3e71e58d",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 71,
+        "membership": 0,
+        "record_id": "65878445affdd2869314",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1600,
+        "membership": 0,
+        "record_id": "c9b4e83642e08382f4a6",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 326,
+        "membership": 0,
+        "record_id": "e68ff9c46623f5834b2a",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1279,
+        "membership": 0,
+        "record_id": "ee145a9d7a0dd082d343",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1924,
+        "membership": 0,
+        "record_id": "8b77bc8a325b32f8d38a",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 386,
+        "membership": 0,
+        "record_id": "15902995b3e0e8fdafb5",
+        "split": "test",
+        "task_label": 1
+      },
+      {
+        "index": 53,
+        "membership": 0,
+        "record_id": "442418c1ce6eee466e66",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1646,
+        "membership": 0,
+        "record_id": "cdbf66466c43de4d3398",
+        "split": "test",
+        "task_label": 0
+      },
+      {
+        "index": 1885,
+        "membership": 0,
+        "record_id": "d219a9acadf7d11fea78",
+        "split": "test",
+        "task_label": 0
+      }
+    ]
+  },
+  "protocol": "pets_label_matched_defense_attack_final_v2",
+  "seed": 2026,
+  "task_label_matching": "exact within every member/nonmember partition"
+}

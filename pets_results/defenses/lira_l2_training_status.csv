@@ -1,0 +1,3 @@
+name,kind,target_id,structural_cell_id,reference_id,gpu,status,returncode,seconds,log
+lira_PETS_CREDIT_low_eff_su2_r1_d6_b01__l2_none,pets_lira,PETS_CREDIT_low_eff_su2_r1_d6_b01__l2,eff_su2_r1_d6,,0,ok,0,17.896838903427124,/home/najeeb/qurift_satML/pets_logs/lira/lira_PETS_CREDIT_low_eff_su2_r1_d6_b01__l2_none.log
+lira_PETS_CREDIT_high_eff_su2_r5_d6_b01__l2_none,pets_lira,PETS_CREDIT_high_eff_su2_r5_d6_b01__l2,eff_su2_r5_d6,,1,ok,0,20.673421144485474,/home/najeeb/qurift_satML/pets_logs/lira/lira_PETS_CREDIT_high_eff_su2_r5_d6_b01__l2_none.log

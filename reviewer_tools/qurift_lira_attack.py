@@ -25,6 +25,11 @@ import re
 import sys
 from typing import Any, Mapping
 
+# Support both direct script execution and package imports used by unittest.
+_REVIEWER_TOOLS_DIR = str(Path(__file__).resolve().parent)
+if _REVIEWER_TOOLS_DIR not in sys.path:
+    sys.path.insert(0, _REVIEWER_TOOLS_DIR)
+
 # cuBLAS reads this before its first CUDA context is initialized.
 os.environ.setdefault("CUBLAS_WORKSPACE_CONFIG", ":4096:8")
 

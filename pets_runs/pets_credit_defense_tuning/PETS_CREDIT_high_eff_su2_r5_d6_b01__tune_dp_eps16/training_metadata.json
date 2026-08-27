@@ -1,0 +1,594 @@
+{
+  "protocol": "pets_defended_target_training_v1",
+  "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b01__tune_dp_eps16",
+  "training_defense": "dp_qml",
+  "membership_encoding": "1=member,0=nonmember in PETS analyses",
+  "model_seed": 80261,
+  "data_seed": 70261,
+  "epochs": 100,
+  "batch_size": 16,
+  "learning_rate": 0.05,
+  "weight_decay": 0.0,
+  "hamp_gamma": 0.95,
+  "hamp_alpha": 0.001,
+  "hamp_true_probability_derived": 0.6308722510154883,
+  "dp_target_epsilon": 16.0,
+  "metrics": {
+    "train": {
+      "accuracy": 0.78,
+      "balanced_accuracy": 0.5,
+      "minimum_class_recall": 0.0,
+      "minority_class_label": 1.0,
+      "minority_class_recall": 0.0,
+      "predicted_minority_fraction": 0.0,
+      "minority_prevalence": 0.22,
+      "prediction_collapse": 1.0,
+      "predicted_class_0_fraction": 1.0,
+      "predicted_class_1_fraction": 0.0,
+      "task_roc_auc": 0.6596736596736597,
+      "task_average_precision": 0.4398459228198359,
+      "loss": 0.5394872426986694,
+      "records": 200
+    },
+    "valid": {
+      "accuracy": 0.78,
+      "balanced_accuracy": 0.5,
+      "minimum_class_recall": 0.0,
+      "minority_class_label": 1.0,
+      "minority_class_recall": 0.0,
+      "predicted_minority_fraction": 0.0,
+      "minority_prevalence": 0.22,
+      "prediction_collapse": 1.0,
+      "predicted_class_0_fraction": 1.0,
+      "predicted_class_1_fraction": 0.0,
+      "task_roc_auc": 0.5926573426573427,
+      "task_average_precision": 0.3689851532795161,
+      "loss": 0.5646876692771912,
+      "records": 200
+    },
+    "test": {
+      "accuracy": 0.779,
+      "balanced_accuracy": 0.5,
+      "minimum_class_recall": 0.0,
+      "minority_class_label": 1.0,
+      "minority_class_recall": 0.0,
+      "predicted_minority_fraction": 0.0,
+      "minority_prevalence": 0.221,
+      "prediction_collapse": 1.0,
+      "predicted_class_0_fraction": 1.0,
+      "predicted_class_1_fraction": 0.0,
+      "task_roc_auc": 0.6665974477082233,
+      "task_average_precision": 0.3641381330922889,
+      "loss": 0.5381882786750793,
+      "records": 2000
+    }
+  },
+  "privacy": {
+    "formal_dp_claim": true,
+    "epsilon": 15.998745400101607,
+    "delta": 1e-05,
+    "steps": 1300,
+    "empty_steps_accounted": 0,
+    "sampler": "poisson",
+    "accountant": "rdp",
+    "accountant_version": "1.5.4",
+    "neighbor_relation": "add_or_remove_one_training_record",
+    "gradient_clipping": "per_example_global_l2",
+    "noise_location": "summed_clipped_gradients_before_expected_batch_normalization",
+    "config": {
+      "max_grad_norm": 1.0,
+      "noise_multiplier": 1.2606636062264442,
+      "sample_rate": 0.08,
+      "delta": 1e-05,
+      "expected_batch_size": 16,
+      "sampler": "poisson",
+      "accountant": "rdp",
+      "seed": 80261
+    },
+    "target_epsilon": 16.0,
+    "calibrated_epsilon_before_training": 15.998745400101607,
+    "noise_multiplier_source": "exact_step_rdp_binary_search_initialized_by_opacus_get_noise_multiplier"
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "mean_sampled_batch": 14.153846153846153,
+      "mean_clipped_fraction": 0.18701715480822784
+    },
+    {
+      "epoch": 2,
+      "mean_sampled_batch": 16.692307692307693,
+      "mean_clipped_fraction": 0.23608264498985732
+    },
+    {
+      "epoch": 3,
+      "mean_sampled_batch": 16.692307692307693,
+      "mean_clipped_fraction": 0.18653936053697878
+    },
+    {
+      "epoch": 4,
+      "mean_sampled_batch": 16.692307692307693,
+      "mean_clipped_fraction": 0.21189666138245508
+    },
+    {
+      "epoch": 5,
+      "mean_sampled_batch": 17.076923076923077,
+      "mean_clipped_fraction": 0.2198311801140125
+    },
+    {
+      "epoch": 6,
+      "mean_sampled_batch": 15.384615384615385,
+      "mean_clipped_fraction": 0.17064499396544236
+    },
+    {
+      "epoch": 7,
+      "mean_sampled_batch": 16.307692307692307,
+      "mean_clipped_fraction": 0.2083869817165228
+    },
+    {
+      "epoch": 8,
+      "mean_sampled_batch": 16.153846153846153,
+      "mean_clipped_fraction": 0.22800439366927513
+    },
+    {
+      "epoch": 9,
+      "mean_sampled_batch": 14.384615384615385,
+      "mean_clipped_fraction": 0.20256188339911974
+    },
+    {
+      "epoch": 10,
+      "mean_sampled_batch": 15.538461538461538,
+      "mean_clipped_fraction": 0.2216318120750097
+    },
+    {
+      "epoch": 11,
+      "mean_sampled_batch": 15.692307692307692,
+      "mean_clipped_fraction": 0.21226289982979113
+    },
+    {
+      "epoch": 12,
+      "mean_sampled_batch": 15.307692307692308,
+      "mean_clipped_fraction": 0.2732860560600574
+    },
+    {
+      "epoch": 13,
+      "mean_sampled_batch": 14.692307692307692,
+      "mean_clipped_fraction": 0.2381967455148697
+    },
+    {
+      "epoch": 14,
+      "mean_sampled_batch": 15.23076923076923,
+      "mean_clipped_fraction": 0.18202329656252494
+    },
+    {
+      "epoch": 15,
+      "mean_sampled_batch": 16.46153846153846,
+      "mean_clipped_fraction": 0.18675213822951683
+    },
+    {
+      "epoch": 16,
+      "mean_sampled_batch": 17.615384615384617,
+      "mean_clipped_fraction": 0.2452227771282196
+    },
+    {
+      "epoch": 17,
+      "mean_sampled_batch": 14.615384615384615,
+      "mean_clipped_fraction": 0.2352030248596118
+    },
+    {
+      "epoch": 18,
+      "mean_sampled_batch": 16.0,
+      "mean_clipped_fraction": 0.22734684640398392
+    },
+    {
+      "epoch": 19,
+      "mean_sampled_batch": 13.692307692307692,
+      "mean_clipped_fraction": 0.20105280039402154
+    },
+    {
+      "epoch": 20,
+      "mean_sampled_batch": 14.538461538461538,
+      "mean_clipped_fraction": 0.2256372467829631
+    },
+    {
+      "epoch": 21,
+      "mean_sampled_batch": 16.076923076923077,
+      "mean_clipped_fraction": 0.2163340993798696
+    },
+    {
+      "epoch": 22,
+      "mean_sampled_batch": 13.846153846153847,
+      "mean_clipped_fraction": 0.24159867259172293
+    },
+    {
+      "epoch": 23,
+      "mean_sampled_batch": 15.846153846153847,
+      "mean_clipped_fraction": 0.19359642095290697
+    },
+    {
+      "epoch": 24,
+      "mean_sampled_batch": 16.0,
+      "mean_clipped_fraction": 0.21356565218705398
+    },
+    {
+      "epoch": 25,
+      "mean_sampled_batch": 15.846153846153847,
+      "mean_clipped_fraction": 0.16451652290729377
+    },
+    {
+      "epoch": 26,
+      "mean_sampled_batch": 16.153846153846153,
+      "mean_clipped_fraction": 0.22848818737726945
+    },
+    {
+      "epoch": 27,
+      "mean_sampled_batch": 14.846153846153847,
+      "mean_clipped_fraction": 0.18622130384811988
+    },
+    {
+      "epoch": 28,
+      "mean_sampled_batch": 14.615384615384615,
+      "mean_clipped_fraction": 0.21749763076121992
+    },
+    {
+      "epoch": 29,
+      "mean_sampled_batch": 14.153846153846153,
+      "mean_clipped_fraction": 0.21615814933410057
+    },
+    {
+      "epoch": 30,
+      "mean_sampled_batch": 18.46153846153846,
+      "mean_clipped_fraction": 0.2223688197823671
+    },
+    {
+      "epoch": 31,
+      "mean_sampled_batch": 15.846153846153847,
+      "mean_clipped_fraction": 0.2207193815937409
+    },
+    {
+      "epoch": 32,
+      "mean_sampled_batch": 15.307692307692308,
+      "mean_clipped_fraction": 0.21055920651325813
+    },
+    {
+      "epoch": 33,
+      "mean_sampled_batch": 15.846153846153847,
+      "mean_clipped_fraction": 0.2582158320225202
+    },
+    {
+      "epoch": 34,
+      "mean_sampled_batch": 14.692307692307692,
+      "mean_clipped_fraction": 0.21290515879025826
+    },
+    {
+      "epoch": 35,
+      "mean_sampled_batch": 16.53846153846154,
+      "mean_clipped_fraction": 0.2009921561066921
+    },
+    {
+      "epoch": 36,
+      "mean_sampled_batch": 15.923076923076923,
+      "mean_clipped_fraction": 0.1952736727320231
+    },
+    {
+      "epoch": 37,
+      "mean_sampled_batch": 14.307692307692308,
+      "mean_clipped_fraction": 0.24622556681816393
+    },
+    {
+      "epoch": 38,
+      "mean_sampled_batch": 15.615384615384615,
+      "mean_clipped_fraction": 0.2907824802857179
+    },
+    {
+      "epoch": 39,
+      "mean_sampled_batch": 15.0,
+      "mean_clipped_fraction": 0.22068149825701347
+    },
+    {
+      "epoch": 40,
+      "mean_sampled_batch": 17.76923076923077,
+      "mean_clipped_fraction": 0.2610170686474213
+    },
+    {
+      "epoch": 41,
+      "mean_sampled_batch": 16.153846153846153,
+      "mean_clipped_fraction": 0.1811576491365066
+    },
+    {
+      "epoch": 42,
+      "mean_sampled_batch": 15.384615384615385,
+      "mean_clipped_fraction": 0.2216824172781064
+    },
+    {
+      "epoch": 43,
+      "mean_sampled_batch": 17.0,
+      "mean_clipped_fraction": 0.23605595987576705
+    },
+    {
+      "epoch": 44,
+      "mean_sampled_batch": 15.384615384615385,
+      "mean_clipped_fraction": 0.23946822950473198
+    },
+    {
+      "epoch": 45,
+      "mean_sampled_batch": 15.76923076923077,
+      "mean_clipped_fraction": 0.20348149308791527
+    },
+    {
+      "epoch": 46,
+      "mean_sampled_batch": 15.307692307692308,
+      "mean_clipped_fraction": 0.2207697217281048
+    },
+    {
+      "epoch": 47,
+      "mean_sampled_batch": 15.384615384615385,
+      "mean_clipped_fraction": 0.21983884274959564
+    },
+    {
+      "epoch": 48,
+      "mean_sampled_batch": 15.846153846153847,
+      "mean_clipped_fraction": 0.22975163219066766
+    },
+    {
+      "epoch": 49,
+      "mean_sampled_batch": 15.23076923076923,
+      "mean_clipped_fraction": 0.1601654812693596
+    },
+    {
+      "epoch": 50,
+      "mean_sampled_batch": 16.153846153846153,
+      "mean_clipped_fraction": 0.2535340659893476
+    },
+    {
+      "epoch": 51,
+      "mean_sampled_batch": 16.615384615384617,
+      "mean_clipped_fraction": 0.23046747881632584
+    },
+    {
+      "epoch": 52,
+      "mean_sampled_batch": 16.923076923076923,
+      "mean_clipped_fraction": 0.23585971502157357
+    },
+    {
+      "epoch": 53,
+      "mean_sampled_batch": 17.23076923076923,
+      "mean_clipped_fraction": 0.25759067787573886
+    },
+    {
+      "epoch": 54,
+      "mean_sampled_batch": 16.307692307692307,
+      "mean_clipped_fraction": 0.29091823444916654
+    },
+    {
+      "epoch": 55,
+      "mean_sampled_batch": 14.0,
+      "mean_clipped_fraction": 0.18091864769275373
+    },
+    {
+      "epoch": 56,
+      "mean_sampled_batch": 14.76923076923077,
+      "mean_clipped_fraction": 0.21800383524252817
+    },
+    {
+      "epoch": 57,
+      "mean_sampled_batch": 15.461538461538462,
+      "mean_clipped_fraction": 0.20024709288890546
+    },
+    {
+      "epoch": 58,
+      "mean_sampled_batch": 15.846153846153847,
+      "mean_clipped_fraction": 0.2378486102590194
+    },
+    {
+      "epoch": 59,
+      "mean_sampled_batch": 17.307692307692307,
+      "mean_clipped_fraction": 0.22153872767320046
+    },
+    {
+      "epoch": 60,
+      "mean_sampled_batch": 14.0,
+      "mean_clipped_fraction": 0.19162304097643265
+    },
+    {
+      "epoch": 61,
+      "mean_sampled_batch": 15.692307692307692,
+      "mean_clipped_fraction": 0.2696892430002873
+    },
+    {
+      "epoch": 62,
+      "mean_sampled_batch": 16.615384615384617,
+      "mean_clipped_fraction": 0.2540767691456355
+    },
+    {
+      "epoch": 63,
+      "mean_sampled_batch": 15.076923076923077,
+      "mean_clipped_fraction": 0.20387129485607147
+    },
+    {
+      "epoch": 64,
+      "mean_sampled_batch": 15.384615384615385,
+      "mean_clipped_fraction": 0.2140020218033057
+    },
+    {
+      "epoch": 65,
+      "mean_sampled_batch": 14.538461538461538,
+      "mean_clipped_fraction": 0.27263277310591477
+    },
+    {
+      "epoch": 66,
+      "mean_sampled_batch": 16.0,
+      "mean_clipped_fraction": 0.2529298451084357
+    },
+    {
+      "epoch": 67,
+      "mean_sampled_batch": 16.23076923076923,
+      "mean_clipped_fraction": 0.2339775338768959
+    },
+    {
+      "epoch": 68,
+      "mean_sampled_batch": 16.153846153846153,
+      "mean_clipped_fraction": 0.21180417159428963
+    },
+    {
+      "epoch": 69,
+      "mean_sampled_batch": 16.846153846153847,
+      "mean_clipped_fraction": 0.24215328349516943
+    },
+    {
+      "epoch": 70,
+      "mean_sampled_batch": 12.846153846153847,
+      "mean_clipped_fraction": 0.21334978479605454
+    },
+    {
+      "epoch": 71,
+      "mean_sampled_batch": 14.923076923076923,
+      "mean_clipped_fraction": 0.16667467183791673
+    },
+    {
+      "epoch": 72,
+      "mean_sampled_batch": 15.461538461538462,
+      "mean_clipped_fraction": 0.23498481454757544
+    },
+    {
+      "epoch": 73,
+      "mean_sampled_batch": 17.0,
+      "mean_clipped_fraction": 0.20686431143146294
+    },
+    {
+      "epoch": 74,
+      "mean_sampled_batch": 16.307692307692307,
+      "mean_clipped_fraction": 0.2289588305239494
+    },
+    {
+      "epoch": 75,
+      "mean_sampled_batch": 14.615384615384615,
+      "mean_clipped_fraction": 0.1957917127471704
+    },
+    {
+      "epoch": 76,
+      "mean_sampled_batch": 14.384615384615385,
+      "mean_clipped_fraction": 0.1706196625645344
+    },
+    {
+      "epoch": 77,
+      "mean_sampled_batch": 15.384615384615385,
+      "mean_clipped_fraction": 0.21688246812957984
+    },
+    {
+      "epoch": 78,
+      "mean_sampled_batch": 16.384615384615383,
+      "mean_clipped_fraction": 0.16954238942036262
+    },
+    {
+      "epoch": 79,
+      "mean_sampled_batch": 15.384615384615385,
+      "mean_clipped_fraction": 0.21917630617435163
+    },
+    {
+      "epoch": 80,
+      "mean_sampled_batch": 17.153846153846153,
+      "mean_clipped_fraction": 0.2539528923539015
+    },
+    {
+      "epoch": 81,
+      "mean_sampled_batch": 17.153846153846153,
+      "mean_clipped_fraction": 0.22756109673243302
+    },
+    {
+      "epoch": 82,
+      "mean_sampled_batch": 16.76923076923077,
+      "mean_clipped_fraction": 0.18623221866213358
+    },
+    {
+      "epoch": 83,
+      "mean_sampled_batch": 17.076923076923077,
+      "mean_clipped_fraction": 0.19878097996115685
+    },
+    {
+      "epoch": 84,
+      "mean_sampled_batch": 16.615384615384617,
+      "mean_clipped_fraction": 0.20493320031807974
+    },
+    {
+      "epoch": 85,
+      "mean_sampled_batch": 17.076923076923077,
+      "mean_clipped_fraction": 0.2052349757689696
+    },
+    {
+      "epoch": 86,
+      "mean_sampled_batch": 16.923076923076923,
+      "mean_clipped_fraction": 0.23018601106909606
+    },
+    {
+      "epoch": 87,
+      "mean_sampled_batch": 16.53846153846154,
+      "mean_clipped_fraction": 0.23910455061839178
+    },
+    {
+      "epoch": 88,
+      "mean_sampled_batch": 15.538461538461538,
+      "mean_clipped_fraction": 0.26582285933769667
+    },
+    {
+      "epoch": 89,
+      "mean_sampled_batch": 16.46153846153846,
+      "mean_clipped_fraction": 0.15945545784555948
+    },
+    {
+      "epoch": 90,
+      "mean_sampled_batch": 16.307692307692307,
+      "mean_clipped_fraction": 0.21208091338093465
+    },
+    {
+      "epoch": 91,
+      "mean_sampled_batch": 15.76923076923077,
+      "mean_clipped_fraction": 0.24422990014919868
+    },
+    {
+      "epoch": 92,
+      "mean_sampled_batch": 15.461538461538462,
+      "mean_clipped_fraction": 0.21504695426959258
+    },
+    {
+      "epoch": 93,
+      "mean_sampled_batch": 16.076923076923077,
+      "mean_clipped_fraction": 0.24426430922288161
+    },
+    {
+      "epoch": 94,
+      "mean_sampled_batch": 14.615384615384615,
+      "mean_clipped_fraction": 0.218084189754266
+    },
+    {
+      "epoch": 95,
+      "mean_sampled_batch": 16.076923076923077,
+      "mean_clipped_fraction": 0.23855642859752363
+    },
+    {
+      "epoch": 96,
+      "mean_sampled_batch": 12.461538461538462,
+      "mean_clipped_fraction": 0.16043348094591728
+    },
+    {
+      "epoch": 97,
+      "mean_sampled_batch": 15.153846153846153,
+      "mean_clipped_fraction": 0.17619080612292656
+    },
+    {
+      "epoch": 98,
+      "mean_sampled_batch": 16.0,
+      "mean_clipped_fraction": 0.2176295851285641
+    },
+    {
+      "epoch": 99,
+      "mean_sampled_batch": 18.0,
+      "mean_clipped_fraction": 0.24430729792668268
+    },
+    {
+      "epoch": 100,
+      "mean_sampled_batch": 14.538461538461538,
+      "mean_clipped_fraction": 0.27700188755989075
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+name,kind,target_id,structural_cell_id,reference_id,gpu,status,returncode,seconds,log
+query_stress_PETS_CREDIT_low_eff_su2_r1_d6_b01__none_none-lattice_round-memgq_lattice,pets_query_stress,PETS_CREDIT_low_eff_su2_r1_d6_b01__none,eff_su2_r1_d6,,0,dry_run,0,0.0,/home/najeeb/qurift_satML/pets_logs/query_stress/query_stress_PETS_CREDIT_low_eff_su2_r1_d6_b01__none_none-lattice_round-memgq_lattice.log
