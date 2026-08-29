@@ -1,0 +1,128 @@
+{
+  "protocol": "pets_adaptive_defended_lira_v3",
+  "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b02__none",
+  "defense": "memgq_lattice",
+  "training_defense": "none",
+  "num_references": 8,
+  "mc_samples": 10,
+  "actual_oracle_draws": 1,
+  "full_candidate_pool": 400,
+  "scored_candidates": 300,
+  "candidate_fingerprint": "e8597b554760f5768feeb828ffc9fc7a47f5e02fb2bead2978e9eb129444b9d5",
+  "partition_protocol": "pets_label_matched_defense_attack_final_v2",
+  "partition_fingerprint": "8c9224030e86b646a46e9540fc40c65a94cd076c485d7094bf72d1c48389545a",
+  "task_label_matched": true,
+  "candidate_partition": {
+    "attack_calibration": {
+      "members": 50,
+      "nonmembers": 50,
+      "member_source": "target_train",
+      "nonmember_source": "target_test_lira_candidate_pool"
+    },
+    "final_evaluation": {
+      "members": 100,
+      "nonmembers": 100,
+      "member_source": "target_train",
+      "nonmember_source": "target_test_lira_candidate_pool"
+    },
+    "disjoint": true
+  },
+  "reference_outputs_defended": true,
+  "target_output_defended": true,
+  "defense_config": {
+    "defense": "memgq_lattice",
+    "iterations": 30,
+    "learning_rate": 0.05,
+    "distortion_weight": 0.1,
+    "label_weight": 100.0,
+    "label_margin": 1e-05,
+    "shots": 128,
+    "measurement_bounds": [
+      -1.0,
+      1.0
+    ]
+  },
+  "membership_encoding": "1=member,0=nonmember",
+  "rows": [
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b02__none",
+      "block_id": "pets_b02",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "memgq_lattice",
+      "attack": "lira_online",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.522,
+      "balanced_accuracy": 0.515,
+      "tpr_at_5_fpr": 0.05,
+      "tpr_at_10_fpr": 0.09,
+      "threshold": 0.19537319500788713,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b02__none",
+      "block_id": "pets_b02",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "memgq_lattice",
+      "attack": "lira_online_fixed_variance",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.5062,
+      "balanced_accuracy": 0.525,
+      "tpr_at_5_fpr": 0.06,
+      "tpr_at_10_fpr": 0.1,
+      "threshold": -1.188206384462761,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b02__none",
+      "block_id": "pets_b02",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "memgq_lattice",
+      "attack": "lira_offline",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.49570000000000003,
+      "balanced_accuracy": 0.49,
+      "tpr_at_5_fpr": 0.08,
+      "tpr_at_10_fpr": 0.11,
+      "threshold": -0.9131412656344402,
+      "score_direction": "inverted_from_calibration"
+    },
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b02__none",
+      "block_id": "pets_b02",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "memgq_lattice",
+      "attack": "lira_offline_fixed_variance",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.5084,
+      "balanced_accuracy": 0.52,
+      "tpr_at_5_fpr": 0.07,
+      "tpr_at_10_fpr": 0.11,
+      "threshold": -1.0215709245876774,
+      "score_direction": "inverted_from_calibration"
+    },
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b02__none",
+      "block_id": "pets_b02",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "memgq_lattice",
+      "attack": "global_true_class_log_odds",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.49389999999999995,
+      "balanced_accuracy": 0.5,
+      "tpr_at_5_fpr": 0.06,
+      "tpr_at_10_fpr": 0.1,
+      "threshold": 0.5065950271256435,
+      "score_direction": "as_defined"
+    }
+  ]
+}

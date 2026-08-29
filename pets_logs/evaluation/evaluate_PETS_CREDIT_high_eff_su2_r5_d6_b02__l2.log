@@ -1,0 +1,11 @@
+All arguments: ['/home/najeeb/qurift_satML/pets_tools/run_defense_evaluation.py', '--repo-root', '/home/najeeb/qurift_satML', '--targets', '/home/najeeb/qurift_satML/pets_targets/credit_defense_training_targets_confirmatory.csv', '--target-id', 'PETS_CREDIT_high_eff_su2_r5_d6_b02__l2', '--run-root', '/home/najeeb/qurift_satML/pets_runs', '--out-dir', '/home/najeeb/qurift_satML/pets_results/defenses', '--device', 'cuda', '--defenses', 'none', '--optimizer-iterations', '30', '--discriminator-epochs', '100', '--shots', '128', '--resume']
+The first argument is: --repo-root
+[GPU] Respecting CUDA_VISIBLE_DEVICES='1'
+Using device: cuda
+In SU2 encoder part
+multi_index_rule in general encoder plus new is prod 
+M Ops: ('XX', 'YY'), Pairs: [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 0)], Head in_features: 12, classes: 2
+/home/najeeb/qurift_satML/reviewer_tools/qurift_target_loader.py:320: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(model_path, map_location=device)
+[OK] PETS_CREDIT_high_eff_su2_r5_d6_b02__l2 defense=none attack_sec=1.39 utility_sec=7.32 acc=0.740
+[DONE] /home/najeeb/qurift_satML/pets_results/defenses/PETS_CREDIT_high_eff_su2_r5_d6_b02__l2

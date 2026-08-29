@@ -1,0 +1,46 @@
+{
+  "protocol": "pets_defended_label_only_hsj_v3",
+  "target_id": "PETS_CREDIT_low_eff_su2_r1_d6_b04__none",
+  "block_id": "pets_b04",
+  "structural_cell_id": "eff_su2_r1_d6",
+  "structural_role": "low",
+  "training_defense": "none",
+  "defense": "memgq_lattice_sticky",
+  "attack": "label_only_hsj",
+  "attack_fit": "adaptive_defended_calibration",
+  "membership_encoding": "1=member,0=nonmember",
+  "partition_protocol": "pets_label_matched_defense_attack_final_v2",
+  "partition_fingerprint": "0b08ea6da53581d16e551adf809409b2c892600a424ff2c6b23690213d2475a9",
+  "task_label_matched": true,
+  "records_per_class_per_partition": 20,
+  "metrics": {
+    "auc": 0.52125,
+    "balanced_accuracy": 0.525,
+    "tpr_at_5_fpr": 0.0,
+    "tpr_at_10_fpr": 0.0,
+    "threshold": -2.9373558163642883,
+    "score_direction": "inverted_from_calibration"
+  },
+  "mean_queries": 148.35,
+  "censored_fraction": 0.575,
+  "defense_config": {
+    "defense": "sticky_input_ablation",
+    "wrapped": {
+      "defense": "memgq_lattice",
+      "iterations": 30,
+      "learning_rate": 0.05,
+      "distortion_weight": 0.1,
+      "label_weight": 100.0,
+      "label_margin": 1e-05,
+      "shots": 128,
+      "measurement_bounds": [
+        -1.0,
+        1.0
+      ]
+    },
+    "resolution": 0.01,
+    "secret_sha256": "34d738402f0cb59e7151a3ecefe7c4eb2e2dfce761b2199ee984eaeddfbb6a0b",
+    "secret_stored": false
+  },
+  "target_decision_threshold": null
+}

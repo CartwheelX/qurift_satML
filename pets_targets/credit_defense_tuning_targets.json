@@ -9,7 +9,10 @@
   "dp_epsilons": [
     1.0,
     4.0,
-    8.0
+    8.0,
+    16.0,
+    32.0,
+    64.0
   ],
   "dp_optimizer": "rmsprop",
   "dp_batch_size": 32,
@@ -21,5 +24,5 @@
   "dp_loss": "unweighted_nll",
   "decision_threshold": "validation_balanced_accuracy",
   "selection_must_not_use_attack_results": true,
-  "targets": 10
+  "targets": 16
 }

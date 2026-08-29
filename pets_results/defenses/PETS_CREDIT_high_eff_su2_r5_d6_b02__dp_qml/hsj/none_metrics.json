@@ -1,0 +1,36 @@
+{
+  "protocol": "pets_defended_label_only_hsj_v3",
+  "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b02__dp_qml",
+  "block_id": "pets_b02",
+  "structural_cell_id": "eff_su2_r5_d6",
+  "structural_role": "high",
+  "training_defense": "dp_qml",
+  "defense": "none",
+  "attack": "label_only_hsj",
+  "attack_fit": "adaptive_defended_calibration",
+  "membership_encoding": "1=member,0=nonmember",
+  "partition_protocol": "pets_label_matched_defense_attack_final_v2",
+  "partition_fingerprint": "8c9224030e86b646a46e9540fc40c65a94cd076c485d7094bf72d1c48389545a",
+  "task_label_matched": true,
+  "records_per_class_per_partition": 20,
+  "metrics": {
+    "auc": 0.455,
+    "balanced_accuracy": 0.42500000000000004,
+    "tpr_at_5_fpr": 0.0,
+    "tpr_at_10_fpr": 0.0,
+    "threshold": -0.0004441119672264904,
+    "score_direction": "inverted_from_calibration"
+  },
+  "mean_queries": 241.3,
+  "censored_fraction": 0.0,
+  "defense_config": {
+    "defense": "none",
+    "oracle": "RawOracle",
+    "output_kind": "log_probabilities",
+    "head": "Linear",
+    "parity_atol": 2e-05,
+    "label_rule": "binary_probability_threshold",
+    "decision_threshold": 0.09805305674672127
+  },
+  "target_decision_threshold": 0.09805305674672127
+}

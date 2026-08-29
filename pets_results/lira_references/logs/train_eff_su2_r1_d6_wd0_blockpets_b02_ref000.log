@@ -1,0 +1,19 @@
+All arguments: ['/home/najeeb/qurift_satML/reviewer_tools/qurift_lira_attack.py', 'train-reference', '--repo-root', '/home/najeeb/qurift_satML', '--targets', '/home/najeeb/qurift_satML/pets_targets/credit_lira_targets.csv', '--run-root', '/home/najeeb/qurift_satML/pets_runs', '--out-dir', '/home/najeeb/qurift_satML/pets_results/lira_references', '--reference-dir', '/home/najeeb/qurift_satML/pets_results/lira_references', '--target-id', 'PETS_CREDIT_low_eff_su2_r1_d6_b02__none', '--reference-id', '0', '--num-references', '8', '--seed', '2026', '--device', 'cuda', '--save-checkpoint', '--resume']
+The first argument is: train-reference
+[GPU] Respecting CUDA_VISIBLE_DEVICES='0'
+Using device: cuda
+In SU2 encoder part
+multi_index_rule in general encoder plus new is prod 
+M Ops: ('XX', 'YY'), Pairs: [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 0)], Head in_features: 12, classes: 2
+[reference 000] epoch=1/100 train_acc=0.735 valid_acc=0.780
+[reference 000] epoch=10/100 train_acc=0.780 valid_acc=0.780
+[reference 000] epoch=20/100 train_acc=0.780 valid_acc=0.780
+[reference 000] epoch=30/100 train_acc=0.780 valid_acc=0.780
+[reference 000] epoch=40/100 train_acc=0.780 valid_acc=0.780
+[reference 000] epoch=50/100 train_acc=0.795 valid_acc=0.780
+[reference 000] epoch=60/100 train_acc=0.790 valid_acc=0.780
+[reference 000] epoch=70/100 train_acc=0.800 valid_acc=0.780
+[reference 000] epoch=80/100 train_acc=0.790 valid_acc=0.780
+[reference 000] epoch=90/100 train_acc=0.795 valid_acc=0.785
+[reference 000] epoch=100/100 train_acc=0.800 valid_acc=0.790
+[OK] reference -> /home/najeeb/qurift_satML/pets_results/lira_references/reference_models/eff_su2_r1_d6_wd0_blockpets_b02/reference_000.npz

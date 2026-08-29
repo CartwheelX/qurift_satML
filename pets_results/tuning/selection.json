@@ -1,0 +1,27 @@
+{
+  "protocol": "pets_utility_only_tuning_selection_v2",
+  "attack_metrics_consulted": false,
+  "development_block": "pets_b01",
+  "selection_constraints": {
+    "minimum_task_roc_auc": 0.65,
+    "minimum_task_average_precision": 0.3,
+    "minimum_calibrated_minority_class_recall": 0.02,
+    "minimum_calibrated_balanced_accuracy": 0.55,
+    "calibrated_prediction_collapse_required": 0
+  },
+  "decision_threshold_rule": "selected independently per checkpoint on validation balanced accuracy; test and attack outcomes are not consulted",
+  "selection_rule": {
+    "l2": "largest eligible weight decay",
+    "dp_qml": "smallest eligible epsilon"
+  },
+  "selected_l2_weight_decay": 0.001,
+  "selected_dp_epsilon": 64.0,
+  "confirmatory_targets": 32,
+  "confirmatory_blocks": [
+    "pets_b02",
+    "pets_b03",
+    "pets_b04",
+    "pets_b05"
+  ],
+  "frozen_manifest": "/home/najeeb/qurift_satML/pets_targets/credit_defense_training_targets_confirmatory.csv"
+}

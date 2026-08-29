@@ -1,0 +1,37 @@
+{
+  "protocol": "pets_defended_label_only_hsj_v3",
+  "target_id": "PETS_CREDIT_low_eff_su2_r1_d6_b04__none",
+  "block_id": "pets_b04",
+  "structural_cell_id": "eff_su2_r1_d6",
+  "structural_role": "low",
+  "training_defense": "none",
+  "defense": "dynanoise",
+  "attack": "label_only_hsj",
+  "attack_fit": "adaptive_defended_calibration",
+  "membership_encoding": "1=member,0=nonmember",
+  "partition_protocol": "pets_label_matched_defense_attack_final_v2",
+  "partition_fingerprint": "0b08ea6da53581d16e551adf809409b2c892600a424ff2c6b23690213d2475a9",
+  "task_label_matched": true,
+  "records_per_class_per_partition": 20,
+  "metrics": {
+    "auc": 0.5275,
+    "balanced_accuracy": 0.5,
+    "tpr_at_5_fpr": 0.0,
+    "tpr_at_10_fpr": 0.0,
+    "threshold": 0.03084075264632702,
+    "score_direction": "as_defined"
+  },
+  "mean_queries": 160.25,
+  "censored_fraction": 0.225,
+  "defense_config": {
+    "defense": "dynanoise",
+    "base_variance": 0.3,
+    "confidence_lambda": 2.0,
+    "temperature": 10.0,
+    "ensemble_size": 1,
+    "seed": 2026,
+    "source_revision": "27c6ba5664eb3ba28973d44e2ea4830d15fd3ee5",
+    "source_license": "MIT"
+  },
+  "target_decision_threshold": null
+}

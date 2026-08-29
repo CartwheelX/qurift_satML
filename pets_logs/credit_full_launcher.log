@@ -1,0 +1,431 @@
+nohup: ignoring input
+[GPU PLAN] profile=qnn_train mode=adaptive-auto concurrency=32
+[GPU PLAN] gpu=0 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=4
+[GPU PLAN] gpu=1 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=4
+[GPU PLAN] gpu=2 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=4
+[GPU PLAN] gpu=3 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=4
+[GPU PLAN] gpu=4 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=4
+[GPU PLAN] gpu=5 used=41341MiB free=40579MiB util=34% safe_capacity=6 assigned_slots=4
+[GPU PLAN] gpu=6 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=4
+[GPU PLAN] gpu=7 used=0MiB free=81920MiB util=0% safe_capacity=6 assigned_slots=4
+[1/32] train_PETS_CREDIT_low_eff_su2_r1_d6_b02__none -> ok (gpu=0, sec=277.4)
+[2/32] train_PETS_CREDIT_low_eff_su2_r1_d6_b03__hamp_train -> ok (gpu=6, sec=281.9)
+[3/32] train_PETS_CREDIT_low_eff_su2_r1_d6_b04__l2 -> ok (gpu=1, sec=282.2)
+[4/32] train_PETS_CREDIT_low_eff_su2_r1_d6_b05__none -> ok (gpu=4, sec=285.1)
+[5/32] train_PETS_CREDIT_low_eff_su2_r1_d6_b04__none -> ok (gpu=0, sec=287.1)
+[6/32] train_PETS_CREDIT_low_eff_su2_r1_d6_b02__l2 -> ok (gpu=1, sec=287.5)
+[7/32] train_PETS_CREDIT_low_eff_su2_r1_d6_b03__none -> ok (gpu=4, sec=289.6)
+[8/32] train_PETS_CREDIT_low_eff_su2_r1_d6_b02__hamp_train -> ok (gpu=2, sec=292.3)
+[9/32] train_PETS_CREDIT_low_eff_su2_r1_d6_b05__hamp_train -> ok (gpu=6, sec=296.8)
+[10/32] train_PETS_CREDIT_low_eff_su2_r1_d6_b04__hamp_train -> ok (gpu=2, sec=297.2)
+[11/32] train_PETS_CREDIT_low_eff_su2_r1_d6_b05__l2 -> ok (gpu=5, sec=335.8)
+[12/32] train_PETS_CREDIT_low_eff_su2_r1_d6_b03__l2 -> ok (gpu=5, sec=340.4)
+[13/32] train_PETS_CREDIT_high_eff_su2_r5_d6_b02__hamp_train -> ok (gpu=2, sec=345.8)
+[14/32] train_PETS_CREDIT_high_eff_su2_r5_d6_b04__hamp_train -> ok (gpu=2, sec=347.1)
+[15/32] train_PETS_CREDIT_high_eff_su2_r5_d6_b05__none -> ok (gpu=4, sec=347.4)
+[16/32] train_PETS_CREDIT_high_eff_su2_r5_d6_b03__none -> ok (gpu=4, sec=351.3)
+[17/32] train_PETS_CREDIT_high_eff_su2_r5_d6_b05__hamp_train -> ok (gpu=6, sec=351.4)
+[18/32] train_PETS_CREDIT_high_eff_su2_r5_d6_b03__hamp_train -> ok (gpu=6, sec=351.7)
+[19/32] train_PETS_CREDIT_high_eff_su2_r5_d6_b02__none -> ok (gpu=0, sec=353.7)
+[20/32] train_PETS_CREDIT_high_eff_su2_r5_d6_b04__none -> ok (gpu=0, sec=355.1)
+[21/32] train_PETS_CREDIT_high_eff_su2_r5_d6_b02__l2 -> ok (gpu=1, sec=356.3)
+[22/32] train_PETS_CREDIT_high_eff_su2_r5_d6_b04__l2 -> ok (gpu=1, sec=356.6)
+[23/32] train_PETS_CREDIT_high_eff_su2_r5_d6_b03__l2 -> ok (gpu=5, sec=399.7)
+[24/32] train_PETS_CREDIT_high_eff_su2_r5_d6_b05__l2 -> ok (gpu=5, sec=405.4)
+[25/32] train_PETS_CREDIT_low_eff_su2_r1_d6_b04__dp_qml -> ok (gpu=3, sec=739.9)
+[26/32] train_PETS_CREDIT_high_eff_su2_r5_d6_b05__dp_qml -> ok (gpu=7, sec=761.2)
+[27/32] train_PETS_CREDIT_high_eff_su2_r5_d6_b02__dp_qml -> ok (gpu=3, sec=769.9)
+[28/32] train_PETS_CREDIT_low_eff_su2_r1_d6_b02__dp_qml -> ok (gpu=3, sec=771.1)
+[29/32] train_PETS_CREDIT_low_eff_su2_r1_d6_b03__dp_qml -> ok (gpu=7, sec=776.0)
+[30/32] train_PETS_CREDIT_low_eff_su2_r1_d6_b05__dp_qml -> ok (gpu=7, sec=780.1)
+[31/32] train_PETS_CREDIT_high_eff_su2_r5_d6_b03__dp_qml -> ok (gpu=7, sec=783.3)
+[32/32] train_PETS_CREDIT_high_eff_su2_r5_d6_b04__dp_qml -> ok (gpu=3, sec=804.6)
+[GPU PLAN] profile=learned_mia mode=adaptive-auto concurrency=24
+[GPU PLAN] gpu=0 used=0MiB free=81920MiB util=0% safe_capacity=3 assigned_slots=3
+[GPU PLAN] gpu=1 used=0MiB free=81920MiB util=0% safe_capacity=3 assigned_slots=3
+[GPU PLAN] gpu=2 used=0MiB free=81920MiB util=0% safe_capacity=3 assigned_slots=3
+[GPU PLAN] gpu=3 used=0MiB free=81920MiB util=11% safe_capacity=3 assigned_slots=3
+[GPU PLAN] gpu=4 used=0MiB free=81920MiB util=0% safe_capacity=3 assigned_slots=3
+[GPU PLAN] gpu=5 used=41341MiB free=40579MiB util=32% safe_capacity=3 assigned_slots=3
+[GPU PLAN] gpu=6 used=0MiB free=81920MiB util=0% safe_capacity=3 assigned_slots=3
+[GPU PLAN] gpu=7 used=0MiB free=81920MiB util=0% safe_capacity=3 assigned_slots=3
+[1/32] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b02__l2 -> ok (gpu=1, sec=29.5)
+[2/32] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b02__dp_qml -> ok (gpu=3, sec=30.5)
+[3/32] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b04__l2 -> ok (gpu=1, sec=32.0)
+[4/32] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b04__dp_qml -> ok (gpu=3, sec=32.8)
+[5/32] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b05__l2 -> ok (gpu=5, sec=35.4)
+[6/32] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b05__dp_qml -> ok (gpu=7, sec=36.2)
+[7/32] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b03__dp_qml -> ok (gpu=7, sec=36.5)
+[8/32] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b03__l2 -> ok (gpu=5, sec=37.8)
+[9/32] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b02__l2 -> ok (gpu=1, sec=40.0)
+[10/32] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b02__dp_qml -> ok (gpu=3, sec=40.2)
+[11/32] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b03__dp_qml -> ok (gpu=7, sec=41.2)
+[12/32] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b05__hamp_train -> ok (gpu=6, sec=42.9)
+[13/32] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b03__l2 -> ok (gpu=5, sec=43.6)
+[14/32] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b04__hamp_train -> ok (gpu=2, sec=49.2)
+[15/32] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b03__hamp_train -> ok (gpu=6, sec=49.6)
+[16/32] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b02__hamp_train -> ok (gpu=2, sec=50.1)
+[17/32] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b02__hamp_train -> ok (gpu=2, sec=55.8)
+[18/32] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b04__l2 -> ok (gpu=3, sec=27.8)
+[19/32] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b03__hamp_train -> ok (gpu=6, sec=59.9)
+[20/32] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b04__dp_qml -> ok (gpu=3, sec=28.6)
+[21/32] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b05__l2 -> ok (gpu=7, sec=27.3)
+[22/32] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b05__dp_qml -> ok (gpu=5, sec=29.7)
+[23/32] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b04__hamp_train -> ok (gpu=1, sec=46.8)
+[24/32] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b05__hamp_train -> ok (gpu=7, sec=45.8)
+[25/32] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b04__none -> ok (gpu=1, sec=441.6)
+[26/32] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b05__none -> ok (gpu=4, sec=575.1)
+[27/32] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b02__none -> ok (gpu=0, sec=581.2)
+[28/32] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b04__none -> ok (gpu=0, sec=581.8)
+[29/32] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b05__none -> ok (gpu=5, sec=549.7)
+[30/32] evaluate_PETS_CREDIT_low_eff_su2_r1_d6_b03__none -> ok (gpu=4, sec=585.6)
+[31/32] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b02__none -> ok (gpu=0, sec=604.9)
+[32/32] evaluate_PETS_CREDIT_high_eff_su2_r5_d6_b03__none -> ok (gpu=4, sec=610.5)
+[OK] targets=8 -> /home/najeeb/qurift_satML/pets_targets/credit_output_defense_targets.csv
+[GPU PLAN] profile=learned_mia mode=adaptive-auto concurrency=8
+[GPU PLAN] gpu=0 used=0MiB free=81920MiB util=0% safe_capacity=3 assigned_slots=1
+[GPU PLAN] gpu=1 used=0MiB free=81920MiB util=0% safe_capacity=3 assigned_slots=1
+[GPU PLAN] gpu=2 used=0MiB free=81920MiB util=0% safe_capacity=3 assigned_slots=1
+[GPU PLAN] gpu=3 used=0MiB free=81920MiB util=0% safe_capacity=3 assigned_slots=1
+[GPU PLAN] gpu=4 used=0MiB free=81920MiB util=0% safe_capacity=3 assigned_slots=1
+[GPU PLAN] gpu=5 used=41341MiB free=40579MiB util=34% safe_capacity=3 assigned_slots=1
+[GPU PLAN] gpu=6 used=0MiB free=81920MiB util=0% safe_capacity=3 assigned_slots=1
+[GPU PLAN] gpu=7 used=0MiB free=81920MiB util=0% safe_capacity=3 assigned_slots=1
+[1/8] query_stress_PETS_CREDIT_low_eff_su2_r1_d6_b02__none_none-logitguard_continuous-logitguard_quantized-measurementguard_continuous-lattice_round-memgq_lattice-memgq_lattice_sticky -> ok (gpu=0, sec=397.0)
+[2/8] query_stress_PETS_CREDIT_low_eff_su2_r1_d6_b03__none_none-logitguard_continuous-logitguard_quantized-measurementguard_continuous-lattice_round-memgq_lattice-memgq_lattice_sticky -> ok (gpu=1, sec=409.4)
+[3/8] query_stress_PETS_CREDIT_low_eff_su2_r1_d6_b04__none_none-logitguard_continuous-logitguard_quantized-measurementguard_continuous-lattice_round-memgq_lattice-memgq_lattice_sticky -> ok (gpu=2, sec=410.5)
+[4/8] query_stress_PETS_CREDIT_low_eff_su2_r1_d6_b05__none_none-logitguard_continuous-logitguard_quantized-measurementguard_continuous-lattice_round-memgq_lattice-memgq_lattice_sticky -> ok (gpu=3, sec=416.6)
+[5/8] query_stress_PETS_CREDIT_high_eff_su2_r5_d6_b05__none_none-logitguard_continuous-logitguard_quantized-measurementguard_continuous-lattice_round-memgq_lattice-memgq_lattice_sticky -> ok (gpu=7, sec=485.6)
+[6/8] query_stress_PETS_CREDIT_high_eff_su2_r5_d6_b02__none_none-logitguard_continuous-logitguard_quantized-measurementguard_continuous-lattice_round-memgq_lattice-memgq_lattice_sticky -> ok (gpu=4, sec=491.4)
+[7/8] query_stress_PETS_CREDIT_high_eff_su2_r5_d6_b04__none_none-logitguard_continuous-logitguard_quantized-measurementguard_continuous-lattice_round-memgq_lattice-memgq_lattice_sticky -> ok (gpu=6, sec=492.5)
+[8/8] query_stress_PETS_CREDIT_high_eff_su2_r5_d6_b03__none_none-logitguard_continuous-logitguard_quantized-measurementguard_continuous-lattice_round-memgq_lattice-memgq_lattice_sticky -> ok (gpu=5, sec=633.1)
+[GPU PLAN] profile=label_only_hsj mode=adaptive-capped concurrency=8
+[GPU PLAN] gpu=0 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=1 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=2 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=3 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=4 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=5 used=41341MiB free=40579MiB util=31% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=6 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=7 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[1/32] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b02__none_dynanoise -> ok (gpu=1, sec=423.1)
+[2/32] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b02__none_none -> ok (gpu=0, sec=498.3)
+[3/32] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b03__none_dynanoise -> ok (gpu=5, sec=499.3)
+[4/32] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b02__none_lattice_round -> ok (gpu=2, sec=501.3)
+[5/32] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b03__none_none -> ok (gpu=4, sec=501.5)
+[6/32] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b03__none_lattice_round -> ok (gpu=6, sec=519.0)
+[7/32] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b04__none_none -> ok (gpu=1, sec=151.8)
+[8/32] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b04__none_lattice_round -> ok (gpu=5, sec=185.6)
+[9/32] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b04__none_dynanoise -> ok (gpu=0, sec=233.7)
+[10/32] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b05__none_dynanoise -> ok (gpu=6, sec=319.7)
+[11/32] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b05__none_none -> ok (gpu=4, sec=361.7)
+[12/32] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b04__none_memgq_lattice_sticky -> ok (gpu=2, sec=380.2)
+[13/32] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b05__none_lattice_round -> ok (gpu=1, sec=371.3)
+[14/32] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b03__none_memgq_lattice_sticky -> ok (gpu=7, sec=1403.6)
+[15/32] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b02__none_memgq_lattice_sticky -> ok (gpu=3, sec=1411.7)
+[16/32] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b02__none_dynanoise -> ok (gpu=6, sec=662.0)
+[17/32] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b02__none_none -> ok (gpu=0, sec=842.1)
+[18/32] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b02__none_lattice_round -> ok (gpu=4, sec=857.4)
+[19/32] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b03__none_none -> ok (gpu=1, sec=869.4)
+[20/32] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b05__none_memgq_lattice_sticky -> ok (gpu=5, sec=1400.0)
+[21/32] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b03__none_dynanoise -> ok (gpu=7, sec=775.1)
+[22/32] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b03__none_lattice_round -> ok (gpu=3, sec=911.7)
+[23/32] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b04__none_none -> ok (gpu=0, sec=922.6)
+[24/32] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b04__none_dynanoise -> ok (gpu=4, sec=809.8)
+[25/32] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b04__none_lattice_round -> ok (gpu=1, sec=905.1)
+[26/32] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b05__none_none -> ok (gpu=7, sec=738.2)
+[27/32] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b05__none_dynanoise -> ok (gpu=3, sec=732.0)
+[28/32] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b02__none_memgq_lattice_sticky -> ok (gpu=2, sec=2210.5)
+[29/32] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b05__none_lattice_round -> ok (gpu=0, sec=854.6)
+[30/32] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b03__none_memgq_lattice_sticky -> ok (gpu=6, sec=2029.1)
+[31/32] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b05__none_memgq_lattice_sticky -> ok (gpu=4, sec=1839.1)
+[32/32] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b04__none_memgq_lattice_sticky -> ok (gpu=5, sec=2305.2)
+[OK] targets=24 -> /home/najeeb/qurift_satML/pets_targets/credit_training_defense_hsj_targets.csv
+[GPU PLAN] profile=label_only_hsj mode=adaptive-capped concurrency=7
+[GPU PLAN] gpu=0 used=53449MiB free=28471MiB util=46% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=1 used=52567MiB free=29353MiB util=56% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=2 used=52599MiB free=29321MiB util=50% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=3 used=53287MiB free=28633MiB util=44% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=4 used=41053MiB free=40867MiB util=42% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=5 used=41341MiB free=40579MiB util=33% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=6 used=75843MiB free=6077MiB util=49% safe_capacity=0 assigned_slots=0
+[GPU PLAN] gpu=7 used=0MiB free=81920MiB util=0% safe_capacity=1 assigned_slots=1
+[1/24] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b04__l2_none -> ok (gpu=7, sec=310.6)
+[2/24] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b02__l2_none -> ok (gpu=0, sec=407.6)
+[3/24] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b03__l2_none -> ok (gpu=3, sec=456.0)
+[4/24] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b02__dp_qml_none -> ok (gpu=2, sec=492.9)
+[5/24] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b03__dp_qml_none -> ok (gpu=5, sec=511.5)
+[6/24] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b02__hamp_train_none -> ok (gpu=1, sec=587.7)
+[7/24] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b03__hamp_train_none -> ok (gpu=4, sec=598.0)
+[8/24] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b04__hamp_train_none -> ok (gpu=7, sec=378.4)
+[9/24] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b05__l2_none -> ok (gpu=3, sec=413.7)
+[10/24] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b05__dp_qml_none -> ok (gpu=5, sec=434.8)
+[11/24] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b04__dp_qml_none -> ok (gpu=0, sec=551.9)
+[12/24] hsj_PETS_CREDIT_low_eff_su2_r1_d6_b05__hamp_train_none -> ok (gpu=2, sec=591.1)
+[13/24] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b02__l2_none -> ok (gpu=1, sec=828.7)
+[14/24] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b02__hamp_train_none -> ok (gpu=4, sec=849.8)
+[15/24] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b02__dp_qml_none -> ok (gpu=7, sec=782.5)
+[16/24] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b03__l2_none -> ok (gpu=3, sec=894.7)
+[17/24] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b03__hamp_train_none -> ok (gpu=5, sec=900.8)
+[18/24] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b04__l2_none -> ok (gpu=2, sec=775.2)
+[19/24] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b03__dp_qml_none -> ok (gpu=0, sec=900.4)
+[20/24] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b05__l2_none -> ok (gpu=7, sec=495.8)
+[21/24] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b04__dp_qml_none -> ok (gpu=4, sec=790.6)
+[22/24] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b04__hamp_train_none -> ok (gpu=1, sec=900.9)
+[23/24] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b05__dp_qml_none -> ok (gpu=5, sec=515.0)
+[24/24] hsj_PETS_CREDIT_high_eff_su2_r5_d6_b05__hamp_train_none -> ok (gpu=3, sec=855.2)
+[OK] targets=16 -> /home/najeeb/qurift_satML/pets_targets/credit_lira_targets.csv
+[GPU PLAN] profile=lira mode=adaptive-auto concurrency=32
+[GPU PLAN] gpu=0 used=53477MiB free=28443MiB util=46% safe_capacity=6 assigned_slots=6
+[GPU PLAN] gpu=1 used=52575MiB free=29345MiB util=38% safe_capacity=6 assigned_slots=6
+[GPU PLAN] gpu=2 used=52641MiB free=29279MiB util=39% safe_capacity=6 assigned_slots=6
+[GPU PLAN] gpu=3 used=53295MiB free=28625MiB util=44% safe_capacity=6 assigned_slots=6
+[GPU PLAN] gpu=4 used=75603MiB free=6317MiB util=41% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=5 used=41341MiB free=40579MiB util=33% safe_capacity=6 assigned_slots=6
+[GPU PLAN] gpu=6 used=75843MiB free=6077MiB util=39% safe_capacity=0 assigned_slots=0
+[GPU PLAN] gpu=7 used=75641MiB free=6279MiB util=40% safe_capacity=1 assigned_slots=1
+GPUs=[0, 1, 2, 3, 4, 5, 6, 7]; jobs_per_gpu=auto; concurrency=32; cells=16; targets=16
+[1/128] train_eff_su2_r1_d6_wd0_blockpets_b02_ref006 -> ok (gpu=7, sec=386.7)
+[2/128] train_eff_su2_r1_d6_wd0_blockpets_b02_ref004 -> ok (gpu=4, sec=403.7)
+[3/128] train_eff_su2_r1_d6_wd0.001_blockpets_b02_ref004 -> ok (gpu=0, sec=496.3)
+[4/128] train_eff_su2_r1_d6_wd0_blockpets_b03_ref007 -> ok (gpu=1, sec=498.1)
+[5/128] train_eff_su2_r1_d6_wd0_blockpets_b02_ref003 -> ok (gpu=3, sec=502.9)
+[6/128] train_eff_su2_r1_d6_wd0.001_blockpets_b02_ref005 -> ok (gpu=1, sec=510.8)
+[7/128] train_eff_su2_r1_d6_wd0.001_blockpets_b02_ref006 -> ok (gpu=2, sec=515.2)
+[8/128] train_eff_su2_r1_d6_wd0.001_blockpets_b02_ref000 -> ok (gpu=1, sec=525.2)
+[9/128] train_eff_su2_r1_d6_wd0_blockpets_b02_ref000 -> ok (gpu=0, sec=525.9)
+[10/128] train_eff_su2_r1_d6_wd0.001_blockpets_b03_ref001 -> ok (gpu=3, sec=526.2)
+[11/128] train_eff_su2_r1_d6_wd0_blockpets_b03_ref003 -> ok (gpu=2, sec=526.4)
+[12/128] train_eff_su2_r1_d6_wd0_blockpets_b02_ref007 -> ok (gpu=0, sec=527.0)
+[13/128] train_eff_su2_r1_d6_wd0.001_blockpets_b03_ref006 -> ok (gpu=3, sec=527.0)
+[14/128] train_eff_su2_r1_d6_wd0_blockpets_b03_ref002 -> ok (gpu=1, sec=527.2)
+[15/128] train_eff_su2_r1_d6_wd0_blockpets_b02_ref001 -> ok (gpu=1, sec=527.8)
+[16/128] train_eff_su2_r1_d6_wd0.001_blockpets_b02_ref002 -> ok (gpu=3, sec=528.4)
+[17/128] train_eff_su2_r1_d6_wd0_blockpets_b03_ref001 -> ok (gpu=0, sec=529.0)
+[18/128] train_eff_su2_r1_d6_wd0_blockpets_b03_ref006 -> ok (gpu=0, sec=530.9)
+[19/128] train_eff_su2_r1_d6_wd0.001_blockpets_b03_ref003 -> ok (gpu=0, sec=531.4)
+[20/128] train_eff_su2_r1_d6_wd0.001_blockpets_b02_ref007 -> ok (gpu=3, sec=532.1)
+[21/128] train_eff_su2_r1_d6_wd0_blockpets_b02_ref002 -> ok (gpu=2, sec=532.5)
+[22/128] train_eff_su2_r1_d6_wd0.001_blockpets_b03_ref004 -> ok (gpu=1, sec=533.8)
+[23/128] train_eff_su2_r1_d6_wd0.001_blockpets_b02_ref001 -> ok (gpu=2, sec=534.0)
+[24/128] train_eff_su2_r1_d6_wd0_blockpets_b03_ref004 -> ok (gpu=3, sec=536.4)
+[25/128] train_eff_su2_r1_d6_wd0.001_blockpets_b03_ref005 -> ok (gpu=2, sec=536.5)
+[26/128] train_eff_su2_r1_d6_wd0.001_blockpets_b03_ref000 -> ok (gpu=2, sec=537.0)
+[27/128] train_eff_su2_r1_d6_wd0_blockpets_b02_ref005 -> ok (gpu=5, sec=550.2)
+[28/128] train_eff_su2_r1_d6_wd0.001_blockpets_b02_ref003 -> ok (gpu=5, sec=560.7)
+[29/128] train_eff_su2_r1_d6_wd0.001_blockpets_b03_ref007 -> ok (gpu=5, sec=566.4)
+[30/128] train_eff_su2_r1_d6_wd0.001_blockpets_b03_ref002 -> ok (gpu=5, sec=576.6)
+[31/128] train_eff_su2_r1_d6_wd0_blockpets_b03_ref000 -> ok (gpu=5, sec=577.1)
+[32/128] train_eff_su2_r1_d6_wd0_blockpets_b03_ref005 -> ok (gpu=5, sec=578.8)
+[33/128] train_eff_su2_r1_d6_wd0_blockpets_b04_ref000 -> ok (gpu=7, sec=372.0)
+[34/128] train_eff_su2_r1_d6_wd0_blockpets_b04_ref001 -> ok (gpu=4, sec=373.4)
+[35/128] train_eff_su2_r1_d6_wd0_blockpets_b04_ref002 -> ok (gpu=0, sec=495.8)
+[36/128] train_eff_su2_r1_d6_wd0_blockpets_b04_ref003 -> ok (gpu=1, sec=494.1)
+[37/128] train_eff_su2_r1_d6_wd0_blockpets_b04_ref004 -> ok (gpu=3, sec=496.1)
+[38/128] train_eff_su2_r1_d6_wd0_blockpets_b04_ref005 -> ok (gpu=1, sec=488.8)
+[39/128] train_eff_su2_r1_d6_wd0_blockpets_b04_ref006 -> ok (gpu=2, sec=485.5)
+[40/128] train_eff_su2_r1_d6_wd0_blockpets_b04_ref007 -> ok (gpu=1, sec=500.7)
+[41/128] train_eff_su2_r1_d6_wd0_blockpets_b05_ref000 -> ok (gpu=0, sec=497.6)
+[42/128] train_eff_su2_r1_d6_wd0.001_blockpets_b04_ref000 -> ok (gpu=0, sec=501.9)
+[43/128] train_eff_su2_r1_d6_wd0.001_blockpets_b04_ref003 -> ok (gpu=0, sec=501.5)
+[44/128] train_eff_su2_r1_d6_wd0.001_blockpets_b04_ref002 -> ok (gpu=2, sec=502.2)
+[45/128] train_eff_su2_r1_d6_wd0.001_blockpets_b04_ref001 -> ok (gpu=3, sec=502.6)
+[46/128] train_eff_su2_r1_d6_wd0.001_blockpets_b04_ref006 -> ok (gpu=1, sec=503.3)
+[47/128] train_eff_su2_r1_d6_wd0_blockpets_b05_ref002 -> ok (gpu=0, sec=499.9)
+[48/128] train_eff_su2_r1_d6_wd0.001_blockpets_b04_ref004 -> ok (gpu=3, sec=504.6)
+[49/128] train_eff_su2_r1_d6_wd0.001_blockpets_b04_ref007 -> ok (gpu=3, sec=504.2)
+[50/128] train_eff_su2_r1_d6_wd0_blockpets_b05_ref003 -> ok (gpu=3, sec=500.9)
+[51/128] train_eff_su2_r1_d6_wd0.001_blockpets_b04_ref005 -> ok (gpu=1, sec=506.1)
+[52/128] train_eff_su2_r1_d6_wd0_blockpets_b05_ref001 -> ok (gpu=0, sec=506.7)
+[53/128] train_eff_su2_r1_d6_wd0_blockpets_b05_ref007 -> ok (gpu=3, sec=502.6)
+[54/128] train_eff_su2_r1_d6_wd0_blockpets_b05_ref004 -> ok (gpu=2, sec=506.8)
+[55/128] train_eff_su2_r1_d6_wd0_blockpets_b05_ref005 -> ok (gpu=1, sec=505.9)
+[56/128] train_eff_su2_r1_d6_wd0_blockpets_b05_ref006 -> ok (gpu=2, sec=510.0)
+[57/128] train_eff_su2_r1_d6_wd0.001_blockpets_b05_ref001 -> ok (gpu=2, sec=510.7)
+[58/128] train_eff_su2_r1_d6_wd0.001_blockpets_b05_ref000 -> ok (gpu=2, sec=513.4)
+[59/128] train_eff_su2_r1_d6_wd0.001_blockpets_b05_ref002 -> ok (gpu=5, sec=544.7)
+[60/128] train_eff_su2_r1_d6_wd0.001_blockpets_b05_ref003 -> ok (gpu=5, sec=539.4)
+[61/128] train_eff_su2_r1_d6_wd0.001_blockpets_b05_ref004 -> ok (gpu=5, sec=554.0)
+[62/128] train_eff_su2_r1_d6_wd0.001_blockpets_b05_ref006 -> ok (gpu=5, sec=549.2)
+[63/128] train_eff_su2_r1_d6_wd0.001_blockpets_b05_ref005 -> ok (gpu=5, sec=553.2)
+[64/128] train_eff_su2_r1_d6_wd0.001_blockpets_b05_ref007 -> ok (gpu=5, sec=554.2)
+[65/128] train_eff_su2_r5_d6_wd0_blockpets_b02_ref000 -> ok (gpu=7, sec=485.7)
+[66/128] train_eff_su2_r5_d6_wd0_blockpets_b02_ref001 -> ok (gpu=4, sec=486.7)
+[67/128] train_eff_su2_r5_d6_wd0_blockpets_b02_ref002 -> ok (gpu=0, sec=599.8)
+[68/128] train_eff_su2_r5_d6_wd0_blockpets_b02_ref006 -> ok (gpu=2, sec=593.6)
+[69/128] train_eff_su2_r5_d6_wd0_blockpets_b02_ref005 -> ok (gpu=1, sec=600.1)
+[70/128] train_eff_su2_r5_d6_wd0_blockpets_b02_ref003 -> ok (gpu=1, sec=607.8)
+[71/128] train_eff_su2_r5_d6_wd0_blockpets_b02_ref004 -> ok (gpu=3, sec=616.0)
+[72/128] train_eff_su2_r5_d6_wd0.001_blockpets_b02_ref000 -> ok (gpu=0, sec=599.4)
+[73/128] train_eff_su2_r5_d6_wd0.001_blockpets_b02_ref006 -> ok (gpu=0, sec=597.8)
+[74/128] train_eff_su2_r5_d6_wd0.001_blockpets_b02_ref001 -> ok (gpu=0, sec=605.2)
+[75/128] train_eff_su2_r5_d6_wd0.001_blockpets_b02_ref002 -> ok (gpu=0, sec=605.4)
+[76/128] train_eff_su2_r5_d6_wd0_blockpets_b02_ref007 -> ok (gpu=1, sec=608.3)
+[77/128] train_eff_su2_r5_d6_wd0.001_blockpets_b02_ref003 -> ok (gpu=2, sec=614.5)
+[78/128] train_eff_su2_r5_d6_wd0.001_blockpets_b02_ref005 -> ok (gpu=1, sec=612.5)
+[79/128] train_eff_su2_r5_d6_wd0_blockpets_b03_ref003 -> ok (gpu=0, sec=608.4)
+[80/128] train_eff_su2_r5_d6_wd0_blockpets_b03_ref002 -> ok (gpu=1, sec=613.9)
+[81/128] train_eff_su2_r5_d6_wd0_blockpets_b03_ref005 -> ok (gpu=2, sec=609.7)
+[82/128] train_eff_su2_r5_d6_wd0_blockpets_b03_ref007 -> ok (gpu=2, sec=605.9)
+[83/128] train_eff_su2_r5_d6_wd0.001_blockpets_b02_ref004 -> ok (gpu=3, sec=625.4)
+[84/128] train_eff_su2_r5_d6_wd0.001_blockpets_b02_ref007 -> ok (gpu=3, sec=624.2)
+[85/128] train_eff_su2_r5_d6_wd0_blockpets_b03_ref006 -> ok (gpu=1, sec=616.4)
+[86/128] train_eff_su2_r5_d6_wd0.001_blockpets_b03_ref000 -> ok (gpu=2, sec=610.0)
+[87/128] train_eff_su2_r5_d6_wd0_blockpets_b03_ref001 -> ok (gpu=3, sec=625.6)
+[88/128] train_eff_su2_r5_d6_wd0_blockpets_b03_ref004 -> ok (gpu=3, sec=623.2)
+[89/128] train_eff_su2_r5_d6_wd0.001_blockpets_b03_ref001 -> ok (gpu=2, sec=612.4)
+[90/128] train_eff_su2_r5_d6_wd0_blockpets_b03_ref000 -> ok (gpu=3, sec=631.7)
+[91/128] train_eff_su2_r5_d6_wd0_blockpets_b04_ref000 -> ok (gpu=7, sec=476.4)
+[92/128] train_eff_su2_r5_d6_wd0_blockpets_b04_ref001 -> ok (gpu=4, sec=485.3)
+[93/128] train_eff_su2_r5_d6_wd0.001_blockpets_b03_ref002 -> ok (gpu=5, sec=720.2)
+[94/128] train_eff_su2_r5_d6_wd0.001_blockpets_b03_ref003 -> ok (gpu=5, sec=725.5)
+[95/128] train_eff_su2_r5_d6_wd0.001_blockpets_b03_ref004 -> ok (gpu=5, sec=727.1)
+[96/128] train_eff_su2_r5_d6_wd0.001_blockpets_b03_ref005 -> ok (gpu=5, sec=724.1)
+[97/128] train_eff_su2_r5_d6_wd0.001_blockpets_b03_ref006 -> ok (gpu=5, sec=726.7)
+[98/128] train_eff_su2_r5_d6_wd0.001_blockpets_b03_ref007 -> ok (gpu=5, sec=726.2)
+[99/128] train_eff_su2_r5_d6_wd0.001_blockpets_b05_ref002 -> ok (gpu=7, sec=477.7)
+[100/128] train_eff_su2_r5_d6_wd0_blockpets_b04_ref004 -> ok (gpu=1, sec=603.8)
+[101/128] train_eff_su2_r5_d6_wd0_blockpets_b04_ref003 -> ok (gpu=2, sec=614.2)
+[102/128] train_eff_su2_r5_d6_wd0_blockpets_b04_ref002 -> ok (gpu=0, sec=618.9)
+[103/128] train_eff_su2_r5_d6_wd0_blockpets_b04_ref005 -> ok (gpu=1, sec=616.4)
+[104/128] train_eff_su2_r5_d6_wd0.001_blockpets_b05_ref003 -> ok (gpu=4, sec=485.0)
+[105/128] train_eff_su2_r5_d6_wd0_blockpets_b04_ref006 -> ok (gpu=3, sec=621.7)
+[106/128] train_eff_su2_r5_d6_wd0.001_blockpets_b04_ref002 -> ok (gpu=0, sec=613.7)
+[107/128] train_eff_su2_r5_d6_wd0_blockpets_b04_ref007 -> ok (gpu=0, sec=621.9)
+[108/128] train_eff_su2_r5_d6_wd0.001_blockpets_b04_ref000 -> ok (gpu=0, sec=618.7)
+[109/128] train_eff_su2_r5_d6_wd0.001_blockpets_b04_ref005 -> ok (gpu=1, sec=605.1)
+[110/128] train_eff_su2_r5_d6_wd0.001_blockpets_b04_ref001 -> ok (gpu=0, sec=619.0)
+[111/128] train_eff_su2_r5_d6_wd0.001_blockpets_b04_ref003 -> ok (gpu=1, sec=618.6)
+[112/128] train_eff_su2_r5_d6_wd0.001_blockpets_b04_ref007 -> ok (gpu=1, sec=606.9)
+[113/128] train_eff_su2_r5_d6_wd0_blockpets_b05_ref000 -> ok (gpu=2, sec=606.3)
+[114/128] train_eff_su2_r5_d6_wd0.001_blockpets_b04_ref004 -> ok (gpu=2, sec=613.2)
+[115/128] train_eff_su2_r5_d6_wd0_blockpets_b05_ref003 -> ok (gpu=3, sec=604.7)
+[116/128] train_eff_su2_r5_d6_wd0.001_blockpets_b04_ref006 -> ok (gpu=0, sec=614.9)
+[117/128] train_eff_su2_r5_d6_wd0_blockpets_b05_ref002 -> ok (gpu=3, sec=609.3)
+[118/128] train_eff_su2_r5_d6_wd0_blockpets_b05_ref001 -> ok (gpu=2, sec=615.6)
+[119/128] train_eff_su2_r5_d6_wd0_blockpets_b05_ref004 -> ok (gpu=1, sec=609.5)
+[120/128] train_eff_su2_r5_d6_wd0_blockpets_b05_ref005 -> ok (gpu=2, sec=613.9)
+[121/128] train_eff_su2_r5_d6_wd0.001_blockpets_b05_ref000 -> ok (gpu=2, sec=609.6)
+[122/128] train_eff_su2_r5_d6_wd0_blockpets_b05_ref007 -> ok (gpu=3, sec=613.1)
+[123/128] train_eff_su2_r5_d6_wd0_blockpets_b05_ref006 -> ok (gpu=3, sec=619.3)
+[124/128] train_eff_su2_r5_d6_wd0.001_blockpets_b05_ref001 -> ok (gpu=3, sec=614.7)
+[125/128] train_eff_su2_r5_d6_wd0.001_blockpets_b05_ref004 -> ok (gpu=5, sec=593.8)
+[126/128] train_eff_su2_r5_d6_wd0.001_blockpets_b05_ref005 -> ok (gpu=5, sec=598.4)
+[127/128] train_eff_su2_r5_d6_wd0.001_blockpets_b05_ref006 -> ok (gpu=5, sec=586.4)
+[128/128] train_eff_su2_r5_d6_wd0.001_blockpets_b05_ref007 -> ok (gpu=5, sec=591.5)
+[OK] targets=8 -> /home/najeeb/qurift_satML/pets_targets/credit_lira_output_defense_targets.csv
+[GPU PLAN] profile=lira mode=adaptive-capped concurrency=6
+[GPU PLAN] gpu=0 used=36363MiB free=45557MiB util=41% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=1 used=36697MiB free=45223MiB util=34% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=2 used=36715MiB free=45205MiB util=47% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=3 used=36709MiB free=45211MiB util=35% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=4 used=75663MiB free=6257MiB util=53% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=5 used=41341MiB free=40579MiB util=0% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=6 used=75843MiB free=6077MiB util=50% safe_capacity=0 assigned_slots=0
+[GPU PLAN] gpu=7 used=77687MiB free=4233MiB util=41% safe_capacity=0 assigned_slots=0
+[1/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b02__none_none -> ok (gpu=0, sec=23.9)
+[2/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b02__none_logitguard_continuous -> ok (gpu=4, sec=35.4)
+[3/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b02__none_logitguard_quantized -> ok (gpu=5, sec=36.0)
+[4/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b02__none_lattice_round -> ok (gpu=4, sec=21.6)
+[5/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b02__none_measurementguard_continuous -> ok (gpu=0, sec=37.3)
+[6/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b02__none_memgq_lattice -> ok (gpu=5, sec=40.3)
+[7/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b03__none_none -> ok (gpu=0, sec=20.7)
+[8/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b02__none_memgq_lattice_sticky -> ok (gpu=4, sec=38.7)
+[9/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b02__none_dynanoise -> ok (gpu=1, sec=100.2)
+[10/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b03__none_logitguard_continuous -> ok (gpu=1, sec=30.7)
+[11/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b03__none_logitguard_quantized -> ok (gpu=1, sec=30.0)
+[12/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b03__none_dynanoise -> ok (gpu=5, sec=96.4)
+[13/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b02__none_hamp_output -> ok (gpu=2, sec=180.8)
+[14/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b03__none_lattice_round -> ok (gpu=5, sec=20.6)
+[15/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b03__none_measurementguard_continuous -> ok (gpu=1, sec=37.4)
+[16/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b04__none_none -> ok (gpu=1, sec=20.5)
+[17/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b03__none_memgq_lattice -> ok (gpu=2, sec=38.2)
+[18/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b03__none_memgq_lattice_sticky -> ok (gpu=5, sec=39.4)
+[19/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b03__none_hamp_output -> ok (gpu=0, sec=175.9)
+[20/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b04__none_logitguard_continuous -> ok (gpu=0, sec=31.1)
+[21/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b04__none_dynanoise -> ok (gpu=1, sec=95.7)
+[22/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b04__none_logitguard_quantized -> ok (gpu=0, sec=31.0)
+[23/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b04__none_lattice_round -> ok (gpu=0, sec=20.9)
+[24/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b04__none_measurementguard_continuous -> ok (gpu=1, sec=38.2)
+[25/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b04__none_memgq_lattice -> ok (gpu=0, sec=38.1)
+[26/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b04__none_memgq_lattice_sticky -> ok (gpu=1, sec=37.9)
+[27/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b04__none_hamp_output -> ok (gpu=2, sec=178.0)
+[28/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b05__none_none -> ok (gpu=0, sec=19.7)
+[29/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b02__none_memguard -> ok (gpu=3, sec=447.4)
+[30/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b05__none_logitguard_continuous -> ok (gpu=3, sec=31.1)
+[31/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b05__none_dynanoise -> ok (gpu=1, sec=96.4)
+[32/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b05__none_logitguard_quantized -> ok (gpu=3, sec=30.7)
+[33/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b05__none_measurementguard_continuous -> ok (gpu=1, sec=37.8)
+[34/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b05__none_lattice_round -> ok (gpu=3, sec=20.1)
+[35/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b03__none_memguard -> ok (gpu=4, sec=455.4)
+[36/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b05__none_memgq_lattice -> ok (gpu=1, sec=37.7)
+[37/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b05__none_memgq_lattice_sticky -> ok (gpu=3, sec=38.5)
+[38/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b05__none_hamp_output -> ok (gpu=2, sec=175.7)
+[39/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b02__none_none -> ok (gpu=4, sec=24.1)
+[40/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b02__none_logitguard_continuous -> ok (gpu=4, sec=34.8)
+[41/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b02__none_logitguard_quantized -> ok (gpu=4, sec=34.1)
+[42/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b04__none_memguard -> ok (gpu=5, sec=445.4)
+[43/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b02__none_measurementguard_continuous -> ok (gpu=4, sec=42.7)
+[44/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b02__none_dynanoise -> ok (gpu=1, sec=130.5)
+[45/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b02__none_lattice_round -> ok (gpu=5, sec=25.4)
+[46/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b03__none_none -> ok (gpu=5, sec=24.1)
+[47/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b02__none_memgq_lattice -> ok (gpu=4, sec=41.3)
+[48/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b02__none_memgq_lattice_sticky -> ok (gpu=1, sec=40.9)
+[49/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b02__none_hamp_output -> ok (gpu=3, sec=250.9)
+[50/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b03__none_logitguard_continuous -> ok (gpu=3, sec=35.5)
+[51/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b03__none_dynanoise -> ok (gpu=5, sec=133.7)
+[52/80] lira_PETS_CREDIT_low_eff_su2_r1_d6_b05__none_memguard -> ok (gpu=0, sec=468.9)
+[53/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b03__none_logitguard_quantized -> ok (gpu=3, sec=34.7)
+[54/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b03__none_lattice_round -> ok (gpu=0, sec=24.7)
+[55/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b03__none_measurementguard_continuous -> ok (gpu=5, sec=42.6)
+[56/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b04__none_none -> ok (gpu=5, sec=24.4)
+[57/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b03__none_memgq_lattice -> ok (gpu=3, sec=41.9)
+[58/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b03__none_memgq_lattice_sticky -> ok (gpu=0, sec=43.2)
+[59/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b03__none_hamp_output -> ok (gpu=4, sec=251.5)
+[60/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b04__none_logitguard_continuous -> ok (gpu=4, sec=34.6)
+[61/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b02__none_memguard -> ok (gpu=2, sec=441.7)
+[62/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b04__none_logitguard_quantized -> ok (gpu=4, sec=35.5)
+[63/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b04__none_measurementguard_continuous -> ok (gpu=2, sec=42.8)
+[64/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b04__none_dynanoise -> ok (gpu=5, sec=134.0)
+[65/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b04__none_lattice_round -> ok (gpu=4, sec=24.6)
+[66/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b05__none_none -> ok (gpu=4, sec=23.7)
+[67/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b04__none_memgq_lattice -> ok (gpu=2, sec=42.6)
+[68/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b04__none_memgq_lattice_sticky -> ok (gpu=5, sec=43.3)
+[69/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b04__none_hamp_output -> ok (gpu=3, sec=246.1)
+[70/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b03__none_memguard -> ok (gpu=1, sec=447.9)
+[71/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b05__none_logitguard_continuous -> ok (gpu=3, sec=35.0)
+[72/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b05__none_logitguard_quantized -> ok (gpu=1, sec=34.7)
+[73/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b05__none_dynanoise -> ok (gpu=4, sec=134.2)
+[74/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b05__none_lattice_round -> ok (gpu=1, sec=24.7)
+[75/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b05__none_measurementguard_continuous -> ok (gpu=3, sec=41.9)
+[76/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b05__none_memgq_lattice -> ok (gpu=4, sec=42.4)
+[77/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b05__none_memgq_lattice_sticky -> ok (gpu=1, sec=42.1)
+[78/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b05__none_hamp_output -> ok (gpu=2, sec=249.0)
+[79/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b04__none_memguard -> ok (gpu=0, sec=481.7)
+[80/80] lira_PETS_CREDIT_high_eff_su2_r5_d6_b05__none_memguard -> ok (gpu=5, sec=439.3)
+[OK] targets=8 -> /home/najeeb/qurift_satML/pets_targets/credit_lira_l2_targets.csv
+[GPU PLAN] profile=lira mode=adaptive-capped concurrency=6
+[GPU PLAN] gpu=0 used=75759MiB free=6161MiB util=44% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=1 used=36821MiB free=45099MiB util=32% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=2 used=36885MiB free=45035MiB util=30% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=3 used=36807MiB free=45113MiB util=32% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=4 used=75663MiB free=6257MiB util=36% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=5 used=41341MiB free=40579MiB util=30% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=6 used=75843MiB free=6077MiB util=42% safe_capacity=0 assigned_slots=0
+[GPU PLAN] gpu=7 used=77687MiB free=4233MiB util=37% safe_capacity=0 assigned_slots=0
+[1/8] lira_PETS_CREDIT_low_eff_su2_r1_d6_b04__l2_none -> ok (gpu=2, sec=24.8)
+[2/8] lira_PETS_CREDIT_low_eff_su2_r1_d6_b05__l2_none -> ok (gpu=3, sec=24.9)
+[3/8] lira_PETS_CREDIT_low_eff_su2_r1_d6_b03__l2_none -> ok (gpu=1, sec=25.2)
+[4/8] lira_PETS_CREDIT_low_eff_su2_r1_d6_b02__l2_none -> ok (gpu=0, sec=25.3)
+[5/8] lira_PETS_CREDIT_high_eff_su2_r5_d6_b02__l2_none -> ok (gpu=4, sec=26.4)
+[6/8] lira_PETS_CREDIT_high_eff_su2_r5_d6_b03__l2_none -> ok (gpu=5, sec=28.9)
+[7/8] lira_PETS_CREDIT_high_eff_su2_r5_d6_b04__l2_none -> ok (gpu=2, sec=24.3)
+[8/8] lira_PETS_CREDIT_high_eff_su2_r5_d6_b05__l2_none -> ok (gpu=3, sec=25.4)
+Traceback (most recent call last):
+  File "/home/najeeb/qurift_satML/pets_tools/validate_protocol.py", line 197, in <module>
+    main()
+  File "/home/najeeb/qurift_satML/pets_tools/validate_protocol.py", line 188, in main
+    payload = {"protocol": "pets_fail_closed_validation_v3", "targets": validate_targets(targets)}
+  File "/home/najeeb/qurift_satML/pets_tools/validate_protocol.py", line 64, in validate_targets
+    raise ValueError(
+ValueError: DP-QML manifest must set dp_optimizer='rmsprop' for every DP target

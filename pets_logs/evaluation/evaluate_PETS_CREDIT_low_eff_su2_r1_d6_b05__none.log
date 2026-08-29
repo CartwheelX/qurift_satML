@@ -1,0 +1,20 @@
+All arguments: ['/home/najeeb/qurift_satML/pets_tools/run_defense_evaluation.py', '--repo-root', '/home/najeeb/qurift_satML', '--targets', '/home/najeeb/qurift_satML/pets_targets/credit_defense_training_targets_confirmatory.csv', '--target-id', 'PETS_CREDIT_low_eff_su2_r1_d6_b05__none', '--run-root', '/home/najeeb/qurift_satML/pets_runs', '--out-dir', '/home/najeeb/qurift_satML/pets_results/defenses', '--device', 'cuda', '--defenses', 'none,dynanoise,hamp_output,memguard,logitguard_continuous,logitguard_quantized,measurementguard_continuous,lattice_round,memgq_lattice,memgq_lattice_sticky', '--optimizer-iterations', '30', '--discriminator-epochs', '100', '--shots', '128', '--resume']
+The first argument is: --repo-root
+[GPU] Respecting CUDA_VISIBLE_DEVICES='4'
+Using device: cuda
+In SU2 encoder part
+multi_index_rule in general encoder plus new is prod 
+M Ops: ('XX', 'YY'), Pairs: [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 0)], Head in_features: 12, classes: 2
+/home/najeeb/qurift_satML/reviewer_tools/qurift_target_loader.py:320: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(model_path, map_location=device)
+[OK] PETS_CREDIT_low_eff_su2_r1_d6_b05__none defense=none attack_sec=0.95 utility_sec=5.40 acc=0.775
+[OK] PETS_CREDIT_low_eff_su2_r1_d6_b05__none defense=dynanoise attack_sec=1.03 utility_sec=5.70 acc=0.728
+[OK] PETS_CREDIT_low_eff_su2_r1_d6_b05__none defense=hamp_output attack_sec=2.03 utility_sec=11.14 acc=0.775
+[OK] PETS_CREDIT_low_eff_su2_r1_d6_b05__none defense=memguard attack_sec=53.69 utility_sec=356.36 acc=0.775
+[OK] PETS_CREDIT_low_eff_su2_r1_d6_b05__none defense=logitguard_continuous attack_sec=2.31 utility_sec=13.04 acc=0.775
+[OK] PETS_CREDIT_low_eff_su2_r1_d6_b05__none defense=logitguard_quantized attack_sec=2.32 utility_sec=13.18 acc=0.775
+[OK] PETS_CREDIT_low_eff_su2_r1_d6_b05__none defense=measurementguard_continuous attack_sec=3.36 utility_sec=19.45 acc=0.775
+[OK] PETS_CREDIT_low_eff_su2_r1_d6_b05__none defense=lattice_round attack_sec=1.00 utility_sec=5.66 acc=0.775
+[OK] PETS_CREDIT_low_eff_su2_r1_d6_b05__none defense=memgq_lattice attack_sec=3.42 utility_sec=19.06 acc=0.775
+[OK] PETS_CREDIT_low_eff_su2_r1_d6_b05__none defense=memgq_lattice_sticky attack_sec=3.37 utility_sec=19.08 acc=0.775
+[DONE] /home/najeeb/qurift_satML/pets_results/defenses/PETS_CREDIT_low_eff_su2_r1_d6_b05__none

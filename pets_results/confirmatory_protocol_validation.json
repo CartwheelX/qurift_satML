@@ -1,0 +1,29 @@
+{
+  "protocol": "pets_fail_closed_validation_v3",
+  "targets": {
+    "targets": 32,
+    "blocks": 4,
+    "structural_cells": [
+      "eff_su2_r1_d6",
+      "eff_su2_r5_d6"
+    ],
+    "training_defenses": [
+      "dp_qml",
+      "hamp_train",
+      "l2",
+      "none"
+    ]
+  },
+  "results": {
+    "complete_targets": 32,
+    "failures": {
+      "missing_models": [],
+      "missing_evaluations": [],
+      "invalid_dp_reports": [],
+      "overlapping_partitions": [],
+      "task_label_mismatches": [],
+      "invalid_utility_scope": [],
+      "incompatible_protocols": []
+    }
+  }
+}

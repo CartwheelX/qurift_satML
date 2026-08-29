@@ -1,0 +1,10 @@
+target_id,block_id,structural_cell_id,structural_role,training_defense,defense,attack,attack_fit,auc,balanced_accuracy,tpr_at_5_fpr,tpr_at_10_fpr,threshold,score_direction
+PETS_CREDIT_high_eff_su2_r5_d6_b04__l2,pets_b04,eff_su2_r5_d6,high,l2,none,loss,adaptive_defended_calibration,0.4333,0.45999999999999996,0.0,0.01,0.15657108277082443,inverted_from_calibration
+PETS_CREDIT_high_eff_su2_r5_d6_b04__l2,pets_b04,eff_su2_r5_d6,high,l2,none,confidence,adaptive_defended_calibration,0.4333,0.45999999999999996,0.0,0.01,-0.8550707399845123,inverted_from_calibration
+PETS_CREDIT_high_eff_su2_r5_d6_b04__l2,pets_b04,eff_su2_r5_d6,high,l2,none,maximum_probability,adaptive_defended_calibration,0.4662,0.485,0.06,0.09,-0.8609029352664948,inverted_from_calibration
+PETS_CREDIT_high_eff_su2_r5_d6_b04__l2,pets_b04,eff_su2_r5_d6,high,l2,none,entropy,adaptive_defended_calibration,0.4662,0.485,0.06,0.09,0.40331199765205383,inverted_from_calibration
+PETS_CREDIT_high_eff_su2_r5_d6_b04__l2,pets_b04,eff_su2_r5_d6,high,l2,none,margin,adaptive_defended_calibration,0.4662,0.485,0.06,0.09,-0.7218058705329895,inverted_from_calibration
+PETS_CREDIT_high_eff_su2_r5_d6_b04__l2,pets_b04,eff_su2_r5_d6,high,l2,none,correctness,adaptive_defended_calibration,0.375,0.375,0.0,0.0,-0.5,inverted_from_calibration
+PETS_CREDIT_high_eff_su2_r5_d6_b04__l2,pets_b04,eff_su2_r5_d6,high,l2,none,artifact_confidence_tau0.9,dynanoise_artifact_fixed_threshold_appendix,0.5338,0.52,0.02,0.1,0.9,artifact_fixed
+PETS_CREDIT_high_eff_su2_r5_d6_b04__l2,pets_b04,eff_su2_r5_d6,high,l2,none,artifact_loss_tau0.5,dynanoise_artifact_fixed_threshold_appendix,0.5667,0.535,0.02,0.1,-0.5,artifact_fixed
+PETS_CREDIT_high_eff_su2_r5_d6_b04__l2,pets_b04,eff_su2_r5_d6,high,l2,none,learned_pv_stats_logistic,adaptive_defended_calibration,0.5043,0.515,0.11,0.12,0.49801940065664185,

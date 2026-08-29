@@ -1,0 +1,38 @@
+All arguments: ['/home/najeeb/qurift_satML/pets_tools/train_defended_target.py', '--repo-root', '/home/najeeb/qurift_satML', '--targets', '/home/najeeb/qurift_satML/pets_targets/credit_defense_training_targets_confirmatory.csv', '--target-id', 'PETS_CREDIT_high_eff_su2_r5_d6_b03__dp_qml', '--run-root', '/home/najeeb/qurift_satML/pets_runs', '--device', 'cuda', '--resume']
+The first argument is: --repo-root
+[GPU] Respecting CUDA_VISIBLE_DEVICES='7'
+Using device: cuda
+In SU2 encoder part
+multi_index_rule in general encoder plus new is prod 
+M Ops: ('XX', 'YY'), Pairs: [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 0)], Head in_features: 12, classes: 2
+epoch=1/30 sampled=33.86
+epoch=2/30 sampled=32.71
+epoch=3/30 sampled=26.86
+epoch=4/30 sampled=31.71
+epoch=5/30 sampled=33.71
+epoch=6/30 sampled=31.14
+epoch=7/30 sampled=33.14
+epoch=8/30 sampled=29.14
+epoch=9/30 sampled=34.14
+epoch=10/30 sampled=29.43
+epoch=11/30 sampled=30.14
+epoch=12/30 sampled=32.00
+epoch=13/30 sampled=35.14
+epoch=14/30 sampled=31.29
+epoch=15/30 sampled=29.71
+epoch=16/30 sampled=34.86
+epoch=17/30 sampled=30.71
+epoch=18/30 sampled=31.57
+epoch=19/30 sampled=33.43
+epoch=20/30 sampled=34.00
+epoch=21/30 sampled=32.71
+epoch=22/30 sampled=30.14
+epoch=23/30 sampled=33.71
+epoch=24/30 sampled=32.86
+epoch=25/30 sampled=36.00
+epoch=26/30 sampled=28.29
+epoch=27/30 sampled=31.43
+epoch=28/30 sampled=33.29
+epoch=29/30 sampled=34.57
+epoch=30/30 sampled=30.29
+[DONE] target=PETS_CREDIT_high_eff_su2_r5_d6_b03__dp_qml model=/home/najeeb/qurift_satML/pets_runs/pets_credit_defense_training/PETS_CREDIT_high_eff_su2_r5_d6_b03__dp_qml/target_model.pt

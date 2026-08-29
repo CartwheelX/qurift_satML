@@ -167,7 +167,10 @@ adds matched LiRA/query controls and full-test imbalance-aware utility tables,
 then performs utility-only L2/DP selection and writes the frozen confirmatory
 manifest.
 The pilot remains visible in `pets_results/pilot_analysis`, while
-`commands/pets_analyze.sh` excludes it from final tables and figures.
+`commands/pets_analyze.sh` excludes it from final tables and figures. Because
+its original DP checkpoint predates the corrected v3 training protocol, it is
+retained as a development diagnostic and is not passed through the
+confirmatory v3 validator.
 
 ## Reproduction order
 

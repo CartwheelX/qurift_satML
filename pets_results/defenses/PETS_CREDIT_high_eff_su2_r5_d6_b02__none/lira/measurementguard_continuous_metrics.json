@@ -1,0 +1,128 @@
+{
+  "protocol": "pets_adaptive_defended_lira_v3",
+  "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b02__none",
+  "defense": "measurementguard_continuous",
+  "training_defense": "none",
+  "num_references": 8,
+  "mc_samples": 10,
+  "actual_oracle_draws": 1,
+  "full_candidate_pool": 400,
+  "scored_candidates": 300,
+  "candidate_fingerprint": "e8597b554760f5768feeb828ffc9fc7a47f5e02fb2bead2978e9eb129444b9d5",
+  "partition_protocol": "pets_label_matched_defense_attack_final_v2",
+  "partition_fingerprint": "8c9224030e86b646a46e9540fc40c65a94cd076c485d7094bf72d1c48389545a",
+  "task_label_matched": true,
+  "candidate_partition": {
+    "attack_calibration": {
+      "members": 50,
+      "nonmembers": 50,
+      "member_source": "target_train",
+      "nonmember_source": "target_test_lira_candidate_pool"
+    },
+    "final_evaluation": {
+      "members": 100,
+      "nonmembers": 100,
+      "member_source": "target_train",
+      "nonmember_source": "target_test_lira_candidate_pool"
+    },
+    "disjoint": true
+  },
+  "reference_outputs_defended": true,
+  "target_output_defended": true,
+  "defense_config": {
+    "defense": "measurementguard_continuous",
+    "iterations": 30,
+    "learning_rate": 0.05,
+    "distortion_weight": 0.1,
+    "label_weight": 100.0,
+    "label_margin": 1e-05,
+    "shots": null,
+    "measurement_bounds": [
+      -1.0,
+      1.0
+    ]
+  },
+  "membership_encoding": "1=member,0=nonmember",
+  "rows": [
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b02__none",
+      "block_id": "pets_b02",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "measurementguard_continuous",
+      "attack": "lira_online",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.5267000000000001,
+      "balanced_accuracy": 0.495,
+      "tpr_at_5_fpr": 0.04,
+      "tpr_at_10_fpr": 0.17,
+      "threshold": 0.3764627323477737,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b02__none",
+      "block_id": "pets_b02",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "measurementguard_continuous",
+      "attack": "lira_online_fixed_variance",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.5293,
+      "balanced_accuracy": 0.495,
+      "tpr_at_5_fpr": 0.08,
+      "tpr_at_10_fpr": 0.11,
+      "threshold": -0.09242145582944009,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b02__none",
+      "block_id": "pets_b02",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "measurementguard_continuous",
+      "attack": "lira_offline",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.489,
+      "balanced_accuracy": 0.48,
+      "tpr_at_5_fpr": 0.05,
+      "tpr_at_10_fpr": 0.16,
+      "threshold": 2.0970893190607143,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b02__none",
+      "block_id": "pets_b02",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "measurementguard_continuous",
+      "attack": "lira_offline_fixed_variance",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.47680000000000006,
+      "balanced_accuracy": 0.475,
+      "tpr_at_5_fpr": 0.06,
+      "tpr_at_10_fpr": 0.08,
+      "threshold": 0.5788837735484437,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b02__none",
+      "block_id": "pets_b02",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "measurementguard_continuous",
+      "attack": "global_true_class_log_odds",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.5171,
+      "balanced_accuracy": 0.47000000000000003,
+      "tpr_at_5_fpr": 0.06,
+      "tpr_at_10_fpr": 0.11,
+      "threshold": 1.3402380017073376,
+      "score_direction": "as_defined"
+    }
+  ]
+}

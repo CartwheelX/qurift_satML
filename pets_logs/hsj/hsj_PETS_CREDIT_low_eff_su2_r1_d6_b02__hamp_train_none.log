@@ -1,0 +1,90 @@
+All arguments: ['/home/najeeb/qurift_satML/pets_tools/run_defense_hsj.py', '--repo-root', '/home/najeeb/qurift_satML', '--targets', '/home/najeeb/qurift_satML/pets_targets/credit_training_defense_hsj_targets.csv', '--target-id', 'PETS_CREDIT_low_eff_su2_r1_d6_b02__hamp_train', '--run-root', '/home/najeeb/qurift_satML/pets_runs', '--out-dir', '/home/najeeb/qurift_satML/pets_results/defenses', '--device', 'cuda', '--defense', 'none', '--hsj-records-per-class', '20', '--max-queries', '512', '--resume']
+The first argument is: --repo-root
+[GPU] Respecting CUDA_VISIBLE_DEVICES='1'
+Using device: cuda
+In SU2 encoder part
+multi_index_rule in general encoder plus new is prod 
+M Ops: ('XX', 'YY'), Pairs: [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 0)], Head in_features: 12, classes: 2
+/home/najeeb/qurift_satML/reviewer_tools/qurift_target_loader.py:320: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(model_path, map_location=device)
+[1/40] attack_calibration member=1 distance=0.32088 queries=386
+[2/40] attack_calibration member=1 distance=0.43672 queries=386
+[3/40] attack_calibration member=1 distance=0.43975 queries=386
+[4/40] attack_calibration member=1 distance=0.31267 queries=386
+[5/40] attack_calibration member=1 distance=0 queries=0
+[6/40] attack_calibration member=1 distance=0.1812 queries=386
+[7/40] attack_calibration member=1 distance=0 queries=0
+[8/40] attack_calibration member=1 distance=0 queries=0
+[9/40] attack_calibration member=1 distance=0.3109 queries=386
+[10/40] attack_calibration member=1 distance=0.37824 queries=386
+[11/40] attack_calibration member=1 distance=1.3147 queries=386
+[12/40] attack_calibration member=1 distance=0.33111 queries=418
+[13/40] attack_calibration member=1 distance=0.25326 queries=386
+[14/40] attack_calibration member=1 distance=0.42747 queries=386
+[15/40] attack_calibration member=1 distance=0.4639 queries=386
+[16/40] attack_calibration member=1 distance=0 queries=0
+[17/40] attack_calibration member=1 distance=0.24937 queries=386
+[18/40] attack_calibration member=1 distance=0 queries=0
+[19/40] attack_calibration member=1 distance=0 queries=0
+[20/40] attack_calibration member=1 distance=0.52405 queries=386
+[21/40] attack_calibration member=0 distance=0.39202 queries=386
+[22/40] attack_calibration member=0 distance=0.2219 queries=386
+[23/40] attack_calibration member=0 distance=2.6705 queries=386
+[24/40] attack_calibration member=0 distance=1.4392 queries=386
+[25/40] attack_calibration member=0 distance=0 queries=0
+[26/40] attack_calibration member=0 distance=0.2365 queries=387
+[27/40] attack_calibration member=0 distance=0 queries=0
+[28/40] attack_calibration member=0 distance=0 queries=0
+[29/40] attack_calibration member=0 distance=1.1994 queries=386
+[30/40] attack_calibration member=0 distance=0.18928 queries=386
+[31/40] attack_calibration member=0 distance=0.28964 queries=386
+[32/40] attack_calibration member=0 distance=0.39999 queries=386
+[33/40] attack_calibration member=0 distance=0.27408 queries=418
+[34/40] attack_calibration member=0 distance=0.3281 queries=418
+[35/40] attack_calibration member=0 distance=0.26342 queries=386
+[36/40] attack_calibration member=0 distance=0 queries=0
+[37/40] attack_calibration member=0 distance=0.24205 queries=386
+[38/40] attack_calibration member=0 distance=0 queries=0
+[39/40] attack_calibration member=0 distance=0 queries=0
+[40/40] attack_calibration member=0 distance=0.34918 queries=386
+[1/40] final_evaluation member=1 distance=0.29986 queries=386
+[2/40] final_evaluation member=1 distance=1.5573 queries=387
+[3/40] final_evaluation member=1 distance=0.5388 queries=386
+[4/40] final_evaluation member=1 distance=0.28421 queries=386
+[5/40] final_evaluation member=1 distance=0.31351 queries=386
+[6/40] final_evaluation member=1 distance=0 queries=0
+[7/40] final_evaluation member=1 distance=0.25934 queries=418
+[8/40] final_evaluation member=1 distance=0 queries=0
+[9/40] final_evaluation member=1 distance=0 queries=0
+[10/40] final_evaluation member=1 distance=0.95626 queries=386
+[11/40] final_evaluation member=1 distance=0.23839 queries=386
+[12/40] final_evaluation member=1 distance=2.0431 queries=387
+[13/40] final_evaluation member=1 distance=0.29887 queries=386
+[14/40] final_evaluation member=1 distance=0.351 queries=386
+[15/40] final_evaluation member=1 distance=0.23411 queries=450
+[16/40] final_evaluation member=1 distance=0 queries=0
+[17/40] final_evaluation member=1 distance=0.19284 queries=386
+[18/40] final_evaluation member=1 distance=0.19095 queries=386
+[19/40] final_evaluation member=1 distance=1.0169 queries=418
+[20/40] final_evaluation member=1 distance=0 queries=0
+[21/40] final_evaluation member=0 distance=1.2017 queries=386
+[22/40] final_evaluation member=0 distance=0.26215 queries=386
+[23/40] final_evaluation member=0 distance=0.27831 queries=386
+[24/40] final_evaluation member=0 distance=0.44117 queries=386
+[25/40] final_evaluation member=0 distance=0.68645 queries=386
+[26/40] final_evaluation member=0 distance=0 queries=0
+[27/40] final_evaluation member=0 distance=0.30623 queries=386
+[28/40] final_evaluation member=0 distance=0 queries=0
+[29/40] final_evaluation member=0 distance=0 queries=0
+[30/40] final_evaluation member=0 distance=0.33215 queries=386
+[31/40] final_evaluation member=0 distance=0.32753 queries=386
+[32/40] final_evaluation member=0 distance=0.43808 queries=386
+[33/40] final_evaluation member=0 distance=0.21657 queries=386
+[34/40] final_evaluation member=0 distance=0.24184 queries=386
+[35/40] final_evaluation member=0 distance=0.44139 queries=386
+[36/40] final_evaluation member=0 distance=0 queries=0
+[37/40] final_evaluation member=0 distance=0.32046 queries=386
+[38/40] final_evaluation member=0 distance=0.23214 queries=386
+[39/40] final_evaluation member=0 distance=0.28958 queries=386
+[40/40] final_evaluation member=0 distance=0 queries=0
+[DONE] /home/najeeb/qurift_satML/pets_results/defenses/PETS_CREDIT_low_eff_su2_r1_d6_b02__hamp_train/hsj/none_metrics.json

@@ -1,0 +1,126 @@
+{
+  "protocol": "pets_adaptive_defended_lira_v3",
+  "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b03__none",
+  "defense": "hamp_output",
+  "training_defense": "none",
+  "num_references": 8,
+  "mc_samples": 10,
+  "actual_oracle_draws": 10,
+  "full_candidate_pool": 400,
+  "scored_candidates": 300,
+  "candidate_fingerprint": "163f568a5ad7fa500491bf9f322d01fb28008a0996ca309944140459c0ffac5a",
+  "partition_protocol": "pets_label_matched_defense_attack_final_v2",
+  "partition_fingerprint": "9576d767046b927c58dcd970eb2691f96718f09a4cafba012e63af061d28b47b",
+  "task_label_matched": true,
+  "candidate_partition": {
+    "attack_calibration": {
+      "members": 50,
+      "nonmembers": 50,
+      "member_source": "target_train",
+      "nonmember_source": "target_test_lira_candidate_pool"
+    },
+    "final_evaluation": {
+      "members": 100,
+      "nonmembers": 100,
+      "member_source": "target_train",
+      "nonmember_source": "target_test_lira_candidate_pool"
+    },
+    "disjoint": true
+  },
+  "reference_outputs_defended": true,
+  "target_output_defended": true,
+  "defense_config": {
+    "defense": "hamp_output",
+    "generator": {
+      "mode": "empirical_marginal",
+      "seed": 2026,
+      "calibration_records": 100,
+      "calibration_sha256": "61430f9c003a109623953e63fb6d24c083cf97b4d256dd1a3b0067aad4703fb6",
+      "support_min": -1.0,
+      "support_max": 1.0
+    }
+  },
+  "membership_encoding": "1=member,0=nonmember",
+  "rows": [
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b03__none",
+      "block_id": "pets_b03",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "hamp_output",
+      "attack": "lira_online",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.5069,
+      "balanced_accuracy": 0.535,
+      "tpr_at_5_fpr": 0.04,
+      "tpr_at_10_fpr": 0.09,
+      "threshold": 0.3745785365136348,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b03__none",
+      "block_id": "pets_b03",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "hamp_output",
+      "attack": "lira_online_fixed_variance",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.5181,
+      "balanced_accuracy": 0.52,
+      "tpr_at_5_fpr": 0.03,
+      "tpr_at_10_fpr": 0.11,
+      "threshold": -0.019318390495790927,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b03__none",
+      "block_id": "pets_b03",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "hamp_output",
+      "attack": "lira_offline",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.5039,
+      "balanced_accuracy": 0.51,
+      "tpr_at_5_fpr": 0.05,
+      "tpr_at_10_fpr": 0.09,
+      "threshold": 0.6486007026640064,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b03__none",
+      "block_id": "pets_b03",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "hamp_output",
+      "attack": "lira_offline_fixed_variance",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.5034000000000001,
+      "balanced_accuracy": 0.48,
+      "tpr_at_5_fpr": 0.04,
+      "tpr_at_10_fpr": 0.05,
+      "threshold": 0.5826137582283986,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b03__none",
+      "block_id": "pets_b03",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "hamp_output",
+      "attack": "global_true_class_log_odds",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.4376,
+      "balanced_accuracy": 0.47,
+      "tpr_at_5_fpr": 0.01,
+      "tpr_at_10_fpr": 0.05,
+      "threshold": -1.1867726532831333,
+      "score_direction": "inverted_from_calibration"
+    }
+  ]
+}

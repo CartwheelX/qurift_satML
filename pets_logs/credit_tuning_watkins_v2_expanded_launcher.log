@@ -1,0 +1,29 @@
+nohup: ignoring input
+[OK] training targets=40 -> /home/najeeb/qurift_satML/pets_targets/credit_defense_training_targets.csv
+[OK] tuning targets=16 -> /home/najeeb/qurift_satML/pets_targets/credit_defense_tuning_targets.csv
+[GPU PLAN] profile=qnn_train mode=adaptive-capped concurrency=7
+[GPU PLAN] gpu=0 used=62762MiB free=19158MiB util=99% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=2 used=32695MiB free=49225MiB util=29% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=3 used=32695MiB free=49225MiB util=39% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=4 used=32695MiB free=49225MiB util=30% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=5 used=41341MiB free=40579MiB util=33% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=6 used=30769MiB free=51151MiB util=33% safe_capacity=1 assigned_slots=1
+[GPU PLAN] gpu=7 used=30769MiB free=51151MiB util=42% safe_capacity=1 assigned_slots=1
+[1/16] train_PETS_CREDIT_low_eff_su2_r1_d6_b01__tune_v2_l2_wd0p001 -> ok (gpu=0, sec=3.8)
+[2/16] train_PETS_CREDIT_low_eff_su2_r1_d6_b01__tune_v2_watkins_dp_eps8 -> ok (gpu=5, sec=4.0)
+[3/16] train_PETS_CREDIT_low_eff_su2_r1_d6_b01__tune_v2_watkins_dp_eps4 -> ok (gpu=4, sec=4.1)
+[4/16] train_PETS_CREDIT_low_eff_su2_r1_d6_b01__tune_v2_watkins_dp_eps1 -> ok (gpu=3, sec=4.1)
+[5/16] train_PETS_CREDIT_low_eff_su2_r1_d6_b01__tune_v2_l2_wd0p0001 -> ok (gpu=2, sec=4.1)
+[6/16] train_PETS_CREDIT_high_eff_su2_r5_d6_b01__tune_v2_l2_wd0p001 -> ok (gpu=5, sec=3.8)
+[7/16] train_PETS_CREDIT_high_eff_su2_r5_d6_b01__tune_v2_l2_wd0p0001 -> ok (gpu=4, sec=3.9)
+[8/16] train_PETS_CREDIT_high_eff_su2_r5_d6_b01__tune_v2_watkins_dp_eps4 -> ok (gpu=2, sec=3.9)
+[9/16] train_PETS_CREDIT_high_eff_su2_r5_d6_b01__tune_v2_watkins_dp_eps1 -> ok (gpu=3, sec=3.9)
+[10/16] train_PETS_CREDIT_high_eff_su2_r5_d6_b01__tune_v2_watkins_dp_eps8 -> ok (gpu=5, sec=3.7)
+[11/16] train_PETS_CREDIT_low_eff_su2_r1_d6_b01__tune_v2_watkins_dp_eps64 -> ok (gpu=0, sec=686.3)
+[12/16] train_PETS_CREDIT_low_eff_su2_r1_d6_b01__tune_v2_watkins_dp_eps16 -> ok (gpu=6, sec=711.5)
+[13/16] train_PETS_CREDIT_high_eff_su2_r5_d6_b01__tune_v2_watkins_dp_eps32 -> ok (gpu=2, sec=718.8)
+[14/16] train_PETS_CREDIT_low_eff_su2_r1_d6_b01__tune_v2_watkins_dp_eps32 -> ok (gpu=7, sec=730.6)
+[15/16] train_PETS_CREDIT_high_eff_su2_r5_d6_b01__tune_v2_watkins_dp_eps16 -> ok (gpu=4, sec=724.8)
+[16/16] train_PETS_CREDIT_high_eff_su2_r5_d6_b01__tune_v2_watkins_dp_eps64 -> ok (gpu=3, sec=729.9)
+[OK] selected L2=0.001 DP-epsilon=64 confirmatory_targets=32
+[DONE] Utility-only tuning selection and confirmatory manifest are ready.

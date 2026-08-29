@@ -1,0 +1,119 @@
+{
+  "protocol": "pets_adaptive_defended_lira_v3",
+  "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b04__none",
+  "defense": "lattice_round",
+  "training_defense": "none",
+  "num_references": 8,
+  "mc_samples": 10,
+  "actual_oracle_draws": 1,
+  "full_candidate_pool": 400,
+  "scored_candidates": 300,
+  "candidate_fingerprint": "92333f27e520ec05079cb4b2d75ea104b757875af1c3be14cd073d39e3839631",
+  "partition_protocol": "pets_label_matched_defense_attack_final_v2",
+  "partition_fingerprint": "0b08ea6da53581d16e551adf809409b2c892600a424ff2c6b23690213d2475a9",
+  "task_label_matched": true,
+  "candidate_partition": {
+    "attack_calibration": {
+      "members": 50,
+      "nonmembers": 50,
+      "member_source": "target_train",
+      "nonmember_source": "target_test_lira_candidate_pool"
+    },
+    "final_evaluation": {
+      "members": 100,
+      "nonmembers": 100,
+      "member_source": "target_train",
+      "nonmember_source": "target_test_lira_candidate_pool"
+    },
+    "disjoint": true
+  },
+  "reference_outputs_defended": true,
+  "target_output_defended": true,
+  "defense_config": {
+    "defense": "lattice_round",
+    "shots": 128
+  },
+  "membership_encoding": "1=member,0=nonmember",
+  "rows": [
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b04__none",
+      "block_id": "pets_b04",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "lattice_round",
+      "attack": "lira_online",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.5912000000000002,
+      "balanced_accuracy": 0.54,
+      "tpr_at_5_fpr": 0.08,
+      "tpr_at_10_fpr": 0.16,
+      "threshold": -2.673737860233329,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b04__none",
+      "block_id": "pets_b04",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "lattice_round",
+      "attack": "lira_online_fixed_variance",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.6011,
+      "balanced_accuracy": 0.5,
+      "tpr_at_5_fpr": 0.13,
+      "tpr_at_10_fpr": 0.23,
+      "threshold": -1.275913520304289,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b04__none",
+      "block_id": "pets_b04",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "lattice_round",
+      "attack": "lira_offline",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.5777,
+      "balanced_accuracy": 0.575,
+      "tpr_at_5_fpr": 0.1,
+      "tpr_at_10_fpr": 0.15,
+      "threshold": 1.9576792357233477,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b04__none",
+      "block_id": "pets_b04",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "lattice_round",
+      "attack": "lira_offline_fixed_variance",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.6049000000000001,
+      "balanced_accuracy": 0.52,
+      "tpr_at_5_fpr": 0.09,
+      "tpr_at_10_fpr": 0.15,
+      "threshold": 4.096187086711923,
+      "score_direction": "as_defined"
+    },
+    {
+      "target_id": "PETS_CREDIT_high_eff_su2_r5_d6_b04__none",
+      "block_id": "pets_b04",
+      "structural_cell_id": "eff_su2_r5_d6",
+      "structural_role": "high",
+      "training_defense": "none",
+      "defense": "lattice_round",
+      "attack": "global_true_class_log_odds",
+      "attack_fit": "adaptive_defended_reference_models",
+      "auc": 0.5833,
+      "balanced_accuracy": 0.54,
+      "tpr_at_5_fpr": 0.03,
+      "tpr_at_10_fpr": 0.1,
+      "threshold": 2.568153162122236,
+      "score_direction": "as_defined"
+    }
+  ]
+}

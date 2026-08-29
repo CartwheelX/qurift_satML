@@ -24,7 +24,7 @@ TASK_UTILITY_OUTCOMES = (
     "predicted_minority_fraction",
     "prediction_collapse",
 )
-EVALUATION_PROTOCOL = "pets_defense_evaluation_v2"
+EVALUATION_PROTOCOL = "pets_defense_evaluation_v3"
 
 
 def effective_defense(training_defense: str, output_defense: str) -> str:
@@ -137,7 +137,8 @@ def difference_in_differences(
     return pd.DataFrame(rows)
 
 
-def load_results(root: Path):
+def load_results(root: Path, *, exclude_blocks: Iterable[str] = ()):
+    excluded = {str(value) for value in exclude_blocks}
     metric_files = sorted(root.glob("*/adaptive_attack_metrics.csv"))
     metadata_files = sorted(root.glob("*/evaluation_metadata.json"))
     if not metric_files or not metadata_files:
@@ -146,7 +147,9 @@ def load_results(root: Path):
     hsj_rows = []
     for path in sorted(root.glob("*/hsj/*_metrics.json")):
         payload = json.loads(path.read_text())
-        if payload.get("protocol") != "pets_defended_label_only_hsj_v2":
+        if str(payload.get("block_id")) in excluded:
+            continue
+        if payload.get("protocol") != "pets_defended_label_only_hsj_v3":
             raise ValueError(f"stale HSJ result must be archived: {path}")
         if payload.get("partition_protocol") != PARTITION_PROTOCOL:
             raise ValueError(f"HSJ result lacks label-matched partitions: {path}")
@@ -171,6 +174,8 @@ def load_results(root: Path):
     lira_rows = []
     for path in sorted(root.glob("*/lira/*_metrics.json")):
         payload = json.loads(path.read_text())
+        if str(payload.get("block_id")) in excluded:
+            continue
         if payload.get("protocol") != "pets_adaptive_defended_lira_v3":
             raise ValueError(f"stale LiRA result must be archived: {path}")
         if payload.get("partition_protocol") != PARTITION_PROTOCOL:
@@ -181,6 +186,8 @@ def load_results(root: Path):
     query_rows = []
     for path in sorted(root.glob("*/query_stress/metrics.json")):
         payload = json.loads(path.read_text())
+        if str(payload.get("block_id")) in excluded:
+            continue
         if payload.get("protocol") != "pets_nearby_query_stress_v3":
             raise ValueError(f"stale nearby-query result must be archived: {path}")
         if payload.get("partition_protocol") != PARTITION_PROTOCOL:
@@ -198,6 +205,9 @@ def load_results(root: Path):
     utility_rows = []
     for path in metadata_files:
         payload = json.loads(path.read_text())
+        target = payload.get("target", {})
+        if str(target.get("block_id")) in excluded:
+            continue
         if payload.get("protocol") != EVALUATION_PROTOCOL:
             raise ValueError(
                 f"{path} uses incompatible protocol {payload.get('protocol')!r}; "
@@ -345,7 +355,9 @@ def main() -> None:
     )
     args = parser.parse_args()
     args.out_dir.mkdir(parents=True, exist_ok=True)
-    privacy, utility = load_results(args.results_dir)
+    privacy, utility = load_results(
+        args.results_dir, exclude_blocks=args.exclude_block
+    )
     if args.exclude_block:
         privacy = privacy[~privacy.block_id.astype(str).isin(args.exclude_block)].copy()
         utility = utility[~utility.block_id.astype(str).isin(args.exclude_block)].copy()
