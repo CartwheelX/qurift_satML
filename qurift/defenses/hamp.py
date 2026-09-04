@@ -8,7 +8,12 @@ from typing import Any, Mapping, Optional, Sequence, Tuple
 import torch
 import torch.nn.functional as F
 
-from .base import PredictionBatch, PredictionOracle, defended_batch
+from .base import (
+    PredictionBatch,
+    PredictionOracle,
+    defended_batch,
+    label_preservation_mask,
+)
 
 
 def hamp_true_probability_from_gamma(gamma: float, num_classes: int) -> float:
@@ -197,6 +202,14 @@ class HAMPOutputOracle(PredictionOracle):
         random_sorted = random_output.probabilities.sort(dim=1, descending=True).values
         probabilities = torch.empty_like(raw.probabilities)
         probabilities.scatter_(1, raw_order, random_sorted)
+        preserves = label_preservation_mask(probabilities, raw)
+        # HAMP is a label-preserving output defense.  With a validation-frozen
+        # binary deployment threshold, rank preservation alone is insufficient:
+        # a confidence replacement can cross the threshold without changing the
+        # argmax.  Fall back record-wise whenever that happens.
+        probabilities = torch.where(
+            preserves[:, None], probabilities, raw.probabilities
+        )
         effective_logits = probabilities.clamp_min(
             torch.finfo(probabilities.dtype).tiny
         ).log()
@@ -205,7 +218,8 @@ class HAMPOutputOracle(PredictionOracle):
             logits=effective_logits,
             probabilities=probabilities,
             diagnostics={
-                "label_preserved": (probabilities.argmax(dim=1) == raw.labels).float()
+                "label_preserved": label_preservation_mask(probabilities, raw).float(),
+                "threshold_fallback": (~preserves).float(),
             },
             metadata=dict(self.config),
         )

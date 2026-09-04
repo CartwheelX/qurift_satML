@@ -10,34 +10,30 @@
 > rebuttal outputs remain as legacy evidence and are not silently mixed with
 > new SaTML results; new outputs use the `satml_*` directories.
 
-> **PETS defense extension.** A separate, fresh-seed defense study is available
-> under `qurift/defenses`, `pets_tools`, and `commands/pets_*`. It does not
-> overwrite the frozen SaTML evidence. Read the
-> [defense protocol](docs/PETS_DEFENSE_PROTOCOL.md),
+> **PETS defense extension.** The publication-facing, fresh-seed defense study
+> is specified in [PETS confirmatory protocol v2](docs/PETS_CONFIRMATORY_V2.md).
+> It evaluates five literature-derived defenses across three structural roles
+> and eight paired blocks, with matched 16-reference LiRA, decision-rule
+> consistency, low-FPR resolution accounting, and fail-closed result checks.
+> It writes only to `pets_v2_*` paths and does not overwrite the frozen SaTML or
+> inspected PETS pilot evidence. The historical
+> [pilot protocol](docs/PETS_DEFENSE_PROTOCOL.md),
 > [provenance record](docs/PETS_DEFENSE_PROVENANCE.md), and
-> [MemGQ specification](docs/PETS_MEMGQ.md) before launching the one-block
-> pilot. The full launcher is deliberately gated until pilot settings are
-> recorded and frozen.
+> [MemGQ specification](docs/PETS_MEMGQ.md) remain available for audit.
 
-For the current completed pilot, run the corrected evaluation and utility-only
-tuning stages before confirmation:
+Prepare and run the isolated prospective study in numbered, resumable stages:
 
 ```bash
 export QURIFT_PETS_STICKY_SECRET='the-same-private-pilot-secret'
-nohup bash commands/pets_run_credit_corrections.sh \
-  > pets_logs/corrections_launcher.log 2>&1 &
+export PYTHON_BIN=/home/najeeb/.conda/envs/tq39_vv2/bin/python
+nohup bash commands/pets_run_credit_confirmatory_v2.sh all \
+  > pets_v2_logs/confirmatory_launcher.log 2>&1 &
 echo $!
 ```
 
-The correction stage recoverably archives the old pilot result directories and
-reuses unaffected target/reference checkpoints while recomputing evaluations
-with task-label-matched MIA pools and full-test utility. It also adds matched
-output-defense LiRA and nearby-query controls. The tuning stage trains new,
-versioned Watkins-style DP checkpoints (RMSprop, batch 32, 30 epochs, fixed
-clipping norm 1), selects binary operating thresholds on validation utility,
-and selects L2/DP settings without reading membership-attack outcomes. It then
-freezes `pets_b02`--`pets_b05`. Exact definitions and the subsequent full-run
-command are in the defense protocol.
+Exact stage commands, estimands, defense roles, and output tables are in the v2
+protocol. The original one-block tuning and four-block run are retained as
+development evidence and are not reused as prospective confirmatory blocks.
 
 **QuRiFT** (**Quantum Risk and Inference Fault-line Tracer**) is a controlled audit framework for studying **structural privacy leakage in quantum machine learning (QML)**.
 

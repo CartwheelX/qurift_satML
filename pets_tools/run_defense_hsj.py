@@ -34,8 +34,11 @@ from qurift.defenses.discriminator import (  # noqa: E402
 from qurift.defenses.hamp import CalibrationSupportGenerator  # noqa: E402
 from qurift.defenses.oracle import RawOracle  # noqa: E402
 from qurift.defenses.protocol import (  # noqa: E402
+    CONFIRMATORY_CREDIT_QUOTA_PLAN,
+    CONFIRMATORY_PARTITION_PROTOCOL,
     PARTITION_PROTOCOL,
     build_defense_partitions,
+    label_quotas_for_protocol,
     partition_fingerprint,
     task_labels_from_dataset,
 )
@@ -53,6 +56,7 @@ from qurift_target_loader import (  # noqa: E402
     read_target_row,
     resolve_target_paths,
 )
+from qurift_lira_attack import reference_pairing_id  # noqa: E402
 
 
 def stable_seed(*values: Any) -> int:
@@ -125,7 +129,12 @@ def score_partition(
             # the same stochastic HSJ probes to every defended oracle for a
             # paired comparison; including the defense name here would add an
             # avoidable attack-randomness difference to the defense contrast.
-            seed=hsj_record_seed(args.seed, args.target_id, partition_name, record_id),
+            seed=hsj_record_seed(
+                args.seed,
+                getattr(args, "hsj_pairing_id", args.target_id),
+                partition_name,
+                record_id,
+            ),
         )
         rows.append(
             {
@@ -187,6 +196,47 @@ def main() -> None:
     targets = args.targets if args.targets.is_absolute() else repo_root / args.targets
     run_root = args.run_root if args.run_root.is_absolute() else repo_root / args.run_root
     out_root = args.out_dir if args.out_dir.is_absolute() else repo_root / args.out_dir
+    row = read_target_row(targets, args.target_id)
+    label_quotas = label_quotas_for_protocol(row.get("confirmatory_protocol", ""))
+    quota_plan_name = (
+        CONFIRMATORY_CREDIT_QUOTA_PLAN if label_quotas is not None else None
+    )
+    protocol_arguments = {
+        "defense": str(args.defense),
+        "hsj_pairing_rule": "structural-role-block-common-v1",
+        "seed": int(args.seed),
+        "batch_size": int(args.batch_size),
+        "query_batch_size": int(args.query_batch_size),
+        "defense_per_class": int(args.defense_per_class),
+        "attack_per_class": int(args.attack_per_class),
+        "evaluation_per_class": int(args.evaluation_per_class),
+        "quota_plan_name": quota_plan_name,
+        "hsj_records_per_class": int(args.hsj_records_per_class),
+        "max_queries": int(args.max_queries),
+        "init_queries": int(args.init_queries),
+        "init_batch_size": int(args.init_batch_size),
+        "hsj_iterations": int(args.hsj_iterations),
+        "gradient_samples": int(args.gradient_samples),
+        "binary_steps": int(args.binary_steps),
+        "step_search_steps": int(args.step_search_steps),
+        "gradient_delta_ratio": float(args.gradient_delta_ratio),
+        "min_gradient_delta": float(args.min_gradient_delta),
+        "discriminator_epochs": int(args.discriminator_epochs),
+        "optimizer_iterations": int(args.optimizer_iterations),
+        "shots": int(args.shots),
+        "logit_quantization_step": float(args.logit_quantization_step),
+        "sticky_resolution": float(args.sticky_resolution),
+        "sticky_secret_sha256": (
+            hashlib.sha256(args.sticky_secret.encode("utf-8")).hexdigest()
+            if args.sticky_secret
+            else None
+        ),
+        "dynanoise_base_variance": float(args.dynanoise_base_variance),
+        "dynanoise_lambda": float(args.dynanoise_lambda),
+        "dynanoise_temperature": float(args.dynanoise_temperature),
+        "dynanoise_ensemble": int(args.dynanoise_ensemble),
+    }
+
     result_dir = out_root / args.target_id / "hsj"
     result_dir.mkdir(parents=True, exist_ok=True)
     result_path = result_dir / f"{args.defense}.csv"
@@ -197,9 +247,15 @@ def main() -> None:
         except (json.JSONDecodeError, OSError):
             existing = {}
         if (
-            existing.get("protocol") == "pets_defended_label_only_hsj_v3"
-            and existing.get("partition_protocol") == PARTITION_PROTOCOL
+            existing.get("protocol") == "pets_defended_label_only_hsj_v5"
+            and existing.get("partition_protocol")
+            == (
+                CONFIRMATORY_PARTITION_PROTOCOL
+                if label_quotas is not None
+                else PARTITION_PROTOCOL
+            )
             and existing.get("task_label_matched") is True
+            and existing.get("protocol_arguments") == protocol_arguments
         ):
             print(f"[SKIP] {metrics_path.resolve()}")
             return
@@ -207,7 +263,12 @@ def main() -> None:
 
     device = torch.device(args.device)
     qmain = import_qurift_main(repo_root)
-    row = read_target_row(targets, args.target_id)
+    args.hsj_pairing_id = (
+        reference_pairing_id(row)
+        if str(row.get("confirmatory_protocol", "")).strip()
+        == "pets_credit_three_regime_v2"
+        else args.target_id
+    )
     dataset, feature_dim = build_dataset(qmain, row, repo_root)
     config = build_config(qmain, row, feature_dim, device)
     model, architecture = instantiate_model(qmain, row, config, device)
@@ -216,11 +277,7 @@ def main() -> None:
     model_path, _ = resolve_target_paths(row, run_root)
     load_saved_model(model, model_path, device)
     training_defense = str(row.get("training_defense", "none")).strip().lower()
-    decision_threshold = (
-        target_decision_threshold(model_path)
-        if training_defense in {"l2", "dp_qml"}
-        else None
-    )
+    decision_threshold = target_decision_threshold(model_path, required=True)
     split_labels = task_labels_from_dataset(dataset)
     partitions = build_defense_partitions(
         train_labels=split_labels["train"],
@@ -230,6 +287,8 @@ def main() -> None:
         attack_per_class=args.attack_per_class,
         evaluation_per_class=args.evaluation_per_class,
         seed=args.seed,
+        label_quotas=label_quotas,
+        quota_plan_name=quota_plan_name,
     )
     defense_x, _, defense_membership, defense_ids = materialize(
         dataset, partitions.defense_calibration
@@ -289,9 +348,10 @@ def main() -> None:
         torch.tensor(calibration.membership.to_numpy()),
         torch.tensor(evaluation.boundary_distance.to_numpy()),
         torch.tensor(evaluation.membership.to_numpy()),
+        orientation="fixed",
     )
     payload = {
-        "protocol": "pets_defended_label_only_hsj_v3",
+        "protocol": "pets_defended_label_only_hsj_v5",
         "target_id": args.target_id,
         "block_id": row.get("block_id"),
         "structural_cell_id": row.get("structural_cell_id"),
@@ -301,15 +361,26 @@ def main() -> None:
         "attack": "label_only_hsj",
         "attack_fit": "adaptive_defended_calibration",
         "membership_encoding": "1=member,0=nonmember",
-        "partition_protocol": PARTITION_PROTOCOL,
+        "partition_protocol": partitions.protocol,
         "partition_fingerprint": partition_fingerprint(partitions),
+        "quota_plan_name": quota_plan_name,
+        "member_task_label_quotas": partitions.to_json().get(
+            "member_task_label_quotas"
+        ),
         "task_label_matched": True,
         "records_per_class_per_partition": args.hsj_records_per_class,
         "metrics": metrics,
         "mean_queries": float(evaluation.boundary_queries.mean()),
         "censored_fraction": float(evaluation.search_censored.mean()),
         "defense_config": dict(oracle.config),
+        "protocol_arguments": protocol_arguments,
         "target_decision_threshold": decision_threshold,
+        "target_label_rule": (
+            "binary_probability_threshold"
+            if decision_threshold is not None
+            else "argmax"
+        ),
+        "hsj_pairing_id": args.hsj_pairing_id,
     }
     metrics_path.write_text(json.dumps(payload, indent=2) + "\n")
     print(f"[DONE] {metrics_path.resolve()}")

@@ -10,17 +10,15 @@ from __future__ import annotations
 from typing import Any, Mapping, Optional, Sequence
 
 import torch
-import torch.nn.functional as F
-
-from .base import PredictionBatch, PredictionOracle, defended_batch
+from .base import (
+    PredictionBatch,
+    PredictionOracle,
+    defended_batch,
+    label_preservation_hinge,
+    label_preservation_mask,
+    labels_from_probabilities,
+)
 from .discriminator import MembershipDiscriminator
-
-
-def _label_hinge(probabilities: torch.Tensor, labels: torch.Tensor, margin: float) -> torch.Tensor:
-    selected = probabilities.gather(1, labels[:, None]).squeeze(1)
-    mask = F.one_hot(labels, probabilities.shape[1]).bool()
-    alternatives = probabilities.masked_fill(mask, -torch.inf).max(dim=1).values
-    return torch.relu(alternatives - selected + float(margin))
 
 
 class MemGuardOracle(PredictionOracle):
@@ -67,7 +65,12 @@ class MemGuardOracle(PredictionOracle):
             "score_tolerance": self.score_tolerance,
         }
 
-    def _sanitize_one(self, initial_logits: torch.Tensor, label: torch.Tensor):
+    def _sanitize_one(
+        self,
+        initial_logits: torch.Tensor,
+        label: torch.Tensor,
+        metadata: Mapping[str, Any],
+    ):
         initial_probabilities = torch.softmax(initial_logits.detach(), dim=0)
         initial_score = self.discriminator(initial_probabilities[None])[0].abs().detach()
         best_logits = initial_logits.detach().clone()
@@ -82,7 +85,12 @@ class MemGuardOracle(PredictionOracle):
                 probabilities = torch.softmax(candidate, dim=0)
                 attack_score = self.discriminator(probabilities[None])[0].abs()
                 distortion = (probabilities - initial_probabilities).abs().sum()
-                hinge = _label_hinge(probabilities[None], label[None], self.label_margin)[0]
+                hinge = label_preservation_hinge(
+                    probabilities[None],
+                    label[None],
+                    metadata,
+                    margin=self.label_margin,
+                )[0]
                 objective = (
                     attack_score
                     + self.label_weight * hinge
@@ -93,7 +101,12 @@ class MemGuardOracle(PredictionOracle):
                 candidate = (candidate - self.step_size * gradient / norm).detach().requires_grad_(True)
                 with torch.no_grad():
                     current_probabilities = torch.softmax(candidate, dim=0)
-                    preserves = int(current_probabilities.argmax()) == int(label)
+                    preserves = bool(
+                        labels_from_probabilities(
+                            current_probabilities[None], metadata
+                        )[0]
+                        == label
+                    )
                     current_score = self.discriminator(current_probabilities[None])[0].abs()
                     current_distortion = (
                         current_probabilities - initial_probabilities
@@ -128,7 +141,7 @@ class MemGuardOracle(PredictionOracle):
         iterations = []
         converged = []
         for logits, label in zip(raw.logits, raw.labels):
-            result = self._sanitize_one(logits, label)
+            result = self._sanitize_one(logits, label, raw.metadata)
             sanitized.append(result[0])
             scores.append(result[1])
             distortions.append(result[2])
@@ -147,7 +160,7 @@ class MemGuardOracle(PredictionOracle):
                 "l1_probability_distortion": torch.stack(distortions),
                 "iterations": torch.tensor(iterations, device=raw.logits.device),
                 "converged": torch.tensor(converged, device=raw.logits.device).float(),
-                "label_preserved": (probabilities.argmax(1) == raw.labels).float(),
+                "label_preserved": label_preservation_mask(probabilities, raw).float(),
             },
             metadata=dict(self.config),
         )

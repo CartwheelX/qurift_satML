@@ -5,9 +5,13 @@ import hashlib
 from typing import Any, Mapping, Optional, Sequence, Tuple
 
 import torch
-import torch.nn.functional as F
-
-from .base import PredictionBatch, PredictionOracle, defended_batch
+from .base import (
+    PredictionBatch,
+    PredictionOracle,
+    defended_batch,
+    label_preservation_hinge,
+    label_preservation_mask,
+)
 from .discriminator import MembershipDiscriminator
 
 
@@ -34,6 +38,7 @@ def _membership_objective(
     probabilities: torch.Tensor,
     initial_probabilities: torch.Tensor,
     initial_labels: torch.Tensor,
+    initial_metadata: Mapping[str, Any],
     discriminator: MembershipDiscriminator,
     *,
     distortion_weight: float,
@@ -41,10 +46,12 @@ def _membership_objective(
     label_margin: float,
 ) -> torch.Tensor:
     privacy = discriminator(probabilities).abs()
-    selected = probabilities.gather(1, initial_labels[:, None]).squeeze(1)
-    mask = F.one_hot(initial_labels, probabilities.shape[1]).bool()
-    alternatives = probabilities.masked_fill(mask, -torch.inf).max(dim=1).values
-    hinge = torch.relu(alternatives - selected + float(label_margin))
+    hinge = label_preservation_hinge(
+        probabilities,
+        initial_labels,
+        initial_metadata,
+        margin=label_margin,
+    )
     distortion = (probabilities - initial_probabilities).abs().sum(dim=1)
     return (privacy + float(distortion_weight) * distortion + float(label_weight) * hinge).mean()
 
@@ -97,6 +104,7 @@ class LogitGuardOracle(PredictionOracle):
                 probabilities,
                 raw.probabilities,
                 raw.labels,
+                raw.metadata,
                 self.discriminator,
                 distortion_weight=self.distortion_weight,
                 label_weight=self.label_weight,
@@ -109,7 +117,7 @@ class LogitGuardOracle(PredictionOracle):
         if self.quantization_step is not None:
             logits = quantize_logits(logits, self.quantization_step)
         probabilities = torch.softmax(logits, dim=1)
-        preserves = probabilities.argmax(1) == raw.labels
+        preserves = label_preservation_mask(probabilities, raw)
         logits = torch.where(preserves[:, None], logits, raw.logits)
         probabilities = torch.softmax(logits, dim=1)
         return defended_batch(
@@ -196,6 +204,7 @@ class MeasurementGuardOracle(PredictionOracle):
                 probabilities,
                 raw.probabilities,
                 raw.labels,
+                raw.metadata,
                 self.discriminator,
                 distortion_weight=self.distortion_weight,
                 label_weight=self.label_weight,
@@ -206,7 +215,7 @@ class MeasurementGuardOracle(PredictionOracle):
             with torch.no_grad():
                 candidate_probabilities = torch.softmax(self.head(candidate), dim=1)
                 score = self.discriminator(candidate_probabilities).abs()
-                valid = candidate_probabilities.argmax(1) == raw.labels
+                valid = label_preservation_mask(candidate_probabilities, raw)
                 improve = valid & (score < best_score)
                 best[improve] = candidate[improve]
                 best_score[improve] = score[improve]
@@ -216,7 +225,7 @@ class MeasurementGuardOracle(PredictionOracle):
         # continuous control, raw measurements always form a valid fallback.
         with torch.no_grad():
             initial_probabilities = torch.softmax(self.head(initial), dim=1)
-            initial_valid = initial_probabilities.argmax(1) == raw.labels
+            initial_valid = label_preservation_mask(initial_probabilities, raw)
             use_initial = ~ever_valid & initial_valid
             best[use_initial] = initial[use_initial]
             ever_valid |= initial_valid
@@ -229,7 +238,7 @@ class MeasurementGuardOracle(PredictionOracle):
             probabilities=probabilities,
             measurement=best,
             diagnostics={
-                "label_preserved": (probabilities.argmax(1) == raw.labels).float(),
+                "label_preserved": label_preservation_mask(probabilities, raw).float(),
                 "optimization_valid": ever_valid.float(),
                 "search_censored": (~ever_valid).float(),
                 "l1_probability_distortion": (probabilities - raw.probabilities).abs().sum(1),
@@ -267,7 +276,7 @@ class LatticeRoundOracle(PredictionOracle):
             probabilities=probabilities,
             measurement=measurement,
             diagnostics={
-                "label_preserved": (probabilities.argmax(1) == raw.labels).float(),
+                "label_preserved": label_preservation_mask(probabilities, raw).float(),
                 "l2_measurement_distortion": (
                     measurement - raw.measurement
                 ).square().sum(1).sqrt(),

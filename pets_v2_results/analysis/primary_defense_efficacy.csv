@@ -1,0 +1,6 @@
+attack,structural_role,effective_defense,contrast,mean_auc_difference,sd_across_paired_blocks,ci95_low,ci95_high,paired_blocks,p_exact_sign_flip,p_holm_all_secondary,p_holm_primary_family,holm_reject_0_05,interpretation
+lira_online_fixed_variance,stress,l2,defense-none,-0.03258749999999999,0.0349982218936089,-0.05448843750000002,-0.009285937499999973,8,0.0390625,1.0,0.15625,False,no family-wise resolved change; report interval and resolution limit
+lira_online_fixed_variance,stress,dp_qml,defense-none,-0.09551249999999999,0.049694824033437175,-0.130000625,-0.06483749999999999,8,0.0078125,1.0,0.0390625,True,family-wise evidence of lower AUC than undefended
+lira_online_fixed_variance,stress,hamp_full,defense-none,-0.007612499999999994,0.051051470875690036,-0.03920468749999995,0.026349999999999985,8,0.6640625,1.0,1.0,False,no family-wise resolved change; report interval and resolution limit
+lira_online_fixed_variance,stress,memguard,defense-none,0.003049999999999997,0.02383035279398348,-0.013375000000000012,0.017337500000000006,8,0.734375,1.0,1.0,False,no family-wise resolved change; report interval and resolution limit
+lira_online_fixed_variance,stress,dynanoise,defense-none,-0.0004749999999999893,0.014921197768850316,-0.010199999999999987,0.009337499999999985,8,0.9296875,1.0,1.0,False,no family-wise resolved change; report interval and resolution limit

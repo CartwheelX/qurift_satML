@@ -30,6 +30,7 @@ def main() -> None:
     parser.add_argument("--repo-root", type=Path, default=Path("."))
     parser.add_argument("--run-root", type=Path, default=Path("pets_runs"))
     parser.add_argument("--out-dir", type=Path, default=Path("pets_results/defenses"))
+    parser.add_argument("--logs-dir", type=Path, default=Path("pets_logs"))
     parser.add_argument("--reference-dir", type=Path, default=Path("pets_results/lira_references"))
     parser.add_argument("--defenses", default="none,dynanoise,memgq_lattice,memgq_lattice_sticky")
     parser.add_argument(
@@ -64,6 +65,7 @@ def main() -> None:
     targets_path = args.targets if args.targets.is_absolute() else repo_root / args.targets
     run_root = args.run_root if args.run_root.is_absolute() else repo_root / args.run_root
     out_dir = args.out_dir if args.out_dir.is_absolute() else repo_root / args.out_dir
+    logs_dir = args.logs_dir if args.logs_dir.is_absolute() else repo_root / args.logs_dir
     reference_dir = (
         args.reference_dir if args.reference_dir.is_absolute() else repo_root / args.reference_dir
     )
@@ -71,7 +73,10 @@ def main() -> None:
     defenses = [value.strip() for value in args.defenses.split(",") if value.strip()]
     tasks = []
     if args.attack == "lira":
-        targets = targets[targets.training_defense.astype(str).isin(["none", "l2"])]
+        supported = {"none", "l2", "hamp_train", "dp_qml"}
+        targets = targets[
+            targets.training_defense.astype(str).str.lower().isin(supported)
+        ]
     defense_jobs = [",".join(defenses)] if args.attack == "query_stress" else defenses
     for _, row in targets.iterrows():
         for defense in defense_jobs:
@@ -167,7 +172,7 @@ def main() -> None:
         tasks,
         gpu_slots=slots,
         concurrency=plan.concurrency,
-        logs_dir=repo_root / "pets_logs" / args.attack,
+        logs_dir=logs_dir / args.attack,
         status_path=out_dir / f"{status_label}_status.csv",
         dry_run=args.dry_run,
     )

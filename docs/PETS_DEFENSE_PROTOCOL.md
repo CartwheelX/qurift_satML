@@ -1,5 +1,11 @@
 # PETS defense-extension protocol
 
+> Historical pilot/four-block protocol. It remains unchanged for provenance.
+> The publication-facing prospective extension is
+> [PETS confirmatory protocol v2](PETS_CONFIRMATORY_V2.md), which uses isolated
+> `pets_v2_*` paths, three structural roles, eight fresh paired blocks, and
+> matched HAMP/DP LiRA references.
+
 This extension is isolated from the frozen SaTML study. Generated checkpoints,
 results, and logs live only in `pets_runs/`, `pets_results/`, and `pets_logs/`.
 The SaTML manifests and result trees are read-only discovery inputs.

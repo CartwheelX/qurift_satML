@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 from datetime import datetime, timezone
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -19,14 +20,20 @@ for directory in (ROOT, ROOT / "reviewer_tools"):
     if str(directory) not in sys.path:
         sys.path.insert(0, str(directory))
 
-from pets_tools.run_defense_evaluation import batch_predict, build_defenses, materialize  # noqa: E402
+from pets_tools.run_defense_evaluation import (  # noqa: E402
+    batch_predict,
+    build_defenses,
+    materialize,
+    target_decision_threshold,
+)
 from qurift.defenses.attacks import adaptive_feature_attack_metrics  # noqa: E402
 from qurift.defenses.discriminator import DiscriminatorFitConfig, fit_membership_discriminator  # noqa: E402
 from qurift.defenses.hamp import CalibrationSupportGenerator  # noqa: E402
 from qurift.defenses.oracle import RawOracle  # noqa: E402
 from qurift.defenses.protocol import (  # noqa: E402
-    PARTITION_PROTOCOL,
+    CONFIRMATORY_CREDIT_QUOTA_PLAN,
     build_defense_partitions,
+    label_quotas_for_protocol,
     partition_fingerprint,
     task_labels_from_dataset,
 )
@@ -42,7 +49,7 @@ from qurift_target_loader import (  # noqa: E402
 )
 
 
-PROTOCOL = "pets_nearby_query_stress_v3"
+PROTOCOL = "pets_nearby_query_stress_v5"
 
 
 def existing_result_matches(
@@ -51,6 +58,7 @@ def existing_result_matches(
     defenses,
     queries: int,
     radius: float,
+    protocol_arguments=None,
 ) -> bool:
     return bool(
         payload.get("protocol") == PROTOCOL
@@ -58,6 +66,10 @@ def existing_result_matches(
         and int(payload.get("queries", -1)) == int(queries)
         and float(payload.get("linf_radius", -1.0)) == float(radius)
         and payload.get("common_random_perturbations_across_defenses") is True
+        and (
+            protocol_arguments is None
+            or payload.get("protocol_arguments") == protocol_arguments
+        )
     )
 
 
@@ -74,6 +86,7 @@ def nearby_query_features(
 ):
     generator = torch.Generator(device="cpu").manual_seed(int(seed))
     probabilities = []
+    predicted_labels = []
     for query in range(int(queries)):
         if query == 0:
             perturbed = inputs
@@ -83,9 +96,9 @@ def nearby_query_features(
             ).to(inputs.device)
             perturbed = (inputs + float(radius) * noise).clamp(-1.0, 1.0)
         query_ids = [f"{record_id}:nearby:{query}" for record_id in ids]
-        probabilities.append(
-            batch_predict(oracle, perturbed, query_ids, batch_size).probabilities.detach()
-        )
+        output = batch_predict(oracle, perturbed, query_ids, batch_size)
+        probabilities.append(output.probabilities.detach())
+        predicted_labels.append(output.labels.detach())
     stack = torch.stack(probabilities, dim=0)
     mean = stack.mean(0)
     std = stack.std(0, unbiased=False)
@@ -94,8 +107,9 @@ def nearby_query_features(
     entropy = -(stack * stack.clamp_min(torch.finfo(stack.dtype).tiny).log()).sum(2)
     labels = labels.to(stack.device).long()
     true_values = stack.gather(2, labels[None, :, None].expand(len(stack), -1, 1)).squeeze(2)
-    base_labels = stack[0].argmax(1)
-    flip_rate = (stack.argmax(2) != base_labels[None]).float().mean(0)
+    label_stack = torch.stack(predicted_labels, dim=0)
+    base_labels = label_stack[0]
+    flip_rate = (label_stack != base_labels[None]).float().mean(0)
     features = torch.cat(
         [
             mean,
@@ -157,12 +171,42 @@ def main() -> None:
     targets = args.targets if args.targets.is_absolute() else repo_root / args.targets
     run_root = args.run_root if args.run_root.is_absolute() else repo_root / args.run_root
     out_root = args.out_dir if args.out_dir.is_absolute() else repo_root / args.out_dir
+    row = read_target_row(targets, args.target_id)
+    label_quotas = label_quotas_for_protocol(row.get("confirmatory_protocol", ""))
+    quota_plan_name = (
+        CONFIRMATORY_CREDIT_QUOTA_PLAN if label_quotas is not None else None
+    )
     out = out_root / args.target_id / "query_stress"
     out.mkdir(parents=True, exist_ok=True)
     output = out / "metrics.json"
     requested_defenses = [
         value.strip() for value in args.defenses.split(",") if value.strip()
     ]
+    protocol_arguments = {
+        "defenses": requested_defenses,
+        "seed": int(args.seed),
+        "batch_size": int(args.batch_size),
+        "queries": int(args.queries),
+        "radius": float(args.radius),
+        "defense_per_class": int(args.defense_per_class),
+        "attack_per_class": int(args.attack_per_class),
+        "evaluation_per_class": int(args.evaluation_per_class),
+        "quota_plan_name": quota_plan_name,
+        "discriminator_epochs": int(args.discriminator_epochs),
+        "optimizer_iterations": int(args.optimizer_iterations),
+        "shots": int(args.shots),
+        "logit_quantization_step": float(args.logit_quantization_step),
+        "sticky_resolution": float(args.sticky_resolution),
+        "sticky_secret_sha256": (
+            hashlib.sha256(args.sticky_secret.encode("utf-8")).hexdigest()
+            if args.sticky_secret
+            else None
+        ),
+        "dynanoise_base_variance": float(args.dynanoise_base_variance),
+        "dynanoise_lambda": float(args.dynanoise_lambda),
+        "dynanoise_temperature": float(args.dynanoise_temperature),
+        "dynanoise_ensemble": int(args.dynanoise_ensemble),
+    }
     if args.archive_existing and output.exists():
         try:
             current = json.loads(output.read_text())
@@ -173,6 +217,7 @@ def main() -> None:
             defenses=requested_defenses,
             queries=args.queries,
             radius=args.radius,
+            protocol_arguments=protocol_arguments,
         ):
             print(f"[SKIP] current common-random query result: {output.resolve()}")
             return
@@ -181,11 +226,22 @@ def main() -> None:
         output.replace(archived)
         print(f"[OK] archived previous query-stress result: {archived.resolve()}")
     if args.resume and output.exists():
-        print(f"[SKIP] {output.resolve()}")
-        return
+        try:
+            current = json.loads(output.read_text())
+        except (json.JSONDecodeError, OSError):
+            current = {}
+        if existing_result_matches(
+            current,
+            defenses=requested_defenses,
+            queries=args.queries,
+            radius=args.radius,
+            protocol_arguments=protocol_arguments,
+        ):
+            print(f"[SKIP] {output.resolve()}")
+            return
+        raise RuntimeError(f"stale query-stress result must be archived: {output}")
     device = torch.device(args.device)
     qmain = import_qurift_main(repo_root)
-    row = read_target_row(targets, args.target_id)
     dataset, feature_dim = build_dataset(qmain, row, repo_root)
     config = build_config(qmain, row, feature_dim, device)
     model, architecture = instantiate_model(qmain, row, config, device)
@@ -205,6 +261,8 @@ def main() -> None:
         attack_per_class=args.attack_per_class,
         evaluation_per_class=args.evaluation_per_class,
         seed=args.seed,
+        label_quotas=label_quotas,
+        quota_plan_name=quota_plan_name,
     )
     values = {}
     for name in ("defense_calibration", "attack_calibration", "final_evaluation"):
@@ -216,7 +274,8 @@ def main() -> None:
             ids,
         )
     defense_x, _, defense_membership, defense_ids = values["defense_calibration"]
-    raw = RawOracle(model)
+    decision_threshold = target_decision_threshold(model_path, required=True)
+    raw = RawOracle(model, decision_threshold=decision_threshold)
     raw_defense = batch_predict(raw, defense_x, defense_ids, args.batch_size)
     discriminator, _ = fit_membership_discriminator(
         raw_defense.probabilities,
@@ -288,9 +347,20 @@ def main() -> None:
                 "queries": args.queries,
                 "linf_radius": args.radius,
                 "common_random_perturbations_across_defenses": True,
-                "partition_protocol": PARTITION_PROTOCOL,
+                "partition_protocol": partitions.protocol,
                 "partition_fingerprint": partition_fingerprint(partitions),
+                "quota_plan_name": quota_plan_name,
+                "member_task_label_quotas": partitions.to_json().get(
+                    "member_task_label_quotas"
+                ),
                 "defenses": list(defenses),
+                "target_decision_threshold": decision_threshold,
+                "target_label_rule": (
+                    "binary_probability_threshold"
+                    if decision_threshold is not None
+                    else "argmax"
+                ),
+                "protocol_arguments": protocol_arguments,
                 "rows": rows,
             },
             indent=2,

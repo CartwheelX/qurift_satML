@@ -73,6 +73,28 @@ class PETSOracleTests(unittest.TestCase):
         defended = HAMPOutputOracle(RawOracle(self.model), generator).predict(self.inputs)
         self.assertTrue(torch.equal(raw.labels, defended.labels))
 
+    def test_label_preserving_defenses_honor_the_deployment_threshold(self) -> None:
+        threshold = 0.2
+        raw_oracle = RawOracle(self.model, decision_threshold=threshold)
+        raw = raw_oracle.predict(self.inputs)
+        discriminator = MembershipDiscriminator(2, hidden_sizes=(8, 4)).eval()
+        defended = LogitGuardOracle(
+            raw_oracle, discriminator, iterations=3, learning_rate=0.01
+        ).predict(self.inputs)
+        self.assertTrue(torch.equal(defended.labels, raw.labels))
+        self.assertEqual(defended.metadata["decision_threshold"], threshold)
+        self.assertTrue(bool(defended.diagnostics["label_preserved"].all()))
+
+        generator = CalibrationSupportGenerator(
+            torch.linspace(-1, 1, 36).reshape(12, 3),
+            lower=torch.full((3,), -1.0),
+            upper=torch.full((3,), 1.0),
+            seed=8,
+        )
+        hamp = HAMPOutputOracle(raw_oracle, generator).predict(self.inputs)
+        self.assertTrue(torch.equal(hamp.labels, raw.labels))
+        self.assertTrue(bool(hamp.diagnostics["label_preserved"].all()))
+
     def test_hamp_soft_targets_and_loss(self) -> None:
         labels = torch.tensor([0, 1, 1])
         targets = high_entropy_soft_labels(labels, 2, true_class_probability=0.7)

@@ -6,6 +6,82 @@ from dataclasses import dataclass, field
 from typing import Any, Dict, Mapping, Optional, Sequence
 
 import torch
+import torch.nn.functional as F
+
+
+ARGMAX_LABEL_RULE = "argmax"
+BINARY_THRESHOLD_LABEL_RULE = "binary_probability_threshold"
+
+
+def labels_from_probabilities(
+    probabilities: torch.Tensor,
+    metadata: Mapping[str, Any],
+) -> torch.Tensor:
+    """Apply the prediction batch's declared deployment decision rule.
+
+    PETS binary targets freeze a class-1 probability threshold on validation
+    data.  Keeping this operation in one place prevents output defenses and
+    hard-label attacks from silently falling back to argmax/0.5 semantics.
+    """
+
+    if probabilities.ndim != 2:
+        raise ValueError("prediction labels require [batch, classes] probabilities")
+    label_rule = str(metadata.get("label_rule", ARGMAX_LABEL_RULE))
+    if label_rule == BINARY_THRESHOLD_LABEL_RULE:
+        if probabilities.shape[1] != 2:
+            raise ValueError("binary threshold labels require exactly two classes")
+        threshold = float(metadata.get("decision_threshold", float("nan")))
+        if not torch.isfinite(torch.tensor(threshold)) or not 0.0 < threshold < 1.0:
+            raise ValueError(
+                "binary threshold labels require a finite threshold strictly between zero and one"
+            )
+        return (probabilities[:, 1] >= threshold).long()
+    if label_rule == ARGMAX_LABEL_RULE:
+        return probabilities.argmax(dim=1)
+    raise ValueError(f"unknown prediction label rule {label_rule!r}")
+
+
+def label_preservation_mask(
+    probabilities: torch.Tensor,
+    raw: "PredictionBatch",
+) -> torch.Tensor:
+    """Return whether probabilities preserve each raw deployed label."""
+
+    return labels_from_probabilities(probabilities, raw.metadata) == raw.labels
+
+
+def label_preservation_hinge(
+    probabilities: torch.Tensor,
+    labels: torch.Tensor,
+    metadata: Mapping[str, Any],
+    *,
+    margin: float,
+) -> torch.Tensor:
+    """Differentiable violation of the declared label-preservation rule."""
+
+    label_rule = str(metadata.get("label_rule", ARGMAX_LABEL_RULE))
+    labels = labels.long()
+    if label_rule == BINARY_THRESHOLD_LABEL_RULE:
+        if probabilities.shape[1] != 2:
+            raise ValueError("binary threshold labels require exactly two classes")
+        threshold = float(metadata.get("decision_threshold", float("nan")))
+        if not torch.isfinite(torch.tensor(threshold)) or not 0.0 < threshold < 1.0:
+            raise ValueError(
+                "binary threshold labels require a finite threshold strictly between zero and one"
+            )
+        positive_violation = torch.relu(
+            float(threshold) + float(margin) - probabilities[:, 1]
+        )
+        negative_violation = torch.relu(
+            probabilities[:, 1] - float(threshold) + float(margin)
+        )
+        return torch.where(labels == 1, positive_violation, negative_violation)
+    if label_rule == ARGMAX_LABEL_RULE:
+        selected = probabilities.gather(1, labels[:, None]).squeeze(1)
+        mask = F.one_hot(labels, probabilities.shape[1]).bool()
+        alternatives = probabilities.masked_fill(mask, -torch.inf).max(dim=1).values
+        return torch.relu(alternatives - selected + float(margin))
+    raise ValueError(f"unknown prediction label rule {label_rule!r}")
 
 
 @dataclass
@@ -51,18 +127,7 @@ class PredictionBatch:
             raise ValueError("probabilities do not sum to one")
         if bool((self.probabilities < -atol).any()):
             raise ValueError("probabilities contain negative values")
-        label_rule = str(self.metadata.get("label_rule", "argmax"))
-        if label_rule == "binary_probability_threshold":
-            if shape[1] != 2:
-                raise ValueError("binary threshold labels require exactly two classes")
-            threshold = float(self.metadata.get("decision_threshold", float("nan")))
-            if not torch.isfinite(torch.tensor(threshold)):
-                raise ValueError("binary threshold labels require a finite threshold")
-            expected_labels = (self.probabilities[:, 1] >= threshold).long()
-        elif label_rule == "argmax":
-            expected_labels = self.probabilities.argmax(dim=1)
-        else:
-            raise ValueError(f"unknown prediction label rule {label_rule!r}")
+        expected_labels = labels_from_probabilities(self.probabilities, self.metadata)
         if not torch.equal(self.labels, expected_labels):
             raise ValueError("labels are inconsistent with the declared probability rule")
         return self
@@ -117,18 +182,18 @@ def defended_batch(
     probabilities = probabilities.clamp_min(torch.finfo(probabilities.dtype).tiny)
     probabilities = probabilities / probabilities.sum(dim=1, keepdim=True)
     log_probabilities = probabilities.log()
+    result_metadata = {**raw.metadata, **({} if metadata is None else metadata)}
+    for key in ("label_rule", "decision_threshold"):
+        if key in raw.metadata and result_metadata.get(key) != raw.metadata[key]:
+            raise ValueError(f"a defense cannot replace the deployed {key}")
     result = PredictionBatch(
         model_output=log_probabilities,
         logits=logits,
         log_probabilities=log_probabilities,
         probabilities=probabilities,
-        labels=probabilities.argmax(dim=1),
+        labels=labels_from_probabilities(probabilities, result_metadata),
         measurement=raw.measurement if measurement is None else measurement,
         diagnostics={} if diagnostics is None else diagnostics,
-        metadata={
-            **raw.metadata,
-            "label_rule": "argmax",
-            **({} if metadata is None else metadata),
-        },
+        metadata=result_metadata,
     )
     return result.validate()

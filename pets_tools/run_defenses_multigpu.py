@@ -52,6 +52,7 @@ def main() -> None:
     parser.add_argument("--repo-root", type=Path, default=Path("."))
     parser.add_argument("--run-root", type=Path, default=Path("pets_runs"))
     parser.add_argument("--out-dir", type=Path, default=Path("pets_results/defenses"))
+    parser.add_argument("--logs-dir", type=Path, default=Path("pets_logs"))
     parser.add_argument("--phase", choices=("all", "train", "evaluate"), default="all")
     parser.add_argument("--block-id", action="append", default=[])
     parser.add_argument("--target-id", action="append", default=[])
@@ -64,12 +65,14 @@ def main() -> None:
     parser.add_argument("--optimizer-iterations", type=int, default=30)
     parser.add_argument("--discriminator-epochs", type=int, default=100)
     parser.add_argument("--shots", type=int, default=128)
+    parser.add_argument("--evaluation-nonmember-multiplier", type=int, default=1)
     args = parser.parse_args()
 
     repo_root = args.repo_root.resolve()
     targets_path = args.targets if args.targets.is_absolute() else repo_root / args.targets
     run_root = args.run_root if args.run_root.is_absolute() else repo_root / args.run_root
     out_dir = args.out_dir if args.out_dir.is_absolute() else repo_root / args.out_dir
+    logs_dir = args.logs_dir if args.logs_dir.is_absolute() else repo_root / args.logs_dir
     targets = pd.read_csv(targets_path)
     if args.block_id:
         targets = targets[targets.block_id.astype(str).isin(args.block_id)]
@@ -118,7 +121,7 @@ def main() -> None:
             tasks,
             gpu_slots=slots,
             concurrency=plan.concurrency,
-            logs_dir=repo_root / "pets_logs" / "training",
+            logs_dir=logs_dir / "training",
             status_path=out_dir / "training_status.csv",
             dry_run=args.dry_run,
         )
@@ -160,6 +163,8 @@ def main() -> None:
                 str(args.discriminator_epochs),
                 "--shots",
                 str(args.shots),
+                "--evaluation-nonmember-multiplier",
+                str(args.evaluation_nonmember_multiplier),
             ]
             if args.resume:
                 command.append("--resume")
@@ -179,7 +184,7 @@ def main() -> None:
             tasks,
             gpu_slots=slots,
             concurrency=plan.concurrency,
-            logs_dir=repo_root / "pets_logs" / "evaluation",
+            logs_dir=logs_dir / "evaluation",
             status_path=out_dir / "evaluation_status.csv",
             dry_run=args.dry_run,
         )

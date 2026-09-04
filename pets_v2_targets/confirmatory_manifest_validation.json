@@ -1,0 +1,44 @@
+{
+  "protocol": "pets_credit_three_regime_v2_manifest_validation",
+  "valid": true,
+  "targets": 96,
+  "blocks": 8,
+  "roles": [
+    "low",
+    "repetition",
+    "stress"
+  ],
+  "role_cells": {
+    "low": "eff_su2_r1_d6",
+    "repetition": "eff_su2_r5_d6",
+    "stress": "zz_r5_d6"
+  },
+  "training_defenses": [
+    "dp_qml",
+    "hamp_train",
+    "l2",
+    "none"
+  ],
+  "conditions_per_block": 12,
+  "fresh_data_seeds": [
+    90261,
+    90262,
+    90263,
+    90264,
+    90265,
+    90266,
+    90267,
+    90268
+  ],
+  "fresh_model_seeds": [
+    100261,
+    100262,
+    100263,
+    100264,
+    100265,
+    100266,
+    100267,
+    100268
+  ],
+  "dp_primary_schedule": "Watkins-style RMSprop/batch32/30 epochs"
+}

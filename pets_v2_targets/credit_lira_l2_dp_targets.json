@@ -1,0 +1,11 @@
+{
+  "protocol": "pets_filtered_target_manifest_v1",
+  "source": "/home/najeeb/qurift_satML/pets_v2_targets/credit_confirmatory_training_targets.csv",
+  "filters": {
+    "training_defense": [
+      "l2",
+      "dp_qml"
+    ]
+  },
+  "targets": 48
+}

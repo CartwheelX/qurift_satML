@@ -28,6 +28,13 @@ No unlicensed third-party source has been copied into this repository.
   the inspected repository revisions already listed in
   `reviewer_tools/qurift_lira_attack.py`. Defended LiRA requires saved reference
   checkpoints and applies the same output defense to target and references.
+  The paper's Eq. (4) defines offline LiRA as a one-sided OUT test, implemented
+  here as a stable Gaussian log-CDF under `lira_offline`. The explicit
+  `lira_offline_one_sided_z` names remain rank-equivalent compatibility aliases
+  and are not counted as additional inferential tests. The authors' released
+  TensorFlow Privacy code uses negative OUT log-density instead; that behavior
+  is retained under the explicit auxiliary name
+  `lira_offline_density_surprise`, rather than conflating the two definitions.
   Its disjoint calibration/evaluation candidate subsets are exactly
   task-label matched across target members and nonmembers.
 

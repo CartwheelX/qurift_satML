@@ -374,3 +374,12 @@ tmp_qurift_sweep*/
 *.onnx
 wandb/
 tq39_vv2.tar.gz
+
+# PETS confirmatory v2. Keep the manifests, the analysis outputs, and the
+# integrity gates; exclude everything reproducible from them plus the private
+# sticky secret and the stage locks.
+pets_v2_logs/
+pets_v2_runs/
+pets_v2_results/defenses/
+pets_v2_results/lira_references/
+pets_v2_results/archive/

@@ -10,6 +10,27 @@ import numpy as np
 
 
 PARTITION_PROTOCOL = "pets_label_matched_defense_attack_final_v2"
+CONFIRMATORY_PARTITION_PROTOCOL = (
+    "pets_label_matched_defense_attack_final_common_quota_v3"
+)
+CONFIRMATORY_CREDIT_PROTOCOL = "pets_credit_three_regime_v2"
+CONFIRMATORY_CREDIT_QUOTA_PLAN = "credit_binary_common_lira_capacity_v1"
+CONFIRMATORY_CREDIT_LABEL_QUOTAS = {
+    "defense_calibration": {0: 38, 1: 12},
+    "attack_calibration": {0: 39, 1: 11},
+    "final_evaluation": {0: 79, 1: 21},
+}
+
+
+def label_quotas_for_protocol(protocol: Any):
+    """Return the score-blind common quota plan for a confirmatory protocol."""
+
+    if str(protocol).strip() != CONFIRMATORY_CREDIT_PROTOCOL:
+        return None
+    return {
+        partition: dict(quota)
+        for partition, quota in CONFIRMATORY_CREDIT_LABEL_QUOTAS.items()
+    }
 
 
 @dataclass(frozen=True)
@@ -31,6 +52,8 @@ class DefensePartitions:
     attack_calibration: tuple[RecordRef, ...]
     final_evaluation: tuple[RecordRef, ...]
     seed: int
+    protocol: str = PARTITION_PROTOCOL
+    quota_plan_name: str | None = None
 
     def validate(self) -> "DefensePartitions":
         groups = {
@@ -70,8 +93,8 @@ class DefensePartitions:
 
     def to_json(self) -> Dict[str, Any]:
         self.validate()
-        return {
-            "protocol": PARTITION_PROTOCOL,
+        payload = {
+            "protocol": self.protocol,
             "membership_encoding": "1=member,0=nonmember",
             "task_label_matching": "exact within every member/nonmember partition",
             "seed": self.seed,
@@ -87,6 +110,25 @@ class DefensePartitions:
                 )
             },
         }
+        if self.quota_plan_name is not None:
+            payload["quota_plan_name"] = self.quota_plan_name
+            payload["member_task_label_quotas"] = {
+                name: dict(
+                    sorted(
+                        Counter(
+                            item.task_label
+                            for item in getattr(self, name)
+                            if item.membership == 1
+                        ).items()
+                    )
+                )
+                for name in (
+                    "defense_calibration",
+                    "attack_calibration",
+                    "final_evaluation",
+                )
+            }
+        return payload
 
 
 def task_labels_from_dataset(dataset: Mapping[str, Any]) -> Dict[str, np.ndarray]:
@@ -177,8 +219,17 @@ def _paired_partition(
     nonmember_split: str,
     count: int,
     rng: np.random.Generator,
+    quota: Mapping[int, int] | None = None,
 ) -> tuple[RecordRef, ...]:
-    quota = _allocate_from_remaining(member_pools, int(count))
+    quota = (
+        _allocate_from_remaining(member_pools, int(count))
+        if quota is None
+        else {int(label): int(amount) for label, amount in quota.items()}
+    )
+    if any(amount < 0 for amount in quota.values()) or sum(quota.values()) != int(count):
+        raise ValueError(
+            f"explicit quota must contain {int(count)} non-negative records, got {quota}"
+        )
     members = _take_by_quota(member_pools, quota, member_split, 1)
     nonmembers = _take_by_quota(nonmember_pools, quota, nonmember_split, 0)
     # One common permutation keeps every member/nonmember prefix label-matched,
@@ -198,6 +249,8 @@ def build_defense_partitions(
     attack_per_class: int,
     evaluation_per_class: int,
     seed: int,
+    label_quotas: Mapping[str, Mapping[int, int]] | None = None,
+    quota_plan_name: str | None = None,
 ) -> DefensePartitions:
     """Create disjoint, membership-balanced, exactly task-label-matched pools."""
 
@@ -223,6 +276,30 @@ def build_defense_partitions(
     train_pools = _class_pools(train, rng)
     valid_pools = _class_pools(valid, rng)
     test_pools = _class_pools(test, rng)
+    quota_names = (
+        "defense_calibration",
+        "attack_calibration",
+        "final_evaluation",
+    )
+    if label_quotas is not None:
+        if set(label_quotas) != set(quota_names):
+            raise ValueError(
+                "explicit label quotas must define defense_calibration, "
+                "attack_calibration, and final_evaluation"
+            )
+        classes_sorted = set(int(value) for value in classes)
+        for name, expected_count in zip(quota_names, counts):
+            quota = {int(label): int(amount) for label, amount in label_quotas[name].items()}
+            if set(quota) != classes_sorted:
+                raise ValueError(
+                    f"{name} explicit quota classes differ from the dataset classes"
+                )
+            if any(amount < 0 for amount in quota.values()) or sum(quota.values()) != expected_count:
+                raise ValueError(
+                    f"{name} explicit quota must sum to {expected_count}: {quota}"
+                )
+    elif quota_plan_name is not None:
+        raise ValueError("quota_plan_name requires explicit label_quotas")
     defense = _paired_partition(
         train_pools,
         valid_pools,
@@ -230,6 +307,7 @@ def build_defense_partitions(
         nonmember_split="valid",
         count=counts[0],
         rng=rng,
+        quota=None if label_quotas is None else label_quotas["defense_calibration"],
     )
     attack = _paired_partition(
         train_pools,
@@ -238,6 +316,7 @@ def build_defense_partitions(
         nonmember_split="valid",
         count=counts[1],
         rng=rng,
+        quota=None if label_quotas is None else label_quotas["attack_calibration"],
     )
     evaluation = _paired_partition(
         train_pools,
@@ -246,8 +325,20 @@ def build_defense_partitions(
         nonmember_split="test",
         count=counts[2],
         rng=rng,
+        quota=None if label_quotas is None else label_quotas["final_evaluation"],
     )
-    return DefensePartitions(defense, attack, evaluation, int(seed)).validate()
+    return DefensePartitions(
+        defense,
+        attack,
+        evaluation,
+        int(seed),
+        protocol=(
+            PARTITION_PROTOCOL
+            if label_quotas is None
+            else CONFIRMATORY_PARTITION_PROTOCOL
+        ),
+        quota_plan_name=quota_plan_name,
+    ).validate()
 
 
 def partition_fingerprint(partitions: DefensePartitions) -> str:

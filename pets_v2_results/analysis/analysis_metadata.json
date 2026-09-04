@@ -1,0 +1,42 @@
+{
+  "protocol": "pets_credit_confirmatory_analysis_v2",
+  "blocks": [
+    "petsv2_b01",
+    "petsv2_b02",
+    "petsv2_b03",
+    "petsv2_b04",
+    "petsv2_b05",
+    "petsv2_b06",
+    "petsv2_b07",
+    "petsv2_b08"
+  ],
+  "independent_unit": "paired target-model block",
+  "primary_attack": "lira_online_fixed_variance",
+  "primary_role": "stress",
+  "primary_defenses": [
+    "l2",
+    "dp_qml",
+    "hamp_full",
+    "memguard",
+    "dynanoise"
+  ],
+  "reported_lira_score_family": [
+    "lira_online",
+    "lira_online_fixed_variance",
+    "lira_offline",
+    "lira_offline_fixed_variance",
+    "lira_offline_density_surprise",
+    "lira_offline_density_surprise_fixed_variance",
+    "lira_offline_one_sided_z",
+    "lira_offline_one_sided_z_fixed_variance"
+  ],
+  "lira_score_protocol": "carlini_eq4_one_sided_with_released_density_aux_v1",
+  "one_sided_lira_status": "paper-defined log-CDF is canonical; explicit z names are rank-equivalent compatibility aliases and are excluded from multiplicity; the released-artifact OUT-density score is retained under an explicit auxiliary name",
+  "primary_multiplicity": "Holm correction over five literature defenses",
+  "secondary_multiplicity": "Holm correction over each exported secondary table",
+  "confidence_interval": "percentile bootstrap over paired blocks",
+  "hypothesis_test": "exact two-sided paired sign-flip randomization",
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 2027,
+  "low_fpr_rule": "report attained FPR and empirical resolution; 0.1% is not claimed when the non-member pool cannot resolve it"
+}

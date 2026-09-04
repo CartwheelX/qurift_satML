@@ -12,7 +12,7 @@ from qurift.defenses.attacks import adaptive_threshold_metrics, attack_signals
 from qurift.defenses.oracle import RawOracle
 from qurift.defenses.protocol import build_defense_partitions, partition_fingerprint
 from pets_tools.run_defense_hsj import hsj_record_seed
-from pets_tools.run_query_stress import existing_result_matches, nearby_query_features
+from pets_tools.run_query_stress import PROTOCOL, existing_result_matches, nearby_query_features
 from pets_tools.score_defended_lira import candidate_partitions, defense_monte_carlo_draws
 
 
@@ -52,9 +52,9 @@ class PETSProtocolTests(unittest.TestCase):
         self.assertTrue((first == second).all())
         self.assertFalse((first == different).all())
 
-    def test_query_resume_only_accepts_matching_v2_protocol(self) -> None:
+    def test_query_resume_only_accepts_matching_current_protocol(self) -> None:
         payload = {
-            "protocol": "pets_nearby_query_stress_v3",
+            "protocol": PROTOCOL,
             "defenses": ["none", "memgq_lattice"],
             "queries": 32,
             "linf_radius": 0.005,
@@ -74,6 +74,25 @@ class PETSProtocolTests(unittest.TestCase):
                 defenses=["none", "lattice_round", "memgq_lattice"],
                 queries=32,
                 radius=0.005,
+            )
+        )
+        payload["protocol_arguments"] = {"seed": 2026}
+        self.assertTrue(
+            existing_result_matches(
+                payload,
+                defenses=["none", "memgq_lattice"],
+                queries=32,
+                radius=0.005,
+                protocol_arguments={"seed": 2026},
+            )
+        )
+        self.assertFalse(
+            existing_result_matches(
+                payload,
+                defenses=["none", "memgq_lattice"],
+                queries=32,
+                radius=0.005,
+                protocol_arguments={"seed": 2027},
             )
         )
 

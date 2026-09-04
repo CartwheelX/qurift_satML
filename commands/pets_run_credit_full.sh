@@ -64,6 +64,8 @@ fi
   --jobs-per-gpu 1 \
   --resume
 
+# Legacy four-block launcher: preserve its original standard/L2 LiRA scope.
+# The prospective v2 launcher evaluates matched references for every arm.
 "${PYTHON_BIN}" pets_tools/filter_targets.py \
   --targets "${CONFIRMATORY_TARGETS}" \
   --training-defenses none,l2 \

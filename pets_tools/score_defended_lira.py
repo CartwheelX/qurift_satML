@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import copy
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -21,19 +22,28 @@ for directory in (ROOT, ROOT / "reviewer_tools"):
     if str(directory) not in sys.path:
         sys.path.insert(0, str(directory))
 
-from pets_tools.run_defense_evaluation import batch_predict, build_defenses, materialize  # noqa: E402
+from pets_tools.run_defense_evaluation import (  # noqa: E402
+    batch_predict,
+    build_defenses,
+    materialize,
+    target_decision_threshold,
+)
 from qurift.defenses.attacks import adaptive_threshold_metrics  # noqa: E402
 from qurift.defenses.base import defended_batch  # noqa: E402
 from qurift.defenses.discriminator import DiscriminatorFitConfig, fit_membership_discriminator  # noqa: E402
 from qurift.defenses.hamp import CalibrationSupportGenerator  # noqa: E402
 from qurift.defenses.oracle import RawOracle  # noqa: E402
 from qurift.defenses.protocol import (  # noqa: E402
+    CONFIRMATORY_CREDIT_QUOTA_PLAN,
+    CONFIRMATORY_PARTITION_PROTOCOL,
     PARTITION_PROTOCOL,
     build_defense_partitions,
+    label_quotas_for_protocol,
     partition_fingerprint,
     task_labels_from_dataset,
 )
 from qurift_lira_attack import (  # noqa: E402
+    LIRA_SCORE_PROTOCOL,
     attack_scores,
     cell_id,
     load_context,
@@ -47,6 +57,7 @@ from qurift_target_loader import (  # noqa: E402
     instantiate_model,
     load_saved_model,
     preprocess_like_train,
+    read_target_row,
     resolve_target_paths,
 )
 
@@ -62,6 +73,30 @@ def defense_monte_carlo_draws(defense: str, requested: int) -> int:
     """Avoid recomputing deterministic defenses while averaging stochastic ones."""
 
     return int(requested) if defense in {"dynanoise", "hamp_output"} else 1
+
+
+def lira_selection_fingerprint(samples, partitions, attack, evaluation) -> str:
+    """Fingerprint the records actually used by defended LiRA.
+
+    The ordinary partition fingerprint cannot represent candidate-pool
+    non-members because those records are redrawn from the reference bank.
+    """
+
+    values = ["pets_lira_actual_selection_v1"]
+    for ref in partitions.defense_calibration:
+        values.append(
+            f"defense_calibration:{ref.record_id}:{ref.membership}:{ref.task_label}"
+        )
+    for name, indices in (
+        ("attack_calibration", attack),
+        ("final_evaluation", evaluation),
+    ):
+        for index in np.asarray(indices, dtype=int).tolist():
+            values.append(
+                f"{name}:{samples.sample_ids[index]}:"
+                f"{int(samples.membership[index])}:{int(samples.labels[index])}"
+            )
+    return hashlib.sha256("\n".join(values).encode("utf-8")).hexdigest()
 
 
 def candidate_partitions(
@@ -168,6 +203,40 @@ def main() -> None:
         args.reference_dir if args.reference_dir.is_absolute() else repo_root / args.reference_dir
     )
     out_root = args.out_dir if args.out_dir.is_absolute() else repo_root / args.out_dir
+    target_row = read_target_row(targets, args.target_id)
+    label_quotas = label_quotas_for_protocol(
+        target_row.get("confirmatory_protocol", "")
+    )
+    quota_plan_name = (
+        CONFIRMATORY_CREDIT_QUOTA_PLAN if label_quotas is not None else None
+    )
+    protocol_arguments = {
+        "defense": str(args.defense),
+        "num_references": int(args.num_references),
+        "mc_samples": int(args.mc_samples),
+        "seed": int(args.seed),
+        "batch_size": int(args.batch_size),
+        "defense_per_class": int(args.defense_per_class),
+        "attack_per_class": int(args.attack_per_class),
+        "evaluation_per_class": int(args.evaluation_per_class),
+        "quota_plan_name": quota_plan_name,
+        "discriminator_epochs": int(args.discriminator_epochs),
+        "optimizer_iterations": int(args.optimizer_iterations),
+        "shots": int(args.shots),
+        "logit_quantization_step": float(args.logit_quantization_step),
+        "sticky_resolution": float(args.sticky_resolution),
+        "sticky_secret_sha256": (
+            hashlib.sha256(args.sticky_secret.encode("utf-8")).hexdigest()
+            if args.sticky_secret
+            else None
+        ),
+        "dynanoise_base_variance": float(args.dynanoise_base_variance),
+        "dynanoise_lambda": float(args.dynanoise_lambda),
+        "dynanoise_temperature": float(args.dynanoise_temperature),
+        "dynanoise_ensemble": int(args.dynanoise_ensemble),
+        "lira_score_protocol": LIRA_SCORE_PROTOCOL,
+    }
+
     out = out_root / args.target_id / "lira"
     out.mkdir(parents=True, exist_ok=True)
     metrics_path = out / f"{args.defense}_metrics.json"
@@ -177,9 +246,15 @@ def main() -> None:
         except (json.JSONDecodeError, OSError):
             existing = {}
         if (
-            existing.get("protocol") == "pets_adaptive_defended_lira_v3"
-            and existing.get("partition_protocol") == PARTITION_PROTOCOL
+            existing.get("protocol") == "pets_adaptive_defended_lira_v5"
+            and existing.get("partition_protocol")
+            == (
+                CONFIRMATORY_PARTITION_PROTOCOL
+                if label_quotas is not None
+                else PARTITION_PROTOCOL
+            )
             and existing.get("task_label_matched") is True
+            and existing.get("protocol_arguments") == protocol_arguments
         ):
             print(f"[SKIP] {metrics_path.resolve()}")
             return
@@ -189,10 +264,9 @@ def main() -> None:
         repo_root, targets, args.target_id, device
     )
     training_defense = str(row.get("training_defense", "none")).strip().lower()
-    if training_defense not in {"none", "l2"}:
+    if training_defense not in {"none", "l2", "hamp_train", "dp_qml"}:
         raise NotImplementedError(
-            "Adaptive defended LiRA references currently support standard and L2 "
-            "reference training. HAMP/DP references require their matched training loops."
+            f"defended LiRA has no matched reference training loop for {training_defense!r}"
         )
     structural = cell_id(row)
     target_model, _ = instantiate_model(qmain, row, config, device)
@@ -207,6 +281,8 @@ def main() -> None:
         attack_per_class=args.attack_per_class,
         evaluation_per_class=args.evaluation_per_class,
         seed=args.seed,
+        label_quotas=label_quotas,
+        quota_plan_name=quota_plan_name,
     )
     attack_full, evaluation_full = candidate_partitions(
         samples,
@@ -219,6 +295,9 @@ def main() -> None:
     if len(np.unique(selected)) != len(selected):
         raise RuntimeError("selected defended-LiRA candidates overlap")
     selected_tensor = torch.as_tensor(selected, dtype=torch.long)
+    selection_fingerprint = lira_selection_fingerprint(
+        samples, partitions, attack_full, evaluation_full
+    )
     attack_indices = np.arange(len(attack_full), dtype=int)
     evaluation_indices = np.arange(len(attack_full), len(selected), dtype=int)
     defense_x, _, defense_membership, defense_ids = materialize(
@@ -226,7 +305,8 @@ def main() -> None:
     )
     defense_x = preprocess_like_train(defense_x, device)
     defense_membership = defense_membership.to(device)
-    target_raw = RawOracle(target_model)
+    target_threshold = target_decision_threshold(target_model_path, required=True)
+    target_raw = RawOracle(target_model, decision_threshold=target_threshold)
     raw_defense = batch_predict(target_raw, defense_x, defense_ids, args.batch_size)
     discriminator, _ = fit_membership_discriminator(
         raw_defense.probabilities,
@@ -285,7 +365,20 @@ def main() -> None:
         state = saved["state_dict"] if isinstance(saved, dict) and "state_dict" in saved else saved
         reference_model.load_state_dict(state, strict=False)
         reference_model.eval()
-        raw_reference = RawOracle(reference_model)
+        reference_threshold = None
+        if isinstance(saved, dict):
+            reference_threshold = saved.get("decision_threshold")
+        if target_threshold is not None and reference_threshold is None:
+            raise RuntimeError(
+                f"reference checkpoint {checkpoint} lacks its validation-frozen "
+                "decision threshold; rebuild the reference bank"
+            )
+        raw_reference = RawOracle(
+            reference_model,
+            decision_threshold=(
+                None if reference_threshold is None else float(reference_threshold)
+            ),
+        )
         reference_args = copy.copy(args)
         reference_args.seed = args.seed + 10_000 + reference_id
         reference_oracle = build_defenses(
@@ -321,11 +414,16 @@ def main() -> None:
         }
     )
     for attack, score in scores.items():
+        # Every score has a predeclared member-higher orientation (likelihood
+        # ratio, one-sided OUT tail, OUT-density surprise, or true-class log odds).
+        # Pin that orientation rather than relearning it from 50 calibration
+        # members independently in every block.
         metrics = adaptive_threshold_metrics(
             torch.tensor(score[attack_indices]),
             torch.tensor(membership[attack_indices]),
             torch.tensor(score[evaluation_indices]),
             torch.tensor(membership[evaluation_indices]),
+            orientation="fixed",
         )
         rows.append(
             {
@@ -343,7 +441,7 @@ def main() -> None:
         sample_frame[attack] = score
     sample_frame.to_csv(out / f"{args.defense}_sample_scores.csv", index=False)
     payload = {
-        "protocol": "pets_adaptive_defended_lira_v3",
+        "protocol": "pets_adaptive_defended_lira_v5",
         "target_id": args.target_id,
         "defense": args.defense,
         "training_defense": training_defense,
@@ -353,8 +451,14 @@ def main() -> None:
         "full_candidate_pool": len(samples.labels),
         "scored_candidates": len(selected),
         "candidate_fingerprint": bank_metadata["candidate_fingerprint"],
-        "partition_protocol": PARTITION_PROTOCOL,
-        "partition_fingerprint": partition_fingerprint(partitions),
+        "partition_protocol": partitions.protocol,
+        "partition_fingerprint": selection_fingerprint,
+        "partition_fingerprint_scheme": "pets_lira_actual_selection_v1",
+        "source_partition_fingerprint": partition_fingerprint(partitions),
+        "quota_plan_name": quota_plan_name,
+        "member_task_label_quotas": partitions.to_json().get(
+            "member_task_label_quotas"
+        ),
         "task_label_matched": True,
         "candidate_partition": {
             "attack_calibration": {
@@ -374,7 +478,13 @@ def main() -> None:
         "reference_outputs_defended": True,
         "target_output_defended": True,
         "defense_config": dict(target_oracle.config),
+        "protocol_arguments": protocol_arguments,
+        "lira_score_protocol": LIRA_SCORE_PROTOCOL,
         "membership_encoding": "1=member,0=nonmember",
+        "target_decision_threshold": target_threshold,
+        "target_label_rule": (
+            "binary_probability_threshold" if target_threshold is not None else "argmax"
+        ),
         "rows": rows,
     }
     metrics_path.write_text(json.dumps(payload, indent=2) + "\n")

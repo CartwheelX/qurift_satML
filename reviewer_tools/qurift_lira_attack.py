@@ -36,6 +36,7 @@ os.environ.setdefault("CUBLAS_WORKSPACE_CONFIG", ":4096:8")
 import numpy as np
 import pandas as pd
 import torch
+from scipy.special import log_ndtr
 from sklearn.metrics import roc_auc_score
 
 from qurift_target_loader import (
@@ -45,6 +46,7 @@ from qurift_target_loader import (
     import_qurift_main,
     instantiate_model,
     load_saved_model,
+    preprocess_like_train,
     read_target_row,
     resolve_target_paths,
     select_member_nonmember_samples,
@@ -63,10 +65,27 @@ from reviewer_common import (
 
 
 REFERENCE_COMMITS = {
+    "tensorflow/privacy/research/mi_lira_2021": (
+        "c5a3633e84f1a296c7e362e7c1926aead4063359"
+    ),
     "orientino/lira-pytorch": "50dc2a3fc5e66628d48bf07e05c8c33f9703c789",
     "antibloch/mia_attacks": "9c09fe9d9be982e203df303fb450375f2333987b",
     "Pierre-Joly/Membership-Inference-Attacks": "9182ed809d9fa3d5141d50816b7e83a06590371b",
 }
+LIRA_SCORE_PROTOCOL = "carlini_eq4_one_sided_with_released_density_aux_v1"
+LIRA_ATTACK_NAMES = frozenset(
+    {
+        "lira_online",
+        "lira_online_fixed_variance",
+        "lira_offline",
+        "lira_offline_fixed_variance",
+        "lira_offline_one_sided_z",
+        "lira_offline_one_sided_z_fixed_variance",
+        "lira_offline_density_surprise",
+        "lira_offline_density_surprise_fixed_variance",
+        "global_true_class_log_odds",
+    }
+)
 
 
 def safe_name(value: Any) -> str:
@@ -74,19 +93,120 @@ def safe_name(value: Any) -> str:
     return text or "unnamed"
 
 
+def row_number(row: Mapping[str, Any], key: str, default: float) -> float:
+    value = row.get(key, default)
+    try:
+        return float(default) if pd.isna(value) else float(value)
+    except (TypeError, ValueError):
+        return float(default)
+
+
+def row_integer(row: Mapping[str, Any], key: str, default: int) -> int:
+    return int(round(row_number(row, key, default)))
+
+
+def training_mode(row: Mapping[str, Any]) -> str:
+    mode = str(row.get("training_defense", "none")).strip().lower()
+    return "none" if mode in {"", "nan", "none"} else mode
+
+
+def training_signature(row: Mapping[str, Any]) -> str:
+    """Identify the complete reference-training mechanism used by one bank."""
+
+    mode = training_mode(row)
+    if mode == "none":
+        return "none"
+    if mode == "l2":
+        return f"l2_wd{row_number(row, 'weight_decay', 0.0):g}"
+    if mode == "hamp_train":
+        return (
+            f"hamp_g{row_number(row, 'hamp_gamma', 0.95):g}"
+            f"_a{row_number(row, 'hamp_alpha', 0.001):g}"
+            f"_wd{row_number(row, 'weight_decay', 0.0):g}"
+            f"_b{row_integer(row, 'batch_size', 16)}"
+            f"_e{row_integer(row, 'epochs', 100)}"
+            f"_lr{row_number(row, 'learning_rate', 0.05):g}"
+        )
+    if mode == "dp_qml":
+        return (
+            f"dp_eps{row_number(row, 'dp_target_epsilon', 4.0):g}"
+            f"_del{row_number(row, 'dp_delta', 1e-5):g}"
+            f"_c{row_number(row, 'dp_max_grad_norm', 1.0):g}"
+            f"_b{row_integer(row, 'dp_batch_size', 32)}"
+            f"_e{row_integer(row, 'dp_epochs', 30)}"
+            f"_lr{row_number(row, 'dp_learning_rate', 0.05):g}"
+            f"_wd{row_number(row, 'weight_decay', 0.0):g}"
+        )
+    raise ValueError(f"unsupported reference training defense {mode!r}")
+
+
 def cell_id(row: Mapping[str, Any]) -> str:
     explicit = str(row.get("structural_cell_id", "")).strip()
-    weight_decay = float(row.get("weight_decay", 0.0) or 0.0)
     block = str(row.get("block_id", "")).strip()
     block_suffix = "" if block.lower() in {"", "nan", "none"} else f"_block{block}"
+    mode = training_mode(row)
+    # Preserve the established none/L2 bank names so completed rebuttal banks
+    # remain readable. HAMP and DP previously collided with the ordinary wd=0
+    # bank, so only those newer mechanisms need an explicit signature suffix.
+    if mode in {"none", "l2"}:
+        weight_decay = row_number(row, "weight_decay", 0.0)
+        training_suffix = f"_wd{weight_decay:g}"
+    else:
+        training_suffix = f"_train_{training_signature(row)}"
     if explicit and explicit.lower() not in {"nan", "none"}:
         base = explicit.split("|", 1)[0]
-        return safe_name(f"{base}_wd{weight_decay:g}{block_suffix}")
+        return safe_name(f"{base}{training_suffix}{block_suffix}")
     base = (
         f"{row.get('architecture', 'qnn')}_{row.get('fm_kind', 'unknown')}"
         f"_r{int(float(row.get('reps', 0)))}_d{int(float(row.get('depth', 0)))}"
     )
-    return safe_name(f"{base}_wd{weight_decay:g}{block_suffix}")
+    return safe_name(f"{base}{training_suffix}{block_suffix}")
+
+
+def reference_pairing_id(row: Mapping[str, Any]) -> str:
+    """Common-random identity shared by all defense arms of one target block."""
+
+    explicit = str(row.get("structural_cell_id", "")).strip()
+    if explicit and explicit.lower() not in {"nan", "none"}:
+        structural = explicit.split("|", 1)[0]
+    else:
+        structural = (
+            f"{row.get('architecture', 'qnn')}_{row.get('fm_kind', 'unknown')}"
+            f"_r{int(float(row.get('reps', 0)))}_d{int(float(row.get('depth', 0)))}"
+        )
+    block = str(row.get("block_id", "")).strip()
+    return safe_name(
+        f"{row.get('dataset', 'dataset')}_{structural}_block{block}"
+    )
+
+
+def reference_training_spec(
+    row: Mapping[str, Any], *, epochs_override: int | None = None
+) -> dict[str, Any]:
+    mode = training_mode(row)
+    if mode == "dp_qml":
+        spec = {
+            "mode": mode,
+            "epochs": row_integer(row, "dp_epochs", 30),
+            "batch_size": row_integer(row, "dp_batch_size", 32),
+            "learning_rate": row_number(row, "dp_learning_rate", 0.05),
+            "optimizer": "rmsprop",
+            "scheduler": "none",
+        }
+    else:
+        spec = {
+            "mode": mode,
+            "epochs": row_integer(row, "epochs", 100),
+            "batch_size": row_integer(row, "batch_size", 16),
+            "learning_rate": row_number(row, "learning_rate", 0.05),
+            "optimizer": "adam",
+            "scheduler": "cosine_annealing",
+        }
+    if epochs_override is not None:
+        spec["epochs"] = int(epochs_override)
+    if spec["epochs"] <= 0 or spec["batch_size"] <= 0 or spec["learning_rate"] <= 0:
+        raise ValueError(f"invalid reference training specification: {spec}")
+    return spec
 
 
 def tensor_fingerprint(inputs: torch.Tensor, labels: torch.Tensor) -> str:
@@ -192,14 +312,30 @@ def attack_scores(
     online_fixed = normal_logpdf(observed, mean_in, fixed_in) - normal_logpdf(
         observed, mean_out, fixed_out
     )
-    # Offline LiRA treats a low OUT likelihood as evidence of membership.
-    offline = -normal_logpdf(observed, mean_out, std_out)
-    offline_fixed = -normal_logpdf(observed, mean_out, fixed_out)
+    # Carlini et al., Eq. (4), changes offline LiRA to a one-sided hypothesis
+    # test using only the OUT distribution.  log Phi(z) is the numerically
+    # stable log-CDF form of that test.  It is strictly monotone in z, so the
+    # explicit z-score aliases below have identical ROC/AUC rankings.
+    offline_one_sided = (observed - mean_out) / std_out
+    offline_one_sided_fixed = (observed - mean_out) / fixed_out
+    offline = log_ndtr(offline_one_sided)
+    offline_fixed = log_ndtr(offline_one_sided_fixed)
+
+    # The authors' released TensorFlow Privacy artifact instead evaluates OUT
+    # density surprise (-log PDF), which is two-sided.  Preserve that useful
+    # implementation comparator, but do not label it as the paper's one-sided
+    # offline LiRA definition.
+    offline_density = -normal_logpdf(observed, mean_out, std_out)
+    offline_density_fixed = -normal_logpdf(observed, mean_out, fixed_out)
     return {
         "lira_online": online,
         "lira_online_fixed_variance": online_fixed,
         "lira_offline": offline,
         "lira_offline_fixed_variance": offline_fixed,
+        "lira_offline_one_sided_z": offline_one_sided,
+        "lira_offline_one_sided_z_fixed_variance": offline_one_sided_fixed,
+        "lira_offline_density_surprise": offline_density,
+        "lira_offline_density_surprise_fixed_variance": offline_density_fixed,
         "global_true_class_log_odds": observed,
     }
 
@@ -258,6 +394,200 @@ def load_context(
     return qmain, row, dataset, config, samples
 
 
+def _initialize_reference_dp(
+    row: Mapping[str, Any],
+    model,
+    optimizer,
+    train_dataset,
+    *,
+    batch_size: int,
+    epochs: int,
+    seed: int,
+) -> dict[str, Any]:
+    """Build the DP-SGD session a dp_qml reference model trains under.
+
+    The reference must be calibrated to the same target epsilon as the model it
+    calibrates, over its own training-set size, or the OUT distribution it
+    contributes is drawn from a different mechanism than the target's.
+    """
+
+    import math as _math
+
+    from qurift.defenses.dp_training import (
+        DPConfig,
+        DPTrainingSession,
+        PoissonIndexSampler,
+        calibrate_noise_multiplier,
+    )
+
+    population = len(train_dataset)
+    if population <= 0:
+        raise ValueError("dp_qml reference training needs a non-empty training subset")
+    sample_rate = float(batch_size) / float(population)
+    target_epsilon = row_number(row, "dp_target_epsilon", 4.0)
+    delta = row_number(row, "dp_delta", 1e-5)
+    steps_per_epoch = int(_math.ceil(population / float(batch_size)))
+    try:
+        from opacus.accountants.utils import get_noise_multiplier
+    except ImportError as error:
+        raise RuntimeError("DP reference calibration requires opacus==1.5.4") from error
+    initial = float(
+        get_noise_multiplier(
+            target_epsilon=target_epsilon,
+            target_delta=delta,
+            sample_rate=sample_rate,
+            epochs=epochs,
+            accountant="rdp",
+        )
+    )
+    noise_multiplier, _ = calibrate_noise_multiplier(
+        target_epsilon=target_epsilon,
+        delta=delta,
+        sample_rate=sample_rate,
+        steps=steps_per_epoch * int(epochs),
+        initial_noise_multiplier=initial,
+    )
+    config = DPConfig(
+        max_grad_norm=row_number(row, "dp_max_grad_norm", 1.0),
+        noise_multiplier=noise_multiplier,
+        sample_rate=sample_rate,
+        delta=delta,
+        expected_batch_size=int(batch_size),
+    )
+    # Sampling and noise draw independent OS entropy, matching how the target's
+    # DP session is constructed; the privacy analysis needs them independent, so
+    # the reference seed is deliberately not threaded through here.
+    return {
+        "session": DPTrainingSession(model, optimizer, config),
+        "sampler": PoissonIndexSampler(population, sample_rate),
+        "dataset": train_dataset,
+        "steps_per_epoch": steps_per_epoch,
+    }
+
+
+def _reference_epoch(
+    mode: str,
+    model,
+    dataflow,
+    device,
+    optimizer,
+    qmain,
+    *,
+    row: Mapping[str, Any],
+    dp_state: Mapping[str, Any] | None,
+) -> tuple[float, float]:
+    """Run one reference-training epoch under the target's training defense.
+
+    LiRA calibration assumes the reference models are drawn from the same
+    training procedure as the target.  A reference trained with plain NLL cannot
+    calibrate a HAMP or DP-SGD target: its loss distribution is shaped by a
+    different objective, so the likelihood ratio is measured against the wrong
+    null.  Each arm therefore trains through its own loop here.
+    """
+
+    import torch.nn.functional as F
+
+    from qurift.defenses.dp_training import DPTrainingSession, PoissonIndexSampler
+    from qurift.defenses.hamp import hamp_training_loss, hamp_true_probability_from_gamma
+
+    if mode in {"none", "l2"}:
+        return qmain.train_one_epoch(dataflow, model, device, optimizer)
+
+    if mode == "hamp_train":
+        num_classes = int(getattr(model.cfg, "num_classes", 2))
+        true_probability = hamp_true_probability_from_gamma(
+            row_number(row, "hamp_gamma", 0.95), num_classes
+        )
+        entropy_weight = row_number(row, "hamp_alpha", 0.001)
+        model.train()
+        total_loss, correct, total = 0.0, 0, 0
+        for feed in dataflow["train"]:
+            inputs = preprocess_like_train(feed["image"], device)
+            labels = feed["digit"].to(device).long()
+            output = model(inputs)
+            loss, _ = hamp_training_loss(
+                output,
+                labels,
+                true_class_probability=true_probability,
+                entropy_weight=entropy_weight,
+            )
+            optimizer.zero_grad(set_to_none=True)
+            loss.backward()
+            optimizer.step()
+            total_loss += float(loss.detach().item()) * len(labels)
+            correct += int((output.argmax(1) == labels).sum().item())
+            total += len(labels)
+        return total_loss / max(total, 1), correct / max(total, 1)
+
+    if mode == "dp_qml":
+        if dp_state is None:
+            raise ValueError("dp_qml reference training requires an initialized DP session")
+        session: DPTrainingSession = dp_state["session"]
+        sampler: PoissonIndexSampler = dp_state["sampler"]
+        dataset = dp_state["dataset"]
+        model.train()
+        for _ in range(int(dp_state["steps_per_epoch"])):
+            indices = sampler.sample()
+            if len(indices) == 0:
+                session.step(torch.empty(0, device=device))
+                continue
+            batch = [dataset[int(index)] for index in indices.tolist()]
+            inputs = preprocess_like_train(
+                torch.stack([item["image"] for item in batch]), device
+            )
+            labels = torch.stack(
+                [torch.as_tensor(item["digit"]) for item in batch]
+            ).to(device).long()
+            losses = F.nll_loss(model(inputs), labels, reduction="none")
+            session.step(losses)
+        return float("nan"), float("nan")
+
+    raise ValueError(f"unsupported reference training defense {mode!r}")
+
+
+@torch.no_grad()
+def reference_decision_rule(
+    model,
+    valid_dataset,
+    *,
+    device: torch.device,
+    batch_size: int,
+) -> dict[str, Any] | None:
+    """Select the reference model's label rule from validation only."""
+
+    from qurift.defenses.utility import select_binary_decision_threshold
+
+    loader = torch.utils.data.DataLoader(
+        valid_dataset,
+        batch_size=int(batch_size),
+        shuffle=False,
+        num_workers=0,
+    )
+    probabilities = []
+    labels = []
+    model.eval()
+    for feed in loader:
+        inputs = preprocess_like_train(feed["image"], device)
+        probabilities.append(model(inputs).exp().detach().cpu())
+        labels.append(feed["digit"].detach().cpu().long())
+    probability = torch.cat(probabilities)
+    label = torch.cat(labels)
+    if probability.shape[1] != 2:
+        return None
+    rule = select_binary_decision_threshold(
+        probability.numpy(), label.numpy()
+    )
+    rule.update(
+        {
+            "selection_split": "valid",
+            "score": "class_1_probability",
+            "test_records_consulted": 0,
+            "attack_metrics_consulted": False,
+        }
+    )
+    return rule
+
+
 def train_reference(args: argparse.Namespace) -> None:
     repo_root = args.repo_root.resolve()
     device = torch.device(args.device)
@@ -269,15 +599,45 @@ def train_reference(args: argparse.Namespace) -> None:
     checkpoint_output = reference_checkpoint_path(
         args.out_dir, structural_cell, args.reference_id
     )
+    spec = reference_training_spec(row, epochs_override=args.epochs)
+    signature = training_signature(row)
+    strict_v2 = str(row.get("confirmatory_protocol", "")).strip() == (
+        "pets_credit_three_regime_v2"
+    )
+    pairing_id = reference_pairing_id(row) if strict_v2 else structural_cell
+    candidate_fingerprint = tensor_fingerprint(samples.inputs, samples.labels)
     if args.resume and output.exists():
         try:
             with np.load(output, allow_pickle=False) as saved:
+                schedule_complete = True
+                signature_complete = (
+                    str(saved["training_signature"]) == signature
+                    if "training_signature" in saved.files
+                    else not strict_v2
+                )
+                candidate_complete = (
+                    str(saved["candidate_fingerprint"]) == candidate_fingerprint
+                )
+                if strict_v2:
+                    schedule_complete = (
+                        int(saved["batch_size"]) == int(spec["batch_size"])
+                        and math.isclose(
+                            float(saved["learning_rate"]),
+                            float(spec["learning_rate"]),
+                            rel_tol=0.0,
+                            abs_tol=1e-12,
+                        )
+                        and str(saved["optimizer"]) == str(spec["optimizer"])
+                        and str(saved["scheduler"]) == str(spec["scheduler"])
+                        and str(saved["reference_pairing_id"]) == pairing_id
+                    )
                 score_complete = (
                     int(saved["num_references"]) == args.num_references
                     and int(saved["reference_id"]) == args.reference_id
-                    and int(saved["epochs"]) == (
-                        args.epochs if args.epochs is not None else int(float(row["epochs"]))
-                    )
+                    and int(saved["epochs"]) == int(spec["epochs"])
+                    and signature_complete
+                    and schedule_complete
+                    and candidate_complete
                 )
                 checkpoint_complete = (
                     not args.save_checkpoint
@@ -290,10 +650,10 @@ def train_reference(args: argparse.Namespace) -> None:
             pass
 
     reference_seed = stable_seed(
-        args.seed, structural_cell, args.reference_id, "qurift_lira_reference"
+        args.seed, pairing_id, args.reference_id, "qurift_lira_reference"
     )
     design = balanced_inclusion_matrix(
-        args.num_references, len(samples.labels), stable_seed(args.seed, structural_cell)
+        args.num_references, len(samples.labels), stable_seed(args.seed, pairing_id)
     )
     inclusion = design[args.reference_id]
     expected_train = int(float(row.get("vector_train", inclusion.sum())))
@@ -314,10 +674,10 @@ def train_reference(args: argparse.Namespace) -> None:
     seed_row["model_seed"] = int(reference_seed)
     set_all_seeds(reference_seed)
     model, _ = instantiate_model(qmain, seed_row, config, device)
-    learning_rate = float(row.get("learning_rate", 0.05))
-    weight_decay = float(row.get("weight_decay", 0.0))
-    epochs = args.epochs if args.epochs is not None else int(float(row.get("epochs", 100)))
-    batch_size = int(float(row.get("batch_size", 16)))
+    learning_rate = float(spec["learning_rate"])
+    weight_decay = row_number(row, "weight_decay", 0.0)
+    epochs = int(spec["epochs"])
+    batch_size = int(spec["batch_size"])
     generator = torch.Generator()
     generator.manual_seed(reference_seed)
     train_loader = torch.utils.data.DataLoader(
@@ -332,24 +692,63 @@ def train_reference(args: argparse.Namespace) -> None:
         dataset["valid"], batch_size=batch_size, shuffle=False, num_workers=0
     )
     dataflow = {"train": train_loader, "valid": valid_loader}
-    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
-    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=epochs)
+    if spec["optimizer"] == "rmsprop":
+        optimizer = torch.optim.RMSprop(
+            model.parameters(), lr=learning_rate, weight_decay=weight_decay
+        )
+        scheduler = None
+    else:
+        optimizer = torch.optim.Adam(
+            model.parameters(), lr=learning_rate, weight_decay=weight_decay
+        )
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer, T_max=epochs
+        )
+    mode = str(spec["mode"])
+    dp_state = None
+    if mode == "dp_qml":
+        dp_state = _initialize_reference_dp(
+            row,
+            model,
+            optimizer,
+            train_dataset,
+            batch_size=batch_size,
+            epochs=epochs,
+            seed=reference_seed,
+        )
     final_train_loss = final_train_acc = float("nan")
     final_valid_loss = final_valid_acc = float("nan")
     for epoch in range(1, epochs + 1):
-        final_train_loss, final_train_acc = qmain.train_one_epoch(
-            dataflow, model, device, optimizer
+        final_train_loss, final_train_acc = _reference_epoch(
+            mode, model, dataflow, device, optimizer, qmain, row=row, dp_state=dp_state
         )
         final_valid_loss, final_valid_acc = qmain.evaluate(
             dataflow, "valid", model, device
         )
-        scheduler.step()
+        if scheduler is not None:
+            scheduler.step()
         if epoch == 1 or epoch == epochs or epoch % max(epochs // 10, 1) == 0:
             print(
                 f"[reference {args.reference_id:03d}] epoch={epoch}/{epochs} "
                 f"train_acc={final_train_acc:.3f} valid_acc={final_valid_acc:.3f}",
                 flush=True,
             )
+
+    decision_rule = reference_decision_rule(
+        model,
+        dataset["valid"],
+        device=device,
+        batch_size=batch_size,
+    )
+    decision_threshold = (
+        None if decision_rule is None else float(decision_rule["threshold"])
+    )
+    privacy_report = None
+    if dp_state is not None:
+        privacy_report = dict(dp_state["session"].privacy_report())
+        privacy_report["target_epsilon"] = row_number(
+            row, "dp_target_epsilon", 4.0
+        )
 
     probabilities = exact_probabilities(
         model, samples, device=device, batch_size=batch_size
@@ -367,21 +766,30 @@ def train_reference(args: argparse.Namespace) -> None:
             membership=samples.membership.numpy().astype(np.uint8),
             sample_ids=np.asarray(samples.sample_ids),
             candidate_fingerprint=np.asarray(
-                tensor_fingerprint(samples.inputs, samples.labels)
+                candidate_fingerprint
             ),
             structural_cell=np.asarray(structural_cell),
+            reference_pairing_id=np.asarray(pairing_id),
+            training_signature=np.asarray(signature),
+            training_defense=np.asarray(mode),
             target_template=np.asarray(args.target_id),
             reference_id=np.asarray(args.reference_id),
             num_references=np.asarray(args.num_references),
             reference_seed=np.asarray(reference_seed),
             epochs=np.asarray(epochs),
+            batch_size=np.asarray(batch_size),
             learning_rate=np.asarray(learning_rate),
+            optimizer=np.asarray(str(spec["optimizer"])),
+            scheduler=np.asarray(str(spec["scheduler"])),
             weight_decay=np.asarray(weight_decay),
             train_size=np.asarray(int(inclusion.sum())),
             final_train_loss=np.asarray(final_train_loss),
             final_train_acc=np.asarray(final_train_acc),
             final_valid_loss=np.asarray(final_valid_loss),
             final_valid_acc=np.asarray(final_valid_acc),
+            decision_threshold=np.asarray(
+                np.nan if decision_threshold is None else decision_threshold
+            ),
         )
     temporary.replace(output)
     if args.save_checkpoint:
@@ -397,9 +805,19 @@ def train_reference(args: argparse.Namespace) -> None:
                 "num_references": int(args.num_references),
                 "reference_seed": int(reference_seed),
                 "structural_cell": structural_cell,
+                "reference_pairing_id": pairing_id,
+                "training_signature": signature,
+                "training_defense": mode,
                 "target_template": args.target_id,
-                "candidate_fingerprint": tensor_fingerprint(samples.inputs, samples.labels),
+                "candidate_fingerprint": candidate_fingerprint,
                 "epochs": int(epochs),
+                "batch_size": int(batch_size),
+                "learning_rate": float(learning_rate),
+                "optimizer": str(spec["optimizer"]),
+                "scheduler": str(spec["scheduler"]),
+                "decision_rule": decision_rule,
+                "decision_threshold": decision_threshold,
+                "privacy": privacy_report,
             },
             checkpoint_temporary,
         )
@@ -461,8 +879,18 @@ def score_target(args: argparse.Namespace) -> None:
     structural_cell = cell_id(row)
     output = args.out_dir / "target_scores" / f"{safe_name(args.target_id)}.csv"
     if args.resume and output.exists():
-        print(f"[SKIP] target score exists: {output.resolve()}")
-        return
+        existing = pd.read_csv(output)
+        if (
+            set(existing.get("lira_score_protocol", pd.Series(dtype=str)).astype(str))
+            == {LIRA_SCORE_PROTOCOL}
+            and set(existing.get("attack", pd.Series(dtype=str)).astype(str))
+            == LIRA_ATTACK_NAMES
+        ):
+            print(f"[SKIP] target score exists: {output.resolve()}")
+            return
+        raise RuntimeError(
+            f"stale LiRA target score must be archived before resume: {output}"
+        )
 
     model, _ = instantiate_model(qmain, row, config, device)
     model_path, _ = resolve_target_paths(row, args.run_root)
@@ -497,6 +925,7 @@ def score_target(args: argparse.Namespace) -> None:
             labels=labels.astype(np.int64),
             sample_ids=np.asarray(samples.sample_ids),
             observed_log_odds=observed.astype(np.float32),
+            lira_score_protocol=np.asarray(LIRA_SCORE_PROTOCOL),
             **{
                 attack: values.astype(np.float32)
                 for attack, values in scores_by_attack.items()
@@ -528,6 +957,7 @@ def score_target(args: argparse.Namespace) -> None:
             "reps": int(float(row.get("reps", 0))),
             "depth": int(float(row.get("depth", 0))),
             "attack": attack,
+            "lira_score_protocol": LIRA_SCORE_PROTOCOL,
             "auc": auc,
             "auc_record_ci95_low": low,
             "auc_record_ci95_high": high,
@@ -567,6 +997,20 @@ def aggregate(args: argparse.Namespace) -> None:
     if not paths:
         raise SystemExit(f"No per-target scores found under {args.out_dir / 'target_scores'}")
     raw = pd.concat([pd.read_csv(path) for path in paths], ignore_index=True)
+    if "lira_score_protocol" not in raw or set(raw.lira_score_protocol.astype(str)) != {
+        LIRA_SCORE_PROTOCOL
+    }:
+        raise RuntimeError(
+            "LiRA aggregation found stale or mixed score semantics; archive and "
+            "rescore the affected targets"
+        )
+    attack_sets = raw.groupby("target_id").attack.agg(lambda values: set(map(str, values)))
+    incomplete = attack_sets[attack_sets.map(lambda values: values != LIRA_ATTACK_NAMES)]
+    if len(incomplete):
+        raise RuntimeError(
+            "LiRA aggregation found incomplete attack families for targets: "
+            + ", ".join(map(str, incomplete.index[:10]))
+        )
     raw_path = args.out_dir / "lira_reference_mia_raw.csv"
     atomic_write_csv(raw, raw_path)
     group_columns = [
@@ -614,6 +1058,9 @@ def aggregate(args: argparse.Namespace) -> None:
         error_bar_type="mean ± sample SD across target-model seeds",
         notes=(
             "Online/offline LiRA with per-record balanced IN/OUT reference models. "
+            "Paper-defined offline LiRA uses the one-sided OUT log-CDF; explicit z-score "
+            "aliases preserve the same ranking. The released-artifact negative OUT "
+            "log-density score is retained under a distinct auxiliary name. "
             "References train on the union of the target-training members and an equal-size "
             "deterministic target-test candidate subset, with half included per model. This is calibrated "
             "reference-model evidence, not a claim of target/reference distribution identity."
@@ -623,6 +1070,7 @@ def aggregate(args: argparse.Namespace) -> None:
         {
             "reference_implementations_studied": REFERENCE_COMMITS,
             "implementation": "independent QuRiFT integration",
+            "lira_score_protocol": LIRA_SCORE_PROTOCOL,
             "raw_rows": len(raw),
             "target_files": len(paths),
         },

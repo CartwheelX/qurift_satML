@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -44,11 +45,18 @@ from qurift.defenses.memguard import MemGuardOracle  # noqa: E402
 from qurift.defenses.oracle import RawOracle  # noqa: E402
 from qurift.defenses.utility import classification_utility  # noqa: E402
 from qurift.defenses.protocol import (  # noqa: E402
+    CONFIRMATORY_CREDIT_QUOTA_PLAN,
+    CONFIRMATORY_PARTITION_PROTOCOL,
     PARTITION_PROTOCOL,
     RecordRef,
-    build_defense_partitions,
-    partition_fingerprint,
+    label_quotas_for_protocol,
     task_labels_from_dataset,
+)
+from qurift.defenses.protocol_pooled import (  # noqa: E402
+    POOLED_CONFIRMATORY_PARTITION_PROTOCOL,
+    POOLED_PARTITION_PROTOCOL,
+    build_pooled_defense_partitions,
+    pooled_partition_fingerprint,
 )
 from qurift_target_loader import (  # noqa: E402
     build_config,
@@ -62,7 +70,7 @@ from qurift_target_loader import (  # noqa: E402
 )
 
 
-EVALUATION_PROTOCOL = "pets_defense_evaluation_v3"
+EVALUATION_PROTOCOL = "pets_defense_evaluation_v5"
 
 
 def atomic_json(path: Path, payload: Mapping[str, Any]) -> None:
@@ -72,15 +80,23 @@ def atomic_json(path: Path, payload: Mapping[str, Any]) -> None:
     temporary.replace(path)
 
 
-def target_decision_threshold(model_path: Path):
+def target_decision_threshold(model_path: Path, *, required: bool = False):
     """Load the validation-frozen binary threshold stored with a checkpoint."""
 
     metadata_path = model_path.with_name("training_metadata.json")
     if not metadata_path.exists():
+        if required:
+            raise FileNotFoundError(
+                f"missing decision-rule metadata for binary PETS target: {metadata_path}"
+            )
         return None
     payload = json.loads(metadata_path.read_text())
     rule = payload.get("decision_rule")
     if not isinstance(rule, Mapping):
+        if required:
+            raise RuntimeError(
+                f"binary PETS target has no validation-frozen decision rule: {metadata_path}"
+            )
         return None
     if rule.get("selection_split") != "valid" or int(rule.get("test_records_consulted", -1)) != 0:
         raise RuntimeError(f"invalid target decision-rule provenance: {metadata_path}")
@@ -243,6 +259,19 @@ def main() -> None:
     parser.add_argument("--defense-per-class", type=int, default=50)
     parser.add_argument("--attack-per-class", type=int, default=50)
     parser.add_argument("--evaluation-per-class", type=int, default=100)
+    parser.add_argument(
+        "--evaluation-nonmember-multiplier",
+        type=int,
+        default=1,
+        help=(
+            "Widen ONLY the final-evaluation non-member side by this integer "
+            "factor, drawing the extra records from the held-out test split. "
+            "1 (default) reproduces the frozen partition contract bit for bit. "
+            "Higher values shrink the per-block AUC standard error without "
+            "changing which records are members. Write these runs to a separate "
+            "--out-dir; they are not interchangeable with frozen-contract runs."
+        ),
+    )
     parser.add_argument("--discriminator-epochs", type=int, default=100)
     parser.add_argument("--optimizer-iterations", type=int, default=30)
     parser.add_argument("--shots", type=int, default=128)
@@ -268,6 +297,38 @@ def main() -> None:
     targets = args.targets if args.targets.is_absolute() else repo_root / args.targets
     run_root = args.run_root if args.run_root.is_absolute() else repo_root / args.run_root
     output_root = args.out_dir if args.out_dir.is_absolute() else repo_root / args.out_dir
+    row = read_target_row(targets, args.target_id)
+    label_quotas = label_quotas_for_protocol(row.get("confirmatory_protocol", ""))
+    quota_plan_name = (
+        CONFIRMATORY_CREDIT_QUOTA_PLAN if label_quotas is not None else None
+    )
+    requested_conditions = {
+        value.strip() for value in args.defenses.split(",") if value.strip()
+    }
+    requested_protocol_arguments = {
+        "seed": int(args.seed),
+        "batch_size": int(args.batch_size),
+        "defense_per_class": int(args.defense_per_class),
+        "attack_per_class": int(args.attack_per_class),
+        "evaluation_per_class": int(args.evaluation_per_class),
+        "evaluation_nonmember_multiplier": int(args.evaluation_nonmember_multiplier),
+        "quota_plan_name": quota_plan_name,
+        "discriminator_epochs": int(args.discriminator_epochs),
+        "optimizer_iterations": int(args.optimizer_iterations),
+        "shots": int(args.shots),
+        "logit_quantization_step": float(args.logit_quantization_step),
+        "sticky_resolution": float(args.sticky_resolution),
+        "sticky_secret_sha256": (
+            hashlib.sha256(args.sticky_secret.encode("utf-8")).hexdigest()
+            if args.sticky_secret
+            else None
+        ),
+        "dynanoise_base_variance": float(args.dynanoise_base_variance),
+        "dynanoise_lambda": float(args.dynanoise_lambda),
+        "dynanoise_temperature": float(args.dynanoise_temperature),
+        "dynanoise_ensemble": int(args.dynanoise_ensemble),
+    }
+
     target_out = output_root / args.target_id
     target_out.mkdir(parents=True, exist_ok=True)
     metadata_path = target_out / "evaluation_metadata.json"
@@ -290,7 +351,23 @@ def main() -> None:
             and existing_metadata.get("protocol") == EVALUATION_PROTOCOL
             and existing_metadata.get("utility_evaluation", {}).get("scope")
             == "full_held_out_test_split"
-            and existing_partition.get("protocol") == PARTITION_PROTOCOL
+            and set(existing_metadata.get("conditions", {})) == requested_conditions
+            and existing_metadata.get("protocol_arguments")
+            == requested_protocol_arguments
+            and existing_partition.get("protocol")
+            == (
+                (
+                    PARTITION_PROTOCOL
+                    if args.evaluation_nonmember_multiplier == 1
+                    else POOLED_PARTITION_PROTOCOL
+                )
+                if label_quotas is None
+                else (
+                    CONFIRMATORY_PARTITION_PROTOCOL
+                    if args.evaluation_nonmember_multiplier == 1
+                    else POOLED_CONFIRMATORY_PARTITION_PROTOCOL
+                )
+            )
         ):
             print(f"[SKIP] completed defense evaluation: {args.target_id}")
             return
@@ -303,7 +380,6 @@ def main() -> None:
         raise RuntimeError("--device cuda requested but CUDA is unavailable")
 
     qmain = import_qurift_main(repo_root)
-    row = read_target_row(targets, args.target_id)
     dataset, feature_dim = build_dataset(qmain, row, repo_root)
     cfg = build_config(qmain, row, feature_dim, device)
     model, architecture = instantiate_model(qmain, row, cfg, device)
@@ -313,7 +389,7 @@ def main() -> None:
         raise NotImplementedError("PETS pilot currently requires the main QNN measurement interface")
 
     split_labels = task_labels_from_dataset(dataset)
-    partitions = build_defense_partitions(
+    partitions = build_pooled_defense_partitions(
         train_labels=split_labels["train"],
         valid_labels=split_labels["valid"],
         test_labels=split_labels["test"],
@@ -321,7 +397,11 @@ def main() -> None:
         attack_per_class=args.attack_per_class,
         evaluation_per_class=args.evaluation_per_class,
         seed=args.seed,
+        nonmember_multiplier=args.evaluation_nonmember_multiplier,
+        label_quotas=label_quotas,
+        quota_plan_name=quota_plan_name,
     )
+    active_partition_protocol = partitions.protocol
     atomic_json(partition_path, partitions.to_json())
     materialized = {}
     for name in ("defense_calibration", "attack_calibration", "final_evaluation"):
@@ -335,11 +415,7 @@ def main() -> None:
 
     training_defense = str(row.get("training_defense", "none")).strip().lower()
     model_path, _ = resolve_target_paths(row, run_root)
-    decision_threshold = (
-        target_decision_threshold(model_path)
-        if training_defense in {"l2", "dp_qml"}
-        else None
-    )
+    decision_threshold = target_decision_threshold(model_path, required=True)
     raw = RawOracle(model, decision_threshold=decision_threshold)
     defense_x, defense_y, defense_membership, defense_ids = materialized["defense_calibration"]
     raw_defense = batch_predict(raw, defense_x, defense_ids, args.batch_size)
@@ -389,6 +465,7 @@ def main() -> None:
                 attack_membership,
                 scores,
                 eval_membership,
+                orientation="fixed",
             )
             metric_rows.append(
                 {
@@ -531,8 +608,14 @@ def main() -> None:
             "protocol": EVALUATION_PROTOCOL,
             "target": row,
             "model_load": load_metadata,
-            "partition_fingerprint": partition_fingerprint(partitions),
-            "partition_protocol": PARTITION_PROTOCOL,
+            "partition_fingerprint": pooled_partition_fingerprint(partitions),
+            "partition_protocol": active_partition_protocol,
+            "quota_plan_name": quota_plan_name,
+            "member_task_label_quotas": partitions.to_json().get(
+                "member_task_label_quotas"
+            ),
+            "evaluation_nonmember_multiplier": args.evaluation_nonmember_multiplier,
+            "protocol_arguments": requested_protocol_arguments,
             "defense_discriminator": discriminator_metadata,
             "hamp_generator": dict(generator.config),
             "conditions": condition_metadata,
@@ -543,6 +626,11 @@ def main() -> None:
                 "member_records_included": 0,
             },
             "target_decision_threshold": decision_threshold,
+            "target_label_rule": (
+                "binary_probability_threshold"
+                if decision_threshold is not None
+                else "argmax"
+            ),
             "membership_encoding": "1=member,0=nonmember",
         },
     )

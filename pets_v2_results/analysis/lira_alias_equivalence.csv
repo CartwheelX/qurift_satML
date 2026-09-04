@@ -1,0 +1,3 @@
+canonical_attack,compatibility_alias,paired_artifacts,maximum_reported_metric_difference,included_in_inferential_multiplicity
+lira_offline,lira_offline_one_sided_z,312,0.01,False
+lira_offline_fixed_variance,lira_offline_one_sided_z_fixed_variance,312,0.0050000000000001155,False

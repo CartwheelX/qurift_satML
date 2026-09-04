@@ -1,0 +1,121 @@
+{
+  "protocol": "pets_credit_three_regime_v2",
+  "status": "prospective_uninspected",
+  "roles": {
+    "low": "eff_su2_r1_d6",
+    "repetition": "eff_su2_r5_d6",
+    "stress": "zz_r5_d6"
+  },
+  "blocks": 8,
+  "independent_unit": "paired target-model block",
+  "data_seeds": [
+    90261,
+    90262,
+    90263,
+    90264,
+    90265,
+    90266,
+    90267,
+    90268
+  ],
+  "model_seeds": [
+    100261,
+    100262,
+    100263,
+    100264,
+    100265,
+    100266,
+    100267,
+    100268
+  ],
+  "training_defenses": [
+    "none",
+    "l2",
+    "hamp_train",
+    "dp_qml"
+  ],
+  "literature_defenses": [
+    "l2",
+    "dp_qml",
+    "hamp_full",
+    "memguard",
+    "dynanoise"
+  ],
+  "dp_protocol": "watkins_faithful_core_v2",
+  "dp_schedule": {
+    "optimizer": "rmsprop",
+    "batch_size": 32,
+    "epochs": 30
+  },
+  "selected_l2_weight_decay": 0.001,
+  "selected_dp_epsilon": 64.0,
+  "primary_attack": "lira_online_fixed_variance",
+  "primary_role": "stress",
+  "primary_estimand": "paired AUC(defense)-AUC(none) in the stress role",
+  "structural_role_selection": {
+    "status": "discovery_selected_then_frozen_before_fresh_confirmatory_runs",
+    "attack": "lira_online_fixed_variance",
+    "independent_blocks": 8,
+    "cell_mean_auc": {
+      "low": 0.5250874999999999,
+      "repetition": 0.564946875,
+      "stress": 0.6044343750000001
+    },
+    "stress_minus_low": {
+      "mean_auc_difference": 0.07934687500000005,
+      "sd_across_blocks": 0.03893053896158239,
+      "exact_two_sided_sign_flip_p": 0.0078125,
+      "positive_blocks": 8
+    },
+    "stress_minus_repetition": {
+      "mean_auc_difference": 0.039487500000000036,
+      "sd_across_blocks": 0.02047986816363814,
+      "exact_two_sided_sign_flip_p": 0.0078125,
+      "positive_blocks": 8
+    },
+    "interpretation": "selection evidence only; fresh v2 blocks provide confirmation. The stress role is not a one-factor causal contrast with low or repetition."
+  },
+  "lira_references": 16,
+  "lira_score_protocol": "carlini_eq4_one_sided_with_released_density_aux_v1",
+  "evaluation_nonmember_multiplier": 10,
+  "secondary_lira_scores": [
+    "lira_online",
+    "lira_offline",
+    "lira_offline_fixed_variance",
+    "lira_offline_density_surprise",
+    "lira_offline_density_surprise_fixed_variance",
+    "lira_offline_one_sided_z",
+    "lira_offline_one_sided_z_fixed_variance"
+  ],
+  "one_sided_lira_status": "paper-defined log-CDF is canonical offline LiRA; z scores are retained as rank-equivalent compatibility aliases; released-code OUT-density scores are retained under explicit auxiliary names",
+  "secondary_structural_contrasts": [
+    "repetition-low",
+    "stress-low",
+    "stress-repetition"
+  ],
+  "old_pilot_reused": false,
+  "inputs": {
+    "source_targets": {
+      "path": "/home/najeeb/qurift_satML/satml_targets/credit_factorial_targets.csv",
+      "sha256": "a02698706b7da1cca0f63573529aeb623978f64510243584fa06bdf335c58e64"
+    },
+    "selection": {
+      "path": "/home/najeeb/qurift_satML/pets_results/tuning/selection.json",
+      "sha256": "59840868fb476656ad3aefa8cf270ce1711228c5ef2f5e47996d8d16e6f1daf1"
+    },
+    "stress_evidence": {
+      "path": "/home/najeeb/qurift_satML/satml_results/credit_factorial/lira/lira_reference_mia_raw.csv",
+      "sha256": "8b3043dfef827d383fba296884e5f2b034e70362bed94451bf923d879e55c9f9"
+    },
+    "excluded_prior_manifests": [
+      {
+        "path": "/home/najeeb/qurift_satML/pets_targets/credit_defense_targets.csv",
+        "sha256": "eab076ed8591d47b0af190ce7d430853ac0f61df413f92f5b3933c78910baf16"
+      },
+      {
+        "path": "/home/najeeb/qurift_satML/pets_targets/credit_defense_training_targets.csv",
+        "sha256": "cbd4a2e953e93da1c7fa5ddbe498a80a671bfd462b84f530c6cbdd8d7f5af19f"
+      }
+    ]
+  }
+}
